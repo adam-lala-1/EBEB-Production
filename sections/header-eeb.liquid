@@ -1,3 +1,9 @@
+<div class="eeb-topbar">
+  <div class="eeb-topbar__inner">
+    <span>{{ section.settings.top_bar_text | default: '6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au' }}</span>
+  </div>
+</div>
+
 <header class="eeb-header">
   <div class="eeb-header__inner">
     <a href="{{ routes.root_url }}" class="eeb-header__logo">
@@ -13,12 +19,18 @@
         {%- for link in section.settings.menu.links -%}
           <a href="{{ link.url }}">{{ link.title }}</a>
         {%- endfor -%}
-      {%- else -%}
+      {%- elsif section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'link' -%}
             <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
           {%- endif -%}
         {%- endfor -%}
+      {%- else -%}
+        <a href="/collections/all">E-Bikes &amp; Trikes</a>
+        <a href="/collections/accessories">Gear</a>
+        <a href="/blogs/news">Experience Hub</a>
+        <a href="/pages/contact">Service &amp; Support</a>
+        <a href="/pages/dealers">EEB Dealer</a>
       {%- endif -%}
     </nav>
 
@@ -38,6 +50,7 @@
   "name": "Header",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Logo override (optional)" },
+    { "type": "text", "id": "top_bar_text", "label": "Top contact bar text", "default": "6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au" },
     { "type": "link_list", "id": "menu", "label": "Navigation menu (overrides blocks)", "default": "main-menu" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Find a Dealer" },
     { "type": "url", "id": "cta_url", "label": "CTA button URL" }

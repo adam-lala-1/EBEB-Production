@@ -1,18 +1,41 @@
 <footer class="eeb-footer">
   <div class="eeb-footer__grid">
-    {%- for block in section.blocks -%}
-      <div class="eeb-footer__col" {{ block.shopify_attributes }}>
-        <h4>{{ block.settings.heading }}</h4>
-        {%- if block.settings.menu != blank -%}
-          {%- for link in block.settings.menu.links -%}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          {%- endfor -%}
-        {%- endif -%}
-        {%- if block.settings.text != blank -%}
-          <div style="opacity:.75;font-size:.9rem;">{{ block.settings.text }}</div>
-        {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        <div class="eeb-footer__col" {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.heading }}</h4>
+          {%- if block.settings.menu != blank -%}
+            {%- for link in block.settings.menu.links -%}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="eeb-footer__text">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="eeb-footer__col">
+        <h4>Visit</h4>
+        <div class="eeb-footer__text">6/51 Prospect Rd<br>Gaythorne QLD 4051</div>
       </div>
-    {%- endfor -%}
+      <div class="eeb-footer__col">
+        <h4>Shop</h4>
+        <a href="/collections/all">E-Bikes &amp; Trikes</a>
+        <a href="/collections/accessories">Accessories</a>
+        <a href="/products/trident">Trident</a>
+      </div>
+      <div class="eeb-footer__col">
+        <h4>Support</h4>
+        <a href="/pages/contact">Contact Us</a>
+        <a href="/pages/dealers">Find a Dealer</a>
+        <a href="/blogs/news">Ride Stories</a>
+      </div>
+      <div class="eeb-footer__col">
+        <h4>Contact</h4>
+        <div class="eeb-footer__text">0409 126 669<br>hello@everybodyebikes.com.au</div>
+      </div>
+    {%- endif -%}
   </div>
   <div class="eeb-footer__bottom">
     © {{ 'now' | date: '%Y' }} {{ shop.name }} — {{ section.settings.tagline }}
