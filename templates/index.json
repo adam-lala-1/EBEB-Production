@@ -15,6 +15,7 @@
         "slide1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Picture7.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
             "eyebrow": "The Humanized Hub",
             "heading": "E-Mobility for",
@@ -27,6 +28,7 @@
         "slide2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/651154709_1568576748604038_7723894973394397158_n.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445",
             "eyebrow": "Adventure Together",
             "heading": "Ride together,",
@@ -39,6 +41,7 @@
         "slide3": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/20260303_112505.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Picture7.jpg?v=1755148406&width=1445",
             "eyebrow": "Freedom & Independence",
             "heading": "Inclusive engineering",
@@ -289,11 +292,11 @@
     }
   },
   "order": [
+    "hero",
     "categories",
     "series",
     "hero_alt",
     "stories",
-    "hero",
     "people",
     "accessories",
     "cta"
