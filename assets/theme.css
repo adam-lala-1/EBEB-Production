@@ -83,6 +83,29 @@ p { margin: 0 0 1em; }
   .eeb-hero__panel { grid-template-columns: minmax(0, 1fr) minmax(420px, 560px); gap: 4rem; }
 }
 
+/* EEB Series */
+.eeb-eyebrow--light { color: rgba(255,255,255,.7); }
+.eeb-series__header { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; justify-content: space-between; margin-bottom: 3rem; text-align: left; }
+@media (min-width: 800px) { .eeb-series__header { flex-direction: row; align-items: flex-end; } }
+.eeb-series__subtext { color: rgba(255,255,255,.8); font-size: 1.05rem; max-width: 36rem; margin: .5rem 0 0; }
+.eeb-series__featured { display: grid; grid-template-columns: 1fr; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 1.25rem; overflow: hidden; margin-bottom: 1.5rem; color: inherit; transition: background .25s ease; }
+.eeb-series__featured:hover { background: rgba(255,255,255,.09); }
+@media (min-width: 900px) { .eeb-series__featured { grid-template-columns: 1fr 1fr; } }
+.eeb-series__featured-img { aspect-ratio: 4/3; background: rgba(255,255,255,.04); display: flex; align-items: center; justify-content: center; }
+.eeb-series__featured-img img { width: 100%; height: 100%; object-fit: contain; padding: 1.5rem; }
+.eeb-series__featured-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+@media (min-width: 900px) { .eeb-series__featured-body { padding: 3rem; } }
+.eeb-series__featured-body h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: .25rem; }
+.eeb-series__price { font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; color: rgba(255,255,255,.95); }
+.eeb-series__price-sm { font-weight: 700; font-size: .95rem; margin: .25rem 0 .5rem; color: rgba(255,255,255,.9); }
+.eeb-series__desc { color: rgba(255,255,255,.75); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.eeb-series__featured-body .eeb-btn { align-self: flex-start; }
+.eeb-series__secondary .eeb-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: inherit; }
+.eeb-series__secondary .eeb-card:hover { background: rgba(255,255,255,.1); }
+.eeb-series__secondary .eeb-card h3 { color: #fff; }
+.eeb-series__secondary .eeb-card p { color: rgba(255,255,255,.7); }
+.eeb-series__secondary .eeb-card__img { background: rgba(255,255,255,.04); }
+
 /* Card grid */
 .eeb-grid { display: grid; gap: 1.5rem; }
 .eeb-grid--2 { grid-template-columns: 1fr; }

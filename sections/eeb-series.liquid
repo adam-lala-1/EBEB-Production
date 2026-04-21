@@ -1,50 +1,106 @@
-<section class="eeb-section eeb-section--navy">
+<section class="eeb-section eeb-section--navy eeb-series">
   <div class="eeb-container">
-    <div style="text-align:center;margin-bottom:3rem;">
-      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
-      <h2>{{ section.settings.heading }}</h2>
+    <div class="eeb-series__header">
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow eeb-eyebrow--light">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2>{{ section.settings.heading }}</h2>
+        {% if section.settings.subtext != blank %}<p class="eeb-series__subtext">{{ section.settings.subtext }}</p>{% endif %}
+      </div>
+      {% if section.settings.cta_text != blank %}
+        <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-btn eeb-btn--ghost">{{ section.settings.cta_text }}</a>
+      {% endif %}
     </div>
 
-    <div class="eeb-grid eeb-grid--3">
-      {%- if section.settings.collection != blank and section.settings.collection.products.size > 0 -%}
-        {%- for product in section.settings.collection.products limit: 3 -%}
-          <a href="{{ product.url }}" class="eeb-card">
-            <div class="eeb-card__img" style="background:#f8f5f0;">
-              {% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">{% endif %}
-            </div>
-            <div class="eeb-card__body">
-              <h3>{{ product.title }}</h3>
-              <p style="margin-bottom:.75rem;">from {{ product.price_min | money }}</p>
-              {% if product.description != blank %}<p>{{ product.description | strip_html | truncate: 120 }}</p>{% endif %}
-            </div>
-          </a>
-        {%- endfor -%}
-      {%- else -%}
-        {%- for block in section.blocks -%}
-          <a href="{{ block.settings.link | default: '#' }}" class="eeb-card" {{ block.shopify_attributes }}>
-            <div class="eeb-card__img" style="background:#f8f5f0;">
-              {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">
-              {% elsif block.settings.image_url != blank %}
-                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">
-              {% endif %}
-            </div>
-            <div class="eeb-card__body">
-              {% if block.settings.subtitle != blank %}<span class="eeb-card__eyebrow">{{ block.settings.subtitle }}</span>{% endif %}
-              <h3>{{ block.settings.title }}</h3>
-              {% if block.settings.price != blank %}<p style="margin-bottom:.75rem;">{{ block.settings.price }}</p>{% endif %}
-              {% if block.settings.description != blank %}<p style="margin-bottom:.75rem; color: var(--color-foreground);">{{ block.settings.description }}</p>{% endif %}
-              {%- if block.settings.specs != blank -%}
-                {%- assign specs = block.settings.specs | split: ';' -%}
-                <ul class="eeb-card__list">
-                  {%- for spec in specs -%}<li>{{ spec | strip }}</li>{%- endfor -%}
-                </ul>
-              {%- endif -%}
-            </div>
-          </a>
-        {%- endfor -%}
+    {%- comment -%} Build a unified array of cards from collection or blocks {%- endcomment -%}
+    {%- assign use_collection = false -%}
+    {%- if section.settings.collection != blank and section.settings.collection.products.size > 0 -%}
+      {%- assign use_collection = true -%}
+    {%- endif -%}
+
+    {%- if use_collection -%}
+      {%- assign products = section.settings.collection.products -%}
+      {%- assign featured = products[0] -%}
+
+      <a href="{{ featured.url }}" class="eeb-series__featured">
+        <div class="eeb-series__featured-img">
+          {% if featured.featured_image %}<img src="{{ featured.featured_image | image_url: width: 1200 }}" alt="{{ featured.title | escape }}" loading="lazy">{% endif %}
+        </div>
+        <div class="eeb-series__featured-body">
+          {% if featured.type != blank %}<span class="eeb-card__eyebrow">{{ featured.type }}</span>{% endif %}
+          <h3>{{ featured.title }}</h3>
+          <p class="eeb-series__price">from {{ featured.price_min | money }}</p>
+          {% if featured.description != blank %}<p class="eeb-series__desc">{{ featured.description | strip_html | truncate: 200 }}</p>{% endif %}
+          <span class="eeb-btn eeb-btn--primary">Enquire Now →</span>
+        </div>
+      </a>
+
+      {%- if products.size > 1 -%}
+        <div class="eeb-grid eeb-grid--2 eeb-series__secondary">
+          {%- for product in products offset: 1 limit: 2 -%}
+            <a href="{{ product.url }}" class="eeb-card">
+              <div class="eeb-card__img" style="background:#f8f5f0;">
+                {% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">{% endif %}
+              </div>
+              <div class="eeb-card__body">
+                {% if product.type != blank %}<span class="eeb-card__eyebrow">{{ product.type }}</span>{% endif %}
+                <h3>{{ product.title }}</h3>
+                <p class="eeb-series__price-sm">from {{ product.price_min | money }}</p>
+                {% if product.description != blank %}<p>{{ product.description | strip_html | truncate: 110 }}</p>{% endif %}
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
       {%- endif -%}
-    </div>
+
+    {%- else -%}
+      {%- assign first_block = section.blocks[0] -%}
+      {% if first_block %}
+        <a href="{{ first_block.settings.link | default: '#' }}" class="eeb-series__featured" {{ first_block.shopify_attributes }}>
+          <div class="eeb-series__featured-img">
+            {% if first_block.settings.image != blank %}
+              <img src="{{ first_block.settings.image | image_url: width: 1200 }}" alt="{{ first_block.settings.title | escape }}" loading="lazy">
+            {% elsif first_block.settings.image_url != blank %}
+              <img src="{{ first_block.settings.image_url }}" alt="{{ first_block.settings.title | escape }}" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="eeb-series__featured-body">
+            {% if first_block.settings.subtitle != blank %}<span class="eeb-card__eyebrow">{{ first_block.settings.subtitle }}</span>{% endif %}
+            <h3>{{ first_block.settings.title }}</h3>
+            {% if first_block.settings.price != blank %}<p class="eeb-series__price">{{ first_block.settings.price }}</p>{% endif %}
+            {% if first_block.settings.description != blank %}<p class="eeb-series__desc">{{ first_block.settings.description }}</p>{% endif %}
+            {%- if first_block.settings.specs != blank -%}
+              {%- assign specs = first_block.settings.specs | split: ';' -%}
+              <ul class="eeb-card__list">
+                {%- for spec in specs -%}<li>{{ spec | strip }}</li>{%- endfor -%}
+              </ul>
+            {%- endif -%}
+            <span class="eeb-btn eeb-btn--primary">Enquire Now →</span>
+          </div>
+        </a>
+      {% endif %}
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="eeb-grid eeb-grid--2 eeb-series__secondary">
+          {%- for block in section.blocks offset: 1 limit: 2 -%}
+            <a href="{{ block.settings.link | default: '#' }}" class="eeb-card" {{ block.shopify_attributes }}>
+              <div class="eeb-card__img" style="background:#f8f5f0;">
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">
+                {% elsif block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" style="object-fit:contain;padding:1rem;">
+                {% endif %}
+              </div>
+              <div class="eeb-card__body">
+                {% if block.settings.subtitle != blank %}<span class="eeb-card__eyebrow">{{ block.settings.subtitle }}</span>{% endif %}
+                <h3>{{ block.settings.title }}</h3>
+                {% if block.settings.price != blank %}<p class="eeb-series__price-sm">{{ block.settings.price }}</p>{% endif %}
+                {% if block.settings.description != blank %}<p>{{ block.settings.description }}</p>{% endif %}
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
   </div>
 </section>
 
@@ -52,14 +108,19 @@
 {
   "name": "EEB Series",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The EEB Series" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Built for every journey" },
-    { "type": "collection", "id": "collection", "label": "Collection (auto-populates from products)" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Inclusive Engineering by EEB" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The EEB Series" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Engineered in-house, built for every body. Our signature range of electric trikes and bikes — inclusively engineered and available through our dealer network." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Become a Dealer" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "header", "content": "Products" },
+    { "type": "paragraph", "content": "Pick a collection to auto-populate the first 3 products, OR add manual blocks below." },
+    { "type": "collection", "id": "collection", "label": "Collection (optional)" }
   ],
   "blocks": [
     {
       "type": "manual_card",
-      "name": "Manual card (fallback)",
+      "name": "Manual card",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "image_url", "label": "Or image URL (fallback)" },
@@ -67,12 +128,12 @@
         { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Semi-Recumbent Electric Trike" },
         { "type": "text", "id": "price", "label": "Price", "default": "from $4,995" },
         { "type": "textarea", "id": "description", "label": "Description" },
-        { "type": "text", "id": "specs", "label": "Specs (semicolon separated)", "default": "80km Range; Semi-Recumbent; 25km/h Assist" },
+        { "type": "text", "id": "specs", "label": "Specs (semicolon separated, featured card only)", "default": "80km Range; Semi-Recumbent; 25km/h Assist" },
         { "type": "url", "id": "link", "label": "Link" }
       ]
     }
   ],
-  "max_blocks": 4,
+  "max_blocks": 3,
   "presets": [
     {
       "name": "EEB Series",
@@ -95,7 +156,6 @@
             "subtitle": "Fat Tyre Electric Trike",
             "price": "from $3,495",
             "description": "Agile, powerful, and ready for family adventures and daily rides.",
-            "specs": "60km Range; Fat tyres; Family ready",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445"
           }
         },
@@ -106,7 +166,6 @@
             "subtitle": "Folding Electric Bike",
             "price": "from $2,495",
             "description": "Compact, fast-folding, and ready to go anywhere life takes you.",
-            "specs": "50km Range; Compact fold; Lightweight",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445"
           }
         }
