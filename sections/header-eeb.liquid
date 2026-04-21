@@ -7,8 +7,10 @@
 <header class="eeb-header">
   <div class="eeb-header__inner">
     <a href="{{ routes.root_url }}" class="eeb-header__logo">
-      {% if section.settings.logo != blank %}
-        <img src="{{ section.settings.logo | image_url: width: 280 }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" alt="{{ shop.name }}" style="max-width: {{ section.settings.logo_width | default: 140 }}px;">
+      {% assign header_logo = section.settings.logo | default: settings.logo %}
+      {% assign header_logo_width = section.settings.logo_width | default: settings.logo_width | default: 140 %}
+      {% if header_logo != blank %}
+        <img src="{{ header_logo | image_url: width: 280 }}" width="{{ header_logo.width }}" height="{{ header_logo.height }}" alt="{{ shop.name }}" style="max-width: {{ header_logo_width }}px;">
       {% else %}
         <strong style="font-family: var(--font-heading); font-size: 1.5rem;">{{ shop.name }}</strong>
       {% endif %}
@@ -47,11 +49,14 @@
 
 {% schema %}
 {
-  "name": "Header",
+  "name": "EEB Header",
+  "tag": "section",
+  "class": "shopify-section-header-eeb",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Logo override (optional)" },
+    { "type": "range", "id": "logo_width", "min": 60, "max": 240, "step": 10, "unit": "px", "label": "Logo width override", "default": 140 },
     { "type": "text", "id": "top_bar_text", "label": "Top contact bar text", "default": "6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au" },
-    { "type": "link_list", "id": "menu", "label": "Navigation menu (overrides blocks)", "default": "main-menu" },
+    { "type": "link_list", "id": "menu", "label": "Navigation menu (overrides blocks)" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Find a Dealer" },
     { "type": "url", "id": "cta_url", "label": "CTA button URL" }
   ],
@@ -77,7 +82,6 @@
         { "type": "link", "settings": { "label": "EEB Dealer" } }
       ]
     }
-  ],
-  "enabled_on": { "groups": ["header"] }
+  ]
 }
 {% endschema %}
