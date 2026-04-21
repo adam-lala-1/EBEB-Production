@@ -19,21 +19,29 @@
       assign heading_font = settings.heading_font
       assign body_font = settings.body_font
     -%}
-    {{ heading_font | font_face: font_display: 'swap' }}
-    {{ body_font | font_face: font_display: 'swap' }}
+    {%- if heading_font.family -%}
+      {{ heading_font | font_face: font_display: 'swap' }}
+    {%- endif -%}
+    {%- if body_font.family -%}
+      {{ body_font | font_face: font_display: 'swap' }}
+    {%- endif -%}
 
     <style>
       :root {
-        --color-navy: {{ settings.color_navy }};
-        --color-orange: {{ settings.color_orange }};
-        --color-cream: {{ settings.color_cream }};
-        --color-foreground: {{ settings.color_foreground }};
-        --color-muted: {{ settings.color_muted }};
-        --color-border: {{ settings.color_border }};
-        --font-heading: {{ heading_font.family }}, {{ heading_font.fallback_families }};
-        --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+        --color-navy: {{ settings.color_navy | default: '#1B2A4A' }};
+        --color-orange: {{ settings.color_orange | default: '#E86C2C' }};
+        --color-cream: {{ settings.color_cream | default: '#F8F5F0' }};
+        --color-foreground: {{ settings.color_foreground | default: '#1B2A4A' }};
+        --color-muted: {{ settings.color_muted | default: '#6B7280' }};
+        --color-border: {{ settings.color_border | default: '#E5E7EB' }};
+        --page-width: {{ settings.page_width | default: 1280 }}px;
+        --font-heading: {% if heading_font.family %}{{ heading_font.family }}, {{ heading_font.fallback_families }}{% else %}'DM Serif Display', Georgia, serif{% endif %};
+        --font-body: {% if body_font.family %}{{ body_font.family }}, {{ body_font.fallback_families }}{% else %}Inter, system-ui, -apple-system, sans-serif{% endif %};
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
