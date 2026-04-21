@@ -1,0 +1,49 @@
+<section class="key-features">
+  <div class="key-features__grid">
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }}>
+        <div class="key-features__icon">{% render 'icon', icon: block.settings.icon, size: 28 %}</div>
+        <span class="key-features__label">{{ block.settings.label }}</span>
+        <span class="key-features__sub">{{ block.settings.sub }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trident key features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "battery",
+          "options": [
+            { "value": "battery", "label": "Battery" },
+            { "value": "gauge", "label": "Gauge" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "weight", "label": "Weight" },
+            { "value": "users", "label": "Users" }
+          ]
+        },
+        { "type": "text", "id": "label", "label": "Label", "default": "80km Range" },
+        { "type": "text", "id": "sub", "label": "Sub", "default": "48V 17.5Ah" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "Trident key features",
+    "blocks": [
+      { "type": "feature", "settings": { "icon": "battery", "label": "80km Range", "sub": "48V 17.5Ah" } },
+      { "type": "feature", "settings": { "icon": "gauge", "label": "25km/h Assist", "sub": "Pedal assist" } },
+      { "type": "feature", "settings": { "icon": "shield", "label": "Hydraulic Brakes", "sub": "Tektro disc" } },
+      { "type": "feature", "settings": { "icon": "users", "label": "145kg Max Load", "sub": "Rider + cargo" } },
+      { "type": "feature", "settings": { "icon": "weight", "label": "36kg Weight", "sub": "Alloy frame" } }
+    ]
+  }]
+}
+{% endschema %}

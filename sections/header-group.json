@@ -1,0 +1,7 @@
+{
+  "type": "header",
+  "sections": {
+    "header": { "type": "header-eeb", "settings": { "cta_text": "Find a Dealer", "cta_url": "/pages/dealers" } }
+  },
+  "order": ["header"]
+}

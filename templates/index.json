@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Mobility, redefined",
+        "heading": "An eBike for every body.",
+        "subheading": "Inclusive electric bikes & trikes designed for freedom, comfort, and confidence.",
+        "cta_text": "Explore the Range",
+        "cta_url": "/collections/all"
+      }
+    },
+    "hero_alt": {
+      "type": "hero-alt",
+      "settings": {
+        "eyebrow": "Australian engineered",
+        "heading": "Engineered for the long haul.",
+        "image_position": "right"
+      }
+    },
+    "categories": { "type": "ride-categories" },
+    "series":     { "type": "eeb-series" },
+    "stories":    { "type": "ride-stories" },
+    "people":     { "type": "people-planet" },
+    "accessories":{ "type": "accessories" },
+    "cta":        { "type": "cta-banner" }
+  },
+  "order": ["hero", "hero_alt", "categories", "series", "stories", "people", "accessories", "cta"]
+}

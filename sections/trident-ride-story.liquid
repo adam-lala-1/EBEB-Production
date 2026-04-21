@@ -1,0 +1,29 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container">
+    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <div class="ride-story">
+      <div class="ride-story__img">{% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1200 }}" alt="" loading="lazy">{% endif %}</div>
+      <div class="ride-story__quote">
+        <p>{{ section.settings.quote }}</p>
+        <div class="ride-story__attr">
+          <strong>{{ section.settings.attribution }}</strong>
+          <span>{{ section.settings.bike }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trident ride story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "My Ride Story" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "I thought my cycling days were behind me. The Trident gave me my independence back — I ride to the shops, the park, everywhere. Life is a journey!" },
+    { "type": "text", "id": "attribution", "label": "Attribution", "default": "Active at 72" },
+    { "type": "text", "id": "bike", "label": "Bike model", "default": "Trident Semi-Recumbent" }
+  ],
+  "presets": [{ "name": "Trident ride story" }]
+}
+{% endschema %}

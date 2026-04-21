@@ -1,0 +1,42 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "EEB — EveryBody eBikes",
+    "theme_version": "1.0.0",
+    "theme_author": "EEB / built in Lovable",
+    "theme_documentation_url": "https://everybodyebikes.com.au"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon" },
+      { "type": "image_picker", "id": "logo", "label": "Logo" },
+      { "type": "range", "id": "logo_width", "min": 60, "max": 240, "step": 10, "unit": "px", "label": "Logo width", "default": 140 }
+    ]
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      { "type": "color", "id": "color_navy", "label": "Navy (primary dark)", "default": "#1B2A4A" },
+      { "type": "color", "id": "color_orange", "label": "Orange (accent)", "default": "#E86C2C" },
+      { "type": "color", "id": "color_cream", "label": "Cream (background)", "default": "#F8F5F0" },
+      { "type": "color", "id": "color_foreground", "label": "Foreground text", "default": "#1B2A4A" },
+      { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#6B7280" },
+      { "type": "color", "id": "color_border", "label": "Border", "default": "#E5E7EB" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      { "type": "font_picker", "id": "heading_font", "label": "Heading font", "default": "dm_serif_display_n4" },
+      { "type": "font_picker", "id": "body_font", "label": "Body font", "default": "inter_n4" }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      { "type": "range", "id": "page_width", "min": 1100, "max": 1600, "step": 20, "unit": "px", "label": "Max content width", "default": 1280 },
+      { "type": "range", "id": "section_spacing", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Section vertical spacing", "default": 96 }
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="eeb-grid eeb-grid--4">
+      {%- if section.settings.collection != blank -%}
+        {%- for product in section.settings.collection.products limit: 8 -%}
+          <a href="{{ product.url }}" class="eeb-card">
+            <div class="eeb-card__img">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" loading="lazy">{% endif %}</div>
+            <div class="eeb-card__body"><h3>{{ product.title }}</h3><p>{{ product.price | money }}</p></div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 600 }}" alt="" loading="lazy"></div>{% endif %}
+            <div class="eeb-card__body"><h3>{{ block.settings.title }}</h3><p>{{ block.settings.price }}</p></div>
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Accessories",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Gear up" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Accessories" },
+    { "type": "collection", "id": "collection", "label": "Accessories collection" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Manual item (fallback)",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "price", "label": "Price" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Accessories" }]
+}
+{% endschema %}

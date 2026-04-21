@@ -1,0 +1,60 @@
+<section class="eeb-section eeb-section--navy" style="text-align:center;">
+  <div class="eeb-container" style="max-width:760px;">
+    <div style="display:inline-flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;">
+      <div style="width:48px;height:48px;border-radius:50%;border:2px solid var(--color-orange);display:flex;align-items:center;justify-content:center;color:var(--color-orange);font-weight:900;">E</div>
+      <div style="text-align:left;">
+        <small style="text-transform:uppercase;letter-spacing:.15em;opacity:.6;font-size:.7rem;">Engineered by</small>
+        <p style="font-family:var(--font-heading);font-size:1.5rem;margin:0;color:#fff;">{{ section.settings.brand }}</p>
+      </div>
+    </div>
+    <p style="opacity:.75;max-width:500px;margin:0 auto 2.5rem;">{{ section.settings.body }}</p>
+    <div class="engineered__pillars">
+      {%- for block in section.blocks -%}
+        <div class="engineered__pillar" {{ block.shopify_attributes }}>
+          <div class="engineered__pillar-icon">{% render 'icon', icon: block.settings.icon, size: 28 %}</div>
+          <strong>{{ block.settings.label }}</strong>
+          <small>{{ block.settings.sub }}</small>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Engineered by EEB",
+  "settings": [
+    { "type": "text", "id": "brand", "label": "Brand name", "default": "EveryBody eBikes" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Every Trident is designed for real riders, assembled in Australia, and backed by a team that believes mobility is a right — not a privilege." }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "wrench",
+          "options": [
+            { "value": "wrench", "label": "Wrench" },
+            { "value": "shield-check", "label": "Shield check" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "bike", "label": "Bike" }
+          ]
+        },
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "text", "id": "sub", "label": "Sub" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Engineered by EEB",
+    "blocks": [
+      { "type": "pillar", "settings": { "icon": "wrench", "label": "Australian Assembled", "sub": "Built at our Gold Coast workshop" } },
+      { "type": "pillar", "settings": { "icon": "shield-check", "label": "2 Year Warranty", "sub": "Frame, motor & battery covered" } },
+      { "type": "pillar", "settings": { "icon": "heart", "label": "NDIS Approved", "sub": "Registered assistive technology" } },
+      { "type": "pillar", "settings": { "icon": "bike", "label": "Free Test Rides", "sub": "Try before you buy at any dealer" } }
+    ]
+  }]
+}
+{% endschema %}

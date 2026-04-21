@@ -1,0 +1,12 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content"
+    },
+    "search": { "placeholder": "Search…" },
+    "cart": { "title": "Cart", "empty": "Your cart is empty", "checkout": "Check out", "subtotal": "Subtotal" }
+  },
+  "products": {
+    "product": { "add_to_cart": "Add to cart", "sold_out": "Sold out", "enquire": "Enquire now" }
+  }
+}

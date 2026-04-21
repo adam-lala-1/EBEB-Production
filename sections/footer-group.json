@@ -1,0 +1,16 @@
+{
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer-eeb",
+      "blocks": {
+        "shop": { "type": "menu", "settings": { "heading": "Shop" } },
+        "support": { "type": "menu", "settings": { "heading": "Support" } },
+        "about": { "type": "menu", "settings": { "heading": "About" } },
+        "contact": { "type": "text", "settings": { "heading": "Get in touch", "text": "<p>Gold Coast, Australia<br>hello@everybodyebikes.com.au</p>" } }
+      },
+      "block_order": ["shop", "support", "about", "contact"]
+    }
+  },
+  "order": ["footer"]
+}

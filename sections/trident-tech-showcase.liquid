@@ -1,0 +1,44 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p style="max-width:640px;margin:0 auto;color:var(--color-muted);">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+    <div class="tech-showcase__grid">
+      {%- for block in section.blocks -%}
+        <article class="tech-card" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}<div class="tech-card__img"><img src="{{ block.settings.image | image_url: width: 600 }}" alt="" loading="lazy"></div>{% endif %}
+          <div class="tech-card__body">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trident tech showcase",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Tech" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Engineered down to the last bolt" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "tech",
+      "name": "Tech card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Close-up photo" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Tektro Hydraulic Brakes" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Trident tech showcase" }]
+}
+{% endschema %}

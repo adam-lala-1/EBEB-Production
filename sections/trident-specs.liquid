@@ -1,0 +1,64 @@
+<section class="eeb-section">
+  <div class="eeb-container" style="max-width: 880px;">
+    <h2 style="text-align:center;margin-bottom:2rem;">{{ section.settings.heading }}</h2>
+    <div class="specs">
+      {%- for block in section.blocks -%}
+        <div class="specs__item" {{ block.shopify_attributes }}>
+          <button class="specs__trigger" type="button" data-specs-trigger>
+            <span>{{ block.settings.title }}</span>
+            <span>{% render 'icon', icon: 'chevron-down', size: 18 %}</span>
+          </button>
+          <div class="specs__content">
+            {%- assign rows = block.settings.rows | newline_to_br | split: '<br />' -%}
+            <dl style="margin:0;">
+              {%- for row in rows -%}
+                {%- assign parts = row | split: '|' -%}
+                {%- if parts.size == 2 -%}
+                  <div class="specs__row">
+                    <dt>{{ parts[0] | strip }}</dt>
+                    <dd>{{ parts[1] | strip }}</dd>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </dl>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-specs-trigger]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btn.parentElement.classList.toggle('is-open');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Trident specs",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Full Specifications" }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Spec group",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Group title", "default": "Mechanical" },
+        { "type": "textarea", "id": "rows", "label": "Rows (one per line, format: Label | Value)", "default": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Trident specs",
+    "blocks": [
+      { "type": "group", "settings": { "title": "Mechanical", "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed\nSeat | Mesh-back ergonomic with headrest\nHandlebar | Under-seat steering, adjustable\nParking Brake | Integrated lever-actuated" } },
+      { "type": "group", "settings": { "title": "Electrical", "rows": "Motor | 250W rear hub (500W peak)\nBattery | 48V 17.5Ah Samsung cells\nRange | Up to 80km (pedal assist)\nCharge Time | 5–6 hours\nDisplay | LCD with 5 assist levels\nSensor | Cadence or Torque (selectable)\nLights | Integrated LED front & rear" } },
+      { "type": "group", "settings": { "title": "Dimensions & Weight", "rows": "Weight | ~36 kg\nMax Rider Load | 145 kg\nLength | ~1,850 mm\nWidth | ~830 mm\nRider Height | 155–195 cm" } }
+    ]
+  }]
+}
+{% endschema %}

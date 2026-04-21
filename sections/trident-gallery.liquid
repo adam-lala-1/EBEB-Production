@@ -1,0 +1,72 @@
+<section>
+  <div class="trident-gallery__main" data-trident-gallery>
+    {%- assign images = product.images | default: section.settings.fallback_images -%}
+    {%- if product.images.size > 0 -%}
+      {%- for img in product.images -%}
+        <img src="{{ img | image_url: width: 1600 }}" alt="{{ product.title | escape }} — view {{ forloop.index }}" data-gallery-img data-index="{{ forloop.index0 }}" style="{% if forloop.first %}display:block;{% else %}display:none;{% endif %}">
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.image != blank -%}
+          <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="" data-gallery-img data-index="{{ forloop.index0 }}" style="{% if forloop.first %}display:block;{% else %}display:none;{% endif %}">
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+    <button class="trident-gallery__nav trident-gallery__nav--prev" data-gallery-prev aria-label="Previous">{% render 'icon', icon: 'chevron-left' %}</button>
+    <button class="trident-gallery__nav trident-gallery__nav--next" data-gallery-next aria-label="Next">{% render 'icon', icon: 'chevron-right' %}</button>
+  </div>
+
+  <div class="trident-gallery__thumbs">
+    {%- if product.images.size > 0 -%}
+      {%- for img in product.images -%}
+        <button class="trident-gallery__thumb {% if forloop.first %}is-active{% endif %}" data-gallery-thumb data-index="{{ forloop.index0 }}" aria-label="View image {{ forloop.index }}">
+          <img src="{{ img | image_url: width: 200 }}" alt="" loading="lazy">
+        </button>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.image != blank -%}
+          <button class="trident-gallery__thumb {% if forloop.first %}is-active{% endif %}" data-gallery-thumb data-index="{{ forloop.index0 }}">
+            <img src="{{ block.settings.image | image_url: width: 200 }}" alt="" loading="lazy">
+          </button>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-trident-gallery]').forEach(function (root) {
+      var imgs = root.querySelectorAll('[data-gallery-img]');
+      var thumbs = root.parentElement.querySelectorAll('[data-gallery-thumb]');
+      var idx = 0;
+      function show(i) {
+        idx = (i + imgs.length) % imgs.length;
+        imgs.forEach(function (el, n) { el.style.display = n === idx ? 'block' : 'none'; });
+        thumbs.forEach(function (el, n) { el.classList.toggle('is-active', n === idx); });
+      }
+      root.querySelector('[data-gallery-prev]').addEventListener('click', function () { show(idx - 1); });
+      root.querySelector('[data-gallery-next]').addEventListener('click', function () { show(idx + 1); });
+      thumbs.forEach(function (el, n) { el.addEventListener('click', function () { show(n); }); });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Trident gallery",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Fallback image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Trident gallery" }]
+}
+{% endschema %}

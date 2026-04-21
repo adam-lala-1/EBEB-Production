@@ -1,0 +1,27 @@
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div class="eeb-imgtext">
+      <div>
+        {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">{% endif %}
+      </div>
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2>{{ section.settings.heading }}</h2>
+        <div>{{ section.settings.body }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "People & Planet",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "People & Planet" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built to last, designed to include" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Every EEB bike is assembled in Australia and built around inclusive design principles — because mobility is a right, not a privilege.</p>" }
+  ],
+  "presets": [{ "name": "People & Planet" }]
+}
+{% endschema %}

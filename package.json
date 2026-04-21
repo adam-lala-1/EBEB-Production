@@ -1,0 +1,13 @@
+{
+  "name": "eeb-shopify-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EEB Shopify Online Store 2.0 theme. Deploy with Shopify CLI.",
+  "scripts": {
+    "push": "shopify theme push --unpublished --store=blind-freddy-ebikes",
+    "push:update": "shopify theme push --store=blind-freddy-ebikes --theme=$THEME_ID",
+    "dev": "shopify theme dev --store=blind-freddy-ebikes",
+    "pull": "shopify theme pull --store=blind-freddy-ebikes --theme=$THEME_ID",
+    "check": "shopify theme check"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "sections": {
+    "gallery":      { "type": "trident-gallery" },
+    "overview":     { "type": "trident-overview" },
+    "key_features": { "type": "trident-key-features" },
+    "feature_1": {
+      "type": "trident-feature-block",
+      "settings": {
+        "heading": "Stability & Comfort",
+        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. Three 20×4\" fat tyres absorb bumps while providing unmatched stability.",
+        "image_position": "left"
+      },
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Ergonomic mesh-back seat with lumbar support" } },
+        "b2": { "type": "bullet", "settings": { "text": "Integrated park-brake for safe stops" } },
+        "b3": { "type": "bullet", "settings": { "text": "Fat tyre suspension absorbs all terrain" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "feature_2": {
+      "type": "trident-feature-block",
+      "settings": {
+        "heading": "Power & Range",
+        "body": "Choose between a cadence sensor for relaxed cruising or a torque sensor for a natural ride feel. The 48V 17.5Ah Samsung-cell battery delivers up to 80km of pedal-assisted range.",
+        "image_position": "right"
+      },
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "250W rear hub motor (500W peak)" } },
+        "b2": { "type": "bullet", "settings": { "text": "Shimano Altus 9-speed drivetrain" } },
+        "b3": { "type": "bullet", "settings": { "text": "Removable battery with key lock" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "feature_3": {
+      "type": "trident-feature-block",
+      "settings": {
+        "heading": "Inclusive by Design",
+        "body": "The Trident is built for every body. A low step-over frame, adjustable seat position, and intuitive controls mean riders of all abilities can enjoy the freedom of cycling — independently.",
+        "image_position": "left"
+      },
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "NDIS-compatible — approved assistive technology" } },
+        "b2": { "type": "bullet", "settings": { "text": "Low step-over height for easy mounting" } },
+        "b3": { "type": "bullet", "settings": { "text": "Free test rides available at all dealers" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "tech":         { "type": "trident-tech-showcase" },
+    "ride_story":   { "type": "trident-ride-story" },
+    "engineered":   { "type": "engineered-by-eeb" },
+    "specs":        { "type": "trident-specs" },
+    "cta":          { "type": "cta-banner" }
+  },
+  "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "tech", "ride_story", "engineered", "specs", "cta"]
+}

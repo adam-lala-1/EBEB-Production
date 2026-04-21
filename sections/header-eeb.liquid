@@ -1,0 +1,40 @@
+<header class="eeb-header">
+  <div class="eeb-header__inner">
+    <a href="{{ routes.root_url }}" class="eeb-header__logo">
+      {% if section.settings.logo != blank %}
+        <img src="{{ section.settings.logo | image_url: width: 280 }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" alt="{{ shop.name }}" style="max-width: {{ settings.logo_width }}px;">
+      {% else %}
+        <strong style="font-family: var(--font-heading); font-size: 1.5rem;">{{ shop.name }}</strong>
+      {% endif %}
+    </a>
+
+    <nav class="eeb-header__nav" aria-label="Primary">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="eeb-header__actions">
+      <a href="{{ routes.cart_url }}" aria-label="Cart">
+        {% render 'icon', icon: 'cart', size: 22 %}
+      </a>
+      {% if section.settings.cta_text != blank %}
+        <a href="{{ section.settings.cta_url }}" class="eeb-btn eeb-btn--primary" style="padding: .5rem 1rem; font-size: .85rem;">{{ section.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo override (optional)" },
+    { "type": "link_list", "id": "menu", "label": "Navigation menu", "default": "main-menu" },
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Find a Dealer" },
+    { "type": "url", "id": "cta_url", "label": "CTA button URL" }
+  ],
+  "presets": [{ "name": "Header" }],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

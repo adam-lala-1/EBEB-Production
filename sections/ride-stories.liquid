@@ -1,0 +1,44 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="eeb-grid eeb-grid--3">
+      {%- for block in section.blocks -%}
+        <article class="eeb-card" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="" loading="lazy"></div>{% endif %}
+          <div class="eeb-card__body">
+            <h3>{{ block.settings.name }}</h3>
+            <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ block.settings.quote }}"</p>
+            <p style="font-size:.85rem;color:var(--color-orange);font-weight:600;">{{ block.settings.bike }}</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ride stories",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Ride stories" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real riders, real freedom" }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Story",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Rider name" },
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "bike", "label": "Bike model" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Ride stories" }]
+}
+{% endschema %}

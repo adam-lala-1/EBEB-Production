@@ -1,0 +1,58 @@
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="eeb-grid eeb-grid--4">
+      {%- if section.settings.collection != blank -%}
+        {%- for product in section.settings.collection.products limit: 4 -%}
+          <a href="{{ product.url }}" class="eeb-card">
+            <div class="eeb-card__img">
+              {% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy">{% endif %}
+            </div>
+            <div class="eeb-card__body">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy"></div>{% endif %}
+            <div class="eeb-card__body">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.subtitle }}</p>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EEB Series",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The EEB Series" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built for every journey" },
+    { "type": "collection", "id": "collection", "label": "Collection (auto-populates from products)" }
+  ],
+  "blocks": [
+    {
+      "type": "manual_card",
+      "name": "Manual card (fallback)",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "EEB Series" }]
+}
+{% endschema %}

@@ -1,0 +1,55 @@
+<section class="eeb-section">
+  <div class="eeb-container" style="max-width: 880px;">
+    <h1>{{ 'general.cart.title' | t }}</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <p style="color:var(--color-muted);">{{ 'general.cart.empty' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="eeb-btn eeb-btn--primary">Continue shopping</a>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate>
+        <table style="width:100%;border-collapse:collapse;margin-top:1rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--color-border);text-align:left;font-size:.85rem;color:var(--color-muted);">
+              <th style="padding:.75rem 0;">Product</th>
+              <th style="padding:.75rem 0;">Qty</th>
+              <th style="padding:.75rem 0;text-align:right;">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:1rem 0;">
+                  <div style="display:flex;gap:1rem;align-items:center;">
+                    {% if item.image %}<img src="{{ item.image | image_url: width: 120 }}" width="60" height="60" alt="" style="border-radius:.5rem;object-fit:cover;">{% endif %}
+                    <div>
+                      <a href="{{ item.url }}"><strong>{{ item.product.title }}</strong></a>
+                      {%- if item.variant.title != 'Default Title' -%}<div style="color:var(--color-muted);font-size:.85rem;">{{ item.variant.title }}</div>{%- endif -%}
+                    </div>
+                  </div>
+                </td>
+                <td style="padding:1rem 0;">
+                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:60px;padding:.4rem;border:1px solid var(--color-border);border-radius:.35rem;">
+                </td>
+                <td style="padding:1rem 0;text-align:right;">{{ item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2rem;flex-wrap:wrap;gap:1rem;">
+          <button type="submit" name="update" class="eeb-btn eeb-btn--ghost" style="border-color:var(--color-border);color:var(--color-foreground);">Update cart</button>
+          <div style="text-align:right;">
+            <p style="margin:0;color:var(--color-muted);">Subtotal</p>
+            <p style="margin:0;font-size:1.5rem;font-weight:600;">{{ cart.total_price | money }}</p>
+          </div>
+        </div>
+
+        <button type="submit" name="checkout" class="eeb-btn eeb-btn--primary" style="width:100%;margin-top:1.5rem;">{{ 'general.cart.checkout' | t }}</button>
+      </form>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart main", "settings": [], "presets": [{ "name": "Cart main" }] }
+{% endschema %}

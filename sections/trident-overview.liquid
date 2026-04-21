@@ -1,0 +1,64 @@
+<section>
+  <div class="trident-overview">
+    <div>
+      <h1>{{ product.title | default: section.settings.title_fallback }}</h1>
+      <p style="color: var(--color-muted); font-size: 1.1rem;">{{ product.metafields.eeb.subtitle | default: section.settings.subtitle }}</p>
+      <p class="trident-overview__price">{{ product.price | money | default: section.settings.price_fallback }}</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      {%- comment -%} Colour swatches via product options OR metafields {%- endcomment -%}
+      {%- assign colour_option = nil -%}
+      {%- for option in product.options_with_values -%}
+        {%- if option.name contains 'Colour' or option.name contains 'Color' -%}
+          {%- assign colour_option = option -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if colour_option -%}
+        <div>
+          <p style="font-size:.85rem;font-weight:500;color:var(--color-muted);margin-bottom:.5rem;">Colour</p>
+          <div class="swatches">
+            {%- for value in colour_option.values -%}
+              <button class="swatch {% if forloop.first %}is-active{% endif %}" style="background: {{ value | downcase | handle }};" aria-label="{{ value }}" title="{{ value }}"></button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Motor variant selector if present {%- endcomment -%}
+      {%- for option in product.options_with_values -%}
+        {%- if option.name contains 'Motor' or option.name contains 'Sensor' -%}
+          <div>
+            <p style="font-size:.85rem;font-weight:500;color:var(--color-muted);margin-bottom:.5rem;">{{ option.name }}</p>
+            <div style="display:flex;gap:.5rem;">
+              {%- for v in option.values -%}
+                <button class="eeb-btn" style="background: {% if forloop.first %}var(--color-foreground);color:#fff{% else %}var(--color-cream);color:var(--color-foreground){% endif %};padding:.5rem 1rem;font-size:.85rem;">{{ v }}</button>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">
+          {%- if product.available -%}{{ section.settings.cta_text | default: 'Enquire Now' }}{%- else -%}Sold out{%- endif -%}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trident overview",
+  "settings": [
+    { "type": "text", "id": "title_fallback", "label": "Title fallback", "default": "Trident FT v3" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Semi-Recumbent Fat Tyre Electric Tricycle" },
+    { "type": "text", "id": "price_fallback", "label": "Price fallback", "default": "$6,000" },
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Enquire Now" }
+  ],
+  "presets": [{ "name": "Trident overview" }]
+}
+{% endschema %}
