@@ -1,0 +1,44 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container" style="text-align:center;">
+    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1>{{ blog.title }}</h1>
+    {% if section.settings.subheading != blank %}<p style="max-width:640px;margin:0 auto;color:var(--color-muted);">{{ section.settings.subheading }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="eeb-section">
+  <div class="eeb-container">
+    {%- paginate blog.articles by 9 -%}
+      <div class="eeb-grid eeb-grid--3">
+        {%- for article in blog.articles -%}
+          <a href="{{ article.url }}" class="eeb-card">
+            {%- if article.image -%}
+              <div class="eeb-card__img"><img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title | escape }}" loading="lazy"></div>
+            {%- endif -%}
+            <div class="eeb-card__body">
+              <span class="eeb-card__eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</span>
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
+            </div>
+          </a>
+        {%- else -%}
+          <p>No articles yet.</p>
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        <div style="margin-top:2rem;text-align:center;">{{ paginate | default_pagination }}</div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog main",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Stories, guides and updates from the EEB community." }
+  ],
+  "presets": [{ "name": "Blog main" }]
+}
+{% endschema %}

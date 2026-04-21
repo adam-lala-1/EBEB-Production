@@ -2,13 +2,45 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {
-        "eyebrow": "Mobility, redefined",
-        "heading": "An eBike for every body.",
-        "subheading": "Inclusive electric bikes & trikes designed for freedom, comfort, and confidence.",
-        "cta_text": "Explore the Range",
-        "cta_url": "/collections/all"
-      }
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "The Humanized Hub",
+            "heading": "E-Mobility for",
+            "heading_highlight": "every body.",
+            "body": "Meet Richard and Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
+            "cta_text": "Explore the Range",
+            "cta_url": "/collections/all",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445"
+          }
+        },
+        "slide2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Adventure Together",
+            "heading": "Ride together,",
+            "heading_highlight": "stay together.",
+            "body": "From family adventures to daily commutes — our e-bikes and trikes bring people together and keep them moving.",
+            "cta_text": "Explore the Range",
+            "cta_url": "/collections/all",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445"
+          }
+        },
+        "slide3": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Freedom & Independence",
+            "heading": "Inclusive engineering",
+            "heading_highlight": "by EEB.",
+            "body": "Proudly engineered in Australia. Our house-designed range delivers freedom through thoughtful, inclusive innovation.",
+            "cta_text": "Explore the Range",
+            "cta_url": "/collections/all",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Picture7.jpg?v=1755148406&width=1445"
+          }
+        }
+      },
+      "block_order": ["slide1", "slide2", "slide3"]
     },
     "hero_alt": {
       "type": "hero-alt",
@@ -18,12 +50,45 @@
         "image_position": "right"
       }
     },
-    "categories": { "type": "ride-categories" },
-    "series":     { "type": "eeb-series" },
-    "stories":    { "type": "ride-stories" },
-    "people":     { "type": "people-planet" },
-    "accessories":{ "type": "accessories" },
-    "cta":        { "type": "cta-banner" }
+    "categories": {
+      "type": "ride-categories",
+      "blocks": {
+        "c1": { "type": "category", "settings": { "title": "Urban & Families", "eyebrow": "Let us ride together", "description": "Carry the kids, the groceries, or the dog. Cargo e-bikes built for the whole family.", "features": "Child-safe seating options; Up to 200kg payload; Weather canopies available", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445", "link": "/collections/all" } },
+        "c2": { "type": "category", "settings": { "title": "Seniors", "eyebrow": "Keep riding", "description": "Step-through frames, comfortable seats, and electric assist that makes every ride effortless.", "features": "Step-through easy mount; Electric assist up to 25km/h; Stable trike options", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000018005.jpg?v=1766459780&width=1445", "link": "/collections/all" } },
+        "c3": { "type": "category", "settings": { "title": "Inclusive Mobility", "eyebrow": "Adaptive freedom", "description": "NDIS approved e-trikes and adaptive solutions designed for every ability.", "features": "NDIS approved options; Custom adaptive setups; Harnesses & supports", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2044.jpg?v=1762408443&width=1445", "link": "/collections/all" } }
+      },
+      "block_order": ["c1", "c2", "c3"]
+    },
+    "series": {
+      "type": "eeb-series",
+      "blocks": {
+        "b1": { "type": "manual_card", "settings": { "title": "Trident", "subtitle": "Semi-Recumbent Electric Trike", "price": "from $4,995", "description": "Unmatched stability meets premium performance.", "specs": "80km Range; Semi-Recumbent; 25km/h Assist", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445", "link": "/products/trident" } },
+        "b2": { "type": "manual_card", "settings": { "title": "Trojan", "subtitle": "Fat Tyre Electric Trike", "price": "from $3,495", "description": "Agile, powerful, and ready for family adventures.", "specs": "60km Range; Fat tyres; Family ready", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445", "link": "/collections/all" } },
+        "b3": { "type": "manual_card", "settings": { "title": "Lightning", "subtitle": "Folding Electric Bike", "price": "from $2,495", "description": "Compact, fast-folding, and ready to go anywhere.", "specs": "50km Range; Compact fold; Lightweight", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445", "link": "/collections/all" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "stories": {
+      "type": "ride-stories",
+      "blocks": {
+        "s1": { "type": "story", "settings": { "name": "The School Run Family", "quote": "Our morning school run went from stressful chaos to the best part of our day.", "bike": "Trojan Family Trike", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445" } },
+        "s2": { "type": "story", "settings": { "name": "Active at 72", "quote": "The Trident gave me my independence back — I ride to the shops, the park, everywhere.", "bike": "Trident Semi-Recumbent", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445" } },
+        "s3": { "type": "story", "settings": { "name": "Adaptive Freedom", "quote": "For the first time in years, I can ride alongside my family.", "bike": "Custom Adapted Trike", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445" } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "people": { "type": "people-planet" },
+    "accessories": {
+      "type": "accessories",
+      "blocks": {
+        "a1": { "type": "item", "settings": { "title": "Abus 8808C Lock", "price": "$240.00", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2025-11-05163537.png?v=1762324582&width=1445", "link": "/collections/accessories" } },
+        "a2": { "type": "item", "settings": { "title": "Adaptive Accessories", "price": "Various", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445", "link": "/collections/accessories" } },
+        "a3": { "type": "item", "settings": { "title": "Vamos Amigo", "price": "from $4,345", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Red_Vamos_Bike.png?v=1740544801&width=1445", "link": "/collections/all" } },
+        "a4": { "type": "item", "settings": { "title": "Kalkhoff Endeavour", "price": "from $3,950", "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445", "link": "/collections/all" } }
+      },
+      "block_order": ["a1", "a2", "a3", "a4"]
+    },
+    "cta": { "type": "cta-banner" }
   },
   "order": ["hero", "hero_alt", "categories", "series", "stories", "people", "accessories", "cta"]
 }

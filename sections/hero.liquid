@@ -1,40 +1,48 @@
-{%- assign hero_slides = 'The Humanized Hub|E-Mobility for|every body.|Meet Richard and Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445|Trident semi-recumbent electric trike~~Adventure Together|Ride together,|stay together.|From family adventures to daily commutes — our e-bikes and trikes bring people together and keep them moving.|https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445|Family riding together on electric trikes~~Freedom & Independence|Inclusive engineering|by EEB.|Proudly engineered in Australia. Our house-designed range delivers freedom through thoughtful, inclusive innovation.|https://everybodyebikes.com.au/cdn/shop/files/Picture7.jpg?v=1755148406&width=1445|People riding electric trikes together' | split: '~~' -%}
 <section class="eeb-hero" data-eeb-hero>
   <div class="eeb-container">
-    {%- for slide in hero_slides -%}
-      {%- assign parts = slide | split: '|' -%}
-      <div class="eeb-hero__slide{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} hidden{% endunless %} data-eeb-hero-slide>
-        <div class="eeb-hero__panel">
-          <div class="eeb-hero__copy">
-            <span class="eeb-eyebrow">{{ parts[0] }}</span>
-            <h1>{{ parts[1] }} <span class="eeb-hero__highlight">{{ parts[2] }}</span></h1>
-            <p>{{ parts[3] }}</p>
-            <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta_url | default: '/collections/all' }}">{{ section.settings.cta_text | default: 'Explore the Range' }}</a>
-            <div class="eeb-hero__controls">
-              <button class="eeb-hero__nav" type="button" aria-label="Previous slide" data-eeb-hero-prev>
-                <span aria-hidden="true">&#8592;</span>
-              </button>
-              <div class="eeb-hero__dots" aria-label="Hero slides">
-                {%- for dot in hero_slides -%}
-                  <button class="eeb-hero__dot{% if forloop.index0 == forloop.parentloop.index0 %} is-active{% endif %}" type="button" aria-label="Go to slide {{ forloop.index }}" data-eeb-hero-dot data-index="{{ forloop.index0 }}"></button>
-                {%- endfor -%}
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        <div class="eeb-hero__slide{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} hidden{% endunless %} data-eeb-hero-slide {{ block.shopify_attributes }}>
+          <div class="eeb-hero__panel">
+            <div class="eeb-hero__copy">
+              {% if block.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ block.settings.eyebrow }}</span>{% endif %}
+              <h1>{{ block.settings.heading }} {% if block.settings.heading_highlight != blank %}<span class="eeb-hero__highlight">{{ block.settings.heading_highlight }}</span>{% endif %}</h1>
+              <p>{{ block.settings.body }}</p>
+              {% if block.settings.cta_text != blank %}
+                <a class="eeb-btn eeb-btn--primary" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
+              {% endif %}
+              <div class="eeb-hero__controls">
+                <button class="eeb-hero__nav" type="button" aria-label="Previous slide" data-eeb-hero-prev>
+                  <span aria-hidden="true">&#8592;</span>
+                </button>
+                <div class="eeb-hero__dots" aria-label="Hero slides">
+                  {%- for dot_block in section.blocks -%}
+                    <button class="eeb-hero__dot{% if forloop.index0 == 0 %} is-active{% endif %}" type="button" aria-label="Go to slide {{ forloop.index }}" data-eeb-hero-dot data-index="{{ forloop.index0 }}"></button>
+                  {%- endfor -%}
+                </div>
+                <button class="eeb-hero__nav" type="button" aria-label="Next slide" data-eeb-hero-next>
+                  <span aria-hidden="true">&#8594;</span>
+                </button>
               </div>
-              <button class="eeb-hero__nav" type="button" aria-label="Next slide" data-eeb-hero-next>
-                <span aria-hidden="true">&#8594;</span>
-              </button>
+              {%- if section.settings.show_badges -%}
+                <div class="eeb-hero__badges">
+                  {% if section.settings.badge_1 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_1 }}</span>{% endif %}
+                  {% if section.settings.badge_2 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_2 }}</span>{% endif %}
+                  {% if section.settings.badge_3 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_3 }}</span>{% endif %}
+                </div>
+              {%- endif -%}
             </div>
-            <div class="eeb-hero__badges">
-              <span class="eeb-hero__badge">🏅 QLD Social Enterprise</span>
-              <span class="eeb-hero__badge">🚴 Free Test Rides</span>
-              <span class="eeb-hero__badge">♿ NDIS Provider</span>
+            <div class="eeb-hero__media">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.image.alt | escape }}" loading="eager">
+              {% elsif block.settings.image_url != blank %}
+                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.heading | escape }}" loading="eager">
+              {% endif %}
             </div>
-          </div>
-          <div class="eeb-hero__media">
-            <img src="{{ parts[4] }}" alt="{{ parts[5] }}" loading="eager">
           </div>
         </div>
-      </div>
-    {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 </section>
 
@@ -78,15 +86,69 @@
 
 {% schema %}
 {
-  "name": "Hero",
+  "name": "Hero slider",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Background image" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Mobility, redefined" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "An eBike for every body." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Inclusive electric bikes & trikes designed for freedom, comfort, and confidence." },
-    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore the Range" },
-    { "type": "url", "id": "cta_url", "label": "CTA URL" }
+    { "type": "checkbox", "id": "show_badges", "label": "Show trust badges", "default": true },
+    { "type": "text", "id": "badge_1", "label": "Badge 1", "default": "🏅 QLD Social Enterprise" },
+    { "type": "text", "id": "badge_2", "label": "Badge 2", "default": "🚴 Free Test Rides" },
+    { "type": "text", "id": "badge_3", "label": "Badge 3", "default": "♿ NDIS Provider" }
   ],
-  "presets": [{ "name": "Hero" }]
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_url", "label": "Or image URL (fallback)" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Humanized Hub" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "E-Mobility for" },
+        { "type": "text", "id": "heading_highlight", "label": "Heading highlight", "default": "every body." },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Meet Richard and Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride." },
+        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore the Range" },
+        { "type": "url", "id": "cta_url", "label": "CTA URL" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Hero slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "The Humanized Hub",
+            "heading": "E-Mobility for",
+            "heading_highlight": "every body.",
+            "body": "Meet Richard and Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
+            "cta_text": "Explore the Range",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Adventure Together",
+            "heading": "Ride together,",
+            "heading_highlight": "stay together.",
+            "body": "From family adventures to daily commutes — our e-bikes and trikes bring people together and keep them moving.",
+            "cta_text": "Explore the Range",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Freedom & Independence",
+            "heading": "Inclusive engineering",
+            "heading_highlight": "by EEB.",
+            "body": "Proudly engineered in Australia. Our house-designed range delivers freedom through thoughtful, inclusive innovation.",
+            "cta_text": "Explore the Range",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Picture7.jpg?v=1755148406&width=1445"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

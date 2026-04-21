@@ -1,0 +1,65 @@
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div class="eeb-imgtext">
+      <div>
+        {%- if product.featured_image -%}
+          <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title | escape }}" loading="eager" style="background:var(--color-cream);padding:1rem;">
+        {%- elsif section.settings.fallback_image_url != blank -%}
+          <img src="{{ section.settings.fallback_image_url }}" alt="{{ product.title | escape }}" loading="eager" style="background:var(--color-cream);padding:1rem;">
+        {%- endif -%}
+
+        {%- if product.images.size > 1 -%}
+          <div style="display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;">
+            {%- for image in product.images limit: 6 -%}
+              <img src="{{ image | image_url: width: 160 }}" alt="" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:.5rem;">
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h1>{{ product.title }}</h1>
+        <p class="trident-overview__price">{{ product.price | money }}</p>
+
+        {%- if product.description != blank -%}
+          <div class="rte" style="margin: 1.5rem 0;">{{ product.description }}</div>
+        {%- elsif section.settings.fallback_description != blank -%}
+          <div class="rte" style="margin: 1.5rem 0;">{{ section.settings.fallback_description }}</div>
+        {%- endif -%}
+
+        {%- form 'product', product, novalidate: 'novalidate' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button type="submit" name="add" class="eeb-btn eeb-btn--primary" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %} style="width:100%;margin-top:1rem;">
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to cart
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <ul style="margin-top:1.5rem;">
+          {% if section.settings.bullet_1 != blank %}<li>{{ section.settings.bullet_1 }}</li>{% endif %}
+          {% if section.settings.bullet_2 != blank %}<li>{{ section.settings.bullet_2 }}</li>{% endif %}
+          {% if section.settings.bullet_3 != blank %}<li>{{ section.settings.bullet_3 }}</li>{% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product main",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "EEB Original" },
+    { "type": "text", "id": "fallback_image_url", "label": "Fallback image URL (when no product image)", "default": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445" },
+    { "type": "richtext", "id": "fallback_description", "label": "Fallback description", "default": "<p>Engineered in Australia for riders of every ability.</p>" },
+    { "type": "text", "id": "bullet_1", "label": "Bullet 1", "default": "Free test rides at all dealers" },
+    { "type": "text", "id": "bullet_2", "label": "Bullet 2", "default": "NDIS approved options available" },
+    { "type": "text", "id": "bullet_3", "label": "Bullet 3", "default": "Australian-wide service network" }
+  ],
+  "presets": [{ "name": "Product main" }]
+}
+{% endschema %}

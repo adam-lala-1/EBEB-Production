@@ -1,8 +1,26 @@
 {
   "sections": {
-    "gallery":      { "type": "trident-gallery" },
+    "gallery": {
+      "type": "trident-gallery",
+      "blocks": {
+        "g1": { "type": "image", "settings": {} },
+        "g2": { "type": "image", "settings": {} },
+        "g3": { "type": "image", "settings": {} }
+      },
+      "block_order": ["g1", "g2", "g3"]
+    },
     "overview":     { "type": "trident-overview" },
-    "key_features": { "type": "trident-key-features" },
+    "key_features": {
+      "type": "trident-key-features",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "icon": "battery", "label": "80km Range", "sub": "48V 17.5Ah" } },
+        "f2": { "type": "feature", "settings": { "icon": "gauge", "label": "25km/h Assist", "sub": "Pedal assist" } },
+        "f3": { "type": "feature", "settings": { "icon": "shield", "label": "Hydraulic Brakes", "sub": "Tektro disc" } },
+        "f4": { "type": "feature", "settings": { "icon": "users", "label": "145kg Max Load", "sub": "Rider + cargo" } },
+        "f5": { "type": "feature", "settings": { "icon": "weight", "label": "36kg Weight", "sub": "Alloy frame" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"]
+    },
     "feature_1": {
       "type": "trident-feature-block",
       "settings": {

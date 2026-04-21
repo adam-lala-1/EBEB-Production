@@ -1,8 +1,7 @@
 {
   "sections": {
-    "main": {
-      "type": "trident-overview"
-    }
+    "main": { "type": "main-product" },
+    "cta":  { "type": "cta-banner" }
   },
-  "order": ["main"]
+  "order": ["main", "cta"]
 }

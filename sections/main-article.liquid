@@ -1,0 +1,21 @@
+<article class="eeb-section">
+  <div class="eeb-container" style="max-width: 760px;">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <span class="eeb-eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</span>
+      <h1>{{ article.title }}</h1>
+      {%- if article.author != blank -%}<p style="color:var(--color-muted);">By {{ article.author }}</p>{%- endif -%}
+    </div>
+    {%- if article.image -%}
+      <img src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}" style="border-radius:1rem;margin-bottom:2rem;">
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Article main",
+  "settings": [],
+  "presets": [{ "name": "Article main" }]
+}
+{% endschema %}
