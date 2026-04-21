@@ -81,6 +81,7 @@
         "c2": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Picture3.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000018005.jpg?v=1766459780&width=1445",
             "eyebrow": "Keep riding",
             "title": "Seniors",
