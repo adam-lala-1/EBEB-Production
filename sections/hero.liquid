@@ -1,18 +1,80 @@
-<section class="eeb-hero">
-  <div class="eeb-hero__bg">
-    {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | image_url: width: 2400 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
-    {% endif %}
-  </div>
-  <div class="eeb-hero__content">
-    {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow" style="color: var(--color-orange);">{{ section.settings.eyebrow }}</span>{% endif %}
-    <h1>{{ section.settings.heading }}</h1>
-    <p>{{ section.settings.subheading }}</p>
-    {% if section.settings.cta_text != blank %}
-      <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }}</a>
-    {% endif %}
+{%- assign hero_slides = 'The Humanized Hub|E-Mobility for|every body.|Meet Richard and Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445|Trident semi-recumbent electric trike,Adventure Together|Ride together,|stay together.|From family adventures to daily commutes — our e-bikes and trikes bring people together and keep them moving.|https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445|Family riding together on electric trikes,Freedom & Independence|Inclusive engineering|by EEB.|Proudly engineered in Australia. Our house-designed range delivers freedom through thoughtful, inclusive innovation.|https://everybodyebikes.com.au/cdn/shop/files/Picture7.jpg?v=1755148406&width=1445|People riding electric trikes together' | split: ',' -%}
+<section class="eeb-hero" data-eeb-hero>
+  <div class="eeb-container">
+    {%- for slide in hero_slides -%}
+      {%- assign parts = slide | split: '|' -%}
+      <div class="eeb-hero__slide{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} hidden{% endunless %} data-eeb-hero-slide>
+        <div class="eeb-hero__panel">
+          <div class="eeb-hero__copy">
+            <span class="eeb-eyebrow">{{ parts[0] }}</span>
+            <h1>{{ parts[1] }} <span class="eeb-hero__highlight">{{ parts[2] }}</span></h1>
+            <p>{{ parts[3] }}</p>
+            <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta_url | default: '/collections/all' }}">{{ section.settings.cta_text | default: 'Explore the Range' }}</a>
+            <div class="eeb-hero__controls">
+              <button class="eeb-hero__nav" type="button" aria-label="Previous slide" data-eeb-hero-prev>
+                <span aria-hidden="true">&#8592;</span>
+              </button>
+              <div class="eeb-hero__dots" aria-label="Hero slides">
+                {%- for dot in hero_slides -%}
+                  <button class="eeb-hero__dot{% if forloop.index0 == forloop.parentloop.index0 %} is-active{% endif %}" type="button" aria-label="Go to slide {{ forloop.index }}" data-eeb-hero-dot data-index="{{ forloop.index0 }}"></button>
+                {%- endfor -%}
+              </div>
+              <button class="eeb-hero__nav" type="button" aria-label="Next slide" data-eeb-hero-next>
+                <span aria-hidden="true">&#8594;</span>
+              </button>
+            </div>
+            <div class="eeb-hero__badges">
+              <span class="eeb-hero__badge">🏅 QLD Social Enterprise</span>
+              <span class="eeb-hero__badge">🚴 Free Test Rides</span>
+              <span class="eeb-hero__badge">♿ NDIS Provider</span>
+            </div>
+          </div>
+          <div class="eeb-hero__media">
+            <img src="{{ parts[4] }}" alt="{{ parts[5] }}" loading="eager">
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
 </section>
+
+<script>
+  (() => {
+    const hero = document.currentScript.previousElementSibling;
+    if (!hero || hero.dataset.eebHeroBound === 'true') return;
+    hero.dataset.eebHeroBound = 'true';
+
+    const slides = Array.from(hero.querySelectorAll('[data-eeb-hero-slide]'));
+    const dots = Array.from(hero.querySelectorAll('[data-eeb-hero-dot]'));
+    const prev = hero.querySelector('[data-eeb-hero-prev]');
+    const next = hero.querySelector('[data-eeb-hero-next]');
+    if (!slides.length) return;
+
+    let current = 0;
+    let timer;
+
+    const render = (index) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle('is-active', active);
+        slide.hidden = !active;
+      });
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+    };
+
+    const restart = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => render(current + 1), 6000);
+    };
+
+    prev && prev.addEventListener('click', () => { render(current - 1); restart(); });
+    next && next.addEventListener('click', () => { render(current + 1); restart(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { render(i); restart(); }));
+    render(0);
+    restart();
+  })();
+</script>
 
 {% schema %}
 {

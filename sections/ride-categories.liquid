@@ -1,3 +1,4 @@
+{%- assign fallback_categories = 'Urban & Families|Let us ride together|Carry the kids, the groceries, or the dog. Cargo e-bikes built for the whole family.|Child-safe seating options;Up to 200kg payload;Weather canopies available|https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445|/collections/all,Seniors|Keep riding|Step-through frames, comfortable seats, and electric assist that makes every ride effortless.|Step-through easy mount;Electric assist up to 25km/h;Stable trike options|https://everybodyebikes.com.au/cdn/shop/files/1000018005.jpg?v=1766459780&width=1445|/collections/all,Inclusive Mobility|Adaptive freedom|NDIS approved e-trikes and adaptive solutions designed for every ability.|NDIS approved options;Custom adaptive setups;Harnesses & supports|https://everybodyebikes.com.au/cdn/shop/files/IMG_2044.jpg?v=1762408443&width=1445|/collections/all' | split: ',' -%}
 <section class="eeb-section eeb-section--cream">
   <div class="eeb-container" style="text-align:center;">
     {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
@@ -5,17 +6,36 @@
     {% if section.settings.subheading != blank %}<p style="max-width:640px;margin:0 auto 3rem;color:var(--color-muted);">{{ section.settings.subheading }}</p>{% endif %}
 
     <div class="eeb-grid eeb-grid--3">
-      {%- for block in section.blocks -%}
-        <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
-          {% if block.settings.image != blank %}
-            <div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy"></div>
-          {% endif %}
-          <div class="eeb-card__body">
-            <h3>{{ block.settings.title }}</h3>
-            <p>{{ block.settings.description }}</p>
-          </div>
-        </a>
-      {%- endfor -%}
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy"></div>
+            {% endif %}
+            <div class="eeb-card__body">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.description }}</p>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for item in fallback_categories -%}
+          {%- assign parts = item | split: '|' -%}
+          {%- assign features = parts[3] | split: ';' -%}
+          <a href="{{ parts[5] }}" class="eeb-card">
+            <div class="eeb-card__img"><img src="{{ parts[4] }}" alt="{{ parts[0] }}" loading="lazy"></div>
+            <div class="eeb-card__body">
+              <span class="eeb-card__eyebrow">{{ parts[1] }}</span>
+              <h3>{{ parts[0] }}</h3>
+              <p>{{ parts[2] }}</p>
+              <ul class="eeb-card__list">
+                {%- for feature in features -%}<li>{{ feature }}</li>{%- endfor -%}
+              </ul>
+              <span class="eeb-btn eeb-btn--dark">Explore</span>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>

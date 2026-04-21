@@ -1,13 +1,23 @@
+{%- assign fallback_image = 'https://everybodyebikes.com.au/cdn/shop/files/Journey_Graphic_RGB_with_Cargo.png?v=1712980430&width=1445' -%}
 <section class="eeb-section">
   <div class="eeb-container">
     <div class="eeb-imgtext">
       <div>
-        {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">{% endif %}
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+        {% else %}
+          <img src="{{ fallback_image }}" alt="Your cycling journey with EveryBody eBikes" loading="lazy" style="object-fit:contain;background:var(--color-navy);padding:2rem;">
+        {% endif %}
       </div>
       <div>
         {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
         <h2>{{ section.settings.heading }}</h2>
         <div>{{ section.settings.body }}</div>
+        <ul style="margin-top:1.5rem;">
+          <li>Radical inclusivity for every rider.</li>
+          <li>Social enterprise focused on community impact.</li>
+          <li>Fitting, servicing, and long-term support.</li>
+        </ul>
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
-<section class="eeb-section">
+{%- assign fallback_bikes = 'Trident|Semi-Recumbent Electric Trike|Unmatched stability meets premium performance. Built for riders who demand comfort, confidence, and range.|from $4,995|80km Range;Semi-Recumbent;25km/h Assist|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445|/products/trident,Trojan|Fat Tyre Electric Trike|Agile, powerful, and ready for family adventures and daily rides.|from $3,495|60km Range;Fat tyres|https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445|/collections/all,Lightning|Folding Electric Bike|Compact, fast-folding, and ready to go anywhere life takes you.|from $2,495|50km Range;Compact fold|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445|/collections/all' | split: ',' -%}
+<section class="eeb-section eeb-section--navy">
   <div class="eeb-container">
     <div style="text-align:center;margin-bottom:3rem;">
       {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
@@ -18,13 +19,30 @@
             </div>
           </a>
         {%- endfor -%}
-      {%- else -%}
+      {%- elsif section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
           <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
             {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy"></div>{% endif %}
             <div class="eeb-card__body">
               <h3>{{ block.settings.title }}</h3>
               <p>{{ block.settings.subtitle }}</p>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for bike in fallback_bikes -%}
+          {%- assign parts = bike | split: '|' -%}
+          {%- assign specs = parts[4] | split: ';' -%}
+          <a href="{{ parts[6] }}" class="eeb-card">
+            <div class="eeb-card__img"><img src="{{ parts[5] }}" alt="{{ parts[0] }}" loading="lazy" style="object-fit:contain;padding:1rem;background:#f8f5f0;"></div>
+            <div class="eeb-card__body">
+              <span class="eeb-card__eyebrow">{{ parts[1] }}</span>
+              <h3>{{ parts[0] }}</h3>
+              <p style="margin-bottom:.75rem;">{{ parts[3] }}</p>
+              <p style="margin-bottom:.75rem; color: var(--color-foreground);">{{ parts[2] }}</p>
+              <ul class="eeb-card__list">
+                {%- for spec in specs -%}<li>{{ spec }}</li>{%- endfor -%}
+              </ul>
             </div>
           </a>
         {%- endfor -%}

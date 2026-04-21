@@ -1,3 +1,4 @@
+{%- assign fallback_stories = 'The School Run Family|Trojan Family Trike|Our morning school run went from stressful chaos to the best part of our day.|https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445,Active at 72|Trident Semi-Recumbent|The Trident gave me my independence back — I ride to the shops, the park, everywhere.|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445,Adaptive Freedom|Custom Adapted Trike|For the first time in years, I can ride alongside my family.|https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445' | split: ',' -%}
 <section class="eeb-section eeb-section--cream">
   <div class="eeb-container">
     <div style="text-align:center;margin-bottom:3rem;">
@@ -6,16 +7,30 @@
     </div>
 
     <div class="eeb-grid eeb-grid--3">
-      {%- for block in section.blocks -%}
-        <article class="eeb-card" {{ block.shopify_attributes }}>
-          {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="" loading="lazy"></div>{% endif %}
-          <div class="eeb-card__body">
-            <h3>{{ block.settings.name }}</h3>
-            <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ block.settings.quote }}"</p>
-            <p style="font-size:.85rem;color:var(--color-orange);font-weight:600;">{{ block.settings.bike }}</p>
-          </div>
-        </article>
-      {%- endfor -%}
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <article class="eeb-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 800 }}" alt="" loading="lazy"></div>{% endif %}
+            <div class="eeb-card__body">
+              <h3>{{ block.settings.name }}</h3>
+              <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ block.settings.quote }}"</p>
+              <p style="font-size:.85rem;color:var(--color-orange);font-weight:600;">{{ block.settings.bike }}</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for story in fallback_stories -%}
+          {%- assign parts = story | split: '|' -%}
+          <article class="eeb-card">
+            <div class="eeb-card__img"><img src="{{ parts[3] }}" alt="{{ parts[0] }}" loading="lazy"></div>
+            <div class="eeb-card__body">
+              <h3>{{ parts[0] }}</h3>
+              <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ parts[2] }}"</p>
+              <p style="font-size:.85rem;color:var(--color-orange);font-weight:600;">{{ parts[1] }}</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>

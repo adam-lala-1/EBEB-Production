@@ -1,12 +1,19 @@
+{%- assign fallback_image = 'https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1920' -%}
 <section class="eeb-section">
   <div class="eeb-container">
     <div class="eeb-imgtext {% if section.settings.image_position == 'right' %}eeb-imgtext--reverse{% endif %}">
-      <div>{% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">{% endif %}</div>
+      <div>
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+        {% else %}
+          <img src="{{ fallback_image }}" alt="Family riding together on electric trikes" loading="lazy">
+        {% endif %}
+      </div>
       <div>
         {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
         <h2>{{ section.settings.heading }}</h2>
-        <div>{{ section.settings.body }}</div>
-        {% if section.settings.cta_text != blank %}<a class="eeb-btn eeb-btn--dark" href="{{ section.settings.cta_url }}" style="margin-top:1rem;">{{ section.settings.cta_text }}</a>{% endif %}
+        <div>{{ section.settings.body | default: '<p>From family adventures to daily commutes, our inclusive engineering is designed to keep people moving together for the long haul.</p>' }}</div>
+        <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.cta_url | default: '/pages/dealers' }}" style="margin-top:1rem;">{{ section.settings.cta_text | default: 'Enquire and Try' }}</a>
       </div>
     </div>
   </div>

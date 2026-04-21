@@ -1,3 +1,4 @@
+{%- assign fallback_accessories = 'Abus 8808C Lock|$240.00|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2025-11-05163537.png?v=1762324582&width=1445|/collections/accessories,Adaptive Accessories|Various|https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445|/collections/accessories,Vamos Amigo|from $4,345|https://everybodyebikes.com.au/cdn/shop/files/Red_Vamos_Bike.png?v=1740544801&width=1445|/collections/all,Kalkhoff Endeavour|from $3,950|https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445|/collections/all' | split: ',' -%}
 <section class="eeb-section eeb-section--cream">
   <div class="eeb-container">
     <div style="text-align:center;margin-bottom:3rem;">
@@ -12,11 +13,19 @@
             <div class="eeb-card__body"><h3>{{ product.title }}</h3><p>{{ product.price | money }}</p></div>
           </a>
         {%- endfor -%}
-      {%- else -%}
+      {%- elsif section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
           <a href="{{ block.settings.link }}" class="eeb-card" {{ block.shopify_attributes }}>
             {% if block.settings.image != blank %}<div class="eeb-card__img"><img src="{{ block.settings.image | image_url: width: 600 }}" alt="" loading="lazy"></div>{% endif %}
             <div class="eeb-card__body"><h3>{{ block.settings.title }}</h3><p>{{ block.settings.price }}</p></div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for item in fallback_accessories -%}
+          {%- assign parts = item | split: '|' -%}
+          <a href="{{ parts[3] }}" class="eeb-card">
+            <div class="eeb-card__img"><img src="{{ parts[2] }}" alt="{{ parts[0] }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;"></div>
+            <div class="eeb-card__body"><h3>{{ parts[0] }}</h3><p>{{ parts[1] }}</p></div>
           </a>
         {%- endfor -%}
       {%- endif -%}

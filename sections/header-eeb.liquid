@@ -1,3 +1,4 @@
+{%- assign fallback_nav = 'E-Bikes & Trikes|/collections/all, Gear|/collections/accessories, Experience Hub|/pages/experience-hub, Service & Support|/pages/service-support, EEB Dealer|/pages/dealers' | split: ', ' -%}
 <header class="eeb-header">
   <div class="eeb-header__inner">
     <a href="{{ routes.root_url }}" class="eeb-header__logo">
@@ -9,9 +10,16 @@
     </a>
 
     <nav class="eeb-header__nav" aria-label="Primary">
-      {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {%- endfor -%}
+      {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for item in fallback_nav -%}
+          {%- assign parts = item | split: '|' -%}
+          <a href="{{ parts[1] }}">{{ parts[0] }}</a>
+        {%- endfor -%}
+      {%- endif -%}
     </nav>
 
     <div class="eeb-header__actions">
