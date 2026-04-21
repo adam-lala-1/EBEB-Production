@@ -37,10 +37,10 @@
   </head>
   <body class="template-{{ template | replace: '.', '-' | handle }}">
     <a class="skip-link" href="#main">Skip to content</a>
-    {% section 'header-eeb' %}
+    {% sections 'header-group' %}
     <main id="main" role="main">
       {{ content_for_layout }}
     </main>
-    {% section 'footer-eeb' %}
+    {% sections 'footer-group' %}
   </body>
 </html>
