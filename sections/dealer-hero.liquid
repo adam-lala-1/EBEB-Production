@@ -1,0 +1,35 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container" style="max-width: 880px; text-align: center;">
+    {% if section.settings.eyebrow != blank %}
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    <h1>{{ section.settings.heading }}</h1>
+    {% if section.settings.subheading != blank %}
+      <p style="font-size: 1.1rem; color: var(--color-muted); max-width: 640px; margin: 1rem auto 2rem;">{{ section.settings.subheading }}</p>
+    {% endif %}
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      {% if section.settings.cta1_text != blank %}
+        <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta1_url | default: '#dealer-list' }}">{{ section.settings.cta1_text }}</a>
+      {% endif %}
+      {% if section.settings.cta2_text != blank %}
+        <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.cta2_url | default: '#become-dealer' }}">{{ section.settings.cta2_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "EEB Dealer Network" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Find an EEB dealer near you" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "While our main showroom is in Brisbane, our trusted partners across Australia and New Zealand share our mission to make e-bikes and trikes inclusive and accessible for every body. Visit a partner location to test ride and purchase locally." },
+    { "type": "text", "id": "cta1_text", "label": "Primary CTA text", "default": "Browse dealers" },
+    { "type": "url", "id": "cta1_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta2_text", "label": "Secondary CTA text", "default": "Become a dealer" },
+    { "type": "url", "id": "cta2_url", "label": "Secondary CTA URL" }
+  ],
+  "presets": [{ "name": "Dealer hero" }]
+}
+{% endschema %}

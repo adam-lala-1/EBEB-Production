@@ -1,0 +1,90 @@
+<section class="eeb-section" id="dealer-list">
+  <div class="eeb-container">
+    <div style="text-align:left; margin-bottom: 2.5rem; max-width: 640px;">
+      {% if section.settings.eyebrow != blank %}
+        <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p style="color: var(--color-muted); font-size: 1.05rem;">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="eeb-grid eeb-grid--2">
+      {% for block in section.blocks %}
+        <article class="eeb-dealer-card" {{ block.shopify_attributes }}>
+          <div class="eeb-dealer-card__logo">
+            {% if block.settings.logo != blank %}
+              <img src="{{ block.settings.logo | image_url: width: 480 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+            {% else %}
+              <div class="eeb-dealer-card__placeholder">{{ block.settings.name | slice: 0, 1 }}</div>
+            {% endif %}
+          </div>
+          <div class="eeb-dealer-card__body">
+            {% if block.settings.region != blank %}
+              <span class="eeb-card__eyebrow">{{ block.settings.region }}</span>
+            {% endif %}
+            <h3>{{ block.settings.name }}</h3>
+            <ul class="eeb-dealer-card__meta">
+              {% if block.settings.address != blank %}
+                <li><strong>Address:</strong> {{ block.settings.address }}</li>
+              {% endif %}
+              {% if block.settings.phone != blank %}
+                <li><strong>Phone:</strong> <a href="tel:{{ block.settings.phone | replace: ' ', '' }}">{{ block.settings.phone }}</a></li>
+              {% endif %}
+              {% if block.settings.email != blank %}
+                <li><strong>Email:</strong> <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a></li>
+              {% endif %}
+              {% if block.settings.website_url != blank %}
+                <li><strong>Website:</strong> <a href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer list",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our partners" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our distributor list" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Come and try our products near you. Each partner stocks and supports the EEB range." }
+  ],
+  "blocks": [
+    {
+      "type": "dealer",
+      "name": "Dealer",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Dealer logo / image" },
+        { "type": "text", "id": "region", "label": "Region tag", "default": "QLD, Australia" },
+        { "type": "text", "id": "name", "label": "Dealer name", "default": "Dealer name" },
+        { "type": "textarea", "id": "address", "label": "Address" },
+        { "type": "text", "id": "phone", "label": "Phone" },
+        { "type": "text", "id": "email", "label": "Email" },
+        { "type": "url", "id": "website_url", "label": "Website URL" },
+        { "type": "text", "id": "website_label", "label": "Website display text" }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Dealer list",
+      "blocks": [
+        { "type": "dealer", "settings": { "name": "Freedom Solutions — Coburg North, VIC", "region": "VIC, Australia", "address": "27 Catherine St, Coburg North, VIC 3058", "phone": "1300 663 243", "email": "info@freedomsolutions.org.au", "website_url": "https://freedomsolutions.org.au/", "website_label": "freedomsolutions.org.au" } },
+        { "type": "dealer", "settings": { "name": "Freedom Solutions — Northmead, NSW", "region": "NSW, Australia", "address": "Unit 10, 185 Briens Rd, Northmead, NSW 2152", "phone": "1300 663 243", "email": "info@freedomsolutions.org.au", "website_url": "https://freedomsolutions.org.au/", "website_label": "freedomsolutions.org.au" } },
+        { "type": "dealer", "settings": { "name": "Cargo Cycles", "region": "VIC, Australia", "address": "66 Brunswick Road, Brunswick, VIC 3056", "phone": "03 9042 9058", "email": "sales@cargocycles.com.au", "website_url": "https://cargocycles.com.au/", "website_label": "cargocycles.com.au" } },
+        { "type": "dealer", "settings": { "name": "Cairns Electric Bikes — Cairns, QLD", "region": "QLD, Australia", "address": "46 McLeod Street, Cairns QLD 4870", "phone": "(07) 4051 4470", "email": "admin@cairns-electric-bikes.com.au", "website_url": "https://www.cairns-electric-bikes.com.au/", "website_label": "cairns-electric-bikes.com.au" } },
+        { "type": "dealer", "settings": { "name": "Novita — Hindmarsh, SA", "region": "SA, Australia", "address": "31 Manton Street, Hindmarsh, SA 5007", "phone": "(08) 8424 6160", "email": "enquiries@novitatech.com.au", "website_url": "https://www.novitatech.com.au/", "website_label": "novitatech.com.au" } },
+        { "type": "dealer", "settings": { "name": "Impulse Cycles — Albany, WA", "region": "WA, Australia", "address": "79 Lockyer Avenue, Albany, WA 6330", "phone": "(08) 9842 1387", "email": "ride@impulsecycles.com.au", "website_url": "https://www.impulsecycles.com.au/", "website_label": "impulsecycles.com.au" } },
+        { "type": "dealer", "settings": { "name": "Perfect Fit Cycles", "region": "California, USA", "address": "113 N Church St Ste 319, Visalia, CA 93291, USA", "phone": "(559) 429-8512", "email": "ben@perfectfitlp.com", "website_url": "https://www.perfectfitlp.com/", "website_label": "perfectfitlp.com" } },
+        { "type": "dealer", "settings": { "name": "Ecoquip — Rangiora, NZ", "region": "New Zealand", "address": "2 Chesterfield Place, Rangiora", "phone": "0800 115 068", "email": "sales@ecoquip.co.nz", "website_url": "https://ecoquip.co.nz/", "website_label": "ecoquip.co.nz" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

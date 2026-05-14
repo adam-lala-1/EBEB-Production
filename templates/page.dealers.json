@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "hero": { "type": "dealer-hero" },
+    "list": { "type": "dealer-list" },
+    "portal": { "type": "dealer-portal" },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Not sure which EEB is right for you?",
+        "subheading": "Our team and dealer network can help match you to the right ride. Book a chat or test ride today.",
+        "cta1_text": "Book a test ride",
+        "cta2_text": "Talk to our team"
+      }
+    }
+  },
+  "order": ["hero", "list", "portal", "cta"]
+}

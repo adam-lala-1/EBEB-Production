@@ -1,0 +1,98 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container">
+    <div class="eeb-portal-grid">
+      <div class="eeb-portal-card eeb-portal-card--soon">
+        <span class="eeb-portal-tag">Coming soon</span>
+        <h2>{{ section.settings.portal_heading }}</h2>
+        <p>{{ section.settings.portal_text }}</p>
+        <ul class="eeb-portal-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'portal_feature' %}
+              <li {{ block.shopify_attributes }}>
+                <strong>{{ block.settings.title }}</strong>
+                <span>{{ block.settings.description }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% if section.settings.notify_text != blank %}
+          <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.notify_url | default: '#become-dealer' }}">{{ section.settings.notify_text }}</a>
+        {% endif %}
+      </div>
+
+      <div class="eeb-portal-card eeb-portal-card--apply" id="become-dealer">
+        <span class="eeb-eyebrow">Partner with EEB</span>
+        <h2>{{ section.settings.apply_heading }}</h2>
+        <p>{{ section.settings.apply_text }}</p>
+        <ul class="eeb-portal-list eeb-portal-list--check">
+          {% for block in section.blocks %}
+            {% if block.type == 'apply_benefit' %}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">
+          {% if section.settings.apply_cta_text != blank %}
+            <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.apply_cta_url | default: '/pages/contact' }}">{{ section.settings.apply_cta_text }}</a>
+          {% endif %}
+          {% if section.settings.apply_cta2_text != blank %}
+            <a class="eeb-btn eeb-btn--ghost" style="border-color: var(--color-border); color: var(--color-foreground);" href="{{ section.settings.apply_cta2_url | default: '#' }}">{{ section.settings.apply_cta2_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer portal & apply",
+  "settings": [
+    { "type": "header", "content": "Dealer Portal (coming soon)" },
+    { "type": "text", "id": "portal_heading", "label": "Heading", "default": "Dealer Portal" },
+    { "type": "textarea", "id": "portal_text", "label": "Text", "default": "A dedicated B2B hub for EEB dealers — order stock, manage warranty claims, and access training and marketing assets in one place." },
+    { "type": "text", "id": "notify_text", "label": "CTA text", "default": "Notify me when it launches" },
+    { "type": "url", "id": "notify_url", "label": "CTA URL" },
+    { "type": "header", "content": "Become a dealer" },
+    { "type": "text", "id": "apply_heading", "label": "Heading", "default": "Become an EEB dealer" },
+    { "type": "textarea", "id": "apply_text", "label": "Text", "default": "Join a growing network of independent retailers and disability mobility specialists helping more Australians ride. Tell us about your store and we'll be in touch." },
+    { "type": "text", "id": "apply_cta_text", "label": "Primary CTA text", "default": "Apply to become a dealer" },
+    { "type": "url", "id": "apply_cta_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "apply_cta2_text", "label": "Secondary CTA text", "default": "Download dealer pack" },
+    { "type": "url", "id": "apply_cta2_url", "label": "Secondary CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "portal_feature",
+      "name": "Portal feature",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Bulk inventory ordering" },
+        { "type": "text", "id": "description", "label": "Description", "default": "Reorder stock and track shipments." }
+      ]
+    },
+    {
+      "type": "apply_benefit",
+      "name": "Apply benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Benefit", "default": "Trade pricing on the EEB range" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Dealer portal & apply",
+      "blocks": [
+        { "type": "portal_feature", "settings": { "title": "Bulk inventory ordering", "description": "Reorder stock and track shipments." } },
+        { "type": "portal_feature", "settings": { "title": "Marketing assets", "description": "Logos, photography and product copy." } },
+        { "type": "portal_feature", "settings": { "title": "Warranty & claims", "description": "Submit and track warranty cases." } },
+        { "type": "portal_feature", "settings": { "title": "Training & certification", "description": "Service and adaptive-fit training." } },
+        { "type": "apply_benefit", "settings": { "text": "Trade pricing on the EEB range" } },
+        { "type": "apply_benefit", "settings": { "text": "Co-marketing and lead referrals from our store locator" } },
+        { "type": "apply_benefit", "settings": { "text": "Adaptive-fit training and technical support" } },
+        { "type": "apply_benefit", "settings": { "text": "NDIS-ready documentation and processes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

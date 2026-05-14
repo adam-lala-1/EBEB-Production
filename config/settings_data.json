@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "color_navy": "#1B2A4A",
@@ -18,26 +9,7 @@
     "page_width": 1280,
     "section_spacing": 96,
     "logo_width": 140,
-    "sections": {
-      "header-eeb": {
-        "type": "header-eeb",
-        "settings": {
-          "logo": "shopify://shop_images/EBEB-logo-lowres.png",
-          "logo_width": 140,
-          "top_bar_text": "6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au",
-          "menu": "",
-          "cta_text": "Enquire & Try",
-          "cta_url": ""
-        }
-      },
-      "footer-eeb": {
-        "type": "footer-eeb",
-        "settings": {
-          "tagline": "Mobility for every body."
-        }
-      }
-    },
-    "content_for_index": []
+    "sections": {}
   },
   "presets": {
     "EEB Default": {
