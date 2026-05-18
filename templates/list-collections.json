@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "main": { "type": "list-collections" },
+    "cta":  { "type": "cta-banner" }
+  },
+  "order": ["main", "cta"]
+}

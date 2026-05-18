@@ -293,3 +293,37 @@ p { margin: 0 0 1em; }
 .eeb-faq__item summary::after { content: '+'; font-size: 1.5rem; color: var(--color-orange); line-height: 1; }
 .eeb-faq__item[open] summary::after { content: '−'; }
 .eeb-faq__item .rte { margin-top: .75rem; color: var(--color-muted); }
+
+/* Collection / browse pages */
+.eeb-collection-hero { background: var(--color-cream); padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem); }
+.eeb-collection-hero h1 { margin: .5rem 0 .75rem; }
+.eeb-collection-hero__desc { color: var(--color-muted); max-width: 48rem; font-size: 1.05rem; }
+.eeb-breadcrumb { font-size: .85rem; color: var(--color-muted); margin-bottom: 1rem; }
+.eeb-breadcrumb a { color: var(--color-muted); }
+.eeb-breadcrumb a:hover { color: var(--color-orange); }
+.eeb-breadcrumb span[aria-hidden] { margin: 0 .4rem; opacity: .5; }
+
+.eeb-collection-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
+.eeb-collection-toolbar__count { margin: 0; font-size: .9rem; color: var(--color-muted); }
+.eeb-collection-toolbar__sort { display: flex; align-items: center; gap: .5rem; }
+.eeb-collection-toolbar__sort label { font-size: .9rem; color: var(--color-muted); }
+.eeb-collection-toolbar__sort select { padding: .5rem .75rem; border: 1px solid var(--color-border); border-radius: .5rem; background: #fff; font: inherit; }
+
+.eeb-card--product .eeb-card__img, .eeb-card--collection .eeb-card__img { position: relative; }
+.eeb-card__badge { position: absolute; top: .75rem; left: .75rem; background: var(--color-orange); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .35rem .6rem; border-radius: .35rem; }
+.eeb-card__badge--muted { background: var(--color-navy); }
+.eeb-card__price { font-weight: 700; color: var(--color-foreground); margin-top: .35rem; display: flex; gap: .5rem; align-items: baseline; }
+.eeb-card__price s { font-weight: 400; color: var(--color-muted); font-size: .85em; }
+.eeb-card__price--sale { color: var(--color-orange); }
+
+.eeb-card--collection .eeb-card__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,74,0) 40%, rgba(27,42,74,.65)); display: flex; align-items: flex-end; padding: 1.25rem; opacity: 0; transition: opacity .25s; }
+.eeb-card--collection:hover .eeb-card__overlay { opacity: 1; }
+.eeb-card__cta { color: #fff; font-weight: 600; font-size: .95rem; }
+
+.eeb-pagination { margin-top: 3rem; display: flex; justify-content: center; }
+.eeb-pagination .pagination, .eeb-pagination ul { display: flex; gap: .25rem; list-style: none; padding: 0; margin: 0; }
+.eeb-pagination a, .eeb-pagination span { display: inline-flex; align-items: center; justify-content: center; min-width: 2.5rem; height: 2.5rem; padding: 0 .75rem; border-radius: .5rem; border: 1px solid var(--color-border); font-size: .9rem; }
+.eeb-pagination a:hover { border-color: var(--color-orange); color: var(--color-orange); }
+.eeb-pagination .page.current, .eeb-pagination span[aria-current] { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+
+.eeb-empty { text-align: center; padding: 3rem 1rem; display: grid; gap: 1rem; justify-items: center; }

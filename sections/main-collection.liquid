@@ -1,24 +1,105 @@
-<section class="eeb-section">
+{% paginate collection.products by section.settings.products_per_page %}
+<section class="eeb-collection-hero">
   <div class="eeb-container">
+    <nav class="eeb-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ routes.collections_url }}">Collections</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ collection.title }}</span>
+    </nav>
+    {% if section.settings.show_eyebrow and section.settings.eyebrow != blank %}
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
     <h1>{{ collection.title }}</h1>
-    {%- if collection.description != blank -%}<p style="color:var(--color-muted);max-width:640px;">{{ collection.description }}</p>{%- endif -%}
-    <div class="eeb-grid eeb-grid--3" style="margin-top:2rem;">
-      {%- for product in collection.products -%}
-        <a href="{{ product.url }}" class="eeb-card">
-          <div class="eeb-card__img">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy">{% endif %}</div>
-          <div class="eeb-card__body">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
-          </div>
-        </a>
-      {%- else -%}
-        <p>No products in this collection yet.</p>
-      {%- endfor -%}
-    </div>
-    {%- if paginate.pages > 1 -%}<div style="margin-top:2rem;">{{ paginate | default_pagination }}</div>{%- endif -%}
+    {%- if collection.description != blank -%}
+      <div class="eeb-collection-hero__desc rte">{{ collection.description }}</div>
+    {%- endif -%}
   </div>
 </section>
 
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div class="eeb-collection-toolbar">
+      <p class="eeb-collection-toolbar__count">
+        {%- if collection.products_count > 0 -%}
+          Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: collection.products.size }} of {{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}
+        {%- else -%}
+          No products yet
+        {%- endif -%}
+      </p>
+      {% if section.settings.show_sort and collection.products_count > 1 %}
+        <form class="eeb-collection-toolbar__sort" method="get">
+          <label for="SortBy">Sort by</label>
+          <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+            {%- assign sort_options = 'manual|Featured,best-selling|Best selling,title-ascending|A–Z,title-descending|Z–A,price-ascending|Price: Low to High,price-descending|Price: High to Low,created-descending|Newest' | split: ',' -%}
+            {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+            {%- for opt in sort_options -%}
+              {%- assign parts = opt | split: '|' -%}
+              <option value="{{ parts[0] }}" {% if current_sort == parts[0] %}selected{% endif %}>{{ parts[1] }}</option>
+            {%- endfor -%}
+          </select>
+        </form>
+      {% endif %}
+    </div>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="eeb-grid eeb-grid--{{ section.settings.columns | default: 3 }}">
+        {%- for product in collection.products -%}
+          <a href="{{ product.url }}" class="eeb-card eeb-card--product">
+            <div class="eeb-card__img">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;">
+              {%- endif -%}
+              {%- if product.compare_at_price > product.price -%}<span class="eeb-card__badge">Sale</span>{%- endif -%}
+              {%- unless product.available -%}<span class="eeb-card__badge eeb-card__badge--muted">Sold out</span>{%- endunless -%}
+            </div>
+            <div class="eeb-card__body">
+              {%- if product.vendor != blank and section.settings.show_vendor -%}<span class="eeb-card__eyebrow">{{ product.vendor }}</span>{%- endif -%}
+              <h3>{{ product.title }}</h3>
+              <p class="eeb-card__price">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="eeb-card__price--sale">{{ product.price | money }}</span>
+                  <s>{{ product.compare_at_price | money }}</s>
+                {%- elsif product.price_varies -%}
+                  From {{ product.price_min | money }}
+                {%- else -%}
+                  {{ product.price | money }}
+                {%- endif -%}
+              </p>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="eeb-pagination" aria-label="Pagination">
+          {{ paginate | default_pagination }}
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <div class="eeb-empty">
+        <p>No products in this collection yet. Check back soon.</p>
+        <a href="{{ routes.collections_url }}" class="eeb-btn eeb-btn--dark">Browse all collections</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{% endpaginate %}
+
 {% schema %}
-{ "name": "Collection main", "settings": [], "presets": [{ "name": "Collection main" }] }
+{
+  "name": "Collection main",
+  "settings": [
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop the range" },
+    { "type": "range", "id": "products_per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "select", "id": "columns", "label": "Columns (desktop)", "options": [
+      { "value": "2", "label": "2" }, { "value": "3", "label": "3" }, { "value": "4", "label": "4" }
+    ], "default": "3" },
+    { "type": "checkbox", "id": "show_sort", "label": "Show sort dropdown", "default": true },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show product vendor", "default": false }
+  ],
+  "presets": [{ "name": "Collection main" }]
+}
 {% endschema %}
