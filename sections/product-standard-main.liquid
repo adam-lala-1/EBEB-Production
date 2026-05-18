@@ -1,4 +1,4 @@
-<section class="eeb-section">
+<section class="eeb-section" id="EebPdp-{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="eeb-container">
     {%- if section.settings.show_breadcrumb -%}
       <nav class="eeb-breadcrumb" aria-label="Breadcrumb">
@@ -15,16 +15,24 @@
       {%- comment -%} Gallery {%- endcomment -%}
       <div class="eeb-pdp__gallery">
         <div class="eeb-pdp__main">
+          {%- if product.images.size > 1 -%}
+            <button type="button" class="eeb-pdp__nav eeb-pdp__nav--prev" data-dir="-1" aria-label="Previous image">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="eeb-pdp__nav eeb-pdp__nav--next" data-dir="1" aria-label="Next image">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          {%- endif -%}
           {%- if product.featured_image -%}
-            <img id="EebPdpMain-{{ section.id }}" src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="eager">
+            <img class="eeb-pdp__main-img" src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="eager">
           {%- else -%}
             <div class="eeb-pdp__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
           {%- endif -%}
         </div>
         {%- if product.images.size > 1 -%}
           <div class="eeb-pdp__thumbs">
-            {%- for image in product.images limit: 8 -%}
-              <button type="button" class="eeb-pdp__thumb {% if forloop.first %}is-active{% endif %}" data-full="{{ image | image_url: width: 1400 }}" aria-label="View image {{ forloop.index }}">
+            {%- for image in product.images limit: 12 -%}
+              <button type="button" class="eeb-pdp__thumb {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" data-full="{{ image | image_url: width: 1400 }}" aria-label="View image {{ forloop.index }}">
                 <img src="{{ image | image_url: width: 200 }}" alt="" loading="lazy">
               </button>
             {%- endfor -%}
@@ -113,24 +121,35 @@
 
 <script>
   (function(){
-    var root = document.currentScript.previousElementSibling;
+    var root = document.getElementById('EebPdp-{{ section.id }}');
     if(!root) return;
-    var main = root.querySelector('#EebPdpMain-{{ section.id }}');
-    root.querySelectorAll('.eeb-pdp__thumb').forEach(function(t){
-      t.addEventListener('click', function(){
-        root.querySelectorAll('.eeb-pdp__thumb').forEach(function(x){x.classList.remove('is-active');});
-        t.classList.add('is-active');
-        if(main) main.src = t.dataset.full;
-      });
+    var main = root.querySelector('.eeb-pdp__main-img');
+    var thumbs = Array.prototype.slice.call(root.querySelectorAll('.eeb-pdp__thumb'));
+    var current = 0;
+    function show(i){
+      if(!thumbs.length || !main) return;
+      current = (i + thumbs.length) % thumbs.length;
+      thumbs.forEach(function(x){ x.classList.remove('is-active'); });
+      var t = thumbs[current];
+      t.classList.add('is-active');
+      main.src = t.dataset.full;
+      try { t.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' }); } catch(e){}
+    }
+    thumbs.forEach(function(t, i){
+      t.addEventListener('click', function(){ show(i); });
     });
+    root.querySelectorAll('.eeb-pdp__nav').forEach(function(b){
+      b.addEventListener('click', function(){ show(current + parseInt(b.dataset.dir, 10)); });
+    });
+
     var qty = root.querySelector('.eeb-pdp__qty input');
     root.querySelectorAll('.eeb-pdp__qty-btn').forEach(function(b){
       b.addEventListener('click', function(){
         var step = parseInt(b.dataset.step, 10);
-        var val = Math.max(1, (parseInt(qty.value,10)||1) + step);
-        qty.value = val;
+        qty.value = Math.max(1, (parseInt(qty.value,10)||1) + step);
       });
     });
+
     var select = root.querySelector('.eeb-pdp__variant-select');
     var selected = {};
     root.querySelectorAll('.eeb-pdp__option-btn.is-active').forEach(function(b){
