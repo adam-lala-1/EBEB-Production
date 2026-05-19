@@ -23,7 +23,7 @@
     <div class="eeb-collection-toolbar">
       <p class="eeb-collection-toolbar__count">
         {%- if collection.products_count > 0 -%}
-          Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: collection.products.size }} of {{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}
+          Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: collection.products.size }} of {{ collection.products_count }} {% if collection.products_count == 1 %}product{% else %}products{% endif %}
         {%- else -%}
           No products yet
         {%- endif -%}

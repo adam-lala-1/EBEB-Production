@@ -32,7 +32,7 @@
               </div>
               <div class="eeb-card__body">
                 <h3>{{ c.title }}</h3>
-                <p>{{ c.products_count }} {{ c.products_count | pluralize: 'product', 'products' }}</p>
+                <p>{{ c.products_count }} {% if c.products_count == 1 %}product{% else %}products{% endif %}</p>
               </div>
             </a>
           {%- endif -%}
