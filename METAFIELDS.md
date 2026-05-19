@@ -37,3 +37,11 @@ For the tech showcase. Define under **Settings → Custom data → Metaobjects �
 4. The same template can be assigned to other products in admin once they have these metafields filled in
 
 The Liquid sections already reference `product.metafields.eeb.*` where relevant — no theme code changes needed when adding a new product.
+
+## Article metafields (optional, for blog)
+
+| Namespace | Key | Type | Used by section | Purpose |
+|---|---|---|---|---|
+| `author` | `bio` | Multi-line text | `article-share` | Short author bio shown below the article |
+
+Set up under **Settings → Custom data → Articles → Add definition**. If left blank, the section gracefully hides the bio block and just shows the author name.

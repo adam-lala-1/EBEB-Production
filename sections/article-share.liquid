@@ -1,0 +1,49 @@
+{%- liquid
+  assign bio = article.metafields.author.bio
+  assign share_url = shop.url | append: article.url
+  assign share_title = article.title | url_encode
+-%}
+<section class="eeb-section article-share">
+  <div class="eeb-container" style="max-width: 760px;">
+    {%- if article.author != blank -%}
+      <div class="article-share__author">
+        <div>
+          <span class="eeb-eyebrow">Written by</span>
+          <h3 class="article-share__name">{{ article.author }}</h3>
+          {%- if bio != blank -%}<p class="article-share__bio">{{ bio }}</p>{%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_share -%}
+      <div class="article-share__buttons">
+        <span class="article-share__label">Share</span>
+        <a href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ share_title }}" target="_blank" rel="noopener" class="article-share__btn">X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" class="article-share__btn">Facebook</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}" target="_blank" rel="noopener" class="article-share__btn">LinkedIn</a>
+        <button type="button" class="article-share__btn" onclick="navigator.clipboard.writeText('{{ share_url }}');this.textContent='Copied!';">Copy link</button>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .article-share { padding: 1rem 0 2.5rem; }
+  .article-share__author { padding: 1.5rem; background: var(--color-cream); border-radius: 1rem; margin-bottom: 1.5rem; }
+  .article-share__name { font-family: var(--font-heading); color: var(--color-navy); margin: .25rem 0 .5rem; font-size: 1.25rem; }
+  .article-share__bio { color: var(--color-muted); margin: 0; line-height: 1.6; }
+  .article-share__buttons { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  .article-share__label { font-weight: 600; color: var(--color-navy); margin-right: .5rem; }
+  .article-share__btn { padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); background: transparent; font-size: .85rem; color: var(--color-navy); text-decoration: none; cursor: pointer; transition: all .2s; }
+  .article-share__btn:hover { border-color: var(--color-orange); color: var(--color-orange); }
+</style>
+
+{% schema %}
+{
+  "name": "Article share & author",
+  "settings": [
+    { "type": "checkbox", "id": "show_share", "label": "Show share buttons", "default": true }
+  ],
+  "presets": [{ "name": "Article share & author" }]
+}
+{% endschema %}

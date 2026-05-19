@@ -1,21 +1,37 @@
-<article class="eeb-section">
-  <div class="eeb-container" style="max-width: 760px;">
-    <div style="text-align:center;margin-bottom:2rem;">
-      <span class="eeb-eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</span>
-      <h1>{{ article.title }}</h1>
-      {%- if article.author != blank -%}<p style="color:var(--color-muted);">By {{ article.author }}</p>{%- endif -%}
-    </div>
-    {%- if article.image -%}
-      <img src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}" style="border-radius:1rem;margin-bottom:2rem;">
+{%- liquid
+  assign max_width = section.settings.max_width | default: 760
+  assign show_inline_image = section.settings.show_inline_image
+-%}
+<article class="eeb-section article-body">
+  <div class="eeb-container" style="max-width: {{ max_width }}px;">
+    {%- if show_inline_image and article.image -%}
+      <img class="article-body__hero-img" src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}">
     {%- endif -%}
-    <div class="rte">{{ article.content }}</div>
+    <div class="rte article-body__rte">{{ article.content }}</div>
   </div>
 </article>
+
+<style>
+  .article-body { padding: 3rem 0; }
+  .article-body__hero-img { width: 100%; border-radius: 1rem; margin-bottom: 2.5rem; }
+  .article-body__rte { font-size: 1.1rem; line-height: 1.8; color: var(--color-foreground); }
+  .article-body__rte h2 { font-family: var(--font-heading); font-size: 1.85rem; color: var(--color-navy); margin: 2.75rem 0 1rem; }
+  .article-body__rte h3 { font-family: var(--font-heading); font-size: 1.4rem; color: var(--color-navy); margin: 2.25rem 0 .75rem; }
+  .article-body__rte p { margin: 0 0 1.4rem; }
+  .article-body__rte ul, .article-body__rte ol { margin: 0 0 1.5rem 1.25rem; }
+  .article-body__rte li { margin-bottom: .5rem; }
+  .article-body__rte a { color: var(--color-orange); text-decoration: underline; text-underline-offset: 3px; }
+  .article-body__rte img { border-radius: 1rem; margin: 2rem 0; max-width: 100%; height: auto; }
+  .article-body__rte blockquote { border-left: 4px solid var(--color-orange); padding: .5rem 0 .5rem 1.5rem; margin: 2.25rem 0; font-style: italic; color: var(--color-navy); font-size: 1.2rem; }
+</style>
 
 {% schema %}
 {
   "name": "Article main",
-  "settings": [],
+  "settings": [
+    { "type": "checkbox", "id": "show_inline_image", "label": "Show article image above content", "default": false, "info": "Turn off if using Article hero with image background." },
+    { "type": "range", "id": "max_width", "label": "Content max width (px)", "min": 600, "max": 1000, "step": 20, "default": 760 }
+  ],
   "presets": [{ "name": "Article main" }]
 }
 {% endschema %}

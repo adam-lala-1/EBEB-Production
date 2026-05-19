@@ -1,24 +1,40 @@
-<section class="eeb-section eeb-section--cream">
-  <div class="eeb-container" style="text-align:center;">
-    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
-    <h1>{{ blog.title }}</h1>
-    {% if section.settings.subheading != blank %}<p style="max-width:640px;margin:0 auto;color:var(--color-muted);">{{ section.settings.subheading }}</p>{% endif %}
-  </div>
-</section>
-
-<section class="eeb-section">
+{%- liquid
+  assign per_page = section.settings.per_page | default: 9
+  assign skip_first = section.settings.skip_first
+  assign current_tag = current_tags | first
+-%}
+<section class="eeb-section blog-list">
   <div class="eeb-container">
-    {%- paginate blog.articles by 9 -%}
-      <div class="eeb-grid eeb-grid--3">
+    {%- if section.settings.show_tag_filter and blog.all_tags.size > 0 -%}
+      <div class="blog-list__tags">
+        <a href="{{ blog.url }}" class="blog-list__tag {% unless current_tag %}is-active{% endunless %}">All</a>
+        {%- for tag in blog.all_tags -%}
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="blog-list__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag }}</a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- paginate blog.articles by per_page -%}
+      <div class="eeb-grid eeb-grid--3 blog-list__grid">
         {%- for article in blog.articles -%}
-          <a href="{{ article.url }}" class="eeb-card">
+          {%- if forloop.first and skip_first and paginate.current_page == 1 and current_tag == blank -%}{%- continue -%}{%- endif -%}
+          {%- assign word_count = article.content | strip_html | split: ' ' | size -%}
+          {%- assign read_time = word_count | divided_by: 200 | at_least: 1 -%}
+          <a href="{{ article.url }}" class="eeb-card blog-card">
             {%- if article.image -%}
               <div class="eeb-card__img"><img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title | escape }}" loading="lazy"></div>
             {%- endif -%}
             <div class="eeb-card__body">
-              <span class="eeb-card__eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</span>
-              <h3>{{ article.title }}</h3>
-              <p>{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
+              <span class="eeb-card__eyebrow">
+                {{ article.published_at | date: '%b %d, %Y' }}
+                {%- if article.tags.size > 0 %} · {{ article.tags.first }}{%- endif -%}
+              </span>
+              <h3 class="blog-card__title">{{ article.title }}</h3>
+              <p class="blog-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
+              <span class="blog-card__meta">
+                {%- if article.author != blank -%}{{ article.author }} · {%- endif -%}
+                {{ read_time }} min read
+              </span>
             </div>
           </a>
         {%- else -%}
@@ -26,18 +42,40 @@
         {%- endfor -%}
       </div>
       {%- if paginate.pages > 1 -%}
-        <div style="margin-top:2rem;text-align:center;">{{ paginate | default_pagination }}</div>
+        <div class="blog-list__pagination">{{ paginate | default_pagination }}</div>
       {%- endif -%}
     {%- endpaginate -%}
   </div>
 </section>
 
+<style>
+  .blog-list { padding: 2.5rem 0 4rem; }
+  .blog-list__tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; justify-content: center; }
+  .blog-list__tag { padding: .45rem 1rem; border: 1px solid var(--color-border); border-radius: 999px; font-size: .85rem; color: var(--color-navy); text-decoration: none; transition: all .2s; }
+  .blog-list__tag:hover { border-color: var(--color-orange); color: var(--color-orange); }
+  .blog-list__tag.is-active { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+  .blog-card { transition: transform .3s, box-shadow .3s; }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px -16px rgba(27,42,74,.25); }
+  .blog-card__title { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.25rem; margin: .5rem 0 .75rem; line-height: 1.25; }
+  .blog-card__excerpt { color: var(--color-muted); font-size: .95rem; line-height: 1.55; margin-bottom: 1rem; }
+  .blog-card__meta { font-size: .8rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: .04em; }
+  .blog-list__pagination { margin-top: 2.5rem; text-align: center; }
+</style>
+
 {% schema %}
 {
   "name": "Blog main",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Stories, guides and updates from the EEB community." }
+    { "type": "checkbox", "id": "show_tag_filter", "label": "Show tag filter", "default": true },
+    { "type": "checkbox", "id": "skip_first", "label": "Skip first article on page 1", "info": "Turn on if using Blog featured post above.", "default": true },
+    {
+      "type": "select", "id": "per_page", "label": "Cards per page", "default": "9",
+      "options": [
+        { "value": "6", "label": "6" },
+        { "value": "9", "label": "9" },
+        { "value": "12", "label": "12" }
+      ]
+    }
   ],
   "presets": [{ "name": "Blog main" }]
 }

@@ -1,0 +1,44 @@
+{%- liquid
+  assign heading = section.settings.heading | default: blog.title
+  assign eyebrow = section.settings.eyebrow
+  assign subheading = section.settings.subheading
+  assign bg = section.settings.background
+  assign image = section.settings.image
+-%}
+<section class="eeb-section blog-hero blog-hero--{{ bg }}" {% if image != blank and bg == 'image' %}style="background-image: linear-gradient(rgba(27,42,74,.65), rgba(27,42,74,.65)), url('{{ image | image_url: width: 2000 }}'); background-size: cover; background-position: center;"{% endif %}>
+  <div class="eeb-container" style="max-width: 860px; text-align: center;">
+    {%- if eyebrow != blank -%}<span class="eeb-eyebrow">{{ eyebrow }}</span>{%- endif -%}
+    <h1 class="blog-hero__title">{{ heading }}</h1>
+    {%- if subheading != blank -%}<p class="blog-hero__sub">{{ subheading }}</p>{%- endif -%}
+  </div>
+</section>
+
+<style>
+  .blog-hero { padding: 4.5rem 0 3rem; }
+  .blog-hero--cream { background: var(--color-cream); color: var(--color-navy); }
+  .blog-hero--navy { background: var(--color-navy); color: #fff; }
+  .blog-hero--image { color: #fff; }
+  .blog-hero__title { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3.4rem); margin: .5rem 0 1rem; line-height: 1.1; }
+  .blog-hero__sub { font-size: 1.15rem; opacity: .85; max-width: 640px; margin: 0 auto; }
+</style>
+
+{% schema %}
+{
+  "name": "Blog hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
+    { "type": "text", "id": "heading", "label": "Heading (defaults to blog title)" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Stories, guides and updates from the EEB community." },
+    { "type": "image_picker", "id": "image", "label": "Background image (optional)" },
+    {
+      "type": "select", "id": "background", "label": "Background style", "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "navy", "label": "Navy" },
+        { "value": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Blog hero" }]
+}
+{% endschema %}

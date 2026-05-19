@@ -1,6 +1,12 @@
 {
   "sections": {
-    "main": { "type": "main-blog" }
+    "hero": { "type": "blog-hero" },
+    "featured": { "type": "blog-featured" },
+    "main": {
+      "type": "main-blog",
+      "settings": { "show_tag_filter": true, "skip_first": true, "per_page": "9" }
+    },
+    "cta": { "type": "cta-banner" }
   },
-  "order": ["main"]
+  "order": ["hero", "featured", "main", "cta"]
 }
