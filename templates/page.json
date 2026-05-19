@@ -1,6 +1,22 @@
 {
   "sections": {
-    "main": { "type": "main-page" }
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "EveryBody eBikes"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "max_width": 760
+      }
+    },
+    "cta": {
+      "type": "cta-banner"
+    }
   },
-  "order": ["main"]
+  "order": ["hero", "main", "cta"]
 }
