@@ -54,6 +54,7 @@
 
     const slides = Array.from(hero.querySelectorAll('[data-eeb-hero-slide]'));
     const dots = Array.from(hero.querySelectorAll('[data-eeb-hero-dot]'));
+    const slideCount = slides.length;
     const prev = hero.querySelector('[data-eeb-hero-prev]');
     const next = hero.querySelector('[data-eeb-hero-next]');
     if (!slides.length) return;
@@ -68,7 +69,7 @@
         slide.classList.toggle('is-active', active);
         slide.hidden = !active;
       });
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', (i % slideCount) === current));
     };
 
     const restart = () => {
