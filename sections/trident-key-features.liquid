@@ -1,7 +1,7 @@
 <section class="key-features">
   <div class="key-features__grid">
     {%- for block in section.blocks -%}
-      <div {{ block.shopify_attributes }}>
+      <div class="key-features__feature" {{ block.shopify_attributes }}>
         <div class="key-features__icon">{% render 'icon', icon: block.settings.icon, size: 28 %}</div>
         <span class="key-features__label">{{ block.settings.label }}</span>
         <span class="key-features__sub">{{ block.settings.sub }}</span>

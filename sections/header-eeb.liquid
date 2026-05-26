@@ -19,20 +19,32 @@
     <nav class="eeb-header__nav" aria-label="Primary">
       {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
         {%- for link in section.settings.menu.links -%}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {%- endfor -%}
-      {%- elsif section.blocks.size > 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'link' -%}
-            <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+          {%- if link.links.size > 0 -%}
+            <div class="eeb-nav__item eeb-nav__item--has-dropdown">
+              <button class="eeb-nav__toggle" aria-expanded="false" aria-haspopup="true">
+                {{ link.title }}
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <ul class="eeb-nav__dropdown" role="list">
+                {%- for child_link in link.links -%}
+                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- else -%}
+            <div class="eeb-nav__item">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </div>
           {%- endif -%}
         {%- endfor -%}
-      {%- else -%}
-        <a href="/collections/all">E-Bikes &amp; Trikes</a>
-        <a href="/collections/accessories">Gear</a>
-        <a href="/blogs/news">Experience Hub</a>
-        <a href="/pages/contact">Service &amp; Support</a>
-        <a href="/pages/dealers">EEB Dealer</a>
+      {%- endif -%}
+
+      {%- if section.settings.dealer_label != blank -%}
+        <div class="eeb-nav__item eeb-nav__item--highlight">
+          <a href="{{ section.settings.dealer_url | default: '/pages/distributor-list' }}" style="color: {{ section.settings.dealer_color }}; font-weight: 700;">
+            {{ section.settings.dealer_label }}
+          </a>
+        </div>
       {%- endif -%}
     </nav>
 
@@ -41,57 +53,103 @@
         {% render 'icon', icon: 'cart', size: 22 %}
       </a>
       {% if section.settings.cta_text != blank %}
-        <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-header__cta eeb-btn eeb-btn--primary" style="padding: .5rem 1rem; font-size: .85rem;">{{ section.settings.cta_text }}</a>
+        <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-btn eeb-btn--primary" style="padding: .5rem 1rem; font-size: .85rem;">{{ section.settings.cta_text }}</a>
       {% endif %}
-      <button type="button" class="eeb-header__burger" aria-label="Open menu" aria-expanded="false" aria-controls="eeb-mobile-nav">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </div>
-
-  <div class="eeb-mobile-nav" id="eeb-mobile-nav" hidden>
-    {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-      {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {%- endfor -%}
-    {%- elsif section.blocks.size > 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'link' -%}
-          <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- else -%}
-      <a href="/collections/all">E-Bikes &amp; Trikes</a>
-      <a href="/collections/accessories">Gear</a>
-      <a href="/blogs/news">Experience Hub</a>
-      <a href="/pages/contact">Service &amp; Support</a>
-      <a href="/pages/dealers">EEB Dealer</a>
-    {%- endif -%}
-    {% if section.settings.cta_text != blank %}
-      <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-btn eeb-btn--primary" style="margin-top: .75rem;">{{ section.settings.cta_text }}</a>
-    {% endif %}
   </div>
 </header>
 
-<script>
-  (function(){
-    var btn = document.querySelector('.eeb-header__burger');
-    var nav = document.getElementById('eeb-mobile-nav');
-    if (!btn || !nav) return;
-    btn.addEventListener('click', function(){
-      var open = nav.hasAttribute('hidden') === false;
-      if (open) {
-        nav.setAttribute('hidden', '');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.classList.remove('is-open');
-      } else {
-        nav.removeAttribute('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        btn.classList.add('is-open');
-      }
-    });
-  })();
-</script>
+{% stylesheet %}
+.eeb-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.eeb-nav__item {
+  position: relative;
+}
+
+.eeb-nav__item > a,
+.eeb-nav__toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.eeb-nav__item--highlight > a {
+  border-left: 1px solid #e5e5e5;
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+}
+
+.eeb-nav__toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.eeb-nav__item--has-dropdown:hover .eeb-nav__toggle svg,
+.eeb-nav__item--has-dropdown.is-open .eeb-nav__toggle svg {
+  transform: rotate(180deg);
+}
+
+.eeb-nav__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  z-index: 100;
+}
+
+.eeb-nav__item--has-dropdown:hover .eeb-nav__dropdown,
+.eeb-nav__item--has-dropdown.is-open .eeb-nav__dropdown {
+  display: block;
+}
+
+.eeb-nav__dropdown li a {
+  display: block;
+  padding: 0.5rem 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.eeb-nav__dropdown li a:hover {
+  background: #f5f5f5;
+}
+{% endstylesheet %}
+
+{% javascript %}
+document.querySelectorAll('.eeb-nav__item--has-dropdown').forEach(function(item) {
+  var toggle = item.querySelector('.eeb-nav__toggle');
+  toggle.addEventListener('click', function() {
+    var isOpen = item.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', function(e) {
+    if (!item.contains(e.target)) {
+      item.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+{% endjavascript %}
 
 {% schema %}
 {
@@ -104,7 +162,11 @@
     { "type": "text", "id": "top_bar_text", "label": "Top contact bar text", "default": "6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au" },
     { "type": "link_list", "id": "menu", "label": "Navigation menu (overrides blocks)" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Find a Dealer" },
-    { "type": "url", "id": "cta_url", "label": "CTA button URL" }
+    { "type": "url", "id": "cta_url", "label": "CTA button URL" },
+    { "type": "header", "content": "Dealer nav item" },
+    { "type": "text", "id": "dealer_label", "label": "Dealer link label", "default": "Dealer" },
+    { "type": "url", "id": "dealer_url", "label": "Dealer link URL" },
+    { "type": "color", "id": "dealer_color", "label": "Dealer link colour", "default": "#FF6B00" }
   ],
   "blocks": [
     {

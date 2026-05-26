@@ -1,4 +1,4 @@
-<section class="eeb-hero" data-eeb-hero>
+<section class="eeb-hero" data-eeb-hero style="--eeb-transition-speed: {{ section.settings.transition_speed }}ms">
   <div class="eeb-container">
     {%- if section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
@@ -11,26 +11,6 @@
               {% if block.settings.cta_text != blank %}
                 <a class="eeb-btn eeb-btn--primary" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
               {% endif %}
-              <div class="eeb-hero__controls">
-                <button class="eeb-hero__nav" type="button" aria-label="Previous slide" data-eeb-hero-prev>
-                  <span aria-hidden="true">&#8592;</span>
-                </button>
-                <div class="eeb-hero__dots" aria-label="Hero slides">
-                  {%- for dot_block in section.blocks -%}
-                    <button class="eeb-hero__dot{% if forloop.index0 == 0 %} is-active{% endif %}" type="button" aria-label="Go to slide {{ forloop.index }}" data-eeb-hero-dot data-index="{{ forloop.index0 }}"></button>
-                  {%- endfor -%}
-                </div>
-                <button class="eeb-hero__nav" type="button" aria-label="Next slide" data-eeb-hero-next>
-                  <span aria-hidden="true">&#8594;</span>
-                </button>
-              </div>
-              {%- if section.settings.show_badges -%}
-                <div class="eeb-hero__badges">
-                  {% if section.settings.badge_1 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_1 }}</span>{% endif %}
-                  {% if section.settings.badge_2 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_2 }}</span>{% endif %}
-                  {% if section.settings.badge_3 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_3 }}</span>{% endif %}
-                </div>
-              {%- endif -%}
             </div>
             <div class="eeb-hero__media">
               {% if block.settings.image != blank %}
@@ -42,6 +22,28 @@
           </div>
         </div>
       {%- endfor -%}
+
+      <div class="eeb-hero__controls">
+        <button class="eeb-hero__nav" type="button" aria-label="Previous slide" data-eeb-hero-prev>
+          <span aria-hidden="true">&#8592;</span>
+        </button>
+        <div class="eeb-hero__dots" aria-label="Hero slides">
+          {%- for block in section.blocks -%}
+            <button class="eeb-hero__dot{% if forloop.index0 == 0 %} is-active{% endif %}" type="button" aria-label="Go to slide {{ forloop.index }}" data-eeb-hero-dot data-index="{{ forloop.index0 }}"></button>
+          {%- endfor -%}
+        </div>
+        <button class="eeb-hero__nav" type="button" aria-label="Next slide" data-eeb-hero-next>
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+
+      {%- if section.settings.show_badges -%}
+        <div class="eeb-hero__badges">
+          {% if section.settings.badge_1 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_1 }}</span>{% endif %}
+          {% if section.settings.badge_2 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_2 }}</span>{% endif %}
+          {% if section.settings.badge_3 != blank %}<span class="eeb-hero__badge">{{ section.settings.badge_3 }}</span>{% endif %}
+        </div>
+      {%- endif -%}
     {%- endif -%}
   </div>
 </section>
@@ -54,10 +56,11 @@
 
     const slides = Array.from(hero.querySelectorAll('[data-eeb-hero-slide]'));
     const dots = Array.from(hero.querySelectorAll('[data-eeb-hero-dot]'));
-    const slideCount = slides.length;
     const prev = hero.querySelector('[data-eeb-hero-prev]');
     const next = hero.querySelector('[data-eeb-hero-next]');
     if (!slides.length) return;
+
+    const autoplaySpeed = {{ section.settings.autoplay_speed }};
 
     let current = 0;
     let timer;
@@ -65,21 +68,21 @@
     const render = (index) => {
       current = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => {
-        const active = i === current;
-        slide.classList.toggle('is-active', active);
-        slide.hidden = !active;
+        slide.hidden = i !== current;
+        slide.classList.toggle('is-active', i === current);
       });
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', (i % slideCount) === current));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
     };
 
     const restart = () => {
       window.clearInterval(timer);
-      timer = window.setInterval(() => render(current + 1), 6000);
+      timer = window.setInterval(() => render(current + 1), autoplaySpeed);
     };
 
     prev && prev.addEventListener('click', () => { render(current - 1); restart(); });
     next && next.addEventListener('click', () => { render(current + 1); restart(); });
     dots.forEach((dot, i) => dot.addEventListener('click', () => { render(i); restart(); }));
+
     render(0);
     restart();
   })();
@@ -92,7 +95,9 @@
     { "type": "checkbox", "id": "show_badges", "label": "Show trust badges", "default": true },
     { "type": "text", "id": "badge_1", "label": "Badge 1", "default": "🏅 QLD Social Enterprise" },
     { "type": "text", "id": "badge_2", "label": "Badge 2", "default": "🚴 Free Test Rides" },
-    { "type": "text", "id": "badge_3", "label": "Badge 3", "default": "♿ NDIS Provider" }
+    { "type": "text", "id": "badge_3", "label": "Badge 3", "default": "♿ NDIS Provider" },
+    { "type": "range", "id": "autoplay_speed", "label": "Autoplay speed (ms)", "min": 2000, "max": 9500, "step": 500, "default": 5000 },
+    { "type": "range", "id": "transition_speed", "label": "Transition speed (ms)", "min": 200, "max": 1500, "step": 100, "default": 500 }
   ],
   "blocks": [
     {

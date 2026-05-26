@@ -44,6 +44,84 @@
   </div>
 </section>
 
+{% stylesheet %}
+.eeb-portal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .eeb-portal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eeb-portal-card {
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.eeb-portal-card--soon {
+  background-color: #1B3A6B;
+  color: #ffffff;
+}
+
+.eeb-portal-card--soon h2,
+.eeb-portal-card--soon p,
+.eeb-portal-card--soon li {
+  color: #ffffff;
+}
+
+.eeb-portal-card--apply {
+  background-color: #ffffff;
+  color: var(--color-foreground);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.eeb-portal-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.eeb-portal-list {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.eeb-portal-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.eeb-portal-list--check li::before {
+  content: '✓';
+  color: var(--color-primary, #FF6B00);
+  font-weight: 700;
+  margin-right: 0.5rem;
+  display: inline;
+}
+
+.eeb-portal-list--check li {
+  flex-direction: row;
+  align-items: flex-start;
+}
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "Dealer portal & apply",
@@ -88,9 +166,7 @@
         { "type": "portal_feature", "settings": { "title": "Warranty & claims", "description": "Submit and track warranty cases." } },
         { "type": "portal_feature", "settings": { "title": "Training & certification", "description": "Service and adaptive-fit training." } },
         { "type": "apply_benefit", "settings": { "text": "Trade pricing on the EEB range" } },
-        { "type": "apply_benefit", "settings": { "text": "Co-marketing and lead referrals from our store locator" } },
-        { "type": "apply_benefit", "settings": { "text": "Adaptive-fit training and technical support" } },
-        { "type": "apply_benefit", "settings": { "text": "NDIS-ready documentation and processes" } }
+        { "type": "apply_benefit", "settings": { "text": "Co-marketing and lead referrals from our store locator" } }
       ]
     }
   ]

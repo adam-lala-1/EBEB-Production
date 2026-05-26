@@ -1,11 +1,1 @@
-{
-  "sections": {
-    "main":       { "type": "main-product" },
-    "highlights": { "type": "product-feature-highlights" },
-    "specs":      { "type": "product-spec-table" },
-    "faq":        { "type": "product-faq" },
-    "related":    { "type": "product-related" },
-    "cta":        { "type": "cta-banner" }
-  },
-  "order": ["main", "highlights", "specs", "faq", "related", "cta"]
-}
+{"sections":{"main":{"type":"main-product","settings":{}},"cta":{"type":"cta-banner","settings":{}}},"order":["main","cta"]}

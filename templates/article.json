@@ -1,10 +1,1 @@
-{
-  "sections": {
-    "hero": { "type": "article-hero", "settings": { "show_image": true } },
-    "main": { "type": "main-article", "settings": { "show_inline_image": false, "max_width": 760 } },
-    "share": { "type": "article-share", "settings": { "show_share": true } },
-    "related": { "type": "article-related", "settings": { "heading": "Keep reading", "limit": 3 } },
-    "cta": { "type": "cta-banner" }
-  },
-  "order": ["hero", "main", "share", "related", "cta"]
-}
+{"sections":{"main":{"type":"main-article","settings":{}}},"order":["main"]}
