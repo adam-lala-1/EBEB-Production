@@ -1,0 +1,147 @@
+{%- assign terms = search.terms | default: '' -%}
+{%- assign per_page = section.settings.products_per_page | default: 24 -%}
+
+<section class="eeb-collection-hero">
+  <div class="eeb-container">
+    <nav class="eeb-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Search</span>
+    </nav>
+    {% if section.settings.eyebrow != blank %}
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    <h1>
+      {%- if search.performed -%}
+        Results for &ldquo;{{ terms | escape }}&rdquo;
+      {%- else -%}
+        Search
+      {%- endif -%}
+    </h1>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="eeb-search-form" style="display:flex;gap:.5rem;max-width:36rem;margin-top:1rem;">
+      <input type="hidden" name="type" value="product,page,article">
+      <input type="hidden" name="options[prefix]" value="last">
+      <label for="SearchInput" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+      <input id="SearchInput" type="search" name="q" value="{{ terms | escape }}" placeholder="Search bikes, gear, articles…" autocomplete="off" style="flex:1;padding:.75rem 1rem;border:1px solid var(--color-border);border-radius:.5rem;font:inherit;">
+      <button type="submit" class="eeb-btn eeb-btn--dark">Search</button>
+    </form>
+  </div>
+</section>
+
+{%- if search.performed -%}
+  {% paginate search.results by per_page %}
+    {%- assign product_results = search.results | where: 'object_type', 'product' -%}
+    {%- assign page_results = search.results | where: 'object_type', 'page' -%}
+    {%- assign article_results = search.results | where: 'object_type', 'article' -%}
+    {%- assign content_count = page_results.size | plus: article_results.size -%}
+
+    <section class="eeb-section">
+      <div class="eeb-container">
+        <p class="eeb-collection-toolbar__count" style="margin-bottom:2rem;">
+          {{ product_results.size }} {% if product_results.size == 1 %}product{% else %}products{% endif %}
+          {%- if section.settings.show_content_results and content_count > 0 -%}
+            &nbsp;·&nbsp;{{ content_count }} {% if content_count == 1 %}page or article{% else %}pages &amp; articles{% endif %}
+          {%- endif -%}
+        </p>
+
+        {# ============ PRODUCTS (always first) ============ #}
+        <div class="eeb-search-group" style="margin-bottom:3.5rem;">
+          <h2 style="font-family:var(--font-heading);font-size:1.75rem;margin:0 0 1.5rem;color:var(--color-navy);">Products</h2>
+
+          {%- if product_results.size > 0 -%}
+            <div class="eeb-grid eeb-grid--{{ section.settings.columns | default: 3 }}">
+              {%- for product in product_results -%}
+                <a href="{{ product.url }}" class="eeb-card eeb-card--product">
+                  <div class="eeb-card__img">
+                    {%- if product.featured_image -%}
+                      <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;">
+                    {%- endif -%}
+                    {%- if product.compare_at_price > product.price -%}<span class="eeb-card__badge">Sale</span>{%- endif -%}
+                    {%- unless product.available -%}<span class="eeb-card__badge eeb-card__badge--muted">Sold out</span>{%- endunless -%}
+                  </div>
+                  <div class="eeb-card__body">
+                    {%- if product.vendor != blank and section.settings.show_vendor -%}<span class="eeb-card__eyebrow">{{ product.vendor }}</span>{%- endif -%}
+                    <h3>{{ product.title }}</h3>
+                    <p class="eeb-card__price">
+                      {%- if product.compare_at_price > product.price -%}
+                        <span class="eeb-card__price--sale">{{ product.price | money }}</span>
+                        <s>{{ product.compare_at_price | money }}</s>
+                      {%- elsif product.price_varies -%}
+                        From {{ product.price_min | money }}
+                      {%- else -%}
+                        {{ product.price | money }}
+                      {%- endif -%}
+                    </p>
+                  </div>
+                </a>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="eeb-empty">
+              <p>No products match &ldquo;{{ terms | escape }}&rdquo;.</p>
+              <a href="{{ routes.collections_url }}" class="eeb-btn eeb-btn--dark">Browse all collections</a>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {# ============ PAGES & ARTICLES ============ #}
+        {%- if section.settings.show_content_results and content_count > 0 -%}
+          <div class="eeb-search-group">
+            <h2 style="font-family:var(--font-heading);font-size:1.75rem;margin:0 0 1.5rem;color:var(--color-navy);">Pages &amp; articles</h2>
+            <ul class="eeb-search-list" style="list-style:none;padding:0;margin:0;display:grid;gap:1rem;">
+              {%- for item in page_results -%}
+                <li style="padding:1.25rem 1.5rem;background:#fff;border:1px solid var(--color-border);border-radius:.75rem;">
+                  <span class="eeb-eyebrow" style="margin-bottom:.35rem;">Page</span>
+                  <h3 style="margin:.15rem 0 .35rem;font-family:var(--font-heading);font-size:1.25rem;"><a href="{{ item.url }}" style="color:var(--color-navy);text-decoration:none;">{{ item.title }}</a></h3>
+                  {%- if item.content != blank -%}
+                    <p style="color:var(--color-muted);margin:0;">{{ item.content | strip_html | truncatewords: 28 }}</p>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+              {%- for item in article_results -%}
+                <li style="padding:1.25rem 1.5rem;background:#fff;border:1px solid var(--color-border);border-radius:.75rem;">
+                  <span class="eeb-eyebrow" style="margin-bottom:.35rem;">Article</span>
+                  <h3 style="margin:.15rem 0 .35rem;font-family:var(--font-heading);font-size:1.25rem;"><a href="{{ item.url }}" style="color:var(--color-navy);text-decoration:none;">{{ item.title }}</a></h3>
+                  {%- if item.excerpt_or_content != blank -%}
+                    <p style="color:var(--color-muted);margin:0;">{{ item.excerpt_or_content | strip_html | truncatewords: 28 }}</p>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="eeb-pagination" aria-label="Pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {%- endif -%}
+      </div>
+    </section>
+  {% endpaginate %}
+{%- else -%}
+  <section class="eeb-section">
+    <div class="eeb-container">
+      <div class="eeb-empty">
+        <p>Type a search above to find bikes, gear, and articles.</p>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Search results",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Search" },
+    { "type": "range", "id": "products_per_page", "label": "Results per page", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "select", "id": "columns", "label": "Product columns (desktop)", "options": [
+      { "value": "2", "label": "2" }, { "value": "3", "label": "3" }, { "value": "4", "label": "4" }
+    ], "default": "3" },
+    { "type": "checkbox", "id": "show_content_results", "label": "Show pages & articles", "default": true },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show product vendor", "default": false }
+  ],
+  "presets": [{ "name": "Search results" }]
+}
+{% endschema %}
