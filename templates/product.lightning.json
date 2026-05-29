@@ -1,1 +1,329 @@
-{"sections":{"gallery":{"type":"trident-gallery","blocks":{"g1":{"type":"image","settings":{"image_url":""}},"g2":{"type":"image","settings":{"image_url":""}},"g3":{"type":"image","settings":{"image_url":""}}},"block_order":["g1","g2","g3"],"settings":{}},"overview":{"type":"trident-overview","settings":{"title_fallback":"Lightning","subtitle":"Folding Electric Bike","price_fallback":"$2,495","cta_text":"Enquire Now"}},"key_features":{"type":"trident-key-features","blocks":{"f1":{"type":"feature","settings":{"icon":"battery","label":"50km Range","sub":"36V 10.4Ah"}},"f2":{"type":"feature","settings":{"icon":"gauge","label":"25km/h Assist","sub":"Pedal assist"}},"f3":{"type":"feature","settings":{"icon":"shield","label":"Folds in 10s","sub":"Compact storage"}},"f4":{"type":"feature","settings":{"icon":"users","label":"120kg Max Load","sub":"Rider + bag"}},"f5":{"type":"feature","settings":{"icon":"weight","label":"22kg Weight","sub":"Lightweight alloy"}}},"block_order":["f1","f2","f3","f4","f5"],"settings":{}},"feature_1":{"type":"trident-feature-block","blocks":{"b1":{"type":"bullet","settings":{"text":"Folds in under 10 seconds with three latches"}},"b2":{"type":"bullet","settings":{"text":"Fits in most car boots and under desks"}},"b3":{"type":"bullet","settings":{"text":"Train and bus friendly when folded"}}},"block_order":["b1","b2","b3"],"settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","image_position":"left","heading":"Fold & Go","body":"The Lightning collapses in ten seconds, folding small enough to roll onto trains, slide under desks, or tuck into the boot. Multi-modal commuting, solved."}},"feature_2":{"type":"trident-feature-block","blocks":{"b1":{"type":"bullet","settings":{"text":"250W rear hub motor with five assist levels"}},"b2":{"type":"bullet","settings":{"text":"36V 10.4Ah battery, integrated and removable"}},"b3":{"type":"bullet","settings":{"text":"Integrated front and rear LED lights"}}},"block_order":["b1","b2","b3"],"settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","image_position":"right","heading":"City-Smart Power","body":"Built for the daily commute: enough range to cover 50km of stop-start city riding, lights wired in, and a torque-friendly drivetrain that flattens hills."}},"feature_3":{"type":"trident-feature-block","blocks":{"b1":{"type":"bullet","settings":{"text":"Apartment-friendly — store it in a cupboard"}},"b2":{"type":"bullet","settings":{"text":"Lightweight aluminium frame, easy to carry"}},"b3":{"type":"bullet","settings":{"text":"Quick-release seat and handlebars"}}},"block_order":["b1","b2","b3"],"settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","image_position":"left","heading":"Freedom on Demand","body":"No bike room? No problem. At 22kg and folded down to a tidy footprint, the Lightning lives wherever you do — apartment, office, caravan, or boot."}},"tech":{"type":"trident-tech-showcase","blocks":{"tech_1":{"type":"tech","settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","title":"One-Pull Fold","description":"Three latches, ten seconds"}},"tech_2":{"type":"tech","settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","title":"Integrated Lighting","description":"Front and rear LEDs"}},"tech_3":{"type":"tech","settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","title":"USB Charging Port","description":"Power your phone on the go"}},"tech_4":{"type":"tech","settings":{"image":"shopify://shop_images/Screenshot2024-01-09120138.png","title":"Puncture-Resistant Tyres","description":"Built for city streets"}}},"block_order":["tech_1","tech_2","tech_3","tech_4"],"settings":{"eyebrow":"The Tech","heading":"Engineered for the urban commute","subheading":""}},"ride_story":{"type":"trident-ride-story","settings":{"eyebrow":"My Ride Story","image":"shopify://shop_images/Screenshot2024-01-09120138.png","quote":"I fold it, jump on the train, ride the last mile to work. Parking? Done. Traffic? Skipped. The Lightning gave me my mornings back.","attribution":"City Commuter","bike":"Lightning Folding eBike"}},"engineered":{"type":"engineered-by-eeb","settings":{"brand":"EveryBody eBikes","body":"Every Lightning is designed for real riders, assembled in Australia, and backed by a team that believes mobility is a right — not a privilege."}},"specs":{"type":"trident-specs","blocks":{"group_mech":{"type":"group","settings":{"title":"Mechanical","rows":"Frame | 6061 Alloy, folding\nTyres | 20\" × 1.95\" puncture-resistant\nBrakes | Mechanical disc (160mm)\nGears | Shimano 7-speed"}},"group_elec":{"type":"group","settings":{"title":"Electrical","rows":"Motor | 250W rear hub\nBattery | 36V 10.4Ah removable\nRange | Up to 50km pedal-assist\nDisplay | LCD with USB charging"}},"group_weight":{"type":"group","settings":{"title":"Weight","rows":"Bike weight | 22kg\nMax rider | 120kg\nFolded size | 82 × 42 × 70cm\nUnfolded | 150 × 58 × 110cm"}}},"block_order":["group_mech","group_elec","group_weight"],"settings":{"heading":"Full Specifications"}},"cta":{"type":"cta-banner","settings":{"heading":"Find your nearest dealer","subheading":"Test ride a Lightning at one of our partner stores around Australia.","cta1_text":"Book a Test Ride","cta1_url":"","cta2_text":"Find a Dealer","cta2_url":""}}},"order":["gallery","overview","key_features","feature_1","feature_2","feature_3","tech","ride_story","engineered","specs","cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gallery": {
+      "type": "trident-gallery",
+      "blocks": {
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {}
+    },
+    "overview": {
+      "type": "trident-overview",
+      "settings": {
+        "title_fallback": "Lightning",
+        "subtitle": "Folding Electric Bike",
+        "price_fallback": "$2,495",
+        "cta_text": "Enquire Now"
+      }
+    },
+    "key_features": {
+      "type": "trident-key-features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "50km Range",
+            "sub": "36V 10.4Ah"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "25km/h Assist",
+            "sub": "Pedal assist"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "Folds in 10s",
+            "sub": "Compact storage"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "120kg Max Load",
+            "sub": "Rider + bag"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "22kg Weight",
+            "sub": "Lightweight alloy"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {}
+    },
+    "feature_1": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Folds in under 10 seconds with three latches"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Fits in most car boots and under desks"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Train and bus friendly when folded"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6172_everybody_ebikes_lightning_short_stature_df44b5b8-c46f-4fdd-b799-a1910b89b676.jpg",
+        "image_position": "left",
+        "heading": "Fold & Go",
+        "body": "The Lightning collapses in ten seconds, folding small enough to roll onto trains, slide under desks, or tuck into the boot. Multi-modal commuting, solved."
+      }
+    },
+    "feature_2": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "250W rear hub motor with five assist levels"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "36V 10.4Ah battery, integrated and removable"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Integrated front and rear LED lights"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/29.png",
+        "image_position": "right",
+        "heading": "City-Smart Power",
+        "body": "Built for the daily commute: enough range to cover 50km of stop-start city riding, lights wired in, and a torque-friendly drivetrain that flattens hills."
+      }
+    },
+    "feature_3": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Apartment-friendly — store it in a cupboard"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Lightweight aluminium frame, easy to carry"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Quick-release seat and handlebars"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6203_everybody_ebikes_lightning_short_stature.jpg",
+        "image_position": "left",
+        "heading": "Freedom on Demand",
+        "body": "No bike room? No problem. At 22kg and folded down to a tidy footprint, the Lightning lives wherever you do — apartment, office, caravan, or boot."
+      }
+    },
+    "tech": {
+      "type": "trident-tech-showcase",
+      "blocks": {
+        "tech_1": {
+          "type": "tech",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2024-01-09120138.png",
+            "title": "One-Pull Fold",
+            "description": "Three latches, ten seconds"
+          }
+        },
+        "tech_2": {
+          "type": "tech",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2024-01-09120138.png",
+            "title": "Integrated Lighting",
+            "description": "Front and rear LEDs"
+          }
+        },
+        "tech_3": {
+          "type": "tech",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2024-01-09120138.png",
+            "title": "USB Charging Port",
+            "description": "Power your phone on the go"
+          }
+        },
+        "tech_4": {
+          "type": "tech",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2024-01-09120138.png",
+            "title": "Puncture-Resistant Tyres",
+            "description": "Built for city streets"
+          }
+        }
+      },
+      "block_order": [
+        "tech_1",
+        "tech_2",
+        "tech_3",
+        "tech_4"
+      ],
+      "settings": {
+        "eyebrow": "The Tech",
+        "heading": "Engineered for the urban commute",
+        "subheading": ""
+      }
+    },
+    "ride_story": {
+      "type": "trident-ride-story",
+      "settings": {
+        "eyebrow": "My Ride Story",
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6505_everybody_ebikes_lightning_short_stature.jpg",
+        "quote": "World-first Australian-designed and owned ebike designed for short-statured riders",
+        "attribution": "Everybody E-Bikes",
+        "bike": "Lightning Folding eBike"
+      }
+    },
+    "engineered": {
+      "type": "engineered-by-eeb",
+      "settings": {
+        "brand": "EveryBody eBikes",
+        "body": "Every Lightning is designed for real riders, assembled in Australia, and backed by a team that believes mobility is a right — not a privilege."
+      }
+    },
+    "specs": {
+      "type": "trident-specs",
+      "blocks": {
+        "group_mech": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Frame | 6061 Alloy, folding\nTyres | 20\" × 1.95\" puncture-resistant\nBrakes | Mechanical disc (160mm)\nGears | Shimano 7-speed"
+          }
+        },
+        "group_elec": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor | 250W rear hub\nBattery | 36V 10.4Ah removable\nRange | Up to 50km pedal-assist\nDisplay | LCD with USB charging"
+          }
+        },
+        "group_weight": {
+          "type": "group",
+          "settings": {
+            "title": "Weight",
+            "rows": "Bike weight | 22kg\nMax rider | 120kg\nFolded size | 82 × 42 × 70cm\nUnfolded | 150 × 58 × 110cm"
+          }
+        }
+      },
+      "block_order": [
+        "group_mech",
+        "group_elec",
+        "group_weight"
+      ],
+      "settings": {
+        "heading": "Full Specifications"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Find your nearest dealer",
+        "subheading": "Test ride a Lightning at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
+    }
+  },
+  "order": [
+    "gallery",
+    "overview",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "tech",
+    "ride_story",
+    "engineered",
+    "specs",
+    "cta"
+  ]
+}
