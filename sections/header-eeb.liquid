@@ -16,7 +16,11 @@
       {% endif %}
     </a>
 
-    <nav class="eeb-header__nav" aria-label="Primary">
+    <button class="eeb-header__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="eeb-mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="eeb-header__nav" id="eeb-mobile-nav" aria-label="Primary">
       {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
         {%- for link in section.settings.menu.links -%}
           {%- if link.links.size > 0 -%}
@@ -53,7 +57,7 @@
         {% render 'icon', icon: 'cart', size: 22 %}
       </a>
       {% if section.settings.cta_text != blank %}
-        <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-btn eeb-btn--primary" style="padding: .5rem 1rem; font-size: .85rem;">{{ section.settings.cta_text }}</a>
+        <a href="{{ section.settings.cta_url | default: '#' }}" class="eeb-btn eeb-btn--primary eeb-header__cta" style="padding: .5rem 1rem; font-size: .85rem;">{{ section.settings.cta_text }}</a>
       {% endif %}
     </div>
   </div>
@@ -133,6 +137,75 @@
 .eeb-nav__dropdown li a:hover {
   background: #f5f5f5;
 }
+
+.eeb-header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  color: inherit;
+}
+.eeb-header__burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.eeb-header__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.eeb-header__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.eeb-header__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .eeb-header__burger { display: flex; }
+  .eeb-header__cta { display: none; }
+
+  .eeb-header__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 0.5rem 0;
+    z-index: 99;
+  }
+  .eeb-header__nav.is-open { display: flex; }
+
+  .eeb-nav__item { width: 100%; }
+  .eeb-nav__item > a,
+  .eeb-nav__toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.85rem 1.25rem;
+  }
+  .eeb-nav__item--highlight > a {
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+    margin-left: 0;
+    padding-left: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .eeb-nav__dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0.25rem 1rem;
+  }
+}
 {% endstylesheet %}
 
 {% javascript %}
@@ -149,6 +222,17 @@ document.querySelectorAll('.eeb-nav__item--has-dropdown').forEach(function(item)
     }
   });
 });
+
+(function() {
+  var burger = document.querySelector('.eeb-header__burger');
+  var nav = document.getElementById('eeb-mobile-nav');
+  if (!burger || !nav) return;
+  burger.addEventListener('click', function() {
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+})();
 {% endjavascript %}
 
 {% schema %}
