@@ -263,7 +263,7 @@ p { margin: 0 0 1em; }
   object-fit: contain;
 }
 /* Collection / browse pages */
-.eeb-collection-hero { background: var(--color-cream); padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem); }
+.eeb-collection-hero { background: var(--color-cream); padding: clamp(1.25rem, 2.5vw, 2rem) 0 clamp(1rem, 2vw, 1.5rem); }
 .eeb-collection-hero h1 { margin: .5rem 0 .75rem; }
 .eeb-collection-hero__desc { color: var(--color-muted); max-width: 48rem; font-size: 1.05rem; }
 .eeb-breadcrumb { font-size: .85rem; color: var(--color-muted); margin-bottom: 1rem; }
