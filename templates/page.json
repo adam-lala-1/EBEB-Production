@@ -9,26 +9,12 @@
  */
 {
   "sections": {
-    "dealer_hero_PedfzN": {
-      "type": "dealer-hero",
-      "name": "Dealer hero",
-      "settings": {
-        "eyebrow": "WORKSHOP",
-        "heading": "E- Bicycle & Trike Servicing",
-        "subheading": "Our service team has extensive experience with Bafang, Bosch, CYC and Shimano electrical systems. We have facilities to suit both standard mechanical bikes and full size electric trikes. Bring your charger and key if you need electrical diagnosis.",
-        "cta1_text": "℡ 0409 126 669 (opt 2)",
-        "cta1_url": "",
-        "cta2_text": "",
-        "cta2_url": ""
-      }
-    },
     "main": {
       "type": "main-page",
       "settings": {}
     }
   },
   "order": [
-    "dealer_hero_PedfzN",
     "main"
   ]
 }
