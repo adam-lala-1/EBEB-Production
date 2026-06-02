@@ -11,7 +11,6 @@
   "sections": {
     "dealer_hero_PedfzN": {
       "type": "dealer-hero",
-      "disabled": true,
       "name": "Dealer hero",
       "settings": {
         "eyebrow": "WORKSHOP",
