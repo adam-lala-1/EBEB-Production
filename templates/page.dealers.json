@@ -27,13 +27,13 @@
         "dealer_dxqkPN": {
           "type": "dealer",
           "settings": {
-            "region": "QLD, Australia",
-            "name": "Dealer name",
-            "address": "",
-            "phone": "",
-            "email": "",
-            "website_url": "",
-            "website_label": ""
+            "region": "Cairns, QLD",
+            "name": "Carins Electric Bikes",
+            "address": "46 McLeod Street, Cairns QLD 4870",
+            "phone": "(07) 4051 4470",
+            "email": "admin@cairns-electric-bikes.com.au",
+            "website_url": "https://cairns-electric-bikes.com.au",
+            "website_label": "cairns-electric-bikes.com.au"
           }
         },
         "dealer_DEQyjn": {
