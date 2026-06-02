@@ -13,22 +13,72 @@
       "type": "dealer-hero",
       "name": "Dealer hero",
       "settings": {
-        "eyebrow": "bicycle servicing",
-        "heading": "Find an EEB dealer near you",
-        "subheading": "While our main showroom is in Brisbane, our trusted partners across Australia and New Zealand share our mission to make e-bikes and trikes inclusive and accessible for every body. Visit a partner location to test ride and purchase locally.",
-        "cta1_text": "Browse dealers",
+        "eyebrow": "WORKSHOP",
+        "heading": "E- Bicycle & Trike Servicing",
+        "subheading": "Our service team has extensive experience with Bafang, Bosch, CYC and Shimano electrical systems. We have facilities to suit both standard mechanical bikes and full size electric trikes. Bring your charger and key if you need electrical diagnosis.",
+        "cta1_text": "℡ 0409 126 669 (opt 2)",
         "cta1_url": "",
-        "cta2_text": "Become a dealer",
+        "cta2_text": "",
         "cta2_url": ""
       }
     },
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "ride_categories_6XFJ68": {
+      "type": "ride-categories",
+      "blocks": {
+        "category_GDMgUN": {
+          "type": "category",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445",
+            "eyebrow": "Let us ride together",
+            "title": "Urban & Families",
+            "description": "Carry the kids, the groceries, or the dog. Cargo e-bikes built for the whole family.",
+            "features": "Child-safe seating options; Up to 200kg payload; Weather canopies available",
+            "link": ""
+          }
+        },
+        "category_nWh9gU": {
+          "type": "category",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000018005.jpg?v=1766459780&width=1445",
+            "eyebrow": "Keep riding",
+            "title": "Seniors",
+            "description": "Step-through frames, comfortable seats, and electric assist that makes every ride effortless.",
+            "features": "Step-through easy mount; Electric assist up to 25km/h; Stable trike options",
+            "link": ""
+          }
+        },
+        "category_ADFDyR": {
+          "type": "category",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2044.jpg?v=1762408443&width=1445",
+            "eyebrow": "Adaptive freedom",
+            "title": "Inclusive Mobility",
+            "description": "NDIS approved e-trikes and adaptive solutions designed for every ability.",
+            "features": "NDIS approved options; Custom adaptive setups; Harnesses & supports",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_GDMgUN",
+        "category_nWh9gU",
+        "category_ADFDyR"
+      ],
+      "name": "Ride categories",
+      "settings": {
+        "eyebrow": "What's involved",
+        "heading": "Ride categories",
+        "subheading": ""
+      }
     }
   },
   "order": [
     "dealer_hero_PedfzN",
-    "main"
+    "main",
+    "ride_categories_6XFJ68"
   ]
 }
