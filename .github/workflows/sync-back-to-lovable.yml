@@ -1,0 +1,105 @@
+name: Sync Shopify content back to Lovable
+
+# Install this file in REPO B at: .github/workflows/sync-back-to-lovable.yml
+#
+# Purpose: When Shopify commits merchant edits (theme editor content / settings)
+# to Repo B, mirror ONLY those files back to Repo A's shopify-theme/ folder
+# as a pull request, so Lovable stays in sync without overwriting code.
+#
+# Files mirrored back:
+#   - templates/*.json
+#   - config/settings_data.json
+#
+# Required secrets in Repo B (Settings → Secrets and variables → Actions):
+#   SOURCE_REPO          e.g. your-org/eeb-lovable      (owner/name, no git@ / .git)
+#   SOURCE_REPO_BRANCH   e.g. main                       (optional, default main)
+#   SOURCE_REPO_PAT      Fine-grained PAT with access to Repo A and
+#                        permissions: Contents (read & write), Pull requests (read & write)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'templates/**.json'
+      - 'config/settings_data.json'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-back-to-lovable
+  cancel-in-progress: false
+
+jobs:
+  reverse-sync:
+    runs-on: ubuntu-latest
+    # Don't round-trip Lovable's own pushes back to Lovable.
+    if: github.event.head_commit.author.email != 'sync-bot@users.noreply.github.com'
+    steps:
+      - name: Check out theme repo (Repo B)
+        uses: actions/checkout@v4
+        with:
+          path: theme
+
+      - name: Verify required secrets
+        run: |
+          if [ -z "${{ secrets.SOURCE_REPO }}" ]; then
+            echo "::error::Missing secret SOURCE_REPO (e.g. your-org/eeb-lovable)"; exit 1; fi
+          if [ -z "${{ secrets.SOURCE_REPO_PAT }}" ]; then
+            echo "::error::Missing secret SOURCE_REPO_PAT"; exit 1; fi
+
+      - name: Check out source repo (Repo A)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO }}
+          token: ${{ secrets.SOURCE_REPO_PAT }}
+          ref: ${{ secrets.SOURCE_REPO_BRANCH || 'main' }}
+          path: source
+
+      - name: Mirror merchant-owned files into shopify-theme/
+        id: mirror
+        run: |
+          set -e
+          DEST="$GITHUB_WORKSPACE/source/shopify-theme"
+          SRC="$GITHUB_WORKSPACE/theme"
+
+          mkdir -p "$DEST/templates" "$DEST/config"
+
+          # Copy templates/*.json (preserve full subtree under templates/)
+          if compgen -G "$SRC/templates/*.json" > /dev/null; then
+            rsync -a --include='*/' --include='*.json' --exclude='*' \
+              "$SRC/templates/" "$DEST/templates/"
+          fi
+
+          # Copy config/settings_data.json if it exists.
+          if [ -f "$SRC/config/settings_data.json" ]; then
+            cp "$SRC/config/settings_data.json" "$DEST/config/settings_data.json"
+          fi
+
+          cd "$GITHUB_WORKSPACE/source"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No content changes to sync."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open pull request in Repo A
+        if: steps.mirror.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          path: source
+          token: ${{ secrets.SOURCE_REPO_PAT }}
+          branch: shopify-sync/${{ github.sha }}
+          base: ${{ secrets.SOURCE_REPO_BRANCH || 'main' }}
+          commit-message: "Shopify content sync @ ${{ github.sha }}"
+          title: "Shopify content sync @ ${{ github.sha }}"
+          author: "shopify-sync-bot <shopify-sync-bot@users.noreply.github.com>"
+          committer: "shopify-sync-bot <shopify-sync-bot@users.noreply.github.com>"
+          body: |
+            Automated mirror of merchant edits from the Shopify-connected theme repo.
+
+            Scope (Shopify-owned paths only):
+            - `shopify-theme/templates/*.json`
+            - `shopify-theme/config/settings_data.json`
+
+            Source commit: ${{ github.sha }}
+          delete-branch: true
