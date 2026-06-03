@@ -1,1 +1,92 @@
-{"current":{"color_navy":"#1B2A4A","color_orange":"#E86C2C","color_cream":"#F8F5F0","color_foreground":"#1B2A4A","color_muted":"#6B7280","color_border":"#E5E7EB","page_width":1280,"section_spacing":96,"logo_width":140,"sections":{"header-eeb":{"type":"header-eeb","settings":{"logo":"shopify://shop_images/EBEB-logo-lowres.png","logo_width":140,"top_bar_text":"6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au","menu":"new-alt-menu","cta_text":"Enquire & Try","cta_url":""}},"footer-eeb":{"type":"footer-eeb","blocks":{"shop":{"type":"link_column","settings":{"heading":"Shop","menu":"footer"}},"support":{"type":"link_column","settings":{"heading":"Support","menu":"footer"}}},"block_order":["shop","support"],"settings":{"tagline":"Mobility for every body.","facebook_url":"https://www.facebook.com/everybodyebikes","instagram_url":"https://www.instagram.com/everybodyebikes/","youtube_url":"https://www.youtube.com/channel/UCsqSx7pl0iDQXKySXqxzoBw","address_line":"6/51 Prospect Rd, Gaythorne QLD 4051","address_map_url":"https://www.google.com/maps/search/?api=1&query=6%2F51+Prospect+Rd+Gaythorne+QLD+4051","phone_display":"0409 126 669","phone_tel":"+61409126669","email":"hello@everybodyebikes.com.au","hours_heading":"Opening Hours","hours_mon":"9AM – 5PM","hours_tue":"9AM – 5PM","hours_wed":"9AM – 5PM","hours_thu":"9AM – 5PM","hours_fri":"9AM – 5PM","hours_sat":"10AM – 4PM","hours_sun":"Closed"}}},"content_for_index":[]},"presets":{"EEB Default":{"color_navy":"#1B2A4A","color_orange":"#E86C2C","color_cream":"#F8F5F0"}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_navy": "#1B2A4A",
+    "color_orange": "#E86C2C",
+    "color_cream": "#F8F5F0",
+    "color_foreground": "#1B2A4A",
+    "color_muted": "#6B7280",
+    "color_border": "#E5E7EB",
+    "page_width": 1280,
+    "section_spacing": 96,
+    "logo_width": 140,
+    "sections": {
+      "header-eeb": {
+        "type": "header-eeb",
+        "settings": {
+          "logo": "shopify://shop_images/EBEB-logo-lowres.png",
+          "logo_width": 140,
+          "top_bar_text": "6/51 Prospect Rd, Gaythorne QLD 4051 • 0409 126 669 • hello@everybodyebikes.com.au",
+          "menu": "new-alt-menu",
+          "cta_text": "Enquire & Try",
+          "cta_url": "",
+          "dealer_label": "Dealers",
+          "dealer_url": "",
+          "dealer_color": "#ff6b00"
+        }
+      },
+      "footer-eeb": {
+        "type": "footer-eeb",
+        "blocks": {
+          "shop": {
+            "type": "link_column",
+            "settings": {
+              "heading": "Shop",
+              "menu": "footer",
+              "custom_links": ""
+            }
+          },
+          "support": {
+            "type": "link_column",
+            "settings": {
+              "heading": "Support",
+              "menu": "footer",
+              "custom_links": ""
+            }
+          }
+        },
+        "block_order": [
+          "shop",
+          "support"
+        ],
+        "settings": {
+          "logo_width": 160,
+          "tagline": "Mobility for every body.",
+          "facebook_url": "https://www.facebook.com/everybodyebikes",
+          "instagram_url": "https://www.instagram.com/everybodyebikes/",
+          "youtube_url": "https://www.youtube.com/channel/UCsqSx7pl0iDQXKySXqxzoBw",
+          "address_line": "6/51 Prospect Rd, Gaythorne QLD 4051",
+          "address_map_url": "https://www.google.com/maps/search/?api=1&query=6%2F51+Prospect+Rd+Gaythorne+QLD+4051",
+          "phone_display": "0409 126 669",
+          "phone_tel": "+61409126669",
+          "email": "hello@everybodyebikes.com.au",
+          "hours_heading": "Opening Hours",
+          "hours_mon": "9AM – 5PM",
+          "hours_tue": "9AM – 5PM",
+          "hours_wed": "9AM – 5PM",
+          "hours_thu": "9AM – 5PM",
+          "hours_fri": "9AM – 5PM",
+          "hours_sat": "10AM – 4PM",
+          "hours_sun": "Closed",
+          "bottom_text": ""
+        }
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {
+    "EEB Default": {
+      "color_navy": "#1B2A4A",
+      "color_orange": "#E86C2C",
+      "color_cream": "#F8F5F0"
+    }
+  }
+}
