@@ -242,7 +242,7 @@
         "tech_1": {
           "type": "tech",
           "settings": {
-            "image": "shopify://shop_images/IMG_1997.jpg",
+            "image": "shopify://shop_images/Trojan_Family_2605_2060.png",
             "title": "Fat Tyre Traction",
             "description": "Grips every surface"
           }
@@ -250,7 +250,7 @@
         "tech_2": {
           "type": "tech",
           "settings": {
-            "image": "shopify://shop_images/IMG_1997.jpg",
+            "image": "shopify://shop_images/Trojan_Family_2605_2056.jpg",
             "title": "Cargo-Ready Frame",
             "description": "Rack and basket mounts"
           }
@@ -258,7 +258,7 @@
         "tech_3": {
           "type": "tech",
           "settings": {
-            "image": "shopify://shop_images/IMG_1997.jpg",
+            "image": "shopify://shop_images/Trojan_Family_2605_2060_d85059f2-7f00-44e9-87c1-cae9d21af56d.png",
             "title": "Lockable Battery",
             "description": "Secure and removable"
           }
@@ -266,7 +266,7 @@
         "tech_4": {
           "type": "tech",
           "settings": {
-            "image": "shopify://shop_images/IMG_1997.jpg",
+            "image": "shopify://shop_images/Screenshot2024-01-10152048_70428620-3bce-4c58-bdb8-1519b855f135.png",
             "title": "Reverse Gear",
             "description": "Manoeuvre with ease"
           }
@@ -292,7 +292,7 @@
         "quote": "We take the Trojan everywhere — the beach, the markets, the school run. The kids love the basket, and I love that I'm out riding again.",
         "attribution": "Active Family",
         "bike": "Trojan Fat Tyre Trike",
-        "article": "",
+        "article": "articles/elderly-electric-tricycle-complete-guide",
         "link_label": "Read the full story",
         "link": ""
       }
