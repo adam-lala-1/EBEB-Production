@@ -288,10 +288,9 @@
       "type": "trident-ride-story",
       "settings": {
         "eyebrow": "My Ride Story",
-        "image": "shopify://shop_images/IMG_1997.jpg",
-        "quote": "We take the Trojan everywhere — the beach, the markets, the school run. The kids love the basket, and I love that I'm out riding again.",
-        "attribution": "Active Family",
-        "bike": "Trojan Fat Tyre Trike",
+        "quote": "",
+        "attribution": "A guide",
+        "bike": "To electric bikes",
         "article": "articles/elderly-electric-tricycle-complete-guide",
         "link_label": "Read the full story",
         "link": ""
