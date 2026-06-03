@@ -201,7 +201,8 @@
         "b1": {
           "type": "manual_card",
           "settings": {
-            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
+            "image": "shopify://shop_images/20260303_113041.jpg",
+            "image_url": "",
             "title": "Trident",
             "subtitle": "Semi-Recumbent Electric Trike",
             "price": "from $4,995",
@@ -226,6 +227,7 @@
         "b3": {
           "type": "manual_card",
           "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-013A6172_everybody_ebikes_lightning_short_stature.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445",
             "title": "Lightning",
             "subtitle": "Folding Electric Bike",
@@ -247,7 +249,7 @@
         "subtext": "Engineered in-house, built for every body. Our signature range of electric trikes and bikes — inclusively engineered and available through our dealer network.",
         "cta_text": "Become a Dealer",
         "cta_url": "",
-        "collection": "eeb-collection"
+        "collection": ""
       }
     },
     "hero_alt": {
@@ -267,10 +269,10 @@
         "s1": {
           "type": "story",
           "settings": {
-            "article": "",
-            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445",
-            "name": "The School Run Family",
-            "quote": "Our morning school run went from stressful chaos to the best part of our day.",
+            "article": "articles/electric-tricycle-cost-complete-guide",
+            "image_url": "",
+            "name": "",
+            "quote": "",
             "bike": "Trojan Family Trike"
           }
         },
