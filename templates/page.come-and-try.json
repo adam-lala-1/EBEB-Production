@@ -238,6 +238,18 @@
         "heading": "A relaxed, hands-on try",
         "subheading": ""
       }
+    },
+    "hero_alt_MqgiAg": {
+      "type": "hero-alt",
+      "name": "Hero (Alt)",
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "",
+        "heading": "Engineered for the long haul.",
+        "body": "",
+        "cta_text": "",
+        "cta_url": ""
+      }
     }
   },
   "order": [
@@ -245,6 +257,7 @@
     "events",
     "rsvp",
     "faq",
-    "come_try_expect_39qrha"
+    "come_try_expect_39qrha",
+    "hero_alt_MqgiAg"
   ]
 }
