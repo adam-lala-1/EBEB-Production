@@ -1,0 +1,57 @@
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div style="max-width: 640px; margin: 0 auto 2.5rem; text-align:center;">
+      {% if section.settings.eyebrow != blank %}
+        <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p style="color: var(--color-muted);">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="eeb-grid eeb-grid--3">
+      {% for block in section.blocks %}
+        <div {{ block.shopify_attributes }} style="border:1px solid var(--color-border, #e5e1d8);border-radius:14px;padding:2rem;text-align:center;background:#fff;">
+          {% if block.settings.icon != blank %}
+            <div style="font-size:2rem;margin-bottom:.75rem;">{{ block.settings.icon }}</div>
+          {% endif %}
+          <h3 style="margin:0 0 .5rem;">{{ block.settings.title }}</h3>
+          <p style="color:var(--color-muted);font-size:.95rem;margin:0;">{{ block.settings.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Come & Try — What to expect",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What to expect" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A relaxed, hands-on try" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🚲" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Try the full range" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Come & Try — What to expect",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "🚲", "title": "Try the full range", "body": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride." } },
+        { "type": "item", "settings": { "icon": "🤝", "title": "One-on-one fitting", "body": "Our team will match you to a bike, adjust the fit, and walk through controls." } },
+        { "type": "item", "settings": { "icon": "☕", "title": "No pressure, no cost", "body": "Free to attend. No sales pitch — just bikes, riders, and good coffee." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

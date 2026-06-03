@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -72,7 +63,20 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
+    },
+    "expect": {
+      "type": "come-try-expect",
+      "blocks": {
+        "x1": { "type": "item", "settings": { "icon": "🚲", "title": "Try the full range", "body": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride." } },
+        "x2": { "type": "item", "settings": { "icon": "🤝", "title": "One-on-one fitting", "body": "Our team will match you to a bike, adjust the fit, and walk through controls." } },
+        "x3": { "type": "item", "settings": { "icon": "☕", "title": "No pressure, no cost", "body": "Free to attend. No sales pitch — just bikes, riders, and good coffee." } }
+      },
+      "block_order": ["x1", "x2", "x3"],
+      "settings": {
+        "eyebrow": "What to expect",
+        "heading": "A relaxed, hands-on try"
+      }
     }
   },
-  "order": ["hero", "events", "rsvp", "faq"]
+  "order": ["hero", "expect", "events", "rsvp", "faq"]
 }

@@ -1,5 +1,6 @@
+{%- assign fallback_image = 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1600' -%}
 <section class="eeb-section eeb-section--cream" style="padding: clamp(1.5rem, 3vw, 3rem) 0;">
-  <div class="eeb-container" style="max-width: 880px; text-align: center;">
+  <div class="eeb-container" style="max-width: 1100px; text-align: center;">
     {% if section.settings.eyebrow != blank %}
       <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
     {% endif %}
@@ -7,12 +8,19 @@
     {% if section.settings.subheading != blank %}
       <p style="font-size: 1.1rem; color: var(--color-muted); max-width: 640px; margin: 1rem auto 2rem;">{{ section.settings.subheading }}</p>
     {% endif %}
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
       {% if section.settings.cta1_text != blank %}
         <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta1_url | default: '#events' }}">{{ section.settings.cta1_text }}</a>
       {% endif %}
       {% if section.settings.cta2_text != blank %}
         <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.cta2_url | default: '#rsvp' }}">{{ section.settings.cta2_text }}</a>
+      {% endif %}
+    </div>
+    <div style="border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(27,42,74,.35);">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 1600 }}" alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}" loading="eager" style="display:block;width:100%;height:auto;">
+      {% else %}
+        <img src="{{ fallback_image }}" alt="Riders enjoying a Come and Try event" loading="eager" style="display:block;width:100%;height:auto;">
       {% endif %}
     </div>
   </div>
@@ -22,6 +30,7 @@
 {
   "name": "Come & Try hero",
   "settings": [
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Events & Test Rides" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Come and Try" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "The best way to find the right ebike or trike is to ride one. Join us at an upcoming event for a free test ride, fitting, and a chat with our team — no obligation, just two wheels (or three) and an open road." },
