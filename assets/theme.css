@@ -337,7 +337,7 @@ p { margin: 0 0 1em; }
 .eeb-pdp__trust li { padding-left: 1.5rem; position: relative; font-size: .9rem; color: var(--color-muted); }
 .eeb-pdp__trust li::before { content: '✓'; position: absolute; left: 0; color: var(--color-orange); font-weight: 700; }
 /* Product details (full description) */
-.eeb-pdp__details { max-width: 880px; margin: 3rem auto 0; padding-top: 2.5rem; border-top: 1px solid var(--color-border); }
+.eeb-pdp__details { max-width: 1100px; margin: 3rem auto 0; padding-top: 2.5rem; border-top: 1px solid var(--color-border); }
 .eeb-pdp__details-heading { font-size: 1.75rem; margin: 0 0 1rem; color: var(--color-navy); }
 .eeb-pdp__details-body { color: var(--color-foreground); line-height: 1.7; font-size: 1rem; }
 .eeb-pdp__details-body > * + * { margin-top: 1rem; }
@@ -349,3 +349,19 @@ p { margin: 0 0 1em; }
 .eeb-pdp__details.is-clampable .eeb-pdp__details-body[style*="max-height: none"]::after { display: none; }
 .eeb-pdp__details-toggle { margin-top: 1rem; background: none; border: 0; padding: .5rem 0; color: var(--color-orange); font-weight: 600; cursor: pointer; font-size: .95rem; }
 .eeb-pdp__details-toggle:hover { text-decoration: underline; }
+
+/* Tables inside product description (spec tables, etc.) */
+.eeb-pdp__details-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .95rem; table-layout: auto; }
+.eeb-pdp__details-body table th,
+.eeb-pdp__details-body table td { padding: .85rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-border); }
+.eeb-pdp__details-body table th { background: var(--color-cream, #f7f3ec); color: var(--color-navy); font-weight: 600; width: 30%; white-space: nowrap; }
+.eeb-pdp__details-body table tr:nth-child(even) td { background: rgba(0,0,0,.02); }
+.eeb-pdp__details-body table td:first-child { color: var(--color-navy); font-weight: 600; width: 30%; }
+.eeb-pdp__details-body table td:first-child + td { width: auto; }
+.eeb-pdp__details-body table p { margin: 0; }
+@media (max-width: 640px) {
+  .eeb-pdp__details-body table th,
+  .eeb-pdp__details-body table td { padding: .65rem .5rem; font-size: .9rem; }
+  .eeb-pdp__details-body table td:first-child,
+  .eeb-pdp__details-body table th { width: 40%; white-space: normal; }
+}
