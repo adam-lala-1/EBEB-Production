@@ -7,20 +7,38 @@
 
     <div class="eeb-grid eeb-grid--3">
       {%- for block in section.blocks -%}
-        <article class="eeb-card" {{ block.shopify_attributes }}>
+        {%- assign b_art = block.settings.article -%}
+        {%- assign b_img = block.settings.image -%}
+        {%- assign b_img_url = block.settings.image_url -%}
+        {%- assign b_quote = block.settings.quote -%}
+        {%- assign b_name = block.settings.name -%}
+        {%- if b_art != blank -%}
+          {%- if b_img == blank and b_img_url == blank and b_art.image != blank -%}
+            {%- assign b_img = b_art.image -%}
+          {%- endif -%}
+          {%- if b_quote == blank -%}
+            {%- assign b_quote = b_art.excerpt_or_content | strip_html | truncatewords: 25 -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- capture card_inner -%}
           <div class="eeb-card__img">
-            {% if block.settings.image != blank %}
-              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
-            {% elsif block.settings.image_url != blank %}
-              <img src="{{ block.settings.image_url }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+            {% if b_img != blank %}
+              <img src="{{ b_img | image_url: width: 800 }}" alt="{{ b_name | escape }}" loading="lazy">
+            {% elsif b_img_url != blank %}
+              <img src="{{ b_img_url }}" alt="{{ b_name | escape }}" loading="lazy">
             {% endif %}
           </div>
           <div class="eeb-card__body">
-            <h3>{{ block.settings.name }}</h3>
-            <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ block.settings.quote }}"</p>
+            <h3>{{ b_name }}</h3>
+            <p style="font-style:italic;color:var(--color-foreground);margin-bottom:.5rem;">"{{ b_quote }}"</p>
             <p style="font-size:.85rem;color:var(--color-orange);font-weight:600;">{{ block.settings.bike }}</p>
           </div>
-        </article>
+        {%- endcapture -%}
+        {%- if b_art != blank -%}
+          <a class="eeb-card" href="{{ b_art.url }}" {{ block.shopify_attributes }} style="text-decoration:none;color:inherit;display:block;">{{ card_inner }}</a>
+        {%- else -%}
+          <article class="eeb-card" {{ block.shopify_attributes }}>{{ card_inner }}</article>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
@@ -38,6 +56,7 @@
       "type": "story",
       "name": "Story",
       "settings": [
+        { "type": "article", "id": "article", "label": "Blog story (optional)", "info": "If set, the card links to this article and pulls image / quote when those fields are left blank." },
         { "type": "image_picker", "id": "image", "label": "Photo" },
         { "type": "text", "id": "image_url", "label": "Or image URL (fallback)" },
         { "type": "text", "id": "name", "label": "Rider name", "default": "Rider name" },
