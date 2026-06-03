@@ -135,7 +135,7 @@
         "b3"
       ],
       "settings": {
-        "image": "shopify://shop_images/TrojanFamily_2059_1.jpg",
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6091_everybody_ebikes_lightning_short_stature_b51b4d55-21a4-44e7-a960-d8ef4213b713.jpg",
         "image_position": "left",
         "heading": "Built for Shorter Riders",
         "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
@@ -169,6 +169,7 @@
         "b3"
       ],
       "settings": {
+        "image": "shopify://shop_images/29.png",
         "image_position": "right",
         "heading": "Adjustable, Tailored Fit",
         "body": "Every contact point is tuned for smaller frames. Reach, saddle and crank length all dial in independently so the bike fits you — not the other way around."
@@ -202,6 +203,7 @@
         "b3"
       ],
       "settings": {
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6291_everybody_ebikes_lightning_short_stature_a12f708a-16a8-47f9-b4e6-5b9a80124079.jpg",
         "image_position": "left",
         "heading": "City-Ready Power",
         "body": "Quiet, confident assistance for everyday riding. Hydraulic disc brakes, puncture-resistant Kenda tyres and an LCD display with walking-start mode make the Lightning effortless on suburban streets and bike paths."
@@ -255,10 +257,10 @@
       "type": "trident-ride-story",
       "settings": {
         "eyebrow": "My Ride Story",
-        "quote": "I'd given up on ever finding an ebike that actually fit me. The Lightning is the first bike I've been able to stop on with both feet flat — it's given me my independence back.",
-        "attribution": "Short-Statured Rider",
-        "bike": "Lightning Electric Bike",
-        "article": "",
+        "quote": "",
+        "attribution": "A world first",
+        "bike": "Designed here in Australia",
+        "article": "articles/e-bikes-for-short-statured-riders-comfort-and-fit-made-easy",
         "link_label": "Read the full story",
         "link": ""
       }
