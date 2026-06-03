@@ -1,0 +1,90 @@
+<section class="eeb-section" id="rsvp">
+  <div class="eeb-container" style="max-width: 720px;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p style="color:var(--color-muted);">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    {%- form 'contact', id: 'come-and-try-rsvp', class: 'eeb-form' -%}
+      {%- if form.posted_successfully? -%}
+        <div style="background:var(--color-cream);border:1px solid var(--color-border);border-radius:12px;padding:2rem;text-align:center;">
+          <h3 style="margin:0 0 .5rem;">Thanks — see you there!</h3>
+          <p style="color:var(--color-muted);margin:0;">We'll email you a confirmation with directions and what to bring.</p>
+        </div>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <div style="background:#fee;border:1px solid #fcc;border-radius:8px;padding:1rem;margin-bottom:1rem;color:#900;">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <div style="display:grid;gap:1.25rem;background:#fff;border:1px solid var(--color-border);border-radius:12px;padding:2rem;">
+        <div style="display:grid;gap:1.25rem;grid-template-columns:1fr 1fr;">
+          <label style="display:block;">
+            <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Full name</span>
+            <input type="text" name="contact[name]" required maxlength="100" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
+          </label>
+          <label style="display:block;">
+            <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Phone</span>
+            <input type="tel" name="contact[phone]" maxlength="30" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
+          </label>
+        </div>
+        <label style="display:block;">
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Email</span>
+          <input type="email" name="contact[email]" required maxlength="255" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
+        </label>
+        <label style="display:block;">
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Which event?</span>
+          <select name="contact[event]" required style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;background:#fff;">
+            <option value="">Select an event…</option>
+            {% for block in section.blocks %}
+              <option value="{{ block.settings.option | escape }}">{{ block.settings.option }}</option>
+            {% endfor %}
+            <option value="Not sure yet">Not sure yet — keep me posted</option>
+          </select>
+        </label>
+        <label style="display:block;">
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Anything we should know?</span>
+          <textarea name="contact[body]" rows="4" maxlength="1000" placeholder="Bringing a group, accessibility needs, bikes you'd like to try…" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;"></textarea>
+        </label>
+        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.submit_text | default: 'Send RSVP' }}</button>
+      </div>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Come & Try RSVP form",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "RSVP" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Let us know you're coming" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Drop us a few details and we'll have a bike ready for you on the day." },
+    { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send RSVP" }
+  ],
+  "blocks": [
+    {
+      "type": "event_option",
+      "name": "Event option",
+      "settings": [
+        { "type": "text", "id": "option", "label": "Option label", "default": "Sat 15 Feb 2026 — Gaythorne Open Workshop" }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Come & Try RSVP form",
+      "blocks": [
+        { "type": "event_option", "settings": { "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop" } },
+        { "type": "event_option", "settings": { "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo" } },
+        { "type": "event_option", "settings": { "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day" } },
+        { "type": "event_option", "settings": { "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

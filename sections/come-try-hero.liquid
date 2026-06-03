@@ -1,0 +1,35 @@
+<section class="eeb-section eeb-section--cream" style="padding: clamp(1.5rem, 3vw, 3rem) 0;">
+  <div class="eeb-container" style="max-width: 880px; text-align: center;">
+    {% if section.settings.eyebrow != blank %}
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    <h1>{{ section.settings.heading }}</h1>
+    {% if section.settings.subheading != blank %}
+      <p style="font-size: 1.1rem; color: var(--color-muted); max-width: 640px; margin: 1rem auto 2rem;">{{ section.settings.subheading }}</p>
+    {% endif %}
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      {% if section.settings.cta1_text != blank %}
+        <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta1_url | default: '#events' }}">{{ section.settings.cta1_text }}</a>
+      {% endif %}
+      {% if section.settings.cta2_text != blank %}
+        <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.cta2_url | default: '#rsvp' }}">{{ section.settings.cta2_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Come & Try hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Events & Test Rides" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Come and Try" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "The best way to find the right ebike or trike is to ride one. Join us at an upcoming event for a free test ride, fitting, and a chat with our team — no obligation, just two wheels (or three) and an open road." },
+    { "type": "text", "id": "cta1_text", "label": "Primary CTA text", "default": "See upcoming events" },
+    { "type": "url", "id": "cta1_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta2_text", "label": "Secondary CTA text", "default": "RSVP" },
+    { "type": "url", "id": "cta2_url", "label": "Secondary CTA URL" }
+  ],
+  "presets": [{ "name": "Come & Try hero" }]
+}
+{% endschema %}

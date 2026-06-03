@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "hero": {
+      "type": "come-try-hero",
+      "settings": {
+        "eyebrow": "Events & Test Rides",
+        "heading": "Come and Try",
+        "subheading": "The best way to find the right ebike or trike is to ride one. Join us at an upcoming event for a free test ride, fitting, and a chat with our team — no obligation, just two wheels (or three) and an open road.",
+        "cta1_text": "See upcoming events",
+        "cta1_url": "#events",
+        "cta2_text": "RSVP",
+        "cta2_url": "#rsvp"
+      }
+    },
+    "events": {
+      "type": "come-try-events",
+      "blocks": {
+        "e1": { "type": "event", "settings": { "tag": "Brisbane", "capacity": "Drop-in", "title": "Gaythorne Open Workshop", "date": "Sat 15 Feb 2026", "time": "10:00 AM – 2:00 PM", "location": "EEB HQ — 6/51 Prospect Rd, Gaythorne QLD", "description": "Test ride the full EEB range, including Trident trikes and cargo bikes. Coffee and fittings on us.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e2": { "type": "event", "settings": { "tag": "Brisbane", "capacity": "RSVP required", "title": "South Bank Riverwalk Demo", "date": "Sun 8 Mar 2026", "time": "9:30 AM – 12:30 PM", "location": "South Bank Parklands, Brisbane", "description": "Try a Trident or commuter ebike along the river. Great for first-time riders and families.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e3": { "type": "event", "settings": { "tag": "Sunshine Coast", "capacity": "Bookings essential", "title": "Sunshine Coast Adaptive Day", "date": "Sat 12 Apr 2026", "time": "10:00 AM – 3:00 PM", "location": "Cotton Tree, Maroochydore", "description": "Adaptive and accessible cycling demo. OTs and support workers welcome — bring a client to trial a fit.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e4": { "type": "event", "settings": { "tag": "Gold Coast", "capacity": "Drop-in", "title": "Gold Coast Trike Try-Out", "date": "Sat 3 May 2026", "time": "11:00 AM – 2:00 PM", "location": "Burleigh Heads Foreshore", "description": "Trident trikes on the boardwalk — stable, electric, and easy to ride for any ability.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } }
+      },
+      "block_order": ["e1", "e2", "e3", "e4"],
+      "settings": {
+        "eyebrow": "Upcoming",
+        "heading": "Try-out events near you",
+        "subheading": ""
+      }
+    },
+    "rsvp": {
+      "type": "come-try-form",
+      "blocks": {
+        "o1": { "type": "event_option", "settings": { "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop" } },
+        "o2": { "type": "event_option", "settings": { "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo" } },
+        "o3": { "type": "event_option", "settings": { "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day" } },
+        "o4": { "type": "event_option", "settings": { "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out" } }
+      },
+      "block_order": ["o1", "o2", "o3", "o4"],
+      "settings": {
+        "eyebrow": "RSVP",
+        "heading": "Let us know you're coming",
+        "subheading": "Drop us a few details and we'll have a bike ready for you on the day.",
+        "submit_text": "Send RSVP"
+      }
+    },
+    "faq": {
+      "type": "come-try-faq",
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "Do I need to book?", "answer": "Some events are drop-in, others require an RSVP — check the event details. If you're bringing more than 4 people or a client group, please RSVP either way so we can prepare bikes." } },
+        "f2": { "type": "faq", "settings": { "question": "What should I bring?", "answer": "Flat shoes, a water bottle, and your ID for test rides. Helmets are provided. If you'd like to test with your own gear (e.g. orthotic, support cushion), feel free to bring it." } },
+        "f3": { "type": "faq", "settings": { "question": "Is it suitable for first-time or nervous riders?", "answer": "Absolutely. Our team specialises in supporting riders of every ability. Trikes are very stable and a great place to start." } },
+        "f4": { "type": "faq", "settings": { "question": "Can I bring a support worker or OT?", "answer": "Yes — we love working with OTs, physios, and support workers. Let us know in your RSVP and we'll allocate extra time." } },
+        "f5": { "type": "faq", "settings": { "question": "What if it rains?", "answer": "We'll email RSVPs the day before with weather updates. Most events run rain or shine under cover." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "settings": {
+        "location_eyebrow": "Find us",
+        "location_heading": "Our Gaythorne home base",
+        "location_body": "Most Brisbane events run from our workshop. Plenty of street parking, accessible entry, and an undercover ride zone for wet days.",
+        "address": "6/51 Prospect Rd, Gaythorne QLD 4051",
+        "hours": "Mon–Fri 9AM–5PM, Sat 10AM–4PM",
+        "map_url": "https://www.google.com/maps/search/?api=1&query=6%2F51+Prospect+Rd+Gaythorne+QLD+4051",
+        "faq_eyebrow": "FAQ",
+        "faq_heading": "Good to know"
+      }
+    }
+  },
+  "order": ["hero", "events", "rsvp", "faq"]
+}

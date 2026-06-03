@@ -1,0 +1,82 @@
+<section class="eeb-section eeb-section--cream">
+  <div class="eeb-container" style="display:grid;gap:3rem;grid-template-columns:1fr;">
+    <style>
+      @media (min-width: 900px) { .eeb-cta-grid { grid-template-columns: 1fr 1fr !important; } }
+      .eeb-faq summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:var(--color-foreground); }
+      .eeb-faq summary::-webkit-details-marker { display:none; }
+      .eeb-faq[open] summary svg { transform: rotate(180deg); }
+      .eeb-faq summary svg { transition: transform .2s; }
+    </style>
+    <div class="eeb-cta-grid" style="display:grid;gap:3rem;grid-template-columns:1fr;">
+      <div>
+        {% if section.settings.location_eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.location_eyebrow }}</span>{% endif %}
+        <h2>{{ section.settings.location_heading }}</h2>
+        <p style="color:var(--color-muted);">{{ section.settings.location_body }}</p>
+        <ul style="list-style:none;padding:0;margin:1rem 0;color:var(--color-muted);">
+          {% if section.settings.address != blank %}<li style="margin-bottom:.5rem;">📍 {{ section.settings.address }}</li>{% endif %}
+          {% if section.settings.hours != blank %}<li>🕘 {{ section.settings.hours }}</li>{% endif %}
+        </ul>
+        {% if section.settings.map_url != blank %}
+          <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.map_url }}" target="_blank" rel="noopener">Open in Google Maps</a>
+        {% endif %}
+      </div>
+
+      <div>
+        {% if section.settings.faq_eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.faq_eyebrow }}</span>{% endif %}
+        <h2>{{ section.settings.faq_heading }}</h2>
+        <div style="display:grid;gap:.75rem;">
+          {% for block in section.blocks %}
+            <details class="eeb-faq" {{ block.shopify_attributes }} style="background:#fff;border:1px solid var(--color-border);border-radius:8px;padding:1.25rem;">
+              <summary>
+                {{ block.settings.question }}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p style="margin:.75rem 0 0;color:var(--color-muted);font-size:.95rem;">{{ block.settings.answer }}</p>
+            </details>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Come & Try FAQ",
+  "settings": [
+    { "type": "header", "content": "Location" },
+    { "type": "text", "id": "location_eyebrow", "label": "Eyebrow", "default": "Find us" },
+    { "type": "text", "id": "location_heading", "label": "Heading", "default": "Our Gaythorne home base" },
+    { "type": "textarea", "id": "location_body", "label": "Body", "default": "Most Brisbane events run from our workshop. Plenty of street parking, accessible entry, and an undercover ride zone for wet days." },
+    { "type": "text", "id": "address", "label": "Address", "default": "6/51 Prospect Rd, Gaythorne QLD 4051" },
+    { "type": "text", "id": "hours", "label": "Hours", "default": "Mon–Fri 9AM–5PM, Sat 10AM–4PM" },
+    { "type": "url", "id": "map_url", "label": "Google Maps URL" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Good to know" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Do I need to book?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Some events are drop-in, others require an RSVP — check the event details." }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "Come & Try FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Do I need to book?", "answer": "Some events are drop-in, others require an RSVP — check the event details. If you're bringing more than 4 people or a client group, please RSVP either way so we can prepare bikes." } },
+        { "type": "faq", "settings": { "question": "What should I bring?", "answer": "Flat shoes, a water bottle, and your ID for test rides. Helmets are provided. If you'd like to test with your own gear (e.g. orthotic, support cushion), feel free to bring it." } },
+        { "type": "faq", "settings": { "question": "Is it suitable for first-time or nervous riders?", "answer": "Absolutely. Our team specialises in supporting riders of every ability. Trikes are very stable and a great place to start." } },
+        { "type": "faq", "settings": { "question": "Can I bring a support worker or OT?", "answer": "Yes — we love working with OTs, physios, and support workers. Let us know in your RSVP and we'll allocate extra time." } },
+        { "type": "faq", "settings": { "question": "What if it rains?", "answer": "We'll email RSVPs the day before with weather updates. Most events run rain or shine under cover." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
