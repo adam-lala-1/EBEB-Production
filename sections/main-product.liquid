@@ -116,6 +116,30 @@
         {%- endif -%}
       </div>
     </div>
+
+    {%- if section.settings.show_full_description and product.description != blank -%}
+      {%- assign desc_parts = product.description | split: '<!-- split -->' -%}
+      {%- if desc_parts.size > 1 -%}
+        {%- assign full_desc = desc_parts | slice: 1, 999 | join: '' -%}
+      {%- else -%}
+        {%- assign full_desc = product.description -%}
+      {%- endif -%}
+      {%- assign clamp = section.settings.details_max_height | default: 0 -%}
+      <div class="eeb-pdp__details {% if clamp > 0 %}is-clampable{% endif %}" data-clamp="{{ clamp }}">
+        {%- if section.settings.details_heading != blank -%}
+          <h2 class="eeb-pdp__details-heading">{{ section.settings.details_heading }}</h2>
+        {%- endif -%}
+        <div class="eeb-pdp__details-body rte" {% if clamp > 0 %}style="max-height:{{ clamp }}px;"{% endif %}>
+          {{ full_desc }}
+        </div>
+        {%- if clamp > 0 -%}
+          <button type="button" class="eeb-pdp__details-toggle" aria-expanded="false">
+            <span data-more>Read more</span>
+            <span data-less hidden>Show less</span>
+          </button>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -179,6 +203,31 @@
         updateVariant();
       });
     });
+
+    var details = root.querySelector('.eeb-pdp__details.is-clampable');
+    if (details) {
+      var body = details.querySelector('.eeb-pdp__details-body');
+      var toggle = details.querySelector('.eeb-pdp__details-toggle');
+      var more = details.querySelector('[data-more]');
+      var less = details.querySelector('[data-less]');
+      // Only show toggle if content actually exceeds the clamp.
+      if (body && toggle && body.scrollHeight <= body.clientHeight + 4) {
+        toggle.style.display = 'none';
+      } else if (toggle) {
+        toggle.addEventListener('click', function(){
+          var expanded = toggle.getAttribute('aria-expanded') === 'true';
+          if (expanded) {
+            body.style.maxHeight = details.dataset.clamp + 'px';
+            toggle.setAttribute('aria-expanded', 'false');
+            more.hidden = false; less.hidden = true;
+          } else {
+            body.style.maxHeight = 'none';
+            toggle.setAttribute('aria-expanded', 'true');
+            more.hidden = true; less.hidden = false;
+          }
+        });
+      }
+    }
   })();
 </script>
 
@@ -198,7 +247,12 @@
     { "type": "header", "content": "Trust bullets" },
     { "type": "text", "id": "bullet_1", "label": "Bullet 1", "default": "Free shipping Australia-wide over $99" },
     { "type": "text", "id": "bullet_2", "label": "Bullet 2", "default": "12-month warranty" },
-    { "type": "text", "id": "bullet_3", "label": "Bullet 3", "default": "Service & support through EEB dealer network" }
+    { "type": "text", "id": "bullet_3", "label": "Bullet 3", "default": "Service & support through EEB dealer network" },
+    { "type": "header", "content": "Full description" },
+    { "type": "paragraph", "content": "Renders the full product description below the buy box. Insert <!-- split --> in the description to split a short teaser (above) from the full content (below)." },
+    { "type": "checkbox", "id": "show_full_description", "label": "Show full description section", "default": true },
+    { "type": "text", "id": "details_heading", "label": "Section heading", "default": "Product details" },
+    { "type": "range", "id": "details_max_height", "label": "Clamp height (px, 0 = no clamp)", "min": 0, "max": 1200, "step": 50, "default": 0 }
   ],
   "presets": [{ "name": "Product main (standard)" }]
 }
