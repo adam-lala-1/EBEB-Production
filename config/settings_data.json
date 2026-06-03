@@ -21,6 +21,18 @@
     "sections": {
       "header-eeb": {
         "type": "header-eeb",
+        "blocks": {
+          "link_6eEDrJ": {
+            "type": "link",
+            "settings": {
+              "label": "",
+              "url": ""
+            }
+          }
+        },
+        "block_order": [
+          "link_6eEDrJ"
+        ],
         "settings": {
           "logo": "shopify://shop_images/EBEB-logo-lowres.png",
           "logo_width": 140,
