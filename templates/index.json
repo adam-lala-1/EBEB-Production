@@ -203,9 +203,9 @@
           "settings": {
             "image": "shopify://shop_images/20260303_113041.jpg",
             "image_url": "",
-            "title": "Trident",
-            "subtitle": "Semi-Recumbent Electric Trike",
-            "price": "from $4,995",
+            "title": "Trident FT V3 <br> semi-recumbent electric tricycle",
+            "subtitle": "THE ALL NEW",
+            "price": "from $6,250.00",
             "description": "Unmatched stability meets premium performance.",
             "specs": "80km Range; Semi-Recumbent; 25km/h Assist",
             "link": "/products/trident"
@@ -216,9 +216,9 @@
           "settings": {
             "image": "shopify://shop_images/TrojanFamily_2059_1.jpg",
             "image_url": "",
-            "title": "Trojan",
+            "title": "Trojan Family",
             "subtitle": "Fat Tyre Electric Trike",
-            "price": "from $3,495",
+            "price": "from $5,995.00",
             "description": "Agile, powerful, and ready for family adventures.",
             "specs": "60km Range; Fat tyres; Family ready",
             "link": "/collections/all"
@@ -234,7 +234,7 @@
             "price": "from $2,495",
             "description": "Compact, fast-folding, and ready to go anywhere.",
             "specs": "50km Range; Compact fold; Lightweight",
-            "link": "/collections/all"
+            "link": "shopify://products/lightning-electric-bike"
           }
         }
       },
