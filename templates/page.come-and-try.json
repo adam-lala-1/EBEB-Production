@@ -12,6 +12,7 @@
     "hero": {
       "type": "come-try-hero",
       "settings": {
+        "image": "shopify://shop_images/Brain_Injury_Community_Group_Ride_Criterium_Track.png",
         "eyebrow": "Events & Test Rides",
         "heading": "Come and Try",
         "subheading": "The best way to find the right ebike or trike is to ride one. Join us at an upcoming event for a free test ride, fitting, and a chat with our team — no obligation, just two wheels (or three) and an open road.",
@@ -28,9 +29,9 @@
           "type": "event",
           "settings": {
             "tag": "Brisbane",
-            "capacity": "Drop-in TESTTTT",
-            "title": "Gaythorne Open Workshop",
-            "date": "Sat 15 Feb 2026",
+            "capacity": "Bookings Essential",
+            "title": "Everybody E-bikes Gaythorne Showroom",
+            "date": "Opening Hours (Mon-Sat)",
             "time": "10:00 AM – 2:00 PM",
             "location": "EEB HQ — 6/51 Prospect Rd, Gaythorne QLD",
             "description": "Test ride the full EEB range, including Trident trikes and cargo bikes. Coffee and fittings on us.",
@@ -96,6 +97,12 @@
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
+        "interest_option_T6JDH6": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Trident trike"
+          }
+        },
         "o1": {
           "type": "event_option",
           "settings": {
@@ -122,6 +129,7 @@
         }
       },
       "block_order": [
+        "interest_option_T6JDH6",
         "o1",
         "o2",
         "o3",
@@ -190,12 +198,53 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
+    },
+    "come_try_expect_39qrha": {
+      "type": "come-try-expect",
+      "blocks": {
+        "item_dDiaMJ": {
+          "type": "item",
+          "settings": {
+            "icon": "🚲",
+            "title": "Try the full range",
+            "body": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride."
+          }
+        },
+        "item_f8gDkH": {
+          "type": "item",
+          "settings": {
+            "icon": "🤝",
+            "title": "One-on-one fitting",
+            "body": "Our team will match you to a bike, adjust the fit, and walk through controls."
+          }
+        },
+        "item_MWqktN": {
+          "type": "item",
+          "settings": {
+            "icon": "☕",
+            "title": "No pressure, no cost",
+            "body": "Free to attend. No sales pitch — just bikes, riders, and good coffee."
+          }
+        }
+      },
+      "block_order": [
+        "item_dDiaMJ",
+        "item_f8gDkH",
+        "item_MWqktN"
+      ],
+      "name": "What to expect",
+      "settings": {
+        "eyebrow": "What to expect",
+        "heading": "A relaxed, hands-on try",
+        "subheading": ""
+      }
     }
   },
   "order": [
     "hero",
     "events",
     "rsvp",
-    "faq"
+    "faq",
+    "come_try_expect_39qrha"
   ]
 }
