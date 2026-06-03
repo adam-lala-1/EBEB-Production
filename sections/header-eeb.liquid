@@ -58,6 +58,9 @@
     </nav>
 
     <div class="eeb-header__actions">
+      <button type="button" class="eeb-header__search-toggle" aria-label="Search" aria-expanded="false" aria-controls="eeb-header-search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
       <a href="{{ routes.cart_url }}" aria-label="Cart">
         {% render 'icon', icon: 'cart', size: 22 %}
       </a>
@@ -66,9 +69,48 @@
       {% endif %}
     </div>
   </div>
+  <div class="eeb-header__search" id="eeb-header-search" hidden>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="eeb-header__search-form">
+      <input type="hidden" name="type" value="product,page,article">
+      <input type="hidden" name="options[prefix]" value="last">
+      <label for="HeaderSearchInput" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+      <input id="HeaderSearchInput" type="search" name="q" placeholder="Search bikes, gear, articles…" autocomplete="off">
+      <button type="submit" class="eeb-btn eeb-btn--dark">Search</button>
+    </form>
+  </div>
 </header>
 
 {% stylesheet %}
+.eeb-header__search-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.eeb-header__search-toggle:hover { color: var(--color-orange, #E86C2C); }
+.eeb-header__search {
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+  padding: 0.75rem 1.25rem;
+}
+.eeb-header__search-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.eeb-header__search-form input[type="search"] {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font: inherit;
+}
+
 .eeb-header__nav {
   display: flex;
   align-items: center;
@@ -215,6 +257,25 @@
 {% endstylesheet %}
 
 {% javascript %}
+(function() {
+  var btn = document.querySelector('.eeb-header__search-toggle');
+  var panel = document.getElementById('eeb-header-search');
+  if (btn && panel) {
+    btn.addEventListener('click', function() {
+      var open = panel.hasAttribute('hidden');
+      if (open) {
+        panel.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        var input = panel.querySelector('input[type="search"]');
+        if (input) input.focus();
+      } else {
+        panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+})();
+
 document.querySelectorAll('.eeb-nav__item--has-dropdown').forEach(function(item) {
   var toggle = item.querySelector('.eeb-nav__toggle');
   toggle.addEventListener('click', function() {
