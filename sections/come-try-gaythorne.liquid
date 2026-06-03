@@ -1,0 +1,101 @@
+<section class="eeb-section" id="gaythorne">
+  <div class="eeb-container">
+    <div style="display:grid;gap:3rem;grid-template-columns:1fr;align-items:start;" class="eeb-gaythorne-grid">
+      <style>
+        @media (min-width: 900px) { .eeb-gaythorne-grid { grid-template-columns: 1.1fr 1fr !important; } }
+      </style>
+
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2>{{ section.settings.heading }}</h2>
+        {% if section.settings.body != blank %}
+          <p style="color:var(--color-muted);font-size:1.05rem;">{{ section.settings.body }}</p>
+        {% endif %}
+
+        <ul style="list-style:none;padding:0;margin:1.5rem 0;display:grid;gap:.75rem;">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <li {{ block.shopify_attributes }} style="display:flex;gap:.75rem;align-items:flex-start;">
+                <span style="font-size:1.25rem;line-height:1;">{{ block.settings.icon | default: '✓' }}</span>
+                <span><strong style="color:var(--color-foreground);">{{ block.settings.title }}</strong>{% if block.settings.body != blank %} — <span style="color:var(--color-muted);">{{ block.settings.body }}</span>{% endif %}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          {% if section.settings.cta_text != blank %}
+            <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta_url | default: '#rsvp' }}">{{ section.settings.cta_text }}</a>
+          {% endif %}
+          {% if section.settings.map_url != blank %}
+            <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.map_url }}" target="_blank" rel="noopener">Open in Google Maps</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div style="background:var(--color-cream);border:1px solid var(--color-border);border-radius:14px;padding:1.75rem;">
+        <h3 style="margin:0 0 1rem;">How to get there</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:1rem;color:var(--color-muted);font-size:.95rem;">
+          {% if section.settings.address != blank %}
+            <li>📍 <strong style="color:var(--color-foreground);">Address</strong><br>{{ section.settings.address }}</li>
+          {% endif %}
+          {% if section.settings.hours != blank %}
+            <li>🕘 <strong style="color:var(--color-foreground);">Open</strong><br>{{ section.settings.hours }}</li>
+          {% endif %}
+          {% if section.settings.parking != blank %}
+            <li>🅿️ <strong style="color:var(--color-foreground);">Parking</strong><br>{{ section.settings.parking }}</li>
+          {% endif %}
+          {% if section.settings.transit != blank %}
+            <li>🚆 <strong style="color:var(--color-foreground);">Public transport</strong><br>{{ section.settings.transit }}</li>
+          {% endif %}
+          {% if section.settings.driving != blank %}
+            <li>🚗 <strong style="color:var(--color-foreground);">By car</strong><br>{{ section.settings.driving }}</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gaythorne — visit anytime",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Visit anytime" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Test ride at our Gaythorne workshop" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Can't make an event? Drop in to our Gaythorne workshop any weekday. We've got the full range ready to ride, a quiet street out front for first-timers, and an undercover space for wet days." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book a time" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "header", "content": "Location details" },
+    { "type": "text", "id": "address", "label": "Address", "default": "6/51 Prospect Rd, Gaythorne QLD 4051" },
+    { "type": "text", "id": "hours", "label": "Hours", "default": "Mon–Fri 9AM–5PM, Sat 10AM–4PM (Sun by appointment)" },
+    { "type": "textarea", "id": "parking", "label": "Parking", "default": "Free street parking on Prospect Rd, plus accessible bays at the front of the unit." },
+    { "type": "textarea", "id": "transit", "label": "Public transport", "default": "5 min walk from Gaythorne train station (Ferny Grove line). Bus 390 stops on Samford Rd." },
+    { "type": "textarea", "id": "driving", "label": "By car", "default": "8 km / 15 min north of Brisbane CBD via Kelvin Grove Rd and Samford Rd." },
+    { "type": "url", "id": "map_url", "label": "Google Maps URL", "default": "https://www.google.com/maps/search/?api=1&query=6%2F51+Prospect+Rd+Gaythorne+QLD+4051" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Ease-of-testing point",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "✓" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Quiet test street" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Gaythorne — visit anytime",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "🛣️", "title": "Quiet test street", "body": "Prospect Rd is low-traffic — perfect for first-time and nervous riders." } },
+        { "type": "feature", "settings": { "icon": "🧰", "title": "Full range on-site", "body": "Commuter, cargo, folding ebikes and Trident trikes all ready to ride." } },
+        { "type": "feature", "settings": { "icon": "🧑‍🔧", "title": "Expert fittings", "body": "Our mechanics will adjust the bike to you before you head out." } },
+        { "type": "feature", "settings": { "icon": "♿", "title": "Accessible entry", "body": "Step-free access and undercover ride zone for wet days." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -37,18 +37,33 @@
           <input type="email" name="contact[email]" required maxlength="255" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
         </label>
         <label style="display:block;">
-          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Which event?</span>
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Which event? (or visit Gaythorne)</span>
           <select name="contact[event]" required style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;background:#fff;">
-            <option value="">Select an event…</option>
+            <option value="">Select an option…</option>
+            <option value="Visit Gaythorne workshop">Visit Gaythorne workshop (any weekday)</option>
             {% for block in section.blocks %}
-              <option value="{{ block.settings.option | escape }}">{{ block.settings.option }}</option>
+              {% if block.type == 'event_option' %}
+                <option value="{{ block.settings.option | escape }}">{{ block.settings.option }}</option>
+              {% endif %}
             {% endfor %}
             <option value="Not sure yet">Not sure yet — keep me posted</option>
           </select>
         </label>
         <label style="display:block;">
-          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Anything we should know?</span>
-          <textarea name="contact[body]" rows="4" maxlength="1000" placeholder="Bringing a group, accessibility needs, bikes you'd like to try…" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;"></textarea>
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">What are you interested in trying?</span>
+          <select name="contact[interest]" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;background:#fff;">
+            <option value="">Select an option…</option>
+            {% for block in section.blocks %}
+              {% if block.type == 'interest_option' %}
+                <option value="{{ block.settings.label | escape }}">{{ block.settings.label }}</option>
+              {% endif %}
+            {% endfor %}
+            <option value="Not sure — help me choose">Not sure — help me choose</option>
+          </select>
+        </label>
+        <label style="display:block;">
+          <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Anything we should know? (Optional)</span>
+          <textarea name="contact[body]" rows="4" maxlength="1000" placeholder="Bringing a group, accessibility needs, specific questions…" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;"></textarea>
         </label>
         <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.submit_text | default: 'Send RSVP' }}</button>
       </div>
@@ -58,12 +73,12 @@
 
 {% schema %}
 {
-  "name": "Come & Try RSVP form",
+  "name": "Come & Try / Enquiry form",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "RSVP" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Let us know you're coming" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Drop us a few details and we'll have a bike ready for you on the day." },
-    { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send RSVP" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Enquiry & RSVP" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch or book a ride" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Tell us what you'd like to try and when suits — we'll have a bike ready." },
+    { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send enquiry" }
   ],
   "blocks": [
     {
@@ -72,17 +87,29 @@
       "settings": [
         { "type": "text", "id": "option", "label": "Option label", "default": "Sat 15 Feb 2026 — Gaythorne Open Workshop" }
       ]
+    },
+    {
+      "type": "interest_option",
+      "name": "Interest option",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Option label", "default": "Trident trike" }
+      ]
     }
   ],
-  "max_blocks": 20,
+  "max_blocks": 30,
   "presets": [
     {
-      "name": "Come & Try RSVP form",
+      "name": "Come & Try / Enquiry form",
       "blocks": [
         { "type": "event_option", "settings": { "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop" } },
         { "type": "event_option", "settings": { "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo" } },
         { "type": "event_option", "settings": { "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day" } },
-        { "type": "event_option", "settings": { "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out" } }
+        { "type": "event_option", "settings": { "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out" } },
+        { "type": "interest_option", "settings": { "label": "Trident trike" } },
+        { "type": "interest_option", "settings": { "label": "Commuter ebike" } },
+        { "type": "interest_option", "settings": { "label": "Cargo ebike" } },
+        { "type": "interest_option", "settings": { "label": "Folding ebike" } },
+        { "type": "interest_option", "settings": { "label": "Adaptive / accessible bike" } }
       ]
     }
   ]
