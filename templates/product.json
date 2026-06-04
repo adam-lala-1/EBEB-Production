@@ -1,1 +1,43 @@
-{"sections":{"main":{"type":"main-product","settings":{}},"cta":{"type":"cta-banner","settings":{}}},"order":["main","cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_breadcrumb": true,
+        "eyebrow_source": "type",
+        "eyebrow_custom": "",
+        "atc_text": "Add to cart",
+        "bullet_1": "Free shipping Australia-wide over $99",
+        "bullet_2": "Click and Collect Available",
+        "bullet_3": "Service & support through EEB dealer network",
+        "show_full_description": true,
+        "details_heading": "Product details",
+        "details_max_height": 0
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Find your nearest dealer",
+        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}
