@@ -120,7 +120,7 @@
         "a3": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "trojan-fat-tyre-electric-trike",
             "image": "shopify://shop_images/IMG_1997.jpg",
             "image_url": "https://everybodyebikes.com.au/products/trojan-fat-tyre-electric-trike",
             "title": "EEB Trojan",
@@ -132,10 +132,10 @@
         "a4": {
           "type": "item",
           "settings": {
-            "product": "",
+            "product": "kalkhoff-entice-l-season",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445",
             "title": "Kalkhoff Endeavour",
-            "price": "from $3,950",
+            "price": "from $4,499",
             "link": "/collections/all",
             "show_description": false
           }
