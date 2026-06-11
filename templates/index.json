@@ -98,7 +98,7 @@
         "a1": {
           "type": "item",
           "settings": {
-            "product": "sun-brim-sporty",
+            "product": "benno-boost",
             "image_url": "",
             "title": "",
             "price": "",
@@ -109,11 +109,11 @@
         "a2": {
           "type": "item",
           "settings": {
-            "product": "",
-            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445",
-            "title": "Adaptive Accessories",
-            "price": "Various",
-            "link": "/collections/accessories",
+            "product": "rack-n-roll-trike-carrier",
+            "image_url": "",
+            "title": "",
+            "price": "",
+            "link": "",
             "show_description": false
           }
         },
