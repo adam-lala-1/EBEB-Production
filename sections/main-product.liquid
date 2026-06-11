@@ -62,7 +62,7 @@
           {%- endif -%}
         </div>
 
-        {%- if product.description != blank -%}
+        {%- if product.description != blank and product.description contains '<!-- split -->' -%}
           <div class="eeb-pdp__short rte">{{ product.description | split: '<!-- split -->' | first }}</div>
         {%- endif -%}
 
