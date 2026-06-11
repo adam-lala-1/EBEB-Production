@@ -121,10 +121,11 @@
           "type": "item",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/IMG_1997.jpg",
             "image_url": "https://everybodyebikes.com.au/products/trojan-fat-tyre-electric-trike",
             "title": "EEB Trojan",
             "price": "from $3,495",
-            "link": "/collections/all",
+            "link": "shopify://products/trojan-fat-tyre-electric-trike",
             "show_description": false
           }
         },
