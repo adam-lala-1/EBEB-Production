@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <section class="eeb-section" id="rsvp">
   <div class="eeb-container" style="max-width: 720px;">
     <div style="text-align:center;margin-bottom:2.5rem;">
@@ -25,7 +28,7 @@
         <div style="display:grid;gap:1.25rem;grid-template-columns:1fr 1fr;">
           <label style="display:block;">
             <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Full name</span>
-            <input type="text" name="contact[name]" required maxlength="100" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
+            <input type="text" name="contact[name]" data-eeb-name required maxlength="100" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
           </label>
           <label style="display:block;">
             <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Phone</span>
@@ -34,16 +37,16 @@
         </div>
         <label style="display:block;">
           <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Email</span>
-          <input type="email" name="contact[email]" required maxlength="255" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
+          <input type="email" name="contact[email]" data-eeb-email required maxlength="255" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;">
         </label>
         <label style="display:block;">
           <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Which event? (or visit Gaythorne)</span>
-          <select name="contact[event]" required style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;background:#fff;">
+          <select name="contact[event]" data-eeb-event required style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;background:#fff;">
             <option value="">Select an option…</option>
-            <option value="Visit Gaythorne workshop">Visit Gaythorne workshop (any weekday)</option>
+            <option value="Visit Gaythorne workshop" data-calendly-url="{{ section.settings.gaythorne_calendly_url }}">Visit Gaythorne workshop (any weekday)</option>
             {% for block in section.blocks %}
               {% if block.type == 'event_option' %}
-                <option value="{{ block.settings.option | escape }}">{{ block.settings.option }}</option>
+                <option value="{{ block.settings.option | escape }}" data-calendly-url="{{ block.settings.calendly_url }}">{{ block.settings.option }}</option>
               {% endif %}
             {% endfor %}
             <option value="Not sure yet">Not sure yet — keep me posted</option>
@@ -65,11 +68,50 @@
           <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Anything we should know? (Optional)</span>
           <textarea name="contact[body]" rows="4" maxlength="1000" placeholder="Bringing a group, accessibility needs, specific questions…" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;"></textarea>
         </label>
-        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.submit_text | default: 'Send RSVP' }}</button>
+        <button type="submit" data-eeb-submit class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.submit_text | default: 'Send enquiry' }}</button>
       </div>
     {%- endform -%}
   </div>
 </section>
+
+<script>
+  (function() {
+    var form = document.getElementById('come-and-try-rsvp');
+    if (!form) return;
+    var select = form.querySelector('[data-eeb-event]');
+    var submit = form.querySelector('[data-eeb-submit]');
+    var nameInput = form.querySelector('[data-eeb-name]');
+    var emailInput = form.querySelector('[data-eeb-email]');
+    var defaultLabel = submit ? submit.textContent.trim() : 'Send enquiry';
+    var bookLabel = 'Book time slot';
+
+    function selectedCalendlyUrl() {
+      if (!select) return '';
+      var opt = select.options[select.selectedIndex];
+      return (opt && opt.getAttribute('data-calendly-url')) || '';
+    }
+    function updateLabel() {
+      if (!submit) return;
+      submit.textContent = selectedCalendlyUrl() ? bookLabel : defaultLabel;
+    }
+    if (select) select.addEventListener('change', updateLabel);
+    updateLabel();
+
+    form.addEventListener('submit', function(e) {
+      var url = selectedCalendlyUrl();
+      if (!url) return;
+      if (!window.Calendly || !window.Calendly.initPopupWidget) return;
+      e.preventDefault();
+      window.Calendly.initPopupWidget({
+        url: url,
+        prefill: {
+          name: nameInput ? nameInput.value : '',
+          email: emailInput ? emailInput.value : ''
+        }
+      });
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -78,14 +120,18 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Enquiry & RSVP" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch or book a ride" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Tell us what you'd like to try and when suits — we'll have a bike ready." },
-    { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send enquiry" }
+    { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send enquiry" },
+    { "type": "header", "content": "Calendly booking" },
+    { "type": "paragraph", "content": "Paste a Calendly event link to turn 'Visit Gaythorne workshop' into a real time-slot booking. Each pop-up event option can also have its own one-off Calendly link." },
+    { "type": "url", "id": "gaythorne_calendly_url", "label": "Gaythorne Calendly URL", "default": "https://calendly.com/bfebikes-sales/test-ride" }
   ],
   "blocks": [
     {
       "type": "event_option",
       "name": "Event option",
       "settings": [
-        { "type": "text", "id": "option", "label": "Option label", "default": "Sat 15 Feb 2026 — Gaythorne Open Workshop" }
+        { "type": "text", "id": "option", "label": "Option label", "default": "Sat 15 Feb 2026 — Gaythorne Open Workshop" },
+        { "type": "url", "id": "calendly_url", "label": "Calendly URL (optional)", "info": "If set, this option opens a Calendly time-slot booking instead of submitting the form." }
       ]
     },
     {
