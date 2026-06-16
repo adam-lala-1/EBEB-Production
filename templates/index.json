@@ -281,29 +281,29 @@
           "settings": {
             "article": "articles/electric-tricycle-cost-complete-guide",
             "image_url": "",
-            "name": "",
+            "name": "How Much Do They Cost?",
             "quote": "",
-            "bike": "Trojan Family Trike"
+            "bike": ""
           }
         },
         "s2": {
           "type": "story",
           "settings": {
-            "article": "",
-            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
-            "name": "Active at 72",
-            "quote": "The Trident gave me my independence back — I ride to the shops, the park, everywhere.",
-            "bike": "Trident Semi-Recumbent"
+            "article": "articles/best-adult-trikes-guide",
+            "image_url": "",
+            "name": "Discover Stability",
+            "quote": "",
+            "bike": ""
           }
         },
         "s3": {
           "type": "story",
           "settings": {
-            "article": "",
-            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445",
-            "name": "Adaptive Freedom",
-            "quote": "For the first time in years, I can ride alongside my family.",
-            "bike": "Custom Adapted Trike"
+            "article": "articles/tips-for-beginners-using-rail-trails",
+            "image_url": "",
+            "name": "Rail Trail Tips",
+            "quote": "",
+            "bike": ""
           }
         }
       },
