@@ -1,4 +1,26 @@
 <section class="eeb-section">
+  {%- assign geo_image = section.settings.geometry_image -%}
+  {%- assign geo_image_url = section.settings.geometry_image_url -%}
+  {%- if geo_image != blank or geo_image_url != blank -%}
+    <div class="eeb-container" style="max-width: 1400px; margin-bottom: 2.5rem;">
+      {%- if geo_image != blank -%}
+        <img
+          src="{{ geo_image | image_url: width: 2000 }}"
+          alt="{{ section.settings.geometry_alt | default: 'Geometry and dimensions' | escape }}"
+          loading="lazy"
+          style="display:block; width:100%; height:auto;"
+        />
+      {%- else -%}
+        <img
+          src="{{ geo_image_url }}"
+          alt="{{ section.settings.geometry_alt | default: 'Geometry and dimensions' | escape }}"
+          loading="lazy"
+          style="display:block; width:100%; height:auto;"
+        />
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
   <div class="eeb-container" style="max-width: 880px;">
     <h2 style="text-align:center;margin-bottom:2rem;">{{ section.settings.heading }}</h2>
     <div class="specs">
@@ -40,7 +62,11 @@
 {
   "name": "EEB Product specs",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Full Specifications" }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Full Specifications" },
+    { "type": "header", "content": "Geometry / dimensions image" },
+    { "type": "image_picker", "id": "geometry_image", "label": "Geometry image (full width)" },
+    { "type": "text", "id": "geometry_image_url", "label": "Geometry image URL (fallback)", "info": "Used only if no image is selected above." },
+    { "type": "text", "id": "geometry_alt", "label": "Geometry image alt text", "default": "Geometry and dimensions" }
   ],
   "blocks": [
     {
