@@ -42,51 +42,21 @@
         "e2": {
           "type": "event",
           "settings": {
-            "tag": "Brisbane",
+            "tag": "Bribie ISLAND",
             "capacity": "RSVP required",
-            "title": "South Bank Riverwalk Demo",
-            "date": "Sun 8 Mar 2026",
+            "title": "Bribie Island Come & Try session",
+            "date": "July 8th",
             "time": "9:30 AM – 12:30 PM",
-            "location": "South Bank Parklands, Brisbane",
-            "description": "Try a Trident or commuter ebike along the river. Great for first-time riders and families.",
+            "location": "Brennan Park, Bongaree",
+            "description": "We're bringing a selection of our most popular electric trikes to Bribie Island for a hands-on Come & Try session. Our team will be there to answer your questions, offer tips, and help you find a trike that suits your needs.",
             "cta_text": "RSVP",
-            "rsvp_url": "#rsvp"
-          }
-        },
-        "e3": {
-          "type": "event",
-          "settings": {
-            "tag": "Sunshine Coast",
-            "capacity": "Bookings essential",
-            "title": "Sunshine Coast Adaptive Day",
-            "date": "Sat 12 Apr 2026",
-            "time": "10:00 AM – 3:00 PM",
-            "location": "Cotton Tree, Maroochydore",
-            "description": "Adaptive and accessible cycling demo. OTs and support workers welcome — bring a client to trial a fit.",
-            "cta_text": "RSVP",
-            "rsvp_url": "#rsvp"
-          }
-        },
-        "e4": {
-          "type": "event",
-          "settings": {
-            "tag": "Gold Coast",
-            "capacity": "Drop-in",
-            "title": "Gold Coast Trike Try-Out",
-            "date": "Sat 3 May 2026",
-            "time": "11:00 AM – 2:00 PM",
-            "location": "Burleigh Heads Foreshore",
-            "description": "Trident trikes on the boardwalk — stable, electric, and easy to ride for any ability.",
-            "cta_text": "RSVP",
-            "rsvp_url": "#rsvp"
+            "rsvp_url": "https://calendly.com/bfebikes-sales/test-ride"
           }
         }
       },
       "block_order": [
         "e1",
-        "e2",
-        "e3",
-        "e4"
+        "e2"
       ],
       "settings": {
         "eyebrow": "Upcoming",
