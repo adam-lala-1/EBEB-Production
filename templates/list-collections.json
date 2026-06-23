@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "main": {
+      "type": "list-collections",
+      "blocks": {
+        "ride": {
+          "type": "group",
+          "settings": {
+            "eyebrow": "Ride",
+            "title": "E-Bikes & Trikes",
+            "description": "From step-throughs to cargo haulers — the full electric range, tested on Brisbane streets.",
+            "collection_handles": "electric-bikes, electric-cargo-bikes, electric-tricycles-sn, folding-bikes, adventurer, eeb-collection"
+          }
+        },
+        "adaptive": {
+          "type": "group",
+          "settings": {
+            "eyebrow": "Inclusive",
+            "title": "Adaptive & NDIS",
+            "description": "Cycling for every body — adaptive trikes, hand-cycles, NDIS-funded setups and rentals.",
+            "collection_handles": "disability-and-special-needs-ndis, adaptive-accessories, inclusive-cycling-rentals"
+          }
+        },
+        "gear": {
+          "type": "group",
+          "settings": {
+            "eyebrow": "Gear up",
+            "title": "Accessories",
+            "description": "Locks, lights, racks, helmets — everything to outfit your ride.",
+            "collection_handles": "accessories"
+          }
+        },
+        "service": {
+          "type": "group",
+          "settings": {
+            "eyebrow": "Aftercare",
+            "title": "Service & Parts",
+            "description": "Keep your ride rolling. Genuine parts, scheduled servicing, expert workshop.",
+            "collection_handles": "service"
+          }
+        }
+      },
+      "block_order": ["ride", "adaptive", "gear", "service"],
+      "settings": {
+        "eyebrow": "Shop the entire range",
+        "heading": "Every collection. One garage.",
+        "subheading": "Bikes, trikes, adaptive setups and the gear to go with them — curated into clear collections so you find the right ride faster."
+      }
+    }
+  },
+  "order": ["main"]
+}

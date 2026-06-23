@@ -1,0 +1,128 @@
+{%- liquid
+  assign all_collections = collections | where: 'all_products_count', 0, '>'
+-%}
+
+<section class="eeb-collections-hero">
+  <div class="eeb-collections-hero__bg" aria-hidden="true">
+    {%- if section.settings.bg_image != blank -%}
+      <img src="{{ section.settings.bg_image | image_url: width: 1920 }}" alt="" loading="eager">
+    {%- endif -%}
+  </div>
+  <div class="eeb-container eeb-collections-hero__inner">
+    <nav class="eeb-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Collections</span>
+    </nav>
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h1>{{ section.settings.heading | default: 'Every collection. One garage.' }}</h1>
+    {%- if section.settings.subheading != blank -%}
+      <p class="eeb-collections-hero__sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="eeb-collections-hero__stats">
+      <div>
+        <p class="num">{{ collections.size }}</p>
+        <p class="lbl">Collections</p>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <div>
+        <p class="num">{{ section.blocks.size }}</p>
+        <p class="lbl">Categories</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="eeb-collections-jump">
+  <div class="eeb-container">
+    <span class="lbl">Jump to</span>
+    {%- for block in section.blocks -%}
+      <a href="#group-{{ block.id }}">{{ block.settings.title }}</a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- assign is_alt = forloop.index0 | modulo: 2 -%}
+  <section id="group-{{ block.id }}" class="eeb-collections-group{% if is_alt == 1 %} eeb-collections-group--alt{% endif %}" {{ block.shopify_attributes }}>
+    <div class="eeb-container">
+      <header class="eeb-collections-group__head">
+        <div>
+          {%- if block.settings.eyebrow != blank -%}
+            <span class="eeb-eyebrow">{{ block.settings.eyebrow }}</span>
+          {%- endif -%}
+          <h2>{{ block.settings.title }}</h2>
+          {%- if block.settings.description != blank -%}
+            <p>{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      </header>
+
+      <div class="eeb-grid eeb-grid--3">
+        {%- assign handles = block.settings.collection_handles | split: ',' -%}
+        {%- for raw_handle in handles -%}
+          {%- assign h = raw_handle | strip -%}
+          {%- assign col = collections[h] -%}
+          {%- if col != empty and col.handle != blank -%}
+            <a href="{{ col.url }}" class="eeb-collection-card">
+              <div class="eeb-collection-card__img">
+                {%- if col.image != blank -%}
+                  <img src="{{ col.image | image_url: width: 800 }}" alt="{{ col.title | escape }}" loading="lazy">
+                {%- elsif col.products.first.featured_image -%}
+                  <img src="{{ col.products.first.featured_image | image_url: width: 800 }}" alt="{{ col.title | escape }}" loading="lazy">
+                {%- endif -%}
+                <span class="eeb-collection-card__badge">{{ col.all_products_count }} items</span>
+                <div class="eeb-collection-card__body">
+                  <h3>{{ col.title }}</h3>
+                  {%- if col.description != blank -%}
+                    <p>{{ col.description | strip_html | truncatewords: 14 }}</p>
+                  {%- endif -%}
+                  <span class="eeb-collection-card__cta">Shop collection →</span>
+                </div>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endfor -%}
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop the entire range" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Every collection. One garage." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Bikes, trikes, adaptive setups and the gear to go with them — curated into clear collections so you find the right ride faster." },
+    { "type": "image_picker", "id": "bg_image", "label": "Hero background image" }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Category group",
+      "settings": [
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Ride" },
+        { "type": "text", "id": "title", "label": "Title", "default": "E-Bikes & Trikes" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "From step-throughs to cargo haulers — the full electric range." },
+        { "type": "textarea", "id": "collection_handles", "label": "Collection handles (comma-separated)", "info": "e.g. electric-bikes, electric-cargo-bikes, folding-bikes", "default": "electric-bikes, electric-cargo-bikes, folding-bikes" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections list",
+      "blocks": [
+        { "type": "group", "settings": { "eyebrow": "Ride", "title": "E-Bikes & Trikes", "description": "From step-throughs to cargo haulers — the full electric range.", "collection_handles": "electric-bikes, electric-cargo-bikes, electric-tricycles-sn, folding-bikes, adventurer, eeb-collection" } },
+        { "type": "group", "settings": { "eyebrow": "Inclusive", "title": "Adaptive & NDIS", "description": "Cycling for every body — adaptive trikes, hand-cycles, NDIS-funded setups and rentals.", "collection_handles": "disability-and-special-needs-ndis, adaptive-accessories, inclusive-cycling-rentals" } },
+        { "type": "group", "settings": { "eyebrow": "Gear up", "title": "Accessories", "description": "Locks, lights, racks, helmets — everything to outfit your ride.", "collection_handles": "accessories" } },
+        { "type": "group", "settings": { "eyebrow": "Aftercare", "title": "Service & Parts", "description": "Keep your ride rolling. Genuine parts, scheduled servicing, expert workshop.", "collection_handles": "service" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
