@@ -54,7 +54,18 @@
     <div class="eeb-fe-body">
       <form class="eeb-fe-form">
         <label class="eeb-fe-label">Enquiring about</label>
-        <input class="eeb-fe-input eeb-fe-readonly" type="text" value="{{ topic }}" readonly>
+        <select class="eeb-fe-input eeb-fe-topic-select" name="topic">
+          <option value="Trident Trike">Trident Trike</option>
+          <option value="Lightning eBike">Lightning eBike</option>
+          <option value="Trojan eBike">Trojan eBike</option>
+          <option value="General product enquiry">General product enquiry</option>
+          <option value="Come & Try / Test Ride">Come & Try / Test Ride</option>
+          <option value="Servicing & Repairs">Servicing & Repairs</option>
+          <option value="Dealer enquiry">Dealer enquiry</option>
+          <option value="Spare parts / Accessories">Spare parts / Accessories</option>
+          <option value="__other__">Other…</option>
+        </select>
+        <input class="eeb-fe-input eeb-fe-topic-custom" name="topic_custom" type="text" maxlength="120" placeholder="Tell us what it's about" style="margin-top:8px;display:none;">
 
         <div class="eeb-fe-row">
           <div>
@@ -123,9 +134,31 @@
     var form = root.querySelector('.eeb-fe-form');
     var success = root.querySelector('.eeb-fe-success');
     var calendlyBtn = root.querySelector('.eeb-fe-calendly');
-    var topic = root.dataset.topic;
+    var topicSelect = root.querySelector('.eeb-fe-topic-select');
+    var topicCustom = root.querySelector('.eeb-fe-topic-custom');
+    var detectedTopic = root.dataset.topic;
     var email = root.dataset.email;
     var calendlyUrl = root.dataset.calendly;
+
+    // Pre-select detected topic if it matches an option, else fall back to "Other…" + prefill
+    var matched = false;
+    for (var i = 0; i < topicSelect.options.length; i++) {
+      if (topicSelect.options[i].value === detectedTopic) {
+        topicSelect.value = detectedTopic;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      topicSelect.value = '__other__';
+      topicCustom.value = detectedTopic;
+      topicCustom.style.display = 'block';
+    }
+    topicSelect.addEventListener('change', function () {
+      topicCustom.style.display = topicSelect.value === '__other__' ? 'block' : 'none';
+      if (topicSelect.value === '__other__') topicCustom.required = true;
+      else topicCustom.required = false;
+    });
 
     function setOpen(open) {
       panel.hidden = !open;
@@ -150,7 +183,10 @@
       var em = form.querySelector('[name="email"]').value;
       var phone = form.querySelector('[name="phone"]').value;
       var message = form.querySelector('[name="message"]').value;
-      var subject = 'Enquiry: ' + topic;
+      var finalTopic = topicSelect.value === '__other__'
+        ? (topicCustom.value || 'General enquiry')
+        : topicSelect.value;
+      var subject = 'Enquiry: ' + finalTopic;
       var body = 'Hi EEB team,\n\n' + message + '\n\n— ' + name + '\nPhone: ' + phone + '\nEmail: ' + em + '\nPage: ' + window.location.href;
       window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       form.hidden = true;
