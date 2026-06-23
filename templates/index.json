@@ -166,7 +166,7 @@
             "title": "Urban & Families",
             "description": "Commute to work, ride the trails, carry the kids, the groceries, or the dog. E-bikes and cargo bikes built for the whole family.",
             "features": "Child-safe and weather proof seating; Big or small cargo; Zippy commuters",
-            "link": "/collections/all"
+            "link": "shopify://collections/electric-cargo-bikes"
           }
         },
         "c2": {
@@ -178,7 +178,7 @@
             "title": "Confidence & Comfort",
             "description": "The adventure never stops. Let's keep you exploring your favourite trails with electric-assist technology that makes every ride effortless.",
             "features": "E-trikes; Comfort Bikes; E-bikes;",
-            "link": "/collections/all"
+            "link": "shopify://collections/electric-tricycles-sn"
           }
         },
         "c3": {
@@ -190,7 +190,7 @@
             "title": "Inclusive Mobility",
             "description": "NDIS approved e-trikes and adaptive solutions designed for every ability.",
             "features": "NDIS approved options; Custom adaptive setups; Harnesses & supports",
-            "link": "/collections/all"
+            "link": "shopify://collections/disability-and-special-needs-ndis"
           }
         }
       },
