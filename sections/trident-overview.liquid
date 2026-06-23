@@ -72,10 +72,22 @@
     var cta      = root.querySelector('[data-add-to-cart]');
     var inputs   = root.querySelectorAll('[data-option-input]');
 
-    function formatMoney(cents) {
+    function formatMoney(price) {
+      var cents = typeof price === 'string' ? parseInt(price, 10) : price;
+      if (isNaN(cents)) return '';
       try {
         return '$' + (cents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       } catch (e) { return '$' + (cents / 100).toFixed(2); }
+    }
+
+    function setPrice(variant) {
+      if (!priceEl || !variant) return;
+      // Use Shopify Ajax API for accurate localized formatting when available
+      if (window.Shopify && Shopify.formatMoney) {
+        priceEl.textContent = Shopify.formatMoney(variant.price);
+      } else {
+        priceEl.textContent = formatMoney(variant.price);
+      }
     }
 
     function selectedValues() {
@@ -126,7 +138,7 @@
 
       if (variant) {
         hiddenId.value = variant.id;
-        if (priceEl) priceEl.textContent = formatMoney(variant.price);
+        setPrice(variant);
         if (cta) {
           cta.disabled = !variant.available;
           cta.textContent = variant.available ? {{ section.settings.cta_text | default: 'Enquire Now' | json }} : 'Sold out';
