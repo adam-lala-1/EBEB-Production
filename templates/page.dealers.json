@@ -63,6 +63,19 @@
             "website_label": "novitatech.com.au"
           }
         },
+        "dealer_wM9Ewq": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Logos.png",
+            "region": "QLD, Australia",
+            "name": "Cairns Electric Bikes",
+            "address": "46 McLeod St, Cairns, QLD 4870",
+            "phone": "(07) 4051 4470",
+            "email": "admin@cairns-electric-bikes.com.au",
+            "website_url": "https://www.cairns-electric-bikes.com.au",
+            "website_label": "cairns-electric-bikes.com.au"
+          }
+        },
         "dealer_aJK7Fn": {
           "type": "dealer",
           "settings": {
@@ -76,17 +89,17 @@
             "website_label": "ecoquip.co.nz"
           }
         },
-        "dealer_wM9Ewq": {
+        "dealer_jqXhYG": {
           "type": "dealer",
           "settings": {
-            "logo": "shopify://shop_images/Logos.png",
-            "region": "QLD, Australia",
-            "name": "Cairns Electric Bikes",
-            "address": "46 McLeod St, Cairns, QLD 4870",
-            "phone": "(07) 4051 4470",
-            "email": "admin@cairns-electric-bikes.com.au",
-            "website_url": "https://www.cairns-electric-bikes.com.au",
-            "website_label": "cairns-electric-bikes.com.au"
+            "logo": "shopify://shop_images/6_2cc70c3f-33eb-493c-b8ab-85ce66198345.png",
+            "region": "WA, Australia",
+            "name": "Impulse Cycles, WA",
+            "address": "79 Lockyer Avenue, Albany, WA 6330",
+            "phone": "(08) 9842 1387",
+            "email": "ride@impulsecycles.com.au",
+            "website_url": "https://www.impulsecycles.com.au",
+            "website_label": "impulsecycles.com.au"
           }
         }
       },
@@ -94,8 +107,9 @@
         "dealer_7TknFq",
         "dealer_NBAmzJ",
         "dealer_rjgRCD",
+        "dealer_wM9Ewq",
         "dealer_aJK7Fn",
-        "dealer_wM9Ewq"
+        "dealer_jqXhYG"
       ],
       "settings": {
         "eyebrow": "Our partners",
