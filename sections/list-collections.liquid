@@ -9,15 +9,9 @@
     {%- endif -%}
   </div>
   <div class="eeb-container eeb-collections-hero__inner">
-    <nav class="eeb-breadcrumb" aria-label="Breadcrumb">
-      <a href="{{ routes.root_url }}">Home</a>
-      <span aria-hidden="true">/</span>
-      <span aria-current="page">Collections</span>
-    </nav>
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
-    {%- endif -%}
-    <h1>{{ section.settings.heading | default: 'Every collection. One garage.' }}</h1>
+    {%- assign hero_heading = section.settings.heading -%}
+    {%- if hero_heading == blank -%}{%- assign hero_heading = 'Every collection. One garage.' -%}{%- endif -%}
+    <h1>{{ hero_heading }}</h1>
     {%- if section.settings.subheading != blank -%}
       <p class="eeb-collections-hero__sub">{{ section.settings.subheading }}</p>
     {%- endif -%}
