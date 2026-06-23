@@ -1,0 +1,160 @@
+{%- comment -%}
+  Floating enquiry widget — appears on every page.
+  Auto-detects page context (product, collection, page) and prefills enquiry topic.
+{%- endcomment -%}
+
+{%- liquid
+  assign topic = 'General enquiry'
+  assign label = 'EveryBody eBikes'
+  case template.name
+    when 'product'
+      assign topic = product.title | append: ' enquiry'
+      assign label = product.title
+    when 'collection'
+      assign topic = 'Collection: ' | append: collection.title
+      assign label = collection.title
+    when 'page'
+      if page.handle == 'come-and-try'
+        assign topic = 'Come & Try / Test Ride'
+        assign label = 'a test ride'
+      elsif page.handle == 'dealers'
+        assign topic = 'Dealer enquiry'
+        assign label = 'becoming a dealer'
+      elsif page.handle == 'servicing'
+        assign topic = 'Servicing & Repairs'
+        assign label = 'servicing'
+      else
+        assign topic = page.title | append: ' enquiry'
+        assign label = page.title
+      endif
+  endcase
+-%}
+
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<div id="eeb-floating-enquiry"
+  data-topic="{{ topic | escape }}"
+  data-label="{{ label | escape }}"
+  data-calendly="https://calendly.com/bfebikes-sales/test-ride"
+  data-email="enquiry@everybodyebikes.com.au">
+  <button type="button" class="eeb-fe-trigger" aria-label="Open enquiry form">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="eeb-fe-trigger-label">Enquire</span>
+  </button>
+
+  <div class="eeb-fe-panel" hidden>
+    <div class="eeb-fe-header">
+      <div>
+        <p class="eeb-fe-kicker">Quick Enquiry</p>
+        <h3 class="eeb-fe-title">Ask us about {{ label }}</h3>
+      </div>
+      <button type="button" class="eeb-fe-close" aria-label="Close">×</button>
+    </div>
+    <div class="eeb-fe-body">
+      <form class="eeb-fe-form">
+        <label class="eeb-fe-label">Enquiring about</label>
+        <input class="eeb-fe-input eeb-fe-readonly" type="text" value="{{ topic }}" readonly>
+
+        <div class="eeb-fe-row">
+          <div>
+            <label class="eeb-fe-label">Name</label>
+            <input class="eeb-fe-input" name="name" type="text" required maxlength="100">
+          </div>
+          <div>
+            <label class="eeb-fe-label">Phone</label>
+            <input class="eeb-fe-input" name="phone" type="tel" maxlength="30">
+          </div>
+        </div>
+
+        <label class="eeb-fe-label">Email</label>
+        <input class="eeb-fe-input" name="email" type="email" required maxlength="255">
+
+        <label class="eeb-fe-label">Message</label>
+        <textarea class="eeb-fe-input" name="message" rows="3" required maxlength="1000" placeholder="I'd like to know more about {{ label }}…"></textarea>
+
+        <button type="submit" class="eeb-fe-btn eeb-fe-btn-primary">Send enquiry</button>
+        <div class="eeb-fe-divider"><span>or</span></div>
+        <button type="button" class="eeb-fe-btn eeb-fe-btn-outline eeb-fe-calendly">Book a test ride</button>
+      </form>
+      <div class="eeb-fe-success" hidden>
+        <p class="eeb-fe-success-title">Thanks!</p>
+        <p class="eeb-fe-success-text">Your email app should open shortly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #eeb-floating-enquiry { position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: var(--font-body, Inter, sans-serif); }
+  .eeb-fe-trigger { display: inline-flex; align-items: center; gap: 8px; background: var(--color-orange, #E86C2C); color: #fff; border: 0; border-radius: 999px; padding: 12px 20px; font-weight: 600; font-size: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.18); cursor: pointer; }
+  .eeb-fe-trigger:hover { filter: brightness(0.95); }
+  @media (max-width: 480px) { .eeb-fe-trigger-label { display: none; } }
+  .eeb-fe-panel { width: min(380px, calc(100vw - 40px)); background: #fff; border: 1px solid var(--color-border, #E5E7EB); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+  .eeb-fe-header { background: var(--color-navy, #1B2A4A); color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .eeb-fe-kicker { margin: 0 0 4px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-orange, #E86C2C); font-weight: 700; }
+  .eeb-fe-title { margin: 0; font-family: var(--font-heading, serif); font-size: 18px; font-weight: 400; line-height: 1.3; }
+  .eeb-fe-close { background: transparent; border: 0; color: rgba(255,255,255,.7); font-size: 24px; line-height: 1; cursor: pointer; padding: 0 4px; }
+  .eeb-fe-close:hover { color: #fff; }
+  .eeb-fe-body { padding: 18px 20px; }
+  .eeb-fe-form { display: flex; flex-direction: column; gap: 10px; }
+  .eeb-fe-label { font-size: 11px; font-weight: 600; color: var(--color-foreground, #1B2A4A); }
+  .eeb-fe-input { width: 100%; padding: 8px 10px; border: 1px solid var(--color-border, #E5E7EB); border-radius: 6px; font-size: 14px; font-family: inherit; }
+  .eeb-fe-readonly { background: #F4F4F6; cursor: not-allowed; }
+  .eeb-fe-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .eeb-fe-btn { width: 100%; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 1px solid transparent; }
+  .eeb-fe-btn-primary { background: var(--color-orange, #E86C2C); color: #fff; }
+  .eeb-fe-btn-outline { background: #fff; border-color: var(--color-border, #E5E7EB); color: var(--color-navy, #1B2A4A); }
+  .eeb-fe-divider { position: relative; text-align: center; margin: 4px 0; }
+  .eeb-fe-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; border-top: 1px solid var(--color-border, #E5E7EB); }
+  .eeb-fe-divider span { position: relative; background: #fff; padding: 0 8px; font-size: 11px; color: var(--color-muted, #6B7280); }
+  .eeb-fe-success { text-align: center; padding: 16px 0; }
+  .eeb-fe-success-title { font-family: var(--font-heading, serif); font-size: 20px; color: var(--color-navy, #1B2A4A); margin: 0 0 4px; }
+  .eeb-fe-success-text { font-size: 14px; color: var(--color-muted, #6B7280); margin: 0; }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('eeb-floating-enquiry');
+    if (!root) return;
+    var trigger = root.querySelector('.eeb-fe-trigger');
+    var panel = root.querySelector('.eeb-fe-panel');
+    var closeBtn = root.querySelector('.eeb-fe-close');
+    var form = root.querySelector('.eeb-fe-form');
+    var success = root.querySelector('.eeb-fe-success');
+    var calendlyBtn = root.querySelector('.eeb-fe-calendly');
+    var topic = root.dataset.topic;
+    var email = root.dataset.email;
+    var calendlyUrl = root.dataset.calendly;
+
+    function setOpen(open) {
+      panel.hidden = !open;
+      trigger.hidden = open;
+    }
+    trigger.addEventListener('click', function () { setOpen(true); });
+    closeBtn.addEventListener('click', function () { setOpen(false); });
+
+    calendlyBtn.addEventListener('click', function () {
+      var name = form.querySelector('[name="name"]').value;
+      var em = form.querySelector('[name="email"]').value;
+      if (window.Calendly && window.Calendly.initPopupWidget) {
+        window.Calendly.initPopupWidget({ url: calendlyUrl, prefill: { name: name, email: em } });
+      } else {
+        window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.querySelector('[name="name"]').value;
+      var em = form.querySelector('[name="email"]').value;
+      var phone = form.querySelector('[name="phone"]').value;
+      var message = form.querySelector('[name="message"]').value;
+      var subject = 'Enquiry: ' + topic;
+      var body = 'Hi EEB team,\n\n' + message + '\n\n— ' + name + '\nPhone: ' + phone + '\nEmail: ' + em + '\nPage: ' + window.location.href;
+      window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      form.hidden = true;
+      success.hidden = false;
+    });
+  })();
+</script>
