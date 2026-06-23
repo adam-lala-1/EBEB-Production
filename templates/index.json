@@ -213,12 +213,12 @@
           "settings": {
             "image": "shopify://shop_images/20260303_113041.jpg",
             "image_url": "",
-            "title": "Trident FT V3 <br> semi-recumbent electric tricycle",
+            "title": "Trident FT V3  semi-recumbent electric tricycle",
             "subtitle": "THE ALL NEW",
             "price": "from $6,250.00",
             "description": "Unmatched stability meets premium performance.",
             "specs": "80km Range; Semi-Recumbent; 25km/h Assist",
-            "link": "/products/trident"
+            "link": "shopify://products/bf-trojan-family"
           }
         },
         "b2": {
