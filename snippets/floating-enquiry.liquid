@@ -53,19 +53,24 @@
     </div>
     <div class="eeb-fe-body">
       <form class="eeb-fe-form">
-        <label class="eeb-fe-label">Enquiring about</label>
-        <select class="eeb-fe-input eeb-fe-topic-select" name="topic">
-          <option value="Trident Trike">Trident Trike</option>
-          <option value="Lightning eBike">Lightning eBike</option>
-          <option value="Trojan eBike">Trojan eBike</option>
-          <option value="General product enquiry">General product enquiry</option>
-          <option value="Come & Try / Test Ride">Come & Try / Test Ride</option>
-          <option value="Servicing & Repairs">Servicing & Repairs</option>
-          <option value="Dealer enquiry">Dealer enquiry</option>
-          <option value="Spare parts / Accessories">Spare parts / Accessories</option>
-          <option value="__other__">Other…</option>
-        </select>
-        <input class="eeb-fe-input eeb-fe-topic-custom" name="topic_custom" type="text" maxlength="120" placeholder="Tell us what it's about" style="margin-top:8px;display:none;">
+        <label class="eeb-fe-label" for="eeb-fe-topic">Enquiring about</label>
+        <div class="eeb-fe-topic-wrap">
+          <input class="eeb-fe-input eeb-fe-topic-input" id="eeb-fe-topic" name="topic" type="text" maxlength="120" required placeholder="What's it about?" autocomplete="off">
+          <button type="button" class="eeb-fe-topic-toggle" aria-label="Show suggestions">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="eeb-fe-topic-list" hidden>
+            <li><button type="button" data-value="Trident Trike">Trident Trike</button></li>
+            <li><button type="button" data-value="Lightning eBike">Lightning eBike</button></li>
+            <li><button type="button" data-value="Trojan eBike">Trojan eBike</button></li>
+            <li><button type="button" data-value="General product enquiry">General product enquiry</button></li>
+            <li><button type="button" data-value="Come & Try / Test Ride">Come & Try / Test Ride</button></li>
+            <li><button type="button" data-value="Servicing & Repairs">Servicing & Repairs</button></li>
+            <li><button type="button" data-value="Dealer enquiry">Dealer enquiry</button></li>
+            <li><button type="button" data-value="Spare parts / Accessories">Spare parts / Accessories</button></li>
+          </ul>
+        </div>
+
 
         <div class="eeb-fe-row">
           <div>
@@ -112,6 +117,13 @@
   .eeb-fe-label { font-size: 11px; font-weight: 600; color: var(--color-foreground, #1B2A4A); }
   .eeb-fe-input { width: 100%; padding: 8px 10px; border: 1px solid var(--color-border, #E5E7EB); border-radius: 6px; font-size: 14px; font-family: inherit; }
   .eeb-fe-readonly { background: #F4F4F6; cursor: not-allowed; }
+  .eeb-fe-topic-wrap { position: relative; }
+  .eeb-fe-topic-input { padding-right: 32px; }
+  .eeb-fe-topic-toggle { position: absolute; top: 0; right: 0; height: 100%; width: 32px; background: transparent; border: 0; color: var(--color-muted, #6B7280); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .eeb-fe-topic-toggle:hover { color: var(--color-foreground, #1B2A4A); }
+  .eeb-fe-topic-list { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; padding: 4px 0; list-style: none; background: #fff; border: 1px solid var(--color-border, #E5E7EB); border-radius: 6px; box-shadow: 0 8px 20px rgba(0,0,0,.12); max-height: 220px; overflow: auto; z-index: 5; }
+  .eeb-fe-topic-list li button { width: 100%; text-align: left; background: transparent; border: 0; padding: 6px 12px; font-size: 14px; font-family: inherit; cursor: pointer; color: var(--color-foreground, #1B2A4A); }
+  .eeb-fe-topic-list li button:hover { background: #F4F4F6; }
   .eeb-fe-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .eeb-fe-btn { width: 100%; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; border: 1px solid transparent; }
   .eeb-fe-btn-primary { background: var(--color-orange, #E86C2C); color: #fff; }
@@ -134,30 +146,29 @@
     var form = root.querySelector('.eeb-fe-form');
     var success = root.querySelector('.eeb-fe-success');
     var calendlyBtn = root.querySelector('.eeb-fe-calendly');
-    var topicSelect = root.querySelector('.eeb-fe-topic-select');
-    var topicCustom = root.querySelector('.eeb-fe-topic-custom');
+    var topicInput = root.querySelector('.eeb-fe-topic-input');
+    var topicToggle = root.querySelector('.eeb-fe-topic-toggle');
+    var topicList = root.querySelector('.eeb-fe-topic-list');
     var detectedTopic = root.dataset.topic;
     var email = root.dataset.email;
     var calendlyUrl = root.dataset.calendly;
 
-    // Pre-select detected topic if it matches an option, else fall back to "Other…" + prefill
-    var matched = false;
-    for (var i = 0; i < topicSelect.options.length; i++) {
-      if (topicSelect.options[i].value === detectedTopic) {
-        topicSelect.value = detectedTopic;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) {
-      topicSelect.value = '__other__';
-      topicCustom.value = detectedTopic;
-      topicCustom.style.display = 'block';
-    }
-    topicSelect.addEventListener('change', function () {
-      topicCustom.style.display = topicSelect.value === '__other__' ? 'block' : 'none';
-      if (topicSelect.value === '__other__') topicCustom.required = true;
-      else topicCustom.required = false;
+    // Prefill detected topic directly
+    topicInput.value = detectedTopic || '';
+
+    function setListOpen(open) { topicList.hidden = !open; }
+    topicToggle.addEventListener('click', function () { setListOpen(topicList.hidden); });
+    topicInput.addEventListener('focus', function () { setListOpen(true); });
+    topicList.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-value]');
+      if (!btn) return;
+      topicInput.value = btn.getAttribute('data-value');
+      setListOpen(false);
+      topicInput.focus();
+    });
+    document.addEventListener('mousedown', function (e) {
+      if (!root.contains(e.target)) setListOpen(false);
+      else if (!topicList.contains(e.target) && e.target !== topicToggle && e.target !== topicInput) setListOpen(false);
     });
 
     function setOpen(open) {
@@ -166,6 +177,7 @@
     }
     trigger.addEventListener('click', function () { setOpen(true); });
     closeBtn.addEventListener('click', function () { setOpen(false); });
+
 
     calendlyBtn.addEventListener('click', function () {
       var name = form.querySelector('[name="name"]').value;
@@ -183,9 +195,7 @@
       var em = form.querySelector('[name="email"]').value;
       var phone = form.querySelector('[name="phone"]').value;
       var message = form.querySelector('[name="message"]').value;
-      var finalTopic = topicSelect.value === '__other__'
-        ? (topicCustom.value || 'General enquiry')
-        : topicSelect.value;
+      var finalTopic = (topicInput.value || '').trim() || 'General enquiry';
       var subject = 'Enquiry: ' + finalTopic;
       var body = 'Hi EEB team,\n\n' + message + '\n\n— ' + name + '\nPhone: ' + phone + '\nEmail: ' + em + '\nPage: ' + window.location.href;
       window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
