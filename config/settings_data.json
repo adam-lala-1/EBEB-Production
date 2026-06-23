@@ -18,6 +18,7 @@
     "page_width": 1280,
     "section_spacing": 96,
     "logo_width": 140,
+    "favicon": "shopify://shop_images/Everybody_eBikes_Logo_rgb_Stacked_2023_c399cdc9-44be-4927-b565-fa6b865abeb4.png",
     "sections": {
       "header-eeb": {
         "type": "header-eeb",
