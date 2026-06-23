@@ -1,54 +1,152 @@
 <section>
-  <div class="trident-overview">
+  <div class="trident-overview" data-product-overview id="ProductOverview-{{ section.id }}">
     <div>
       <h1>{{ product.title | default: section.settings.title_fallback }}</h1>
       <p style="color: var(--color-muted); font-size: 1.1rem;">{{ product.metafields.eeb.subtitle | default: section.settings.subtitle }}</p>
-      <p class="trident-overview__price">{{ product.price | money | default: section.settings.price_fallback }}</p>
+      <p class="trident-overview__price" data-product-price>
+        {%- if product -%}{{ product.price | money }}{%- else -%}{{ section.settings.price_fallback }}{%- endif -%}
+      </p>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:1.5rem;">
-      {%- comment -%} Colour swatches via product options OR metafields {%- endcomment -%}
-      {%- assign colour_option = nil -%}
-      {%- for option in product.options_with_values -%}
-        {%- if option.name contains 'Colour' or option.name contains 'Color' -%}
-          {%- assign colour_option = option -%}
-        {%- endif -%}
-      {%- endfor -%}
+    {% form 'product', product, data-product-form: '' %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-variant-id>
 
-      {%- if colour_option -%}
-        <div>
-          <p style="font-size:.85rem;font-weight:500;color:var(--color-muted);margin-bottom:.5rem;">Colour</p>
-          <div class="swatches">
-            {%- for value in colour_option.values -%}
-              <button class="swatch {% if forloop.first %}is-active{% endif %}" style="background: {{ value | downcase | handle }};" aria-label="{{ value }}" title="{{ value }}"></button>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        {%- for option in product.options_with_values -%}
+          {%- assign is_colour = false -%}
+          {%- if option.name contains 'Colour' or option.name contains 'Color' -%}
+            {%- assign is_colour = true -%}
+          {%- endif -%}
 
-      {%- comment -%} Motor variant selector if present {%- endcomment -%}
-      {%- for option in product.options_with_values -%}
-        {%- if option.name contains 'Motor' or option.name contains 'Sensor' -%}
-          <div>
-            <p style="font-size:.85rem;font-weight:500;color:var(--color-muted);margin-bottom:.5rem;">{{ option.name }}</p>
-            <div style="display:flex;gap:.5rem;">
-              {%- for v in option.values -%}
-                <button class="eeb-btn" style="background: {% if forloop.first %}var(--color-foreground);color:#fff{% else %}var(--color-cream);color:var(--color-foreground){% endif %};padding:.5rem 1rem;font-size:.85rem;">{{ v }}</button>
+          <div data-option-wrapper data-option-position="{{ option.position }}">
+            <p style="font-size:.85rem;font-weight:500;color:var(--color-muted);margin-bottom:.5rem;">
+              {{ option.name }}: <span data-option-selected>{{ option.selected_value }}</span>
+            </p>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;" class="{% if is_colour %}swatches{% endif %}">
+              {%- for value in option.values -%}
+                {%- assign checked = false -%}
+                {%- if value == option.selected_value -%}{%- assign checked = true -%}{%- endif -%}
+                <label
+                  class="{% if is_colour %}swatch{% if checked %} is-active{% endif %}{% else %}eeb-btn{% endif %}"
+                  {% if is_colour %}style="background: {{ value | downcase | handle }};" aria-label="{{ value }}" title="{{ value }}"{% else %}style="padding:.5rem 1rem;font-size:.85rem;cursor:pointer;{% if checked %}background:var(--color-foreground);color:#fff;{% else %}background:var(--color-cream);color:var(--color-foreground);{% endif %}"{% endif %}
+                >
+                  <input
+                    type="radio"
+                    name="option-{{ option.position }}"
+                    value="{{ value | escape }}"
+                    data-option-input
+                    data-option-position="{{ option.position }}"
+                    {% if checked %}checked{% endif %}
+                    style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;"
+                  >
+                  {% unless is_colour %}{{ value }}{% endunless %}
+                </label>
               {%- endfor -%}
             </div>
           </div>
-        {%- endif -%}
-      {%- endfor -%}
+        {%- endfor -%}
 
-      {% form 'product', product %}
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">
+        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;" data-add-to-cart>
           {%- if product.available -%}{{ section.settings.cta_text | default: 'Enquire Now' }}{%- else -%}Sold out{%- endif -%}
         </button>
-      {% endform %}
-    </div>
+      </div>
+    {% endform %}
   </div>
 </section>
+
+{%- if product -%}
+<script type="application/json" data-variants-json-{{ section.id }}>
+  {{ product.variants | json }}
+</script>
+<script>
+  (function() {
+    var root = document.getElementById('ProductOverview-{{ section.id }}');
+    if (!root) return;
+    var variantsScript = document.querySelector('[data-variants-json-{{ section.id }}]');
+    if (!variantsScript) return;
+    var variants;
+    try { variants = JSON.parse(variantsScript.textContent); } catch (e) { return; }
+
+    var hiddenId = root.querySelector('[data-variant-id]');
+    var priceEl  = root.querySelector('[data-product-price]');
+    var cta      = root.querySelector('[data-add-to-cart]');
+    var inputs   = root.querySelectorAll('[data-option-input]');
+
+    function formatMoney(cents) {
+      try {
+        return '$' + (cents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } catch (e) { return '$' + (cents / 100).toFixed(2); }
+    }
+
+    function selectedValues() {
+      var values = [];
+      root.querySelectorAll('[data-option-wrapper]').forEach(function(wrap) {
+        var pos = wrap.getAttribute('data-option-position');
+        var checked = wrap.querySelector('input[data-option-input]:checked');
+        if (checked) values[parseInt(pos, 10) - 1] = checked.value;
+        var label = wrap.querySelector('[data-option-selected]');
+        if (label && checked) label.textContent = checked.value;
+      });
+      return values;
+    }
+
+    function matchVariant(values) {
+      return variants.find(function(v) {
+        return (v.options || []).every(function(o, i) { return o === values[i]; });
+      });
+    }
+
+    function update() {
+      var values = selectedValues();
+      var variant = matchVariant(values);
+
+      // Update active styling
+      root.querySelectorAll('[data-option-wrapper]').forEach(function(wrap) {
+        wrap.querySelectorAll('label').forEach(function(label) {
+          var input = label.querySelector('input[data-option-input]');
+          if (!input) return;
+          var isColour = label.classList.contains('swatch');
+          if (input.checked) {
+            if (isColour) {
+              label.classList.add('is-active');
+            } else {
+              label.style.background = 'var(--color-foreground)';
+              label.style.color = '#fff';
+            }
+          } else {
+            if (isColour) {
+              label.classList.remove('is-active');
+            } else {
+              label.style.background = 'var(--color-cream)';
+              label.style.color = 'var(--color-foreground)';
+            }
+          }
+        });
+      });
+
+      if (variant) {
+        hiddenId.value = variant.id;
+        if (priceEl) priceEl.textContent = formatMoney(variant.price);
+        if (cta) {
+          cta.disabled = !variant.available;
+          cta.textContent = variant.available ? {{ section.settings.cta_text | default: 'Enquire Now' | json }} : 'Sold out';
+        }
+      } else if (cta) {
+        cta.disabled = true;
+        cta.textContent = 'Unavailable';
+      }
+    }
+
+    inputs.forEach(function(input) {
+      input.addEventListener('change', update);
+      // Allow clicking the wrapping label to toggle (radios handle this natively,
+      // but ensure styles refresh)
+    });
+
+    update();
+  })();
+</script>
+{%- endif -%}
 
 {% schema %}
 {
