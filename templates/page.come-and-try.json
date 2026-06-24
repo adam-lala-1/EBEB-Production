@@ -91,6 +91,24 @@
             "label": "Cargo eBike"
           }
         },
+        "interest_option_dAY4ft": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Veloomi Trike"
+          }
+        },
+        "interest_option_7XDUQx": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Trident v2 Trike"
+          }
+        },
+        "interest_option_bDbDxV": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Trojan Family Trike"
+          }
+        },
         "interest_option_BXP63L": {
           "type": "interest_option",
           "settings": {
@@ -130,6 +148,9 @@
         "interest_option_CVBN7C",
         "interest_option_jr8P9Q",
         "interest_option_iD998c",
+        "interest_option_dAY4ft",
+        "interest_option_7XDUQx",
+        "interest_option_bDbDxV",
         "interest_option_BXP63L",
         "o1",
         "o2",
