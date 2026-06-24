@@ -40,11 +40,32 @@
     },
     "overview": {
       "type": "trident-overview",
+      "blocks": {
+        "trust_bullet_eBteVC": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "shield",
+            "text": "two year"
+          }
+        },
+        "trust_bullet_tKnJCA": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "shield",
+            "text": "Service and support via EBEB and our dealer network"
+          }
+        }
+      },
+      "block_order": [
+        "trust_bullet_eBteVC",
+        "trust_bullet_tKnJCA"
+      ],
       "settings": {
         "title_fallback": "Trident FT v3",
         "subtitle": "Semi-Recumbent Fat Tyre Electric Tricycle",
         "price_fallback": "$6,000",
-        "cta_text": "Add to Cart"
+        "cta_text": "Add to Cart",
+        "enquire_text": "Notify me / Enquire"
       }
     },
     "key_features": {
