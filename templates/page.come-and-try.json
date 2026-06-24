@@ -70,7 +70,31 @@
         "interest_option_T6JDH6": {
           "type": "interest_option",
           "settings": {
-            "label": "Trident trike"
+            "label": "Trident v3 Trike"
+          }
+        },
+        "interest_option_CVBN7C": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Trojan Trike"
+          }
+        },
+        "interest_option_jr8P9Q": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Trekking eBike"
+          }
+        },
+        "interest_option_iD998c": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Cargo eBike"
+          }
+        },
+        "interest_option_BXP63L": {
+          "type": "interest_option",
+          "settings": {
+            "label": "Special Needs Trike"
           }
         },
         "o1": {
@@ -81,18 +105,21 @@
         },
         "o2": {
           "type": "event_option",
+          "disabled": true,
           "settings": {
             "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo"
           }
         },
         "o3": {
           "type": "event_option",
+          "disabled": true,
           "settings": {
             "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day"
           }
         },
         "o4": {
           "type": "event_option",
+          "disabled": true,
           "settings": {
             "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out"
           }
@@ -100,6 +127,10 @@
       },
       "block_order": [
         "interest_option_T6JDH6",
+        "interest_option_CVBN7C",
+        "interest_option_jr8P9Q",
+        "interest_option_iD998c",
+        "interest_option_BXP63L",
         "o1",
         "o2",
         "o3",
