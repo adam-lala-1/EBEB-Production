@@ -41,6 +41,13 @@
     "overview": {
       "type": "trident-overview",
       "blocks": {
+        "trust_bullet_PAeUcR": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "gauge",
+            "text": "Shipping Available Australia Wide <br>(Enquire for more details)"
+          }
+        },
         "trust_bullet_eBteVC": {
           "type": "trust_bullet",
           "settings": {
@@ -51,12 +58,13 @@
         "trust_bullet_tKnJCA": {
           "type": "trust_bullet",
           "settings": {
-            "icon": "shield",
+            "icon": "wrench",
             "text": "Service and support via EBEB and our dealer network"
           }
         }
       },
       "block_order": [
+        "trust_bullet_PAeUcR",
         "trust_bullet_eBteVC",
         "trust_bullet_tKnJCA"
       ],
