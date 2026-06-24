@@ -51,6 +51,7 @@
         "blocks": {
           "shop": {
             "type": "link_column",
+            "disabled": true,
             "settings": {
               "heading": "Shop",
               "menu": "main-menu",
