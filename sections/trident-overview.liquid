@@ -61,16 +61,24 @@
       {%- if block.type == 'trust_bullet' and block.settings.text != blank -%}{%- assign has_bullets = true -%}{%- endif -%}
     {%- endfor -%}
     {%- if has_bullets -%}
-      <ul class="eeb-trust-bullets" style="list-style:none;padding:0;margin:1.25rem 0 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1.25rem;">
+      <ul class="eeb-trust-bullets" style="list-style:none;padding:0;margin:1.25rem 0 0;display:grid;grid-template-columns:1fr;gap:1rem;">
         {%- for block in section.blocks -%}
           {%- if block.type == 'trust_bullet' and block.settings.text != blank -%}
-            <li {{ block.shopify_attributes }} style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--color-foreground,#1B2A4A);">
-              <span style="color:var(--color-orange,#E86C2C);display:inline-flex;flex-shrink:0;">{% render 'icon', icon: block.settings.icon, size: 16 %}</span>
+            <li {{ block.shopify_attributes }} style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:.4rem;font-size:.8rem;color:var(--color-foreground,#1B2A4A);">
+              <span style="color:var(--color-orange,#E86C2C);display:inline-flex;flex-shrink:0;">{% render 'icon', icon: block.settings.icon, size: 20 %}</span>
               <span>{{ block.settings.text }}</span>
             </li>
           {%- endif -%}
         {%- endfor -%}
       </ul>
+      <style>
+        @media (min-width: 750px) {
+          #ProductOverview-{{ section.id }} .eeb-trust-bullets {
+            grid-template-columns: repeat({{ section.blocks | where: 'type', 'trust_bullet' | size }}, minmax(0, 1fr));
+            gap: .75rem;
+          }
+        }
+      </style>
     {%- endif -%}
   </div>
 </section>
