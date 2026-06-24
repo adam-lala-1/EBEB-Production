@@ -51,8 +51,42 @@
         "title_fallback": "Lightning Electric Bike",
         "subtitle": "Electric Bike for Short-Statured Riders",
         "price_fallback": "$2,495",
-        "cta_text": "Add to Cart"
+        "cta_text": "Add to Cart",
+        "enquire_text": "Notify me / Enquire"
       }
+    },
+    "trident_trust_bullets_HeTGTK": {
+      "type": "trident-trust-bullets",
+      "blocks": {
+        "trust_bullet_cqntAw": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "shield",
+            "text": "2-year frame & motor warranty"
+          }
+        },
+        "trust_bullet_RyxcLR": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "truck",
+            "text": "Free click & collect<br>or enquire for Australia wide shipping"
+          }
+        },
+        "trust_bullet_Eej3bz": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "wrench",
+            "text": "Service & support through the EBEB <br>and our dealer network"
+          }
+        }
+      },
+      "block_order": [
+        "trust_bullet_cqntAw",
+        "trust_bullet_RyxcLR",
+        "trust_bullet_Eej3bz"
+      ],
+      "name": "EEB Trust bullets",
+      "settings": {}
     },
     "key_features": {
       "type": "trident-key-features",
@@ -331,6 +365,7 @@
   "order": [
     "gallery",
     "overview",
+    "trident_trust_bullets_HeTGTK",
     "key_features",
     "feature_1",
     "feature_2",
