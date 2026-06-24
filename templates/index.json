@@ -17,6 +17,20 @@
           "settings": {
             "image": "shopify://shop_images/Family_Business_-_Andrea_Richard_Jack_Landscape.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
+            "eyebrow": "THE ALL NEW",
+            "heading": "Welcome to the <br>",
+            "heading_highlight": "EBEB Website",
+            "body": "Like with all things EBEB, our new look is designed to make your life easier, smoother and more accessible. Get shopping and enquiring, and if you find any issues, please let us know right away!",
+            "cta_text": "Explore the Range",
+            "cta_url": "/collections"
+          }
+        },
+        "slide_RJjFKd": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Family_Business_-_Andrea_Richard_Jack_Landscape.jpg",
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
             "eyebrow": "The Humanized Hub",
             "heading": "E-Mobility for",
             "heading_highlight": "every body.",
@@ -80,6 +94,7 @@
       },
       "block_order": [
         "slide1",
+        "slide_RJjFKd",
         "slide_NtJ6yY",
         "slide2",
         "slide3",
