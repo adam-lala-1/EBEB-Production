@@ -76,8 +76,8 @@
         "badge_1": "🏅 QLD Social Enterprise",
         "badge_2": "🚴 Free Test Rides",
         "badge_3": "⚡️ E-Bike & Trike Specialist",
-        "autoplay_speed": 5000,
-        "transition_speed": 500
+        "autoplay_speed": 7500,
+        "transition_speed": 1000
       }
     },
     "cta_banner_FN9gGA": {
