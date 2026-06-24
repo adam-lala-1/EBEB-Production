@@ -229,5 +229,23 @@
         }
       });
     }
+
+    // External open API — other sections dispatch eeb:enquiry:open to pre-fill + open.
+    window.addEventListener('eeb:enquiry:open', function (e) {
+      var detail = (e && e.detail) || {};
+      setOpen(true);
+      if (topicInput && detail.topic) topicInput.value = detail.topic;
+      if (messageInput) {
+        var parts = [];
+        if (detail.product) parts.push('Product: ' + detail.product);
+        if (detail.variant) parts.push('Variant: ' + detail.variant);
+        if (parts.length) {
+          var prefix = parts.join(' — ') + '\n\n';
+          var current = messageInput.value || '';
+          if (current.indexOf('Product:') === -1) messageInput.value = prefix + current;
+        }
+        try { messageInput.focus(); } catch (err) {}
+      }
+    });
   })();
 </script>

@@ -1,3 +1,11 @@
+<style>
+  .eeb-pdp__enquire { display: block; width: 100%; margin-top: 10px; padding: 12px 18px; background: #fff; color: var(--color-orange, #E86C2C); border: 2px solid var(--color-orange, #E86C2C); border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; font-family: inherit; }
+  .eeb-pdp__enquire:hover { background: var(--color-orange, #E86C2C); color: #fff; }
+  .eeb-pdp__enquire[hidden] { display: none; }
+  .eeb-trust-bullets { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .eeb-trust-bullets li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-foreground, #1B2A4A); }
+  .eeb-trust-bullets li svg { color: var(--color-orange, #E86C2C); flex-shrink: 0; }
+</style>
 <section class="eeb-section" id="EebPdp-{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="eeb-container">
     {%- if section.settings.show_breadcrumb -%}
@@ -106,6 +114,10 @@
               {%- if variant.available -%}{{ section.settings.atc_text }}{%- else -%}Sold out{%- endif -%}
             </button>
           </div>
+
+          <button type="button" class="eeb-btn eeb-pdp__enquire" data-enquire {% if variant.available %}hidden{% endif %}>
+            {{ section.settings.enquire_text | default: 'Notify me / Enquire' }}
+          </button>
         {%- endform -%}
 
         {%- if section.settings.bullet_1 != blank or section.settings.bullet_2 != blank or section.settings.bullet_3 != blank -%}
@@ -227,10 +239,14 @@
     var priceSave = root.querySelector('[data-price-save]');
     var atcBtn = root.querySelector('.eeb-pdp__atc');
     var atcDefault = atcBtn ? atcBtn.textContent.trim() : 'Add to cart';
+    var enquireBtn = root.querySelector('[data-enquire]');
+    var productTitle = {{ product.title | json }};
+    var currentVariantTitle = {{ variant.title | json }};
     function updateVariant(){
       var variant = findVariant();
       if(select && variant){ select.value = String(variant.id); }
       if(variant){
+        currentVariantTitle = variant.options ? variant.options.join(' / ') : currentVariantTitle;
         if(priceNow) priceNow.textContent = variant.price_formatted;
         if(variant.compare_at_price && variant.compare_at_price > variant.price){
           if(priceWas){ priceWas.textContent = variant.compare_at_formatted; priceWas.hidden = false; }
@@ -243,8 +259,25 @@
           atcBtn.disabled = !variant.available;
           atcBtn.textContent = variant.available ? atcDefault : 'Sold out';
         }
+        if(enquireBtn){
+          enquireBtn.hidden = !!variant.available;
+        }
       }
       swapImageForVariant(variant);
+    }
+    if(enquireBtn){
+      enquireBtn.addEventListener('click', function(){
+        try {
+          window.dispatchEvent(new CustomEvent('eeb:enquiry:open', {
+            detail: {
+              topic: 'Sold out — ' + productTitle,
+              product: productTitle,
+              variant: currentVariantTitle,
+              enquiry_type: 'sold_out'
+            }
+          }));
+        } catch(e){}
+      });
     }
     root.querySelectorAll('.eeb-pdp__option-btn').forEach(function(b){
       b.addEventListener('click', function(){
@@ -298,6 +331,7 @@
     ], "default": "type" },
     { "type": "text", "id": "eyebrow_custom", "label": "Custom eyebrow (if selected above)" },
     { "type": "text", "id": "atc_text", "label": "Add to cart button text", "default": "Add to cart" },
+    { "type": "text", "id": "enquire_text", "label": "Sold-out enquire button text", "default": "Notify me / Enquire" },
     { "type": "header", "content": "Trust bullets" },
     { "type": "text", "id": "bullet_1", "label": "Bullet 1", "default": "Free shipping Australia-wide over $99" },
     { "type": "text", "id": "bullet_2", "label": "Bullet 2", "default": "12-month warranty" },

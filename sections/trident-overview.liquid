@@ -49,8 +49,29 @@
         <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;" data-add-to-cart>
           {%- if product.available -%}{{ section.settings.cta_text | default: 'Enquire Now' }}{%- else -%}Sold out{%- endif -%}
         </button>
+
+        <button type="button" class="eeb-btn eeb-trident__enquire" data-enquire {% if product.available %}hidden{% endif %} style="width:100%;background:#fff;color:var(--color-orange,#E86C2C);border:2px solid var(--color-orange,#E86C2C);font-weight:600;">
+          {{ section.settings.enquire_text | default: 'Notify me / Enquire' }}
+        </button>
       </div>
     {% endform %}
+
+    {%- assign has_bullets = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'trust_bullet' and block.settings.text != blank -%}{%- assign has_bullets = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if has_bullets -%}
+      <ul class="eeb-trust-bullets" style="list-style:none;padding:0;margin:1.25rem 0 0;display:flex;flex-direction:column;gap:.5rem;">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'trust_bullet' and block.settings.text != blank -%}
+            <li {{ block.shopify_attributes }} style="display:flex;align-items:center;gap:.625rem;font-size:.9rem;color:var(--color-foreground,#1B2A4A);">
+              <span style="color:var(--color-orange,#E86C2C);display:inline-flex;flex-shrink:0;">{% render 'icon', icon: block.settings.icon, size: 18 %}</span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
   </div>
 </section>
 
@@ -136,12 +157,18 @@
         });
       });
 
+      var enquireBtn = root.querySelector('[data-enquire]');
+      var productTitle = {{ product.title | json }};
+
       if (variant) {
         hiddenId.value = variant.id;
         setPrice(variant);
         if (cta) {
           cta.disabled = !variant.available;
           cta.textContent = variant.available ? {{ section.settings.cta_text | default: 'Enquire Now' | json }} : 'Sold out';
+        }
+        if (enquireBtn) {
+          enquireBtn.hidden = !!variant.available;
         }
         // Broadcast to gallery (and any other listeners) so the image can swap.
         try {
@@ -161,9 +188,27 @@
 
     inputs.forEach(function(input) {
       input.addEventListener('change', update);
-      // Allow clicking the wrapping label to toggle (radios handle this natively,
-      // but ensure styles refresh)
     });
+
+    var enquireBtnInit = root.querySelector('[data-enquire]');
+    if (enquireBtnInit) {
+      enquireBtnInit.addEventListener('click', function () {
+        var values = selectedValues();
+        var variant = matchVariant(values);
+        var variantTitle = variant && variant.options ? variant.options.join(' / ') : '';
+        var title = {{ product.title | json }};
+        try {
+          window.dispatchEvent(new CustomEvent('eeb:enquiry:open', {
+            detail: {
+              topic: 'Sold out — ' + title,
+              product: title,
+              variant: variantTitle,
+              enquiry_type: 'sold_out'
+            }
+          }));
+        } catch (e) {}
+      });
+    }
 
     update();
   })();
@@ -177,7 +222,33 @@
     { "type": "text", "id": "title_fallback", "label": "Title fallback", "default": "Trident FT v3" },
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Semi-Recumbent Fat Tyre Electric Tricycle" },
     { "type": "text", "id": "price_fallback", "label": "Price fallback", "default": "$6,000" },
-    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Enquire Now" }
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Enquire Now" },
+    { "type": "text", "id": "enquire_text", "label": "Sold-out enquire button text", "default": "Notify me / Enquire" }
+  ],
+  "blocks": [
+    {
+      "type": "trust_bullet",
+      "name": "Trust bullet",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Shield (warranty)" },
+            { "value": "shield-check", "label": "Shield check" },
+            { "value": "wrench", "label": "Wrench (service)" },
+            { "value": "users", "label": "Users (community / NDIS)" },
+            { "value": "bike", "label": "Bike" },
+            { "value": "gauge", "label": "Gauge" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "battery", "label": "Battery" }
+          ],
+          "default": "shield"
+        },
+        { "type": "text", "id": "text", "label": "Bullet text" }
+      ]
+    }
   ],
   "presets": [{ "name": "EEB Product overview" }]
 }
