@@ -135,10 +135,10 @@
       "type": "dealer-portal",
       "settings": {
         "portal_heading": "Dealer Portal",
-        "portal_text": "A dedicated B2B hub for EEB dealers — order stock, manage warranty claims, and access training and marketing assets in one place.",
+        "portal_text": "A dedicated B2B hub for EBEB dealers — order stock, manage warranty claims, and access training and marketing assets in one place.",
         "notify_text": "Notify me when it launches",
         "notify_url": "",
-        "apply_heading": "Become an EEB dealer",
+        "apply_heading": "Become an EBEB dealer",
         "apply_text": "Join a growing network of independent retailers and disability mobility specialists helping more Australians ride. Tell us about your store and we'll be in touch.",
         "apply_cta_text": "Apply to become a dealer",
         "apply_cta_url": "",
@@ -149,7 +149,7 @@
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "heading": "Not sure which EEB is right for you?",
+        "heading": "Not sure which EBEB is right for you?",
         "subheading": "Our team and dealer network can help match you to the right ride. Book a chat or test ride today.",
         "cta1_text": "Book a test ride",
         "cta1_url": "",
