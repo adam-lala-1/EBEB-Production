@@ -76,6 +76,19 @@
             "website_label": "cairns-electric-bikes.com.au"
           }
         },
+        "dealer_jqXhYG": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/6_2cc70c3f-33eb-493c-b8ab-85ce66198345.png",
+            "region": "WA, Australia",
+            "name": "Impulse Cycles, WA",
+            "address": "79 Lockyer Avenue, Albany, WA 6330",
+            "phone": "(08) 9842 1387",
+            "email": "ride@impulsecycles.com.au",
+            "website_url": "https://www.impulsecycles.com.au",
+            "website_label": "impulsecycles.com.au"
+          }
+        },
         "dealer_aJK7Fn": {
           "type": "dealer",
           "settings": {
@@ -89,17 +102,17 @@
             "website_label": "ecoquip.co.nz"
           }
         },
-        "dealer_jqXhYG": {
+        "dealer_TLqNy3": {
           "type": "dealer",
           "settings": {
-            "logo": "shopify://shop_images/6_2cc70c3f-33eb-493c-b8ab-85ce66198345.png",
-            "region": "WA, Australia",
-            "name": "Impulse Cycles, WA",
-            "address": "79 Lockyer Avenue, Albany, WA 6330",
-            "phone": "(08) 9842 1387",
-            "email": "ride@impulsecycles.com.au",
-            "website_url": "https://www.impulsecycles.com.au",
-            "website_label": "impulsecycles.com.au"
+            "logo": "shopify://shop_images/Screenshot_2025-12-16_124335.png",
+            "region": "United States of America",
+            "name": "Perfect Fit Cycles",
+            "address": "113 N Church St Ste 319, Visalia, CA 93291, USA",
+            "phone": "(559) 429-8512",
+            "email": "ben@perfectfitlp.com",
+            "website_url": "https://www.perfectfitlp.com",
+            "website_label": "perfectfitlp.com"
           }
         }
       },
@@ -108,8 +121,9 @@
         "dealer_NBAmzJ",
         "dealer_rjgRCD",
         "dealer_wM9Ewq",
+        "dealer_jqXhYG",
         "dealer_aJK7Fn",
-        "dealer_jqXhYG"
+        "dealer_TLqNy3"
       ],
       "settings": {
         "eyebrow": "Our partners",

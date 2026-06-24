@@ -218,6 +218,7 @@
             "price": "from $6,250.00",
             "description": "Unmatched stability meets premium performance.",
             "specs": "80km Range; Semi-Recumbent; 25km/h Assist",
+            "cta_text": "Shop Trident",
             "link": "shopify://products/bf-trojan-family"
           }
         },
@@ -231,6 +232,7 @@
             "price": "from $6,495.00",
             "description": "Agile, powerful, and ready for family adventures.",
             "specs": "60km Range; Fat tyres; Family ready",
+            "cta_text": "Shop Trident",
             "link": "shopify://products/bf-trojan-family"
           }
         },
@@ -242,8 +244,9 @@
             "title": "Lightning",
             "subtitle": "Electric Bike for Short-Statured Riders",
             "price": "from $4,500",
-            "description": "Compact, fast-folding, and ready to go anywhere.",
+            "description": "Compact mand ready to go anywhere.",
             "specs": "50km Range; Compact fold; Lightweight",
+            "cta_text": "Shop Trident",
             "link": "shopify://products/lightning-electric-bike"
           }
         }
