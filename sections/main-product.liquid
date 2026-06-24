@@ -53,13 +53,14 @@
         <h1>{{ product.title }}</h1>
 
         {%- assign variant = product.selected_or_first_available_variant -%}
-        <div class="eeb-pdp__price">
-          <span class="eeb-pdp__price-now">{{ variant.price | money }}</span>
-          {%- if variant.compare_at_price > variant.price -%}
-            <span class="eeb-pdp__price-was">{{ variant.compare_at_price | money }}</span>
-            {%- assign saving = variant.compare_at_price | minus: variant.price -%}
-            <span class="eeb-pdp__price-save">Save {{ saving | money }}</span>
-          {%- endif -%}
+        <div class="eeb-pdp__price" data-price-wrap>
+          <span class="eeb-pdp__price-now" data-price-now>{{ variant.price | money }}</span>
+          <span class="eeb-pdp__price-was" data-price-was {% unless variant.compare_at_price > variant.price %}hidden{% endunless %}>{{ variant.compare_at_price | money }}</span>
+          <span class="eeb-pdp__price-save" data-price-save {% unless variant.compare_at_price > variant.price %}hidden{% endunless %}>
+            {%- if variant.compare_at_price > variant.price -%}
+              {%- assign saving = variant.compare_at_price | minus: variant.price -%}Save {{ saving | money }}
+            {%- endif -%}
+          </span>
         </div>
 
         {%- if product.description != blank and product.description contains '<!-- split -->' -%}
@@ -150,6 +151,11 @@
         "id": {{ v.id }},
         "options": {{ v.options | json }},
         "available": {{ v.available }},
+        "price": {{ v.price | json }},
+        "compare_at_price": {{ v.compare_at_price | json }},
+        "price_formatted": {{ v.price | money | json }},
+        "compare_at_formatted": {% if v.compare_at_price %}{{ v.compare_at_price | money | json }}{% else %}null{% endif %},
+        "save_formatted": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | minus: v.price | money | json }}{% else %}null{% endif %},
         "image": {% if v.featured_image %}{{ v.featured_image | image_url: width: 1400 | json }}{% else %}null{% endif %},
         "image_id": {% if v.featured_image %}{{ v.featured_image.id | json }}{% else %}null{% endif %}
       }{% unless forloop.last %},{% endunless %}
@@ -216,9 +222,28 @@
         main.src = variant.image;
       }
     }
+    var priceNow = root.querySelector('[data-price-now]');
+    var priceWas = root.querySelector('[data-price-was]');
+    var priceSave = root.querySelector('[data-price-save]');
+    var atcBtn = root.querySelector('.eeb-pdp__atc');
+    var atcDefault = atcBtn ? atcBtn.textContent.trim() : 'Add to cart';
     function updateVariant(){
       var variant = findVariant();
       if(select && variant){ select.value = String(variant.id); }
+      if(variant){
+        if(priceNow) priceNow.textContent = variant.price_formatted;
+        if(variant.compare_at_price && variant.compare_at_price > variant.price){
+          if(priceWas){ priceWas.textContent = variant.compare_at_formatted; priceWas.hidden = false; }
+          if(priceSave){ priceSave.textContent = 'Save ' + variant.save_formatted; priceSave.hidden = false; }
+        } else {
+          if(priceWas) priceWas.hidden = true;
+          if(priceSave) priceSave.hidden = true;
+        }
+        if(atcBtn){
+          atcBtn.disabled = !variant.available;
+          atcBtn.textContent = variant.available ? atcDefault : 'Sold out';
+        }
+      }
       swapImageForVariant(variant);
     }
     root.querySelectorAll('.eeb-pdp__option-btn').forEach(function(b){
