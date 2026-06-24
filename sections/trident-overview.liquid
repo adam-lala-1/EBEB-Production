@@ -143,6 +143,16 @@
           cta.disabled = !variant.available;
           cta.textContent = variant.available ? {{ section.settings.cta_text | default: 'Enquire Now' | json }} : 'Sold out';
         }
+        // Broadcast to gallery (and any other listeners) so the image can swap.
+        try {
+          document.dispatchEvent(new CustomEvent('eeb:variant:change', {
+            detail: {
+              variantId: variant.id,
+              featuredImageId: variant.featured_image ? variant.featured_image.id : null,
+              featuredImageSrc: variant.featured_image ? variant.featured_image.src : null
+            }
+          }));
+        } catch (e) {}
       } else if (cta) {
         cta.disabled = true;
         cta.textContent = 'Unavailable';

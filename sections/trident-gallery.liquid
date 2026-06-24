@@ -3,7 +3,7 @@
     {%- assign images = product.images | default: section.settings.fallback_images -%}
     {%- if product.images.size > 0 -%}
       {%- for img in product.images -%}
-        <img src="{{ img | image_url: width: 1600 }}" alt="{{ product.title | escape }} — view {{ forloop.index }}" data-gallery-img data-index="{{ forloop.index0 }}" style="{% if forloop.first %}display:block;{% else %}display:none;{% endif %}">
+        <img src="{{ img | image_url: width: 1600 }}" alt="{{ product.title | escape }} — view {{ forloop.index }}" data-gallery-img data-index="{{ forloop.index0 }}" data-image-id="{{ img.id }}" style="{% if forloop.first %}display:block;{% else %}display:none;{% endif %}">
       {%- endfor -%}
     {%- elsif section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
@@ -68,6 +68,26 @@
       root.querySelector('[data-gallery-prev]').addEventListener('click', function () { show(idx - 1); });
       root.querySelector('[data-gallery-next]').addEventListener('click', function () { show(idx + 1); });
       thumbs.forEach(function (el, n) { el.addEventListener('click', function () { show(n); }); });
+
+      // Sync to variant changes broadcast by the overview section.
+      document.addEventListener('eeb:variant:change', function (e) {
+        var detail = e.detail || {};
+        var targetIdx = -1;
+        if (detail.featuredImageId) {
+          imgs.forEach(function (el, n) {
+            if (targetIdx === -1 && String(el.getAttribute('data-image-id')) === String(detail.featuredImageId)) {
+              targetIdx = n;
+            }
+          });
+        }
+        if (targetIdx === -1 && detail.featuredImageSrc) {
+          var needle = String(detail.featuredImageSrc).split('?')[0].split('/').pop();
+          imgs.forEach(function (el, n) {
+            if (targetIdx === -1 && el.src.indexOf(needle) !== -1) targetIdx = n;
+          });
+        }
+        if (targetIdx !== -1) show(targetIdx);
+      });
     });
   })();
 </script>
