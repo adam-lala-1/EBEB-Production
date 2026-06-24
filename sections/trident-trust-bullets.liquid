@@ -1,0 +1,67 @@
+<section>
+  {%- assign bullet_count = section.blocks | where: 'type', 'trust_bullet' | size -%}
+  {%- if bullet_count > 0 -%}
+    <div class="eeb-trust-bullets-wrap" id="TrustBullets-{{ section.id }}" style="max-width:64rem;margin:0 auto;padding:1.5rem 1rem;">
+      <ul class="eeb-trust-bullets" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:1rem;">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'trust_bullet' and block.settings.text != blank -%}
+            <li {{ block.shopify_attributes }} style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:.4rem;font-size:.875rem;color:var(--color-foreground,#1B2A4A);">
+              <span style="color:var(--color-orange,#E86C2C);display:inline-flex;flex-shrink:0;">{% render 'icon', icon: block.settings.icon, size: 22 %}</span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+    <style>
+      @media (min-width: 750px) {
+        #TrustBullets-{{ section.id }} .eeb-trust-bullets {
+          grid-template-columns: repeat({{ bullet_count }}, minmax(0, 1fr));
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "EEB Trust bullets",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trust_bullet",
+      "name": "Trust bullet",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Shield (warranty)" },
+            { "value": "shield-check", "label": "Shield check" },
+            { "value": "wrench", "label": "Wrench (service)" },
+            { "value": "users", "label": "Users (community / NDIS)" },
+            { "value": "bike", "label": "Bike" },
+            { "value": "truck", "label": "Truck (shipping)" },
+            { "value": "gauge", "label": "Gauge" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "battery", "label": "Battery" }
+          ],
+          "default": "shield"
+        },
+        { "type": "text", "id": "text", "label": "Bullet text" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "EEB Trust bullets",
+    "blocks": [
+      { "type": "trust_bullet", "settings": { "icon": "shield", "text": "2-year frame & motor warranty" } },
+      { "type": "trust_bullet", "settings": { "icon": "users", "text": "NDIS-compatible — approved assistive technology" } },
+      { "type": "trust_bullet", "settings": { "icon": "wrench", "text": "Service & support through the EEB dealer network" } }
+    ]
+  }]
+}
+{% endschema %}
