@@ -63,13 +63,27 @@
             "cta_text": "ORDER NOW",
             "cta_url": "shopify://products/bf-trident-fat-tyre"
           }
+        },
+        "slide_wz9Lfr": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2026-04-28142734.png",
+            "image_url": "",
+            "eyebrow": "Cargo & Family Bikes",
+            "heading": "Cargo bikes for you and",
+            "heading_highlight": "your family.",
+            "body": "Discover our range of cargo bikes, designed to carry the kids, shopping, pets and everything in between!",
+            "cta_text": "Explore the Range",
+            "cta_url": "shopify://collections/electric-cargo-bikes"
+          }
         }
       },
       "block_order": [
         "slide1",
         "slide_NtJ6yY",
         "slide2",
-        "slide3"
+        "slide3",
+        "slide_wz9Lfr"
       ],
       "settings": {
         "show_badges": true,
