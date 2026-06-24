@@ -32,7 +32,7 @@
         {%- if product.images.size > 1 -%}
           <div class="eeb-pdp__thumbs">
             {%- for image in product.images limit: 12 -%}
-              <button type="button" class="eeb-pdp__thumb {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" data-full="{{ image | image_url: width: 1400 }}" aria-label="View image {{ forloop.index }}">
+              <button type="button" class="eeb-pdp__thumb {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-full="{{ image | image_url: width: 1400 }}" aria-label="View image {{ forloop.index }}">
                 <img src="{{ image | image_url: width: 200 }}" alt="" loading="lazy">
               </button>
             {%- endfor -%}
@@ -143,6 +143,20 @@
   </div>
 </section>
 
+<script type="application/json" id="EebPdpVariants-{{ section.id }}">
+  [
+    {%- for v in product.variants -%}
+      {
+        "id": {{ v.id }},
+        "options": {{ v.options | json }},
+        "available": {{ v.available }},
+        "image": {% if v.featured_image %}{{ v.featured_image | image_url: width: 1400 | json }}{% else %}null{% endif %},
+        "image_id": {% if v.featured_image %}{{ v.featured_image.id | json }}{% else %}null{% endif %}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+</script>
+
 <script>
   (function(){
     var root = document.getElementById('EebPdp-{{ section.id }}');
@@ -175,22 +189,37 @@
     });
 
     var select = root.querySelector('.eeb-pdp__variant-select');
+    var variantsData = [];
+    try {
+      var vd = document.getElementById('EebPdpVariants-{{ section.id }}');
+      if (vd) variantsData = JSON.parse(vd.textContent);
+    } catch(e){}
     var selected = {};
     root.querySelectorAll('.eeb-pdp__option-btn.is-active').forEach(function(b){
       selected[b.dataset.optionIndex] = b.dataset.value;
     });
-    function updateVariant(){
-      if(!select) return;
-      var opts = select.options;
-      for(var i=0;i<opts.length;i++){
-        var label = opts[i].textContent.split(' - ')[0];
-        var parts = label.split(' / ');
-        var match = true;
-        Object.keys(selected).forEach(function(idx){
-          if(parts[idx] !== selected[idx]) match = false;
+    function findVariant(){
+      return variantsData.find(function(v){
+        return Object.keys(selected).every(function(idx){
+          return v.options[parseInt(idx,10)] === selected[idx];
         });
-        if(match){ select.value = opts[i].value; break; }
+      });
+    }
+    function swapImageForVariant(variant){
+      if(!variant || !variant.image || !main) return;
+      // Try to find a matching thumb by image id and activate it
+      var matched = thumbs.find(function(t){ return String(t.dataset.imageId) === String(variant.image_id); });
+      if(matched){
+        var idx = thumbs.indexOf(matched);
+        show(idx);
+      } else {
+        main.src = variant.image;
       }
+    }
+    function updateVariant(){
+      var variant = findVariant();
+      if(select && variant){ select.value = String(variant.id); }
+      swapImageForVariant(variant);
     }
     root.querySelectorAll('.eeb-pdp__option-btn').forEach(function(b){
       b.addEventListener('click', function(){
