@@ -53,7 +53,7 @@
             "type": "link_column",
             "settings": {
               "heading": "Shop",
-              "menu": "footer",
+              "menu": "main-menu",
               "custom_links": ""
             }
           },
@@ -61,7 +61,7 @@
             "type": "link_column",
             "settings": {
               "heading": "Support",
-              "menu": "footer",
+              "menu": "footer-links",
               "custom_links": ""
             }
           }
