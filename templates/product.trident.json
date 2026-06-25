@@ -48,6 +48,39 @@
         "enquire_text": "Notify me / Enquire"
       }
     },
+    "trident_trust_bullets_eztgMg": {
+      "type": "trident-trust-bullets",
+      "blocks": {
+        "trust_bullet_AKdr98": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "shield",
+            "text": "2-year frame & motor warranty"
+          }
+        },
+        "trust_bullet_CVn7dW": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "truck",
+            "text": "Shipping available Australia wide.Free Click & Collect"
+          }
+        },
+        "trust_bullet_eXFa6i": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "wrench",
+            "text": "Service & support through EBEB <br>and our dealer network"
+          }
+        }
+      },
+      "block_order": [
+        "trust_bullet_AKdr98",
+        "trust_bullet_CVn7dW",
+        "trust_bullet_eXFa6i"
+      ],
+      "name": "EEB Trust bullets",
+      "settings": {}
+    },
     "key_features": {
       "type": "trident-key-features",
       "blocks": {
@@ -318,44 +351,12 @@
         "cta2_text": "Find a Dealer",
         "cta2_url": ""
       }
-    },
-    "trident_trust_bullets_eztgMg": {
-      "type": "trident-trust-bullets",
-      "blocks": {
-        "trust_bullet_AKdr98": {
-          "type": "trust_bullet",
-          "settings": {
-            "icon": "shield",
-            "text": "2-year frame & motor warranty"
-          }
-        },
-        "trust_bullet_CVn7dW": {
-          "type": "trust_bullet",
-          "settings": {
-            "icon": "truck",
-            "text": "Shipping available Australia wide.<br>Free Click & Collect"
-          }
-        },
-        "trust_bullet_eXFa6i": {
-          "type": "trust_bullet",
-          "settings": {
-            "icon": "wrench",
-            "text": "Service & support through EBEB <br>and our dealer network"
-          }
-        }
-      },
-      "block_order": [
-        "trust_bullet_AKdr98",
-        "trust_bullet_CVn7dW",
-        "trust_bullet_eXFa6i"
-      ],
-      "name": "EEB Trust bullets",
-      "settings": {}
     }
   },
   "order": [
     "gallery",
     "overview",
+    "trident_trust_bullets_eztgMg",
     "key_features",
     "feature_1",
     "feature_2",
@@ -364,7 +365,6 @@
     "ride_story",
     "engineered",
     "specs",
-    "cta",
-    "trident_trust_bullets_eztgMg"
+    "cta"
   ]
 }
