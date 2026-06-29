@@ -44,7 +44,8 @@
         "title_fallback": "Trojan FT",
         "subtitle": "Fat Tyre Electric Trike",
         "price_fallback": "$3,495",
-        "cta_text": "Add to Cart"
+        "cta_text": "Add to Cart",
+        "enquire_text": "Notify me / Enquire"
       }
     },
     "key_features": {
@@ -54,8 +55,8 @@
           "type": "feature",
           "settings": {
             "icon": "battery",
-            "label": "60km Range",
-            "sub": "36V 13Ah"
+            "label": "80km Range",
+            "sub": "48v 20Ah"
           }
         },
         "f2": {
@@ -71,14 +72,14 @@
           "settings": {
             "icon": "shield",
             "label": "Hydraulic Brakes",
-            "sub": "Tektro disc"
+            "sub": "Bengal disc"
           }
         },
         "f4": {
           "type": "feature",
           "settings": {
             "icon": "users",
-            "label": "150kg Max Load",
+            "label": "200kg Max Load",
             "sub": "Rider + cargo"
           }
         },
@@ -86,7 +87,7 @@
           "type": "feature",
           "settings": {
             "icon": "weight",
-            "label": "38kg Weight",
+            "label": "74kg Weight",
             "sub": "Alloy frame"
           }
         }
@@ -140,26 +141,33 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "250W rear hub motor with smooth pedal assist"
+            "text": "High Torque rear hub motor with smooth pedal assist"
           }
         },
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "Removable 36V battery — charge inside, lock outside"
+            "text": "Removable 48V battery — charge inside, lock outside"
           }
         },
         "b3": {
           "type": "bullet",
           "settings": {
-            "text": "Rear cargo rack and basket compatible"
+            "text": "Rear cargo seat with basket underneath and optional extended tray"
+          }
+        },
+        "bullet_bQqbGA": {
+          "type": "bullet",
+          "settings": {
+            "text": "Front frame mounted rack"
           }
         }
       },
       "block_order": [
         "b1",
         "b2",
-        "b3"
+        "b3",
+        "bullet_bQqbGA"
       ],
       "settings": {
         "image": "shopify://shop_images/1000013384.jpg",
