@@ -199,7 +199,7 @@
         "image": "shopify://shop_images/Trident_V3-384.jpg",
         "image_position": "right",
         "heading": "Power & Range",
-        "body": "Choose between a cadence sensor for relaxed cruising or a torque sensor for a natural ride feel. The 48V 17.5Ah Samsung-cell battery delivers up to 80km of pedal-assisted range."
+        "body": "Features Torque and Cadence selectable motor control for relaxed cruising or a more natural ride feel. The 48V 17.5Ah Samsung-cell battery delivers up to 80km of pedal-assisted range."
       }
     },
     "feature_3": {
@@ -311,14 +311,14 @@
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
+            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" / 16\" × 4.0\" fat tyres\nBrakes | Bengal hydraulic disc (180mm)\nGears | Shimano Cues 9-speed"
           }
         },
         "group_FRP3tk": {
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
+            "rows": "Battery | 48v 17.5Ah Samsung Battery\nDisplay | Colour 3 button display\nMotor Control | Torque and Cadence Selectable Motor"
           }
         },
         "group_mF86aJ": {
