@@ -263,6 +263,7 @@
     },
     "hero_alt_MqgiAg": {
       "type": "hero-alt",
+      "disabled": true,
       "name": "Hero (Alt)",
       "settings": {
         "image_position": "left",
