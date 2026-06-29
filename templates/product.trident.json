@@ -120,7 +120,7 @@
           "type": "feature",
           "settings": {
             "icon": "weight",
-            "label": "36kg Weight",
+            "label": "42kg Weight",
             "sub": "Alloy frame"
           }
         }
@@ -165,7 +165,7 @@
         "image": "shopify://shop_images/Trident_Beach.png",
         "image_position": "left",
         "heading": "Stability & Comfort",
-        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. Three 20×4\" fat tyres absorb bumps while providing unmatched stability."
+        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. the rear 20×4\" fat tyres absorb bumps while the front 16x4\" provides unmatched stability."
       }
     },
     "feature_2": {
@@ -174,13 +174,13 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "250W rear hub motor (500W peak)"
+            "text": "High torque rear hub motor"
           }
         },
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "Shimano Altus 9-speed drivetrain"
+            "text": "Shimano Cues 9-speed drivetrain"
           }
         },
         "b3": {
@@ -220,7 +220,7 @@
         "b3": {
           "type": "bullet",
           "settings": {
-            "text": "Free test rides available at all dealers"
+            "text": "Free test rides available at select dealers"
           }
         }
       },
