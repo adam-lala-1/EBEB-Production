@@ -173,7 +173,7 @@
         "image": "shopify://shop_images/1000013384.jpg",
         "image_position": "right",
         "heading": "Family-Ready Power",
-        "body": "Up to 60km of range on a single charge, plenty for the school run, the shops, and a loop through the park. Removable battery means you charge it where it suits you."
+        "body": "Up to 80km* of range on a single charge, plenty for the school run, the shops, and a loop through the park. Removable battery means you charge it where it suits you."
       }
     },
     "feature_3": {
@@ -194,7 +194,7 @@
         "b3": {
           "type": "bullet",
           "settings": {
-            "text": "Intuitive twist-throttle and assist controls"
+            "text": "Intuitive display and assistance controls"
           }
         }
       },
