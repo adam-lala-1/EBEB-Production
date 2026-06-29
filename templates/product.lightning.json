@@ -356,9 +356,9 @@
         "heading": "Try the Lightning at our Gaythorne workshop",
         "subheading": "Come and see if the Lightning fits — quiet streets, expert fittings, no pressure.",
         "cta1_text": "Enquire & Try",
-        "cta1_url": "/pages/come-and-try",
+        "cta1_url": "shopify://pages/book-a-test-ride",
         "cta2_text": "Find a Dealer",
-        "cta2_url": "/pages/dealers"
+        "cta2_url": "shopify://pages/distributor-list"
       }
     }
   },
