@@ -31,9 +31,9 @@
         "heading": "Find your nearest dealer",
         "subheading": "Test ride an EBEB at one of our partner stores around Australia.",
         "cta1_text": "Book a Test Ride",
-        "cta1_url": "",
+        "cta1_url": "shopify://pages/book-a-test-ride",
         "cta2_text": "Find a Dealer",
-        "cta2_url": ""
+        "cta2_url": "shopify://pages/distributor-list"
       }
     }
   },
