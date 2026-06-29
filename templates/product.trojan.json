@@ -217,21 +217,21 @@
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Frame | 6061 Alloy, step-through trike\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano 7-speed"
+            "rows": "Frame | 6061 Alloy, step-through trike\nTyres | Rear 20\" Front 26\" × 4.0\" fat tyres\nBrakes | Bengal hydraulic disc (180mm)\nGears | Shimano 7-speed"
           }
         },
         "group_elec": {
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Motor | 250W rear hub (500W peak)\nBattery | 36V 13Ah removable\nRange | Up to 60km pedal-assist\nDisplay | LCD with USB charging"
+            "rows": "Motor | High torque rear hub\nBattery | 48V 20Ah removable\nRange | Up to 80km pedal-assist\nDisplay |KD58c Colour"
           }
         },
         "group_weight": {
           "type": "group",
           "settings": {
             "title": "Weight",
-            "rows": "Bike weight | 38kg\nMax rider | 150kg\nMax cargo | 25kg rear rack\nFolded | N/A"
+            "rows": "Bike weight | 38kg\nMax rider | 150kg\nMax cargo | 25kg rear rack"
           }
         }
       },
