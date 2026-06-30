@@ -295,6 +295,32 @@
         "subheading": ""
       }
     },
+    "blocks_CzyYAy": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ed44187_UFdeGF": {
+          "type": "ai_gen_block_ed44187",
+          "settings": {
+            "youtube_url": "https://youtu.be/kAMhUeghAZE",
+            "title": "",
+            "title_alignment": "center",
+            "title_size": 24,
+            "desktop_width_percent": 65,
+            "border_radius": 8,
+            "title_color": "#1B2A4A",
+            "placeholder_bg_color": "#F8F5F0",
+            "placeholder_icon_color": "#1B2A4A",
+            "placeholder_text_color": "#6B7280"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ed44187_UFdeGF"
+      ],
+      "name": "YouTube video",
+      "settings": {}
+    },
     "ride_story": {
       "type": "trident-ride-story",
       "settings": {
@@ -335,6 +361,7 @@
     "feature_3",
     "specs",
     "tech",
+    "blocks_CzyYAy",
     "ride_story",
     "engineered",
     "cta"
