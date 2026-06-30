@@ -25,13 +25,13 @@
         "details_max_height": 0
       }
     },
-    "blocks_xipAGa": {
+    "blocks_mpqBH3": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_ed44187_tKFght": {
+        "ai_gen_block_ed44187_9an4aY": {
           "type": "ai_gen_block_ed44187",
           "settings": {
-            "youtube_url": "https://youtu.be/VxOOnUutdJY",
+            "youtube_url": "https://youtu.be/OTEi5Rvnnig",
             "title": "",
             "title_alignment": "center",
             "title_size": 24,
@@ -46,7 +46,7 @@
         }
       },
       "block_order": [
-        "ai_gen_block_ed44187_tKFght"
+        "ai_gen_block_ed44187_9an4aY"
       ],
       "name": "YouTube video",
       "settings": {}
@@ -65,7 +65,7 @@
   },
   "order": [
     "main",
-    "blocks_xipAGa",
+    "blocks_mpqBH3",
     "cta"
   ]
 }
