@@ -30,6 +30,7 @@
       "blocks": {
         "ai_gen_block_ed44187_9an4aY": {
           "type": "ai_gen_block_ed44187",
+          "disabled": true,
           "settings": {
             "youtube_url": "https://youtu.be/OTEi5Rvnnig",
             "title": "",
