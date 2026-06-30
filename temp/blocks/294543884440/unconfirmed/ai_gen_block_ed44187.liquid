@@ -1,6 +1,247 @@
+{% doc %}
+  @prompt
+    emdedded video from a youtbe link
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-youtube-video-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-youtube-video__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-color: {{ block.settings.placeholder_bg_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-youtube-video__iframe-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .ai-youtube-video__placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .ai-youtube-video__placeholder-icon-{{ ai_gen_id }} {
+    width: 80px;
+    height: 80px;
+    color: {{ block.settings.placeholder_icon_color }};
+    opacity: 0.5;
+  }
+
+  .ai-youtube-video__placeholder-text-{{ ai_gen_id }} {
+    color: {{ block.settings.placeholder_text_color }};
+    font-size: 14px;
+    text-align: center;
+    max-width: 300px;
+  }
+
+  .ai-youtube-video__title-{{ ai_gen_id }} {
+    text-align: {{ block.settings.title_alignment }};
+    margin-bottom: 16px;
+    color: {{ block.settings.title_color }};
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-youtube-video-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-youtube-video__title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.85);
+    }
+  }
+{% endstyle %}
+
+<youtube-video-{{ ai_gen_id }}
+  class="ai-youtube-video-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.title != blank %}
+    <h2 class="ai-youtube-video__title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+  {% endif %}
+
+  <div class="ai-youtube-video__wrapper-{{ ai_gen_id }}">
+    {% if block.settings.youtube_url != blank %}
+      <iframe
+        class="ai-youtube-video__iframe-{{ ai_gen_id }}"
+        src="https://www.youtube.com/embed/{{ block.settings.youtube_url | split: 'v=' | last | split: '&' | first | split: '/' | last | split: '?si=' | first }}"
+        title="{{ block.settings.title | default: 'YouTube video player' }}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    {% else %}
+      <div class="ai-youtube-video__placeholder-{{ ai_gen_id }}">
+        <svg
+          class="ai-youtube-video__placeholder-icon-{{ ai_gen_id }}"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+        </svg>
+        <div class="ai-youtube-video__placeholder-text-{{ ai_gen_id }}">
+          Add a YouTube video URL to display your video
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</youtube-video-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class YoutubeVideo{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const iframe = this.querySelector('.ai-youtube-video__iframe-{{ ai_gen_id }}');
+        if (iframe) {
+          iframe.addEventListener('load', function() {
+            iframe.style.opacity = '1';
+          });
+        }
+      }
+    }
+
+    customElements.define('youtube-video-{{ ai_gen_id }}', YoutubeVideo{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "YouTube video",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "youtube_url",
+      "label": "YouTube URL",
+      "info": "Paste the full YouTube video URL (e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "Title alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1B2A4A"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_bg_color",
+      "label": "Placeholder background",
+      "default": "#F8F5F0"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_icon_color",
+      "label": "Placeholder icon color",
+      "default": "#1B2A4A"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_text_color",
+      "label": "Placeholder text color",
+      "default": "#6B7280"
+    }
+  ],
+  "presets": [
+    {
+      "name": "YouTube video"
+    }
+  ]
+}
 {% endschema %}
