@@ -352,7 +352,7 @@
             "title": "",
             "title_alignment": "center",
             "title_size": 24,
-            "desktop_width_percent": 100,
+            "desktop_width_percent": 65,
             "border_radius": 8,
             "title_color": "#1B2A4A",
             "placeholder_bg_color": "#F8F5F0",
