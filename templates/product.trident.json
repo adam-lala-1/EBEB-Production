@@ -44,7 +44,9 @@
         "title_fallback": "Trident FT v3",
         "subtitle": "Semi-Recumbent Fat Tyre Electric Tricycle",
         "price_fallback": "$6,000",
-        "cta_text": "Enquire Now"
+        "cta_text": "Enquire Now",
+        "enquire_text": "Notify me / Enquire",
+        "trust_line": ""
       }
     },
     "trust_bullets": {
@@ -234,6 +236,15 @@
         "body": "The Trident is built for every body. A low step-over frame, adjustable seat position, and intuitive controls mean riders of all abilities can enjoy the freedom of cycling — independently."
       }
     },
+    "product_video_ti9WgM": {
+      "type": "product-video",
+      "name": "Product video",
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "Trident v3 Overview",
+        "video_url": "https://youtube.com/embed/teoUn1iuQjA"
+      }
+    },
     "tech": {
       "type": "trident-tech-showcase",
       "blocks": {
@@ -289,7 +300,10 @@
         "image": "shopify://shop_images/493178223_1283300147131701_1522863986553445039_n.jpg",
         "quote": "I thought my cycling days were behind me. The Trident gave me my independence back — I ride to the shops, the park, everywhere. Life is a journey!",
         "attribution": "Active at 72",
-        "bike": "Trident Semi-Recumbent"
+        "bike": "Trident Semi-Recumbent",
+        "article": "",
+        "link_label": "Read the full story",
+        "link": ""
       }
     },
     "engineered": {
@@ -355,6 +369,7 @@
     "feature_1",
     "feature_2",
     "feature_3",
+    "product_video_ti9WgM",
     "tech",
     "ride_story",
     "engineered",
