@@ -56,8 +56,24 @@
       </div>
     {% endform %}
 
+    {%- if section.settings.trust_line != blank -%}
+      {%- assign trust_items = section.settings.trust_line | split: '|' -%}
+      <ul style="list-style:none;padding:0;margin:1.5rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;">
+        {%- for item in trust_items -%}
+          {%- assign trimmed = item | strip -%}
+          {%- if trimmed != blank -%}
+            <li style="display:flex;align-items:flex-start;gap:.5rem;font-size:.875rem;color:var(--color-foreground,#1B2A4A);">
+              <span style="color:var(--color-orange,#E86C2C);flex-shrink:0;font-weight:700;">✓</span>
+              <span>{{ trimmed }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
   </div>
 </section>
+
 
 {%- if product -%}
 <script type="application/json" data-variants-json-{{ section.id }}>
@@ -207,7 +223,9 @@
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Semi-Recumbent Fat Tyre Electric Tricycle" },
     { "type": "text", "id": "price_fallback", "label": "Price fallback", "default": "$6,000" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Enquire Now" },
-    { "type": "text", "id": "enquire_text", "label": "Sold-out enquire button text", "default": "Notify me / Enquire" }
+    { "type": "text", "id": "enquire_text", "label": "Sold-out enquire button text", "default": "Notify me / Enquire" },
+    { "type": "textarea", "id": "trust_line", "label": "Trust bullets (separate with |)", "info": "e.g. 2-year warranty | NDIS-compatible | Dealer support" }
+
   ],
   "presets": [{ "name": "EEB Product overview" }]
 }
