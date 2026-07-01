@@ -22,7 +22,7 @@
             "heading_highlight": "every body.",
             "body": "Meet, Richard, Jack & Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
             "cta_text": "Explore the Range",
-            "cta_url": "/collections/all"
+            "cta_url": "shopify://collections"
           }
         },
         "slide_NtJ6yY": {
@@ -98,37 +98,45 @@
         "a1": {
           "type": "item",
           "settings": {
+            "product": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2025-11-05163537.png?v=1762324582&width=1445",
             "title": "Abus 8808C Lock",
             "price": "$240.00",
-            "link": "/collections/accessories"
+            "link": "/collections/accessories",
+            "show_description": false
           }
         },
         "a2": {
           "type": "item",
           "settings": {
+            "product": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445",
             "title": "Adaptive Accessories",
             "price": "Various",
-            "link": "/collections/accessories"
+            "link": "/collections/accessories",
+            "show_description": false
           }
         },
         "a3": {
           "type": "item",
           "settings": {
+            "product": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Red_Vamos_Bike.png?v=1740544801&width=1445",
             "title": "Vamos Amigo",
             "price": "from $4,345",
-            "link": "/collections/all"
+            "link": "/collections/all",
+            "show_description": false
           }
         },
         "a4": {
           "type": "item",
           "settings": {
+            "product": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445",
             "title": "Kalkhoff Endeavour",
             "price": "from $3,950",
-            "link": "/collections/all"
+            "link": "/collections/all",
+            "show_description": false
           }
         }
       },
@@ -141,6 +149,7 @@
       "settings": {
         "eyebrow": "Order online or Instore",
         "heading": "Staff Favourites",
+        "subheading": "",
         "collection": ""
       }
     },
@@ -207,6 +216,7 @@
             "price": "from $4,995",
             "description": "Unmatched stability meets premium performance.",
             "specs": "80km Range; Semi-Recumbent; 25km/h Assist",
+            "cta_text": "Shop Trident",
             "link": "/products/trident"
           }
         },
@@ -219,6 +229,7 @@
             "price": "from $3,495",
             "description": "Agile, powerful, and ready for family adventures.",
             "specs": "60km Range; Fat tyres; Family ready",
+            "cta_text": "Shop Trident",
             "link": "/collections/all"
           }
         },
@@ -231,6 +242,7 @@
             "price": "from $2,495",
             "description": "Compact, fast-folding, and ready to go anywhere.",
             "specs": "50km Range; Compact fold; Lightweight",
+            "cta_text": "Shop Trident",
             "link": "/collections/all"
           }
         }
@@ -266,6 +278,7 @@
         "s1": {
           "type": "story",
           "settings": {
+            "article": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000013384.jpg?v=1762408406&width=1445",
             "name": "The School Run Family",
             "quote": "Our morning school run went from stressful chaos to the best part of our day.",
@@ -275,6 +288,7 @@
         "s2": {
           "type": "story",
           "settings": {
+            "article": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-10151536.png?v=1704863800&width=1445",
             "name": "Active at 72",
             "quote": "The Trident gave me my independence back — I ride to the shops, the park, everywhere.",
@@ -284,6 +298,7 @@
         "s3": {
           "type": "story",
           "settings": {
+            "article": "",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007372_5e24f5b1-faaf-42f0-a6c7-2b2ca708efdb.png?v=1765257110&width=1445",
             "name": "Adaptive Freedom",
             "quote": "For the first time in years, I can ride alongside my family.",
