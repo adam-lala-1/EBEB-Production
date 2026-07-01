@@ -314,21 +314,21 @@
           "type": "group",
           "settings": {
             "title": "Sizing",
-            "rows": "Step-over height|20cm — feet-on-ground transfer\nSaddle height|46cm (inseam)\nAdjustable handlebar|31cm–50cm (upper-limb length)\nShortened cranks|42cm (inseam)"
+            "rows": "Step-over height|20cm — feet-on-ground transfer\nSaddle height|46cm (inseam)\nAdjustable handlebar|31cm–50cm (upper-limb length)\nShortened cranks |102mm"
           }
         },
         "group_mech": {
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Brand|EveryBody eBikes\nFrame material|Alloy\nWheel size|16 inch\nRim|Single-walled alloy\nTyres|16\" x 1.95\" puncture-resistant Kenda\nGearing|Single speed\nFront & rear brakes|Bengal hydraulic disc brakes\nHandlebar|Butterfly alloy with adjustable headstem\nFront suspension|Rigid\nRear suspension|Rigid"
+            "rows": "Brand|EveryBody eBikes\nFrame material|Alloy\nWheel size|16 inch\nRim|Single-walled alloy\nTyres|16\" x 1.95\" puncture-resistant Kenda\nGearing|3 speed Shimano internal hub\nFront & rear brakes|Bengal hydraulic disc brakes\nHandlebar|Custom designed 3 piece\nFront suspension|Rigid\nRear suspension|Rigid"
           }
         },
         "group_elec": {
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Motor|Brushless 250W rear hub\nBattery|36V 7Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2–3 hrs\nAvg distance|30+ km"
+            "rows": "Motor|Brushless 250W front hub\nBattery|36V 7Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2–3 hrs\nAvg distance|30+ km"
           }
         },
         "group_weight": {
