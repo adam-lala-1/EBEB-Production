@@ -12,45 +12,125 @@
     "gallery": {
       "type": "trident-gallery",
       "blocks": {
-        "g1": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2307.jpg?v=1757304183&width=1400"}},
-        "g2": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2309.jpg?v=1757304183&width=1400"}},
-        "g3": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2308.jpg?v=1757304183&width=1400"}}
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2307.jpg?v=1757304183&width=1400"
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2309.jpg?v=1757304183&width=1400"
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_2308.jpg?v=1757304183&width=1400"
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3"],
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "settings": {}
     },
     "overview": {
       "type": "trident-overview",
       "settings": {
         "title_fallback": "ezi-Step 2+2 Folding 20\" with Stabilisers",
-        "subtitle": "The most versatile folding e-bike on the market — with quick-release adult stabilisers",
+        "subtitle": "The most versatile folding e-bike on the market — with optional quick-release adult stabilisers",
         "price_fallback": "from $3,995",
         "cta_text": "Enquire Now",
-        "trust_line": "EN15194 compliant e-bike | Quick-release adult stabilisers included | Service & support through the EEB dealer network"
+        "enquire_text": "Notify me / Enquire",
+        "trust_line": "EN15194 compliant e-bike | Optional Quick-release adult stabilisers included | Service & support through the EBEB dealer network"
       }
     },
     "key_features": {
       "type": "trident-key-features",
       "blocks": {
-        "f1": {"type": "feature", "settings": {"icon": "battery", "label": "50+ km Range", "sub": "36V 10.4Ah Samsung"}},
-        "f2": {"type": "feature", "settings": {"icon": "gauge", "label": "5 PAS Levels", "sub": "LCD display"}},
-        "f3": {"type": "feature", "settings": {"icon": "weight", "label": "20.5 kg", "sub": "Lightweight alloy"}},
-        "f4": {"type": "feature", "settings": {"icon": "users", "label": "100 kg Load", "sub": "Trainer wheel rated"}},
-        "f5": {"type": "feature", "settings": {"icon": "shield", "label": "37.5 cm Step", "sub": "Super low step-through"}}
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "50+ km Range",
+            "sub": "36V 10.4Ah Samsung"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "Torque and Cadence Selectable Motor",
+            "sub": "LCD display"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "20.5 kg",
+            "sub": "Lightweight alloy"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "110 kg Load",
+            "sub": "80kg with 2+2"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "37.5 cm Step",
+            "sub": "Super low step-through"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {}
     },
     "feature_1": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Quick-release pin and lever — no tools required"}},
-        "b2": {"type": "bullet", "settings": {"text": "Adjustable to accommodate changes in rider balance"}},
-        "b3": {"type": "bullet", "settings": {"text": "Adjustable cranks available for uneven leg power"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Quick-release pin and lever — no tools required"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Adjustable to accommodate changes in rider balance"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Adjustable cranks available for uneven leg power"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/IMG_2309.jpg",
         "image_position": "left",
         "heading": "Confidence with Stabilisers",
         "body": "Quick-release adult stabilisers give the balance support of a trike without the bulk. Remove them in seconds for transport, or once rider balance improves — the bike then rides as the standard BF ezi-Step."
@@ -59,13 +139,25 @@
     "feature_2": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Folded footprint: 90 × 43 × 68 cm (excluding stabilisers)"}},
-        "b2": {"type": "bullet", "settings": {"text": "3-speed Shimano Nexus internal gears"}},
-        "b3": {"type": "bullet", "settings": {"text": "Optional side steer bar and Dutch-style handlebars"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Folded footprint: 90 × 43 × 68 cm (excluding stabilisers)"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "3-speed Shimano Nexus internal gears"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/IMG_2045.jpg",
         "image_position": "right",
         "heading": "Folds Small, Rides Big",
         "body": "Central hinge folds the bike to fit in the boot of most cars. Adjustable handlebar position and low-profile saddle (as low as 66cm) accommodate a wide range of rider builds."
@@ -74,13 +166,31 @@
     "feature_3": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Optional attendant remote motor-disable"}},
-        "b2": {"type": "bullet", "settings": {"text": "Optional backrest, lateral supports and seatbelt"}},
-        "b3": {"type": "bullet", "settings": {"text": "EN15194 compliant"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Optional attendant remote motor-disable"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Optional backrest, lateral supports and seatbelt"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "EN15194 compliant"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
         "image_position": "left",
         "heading": "Built for Carers & Riders",
         "body": "Popular with seniors and riders looking for an alternative to a full trike. An optional remote motor-disable switch lets a carer safely control power delivery, and EN15194 compliance means it meets Australian e-bike safety standards."
@@ -89,21 +199,68 @@
     "specs": {
       "type": "trident-specs",
       "blocks": {
-        "group_mech": {"type": "group", "settings": {"title": "Mechanical", "rows": "Frame | Alloy, central-hinge folding\nWheel size | 20\"\nTyres | 20\" × 1.75\" Kenda puncture-resistant\nGearing | Shimano Nexus internal 3-speed\nFront brakes | Promax V-brakes\nRear brakes | Shimano Roller\nStep-over height | 37.5 cm"}},
-        "group_elec": {"type": "group", "settings": {"title": "Electrical", "rows": "Motor | Brushless 250W front hub\nBattery | 36V 10.4Ah Samsung Li-ion\nDisplay | LCD — trip meter, odometer, walk-assist\nPAS | 5 stage\nCharge time | 4–5 hours\nAverage range | 50+ km"}},
-        "group_weight": {"type": "group", "settings": {"title": "Dimensions & Weight", "rows": "Weight (incl. battery) | 20.5 kg (excl. stabilisers)\nWeight (excl. battery) | 18.5 kg\nShipping weight | 24.5 kg\nMax rider load | 100 kg\nFolded dimensions | 90 × 43 × 68 cm"}}
+        "group_mech": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Frame | Alloy, central-hinge folding\nWheel size | 20\"\nTyres | 20\" × 1.75\" Kenda puncture-resistant\nGearing | Shimano Nexus internal 3-speed\nFront brakes | Promax V-brakes\nRear brakes | Shimano Roller\nStep-over height | 37.5 cm"
+          }
+        },
+        "group_elec": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor | Brushless 250W front hub\nBattery | 36V 10.4Ah Samsung Li-ion\nDisplay | LCD — trip meter, odometer, walk-assist\nPAS | 5 stage\nCharge time | 4–5 hours\nAverage range | 50+ km"
+          }
+        },
+        "group_weight": {
+          "type": "group",
+          "settings": {
+            "title": "Dimensions & Weight",
+            "rows": "Weight (incl. battery) | 20.5 kg (excl. stabilisers)\nWeight (excl. battery) | 18.5 kg\nShipping weight | 24.5 kg\nMax rider load | 100 kg\nFolded dimensions | 90 × 43 × 68 cm"
+          }
+        }
       },
-      "block_order": ["group_mech", "group_elec", "group_weight"],
-      "settings": {"heading": "Full Specifications", "geometry_image_url": "", "geometry_alt": "Geometry and dimensions"}
+      "block_order": [
+        "group_mech",
+        "group_elec",
+        "group_weight"
+      ],
+      "settings": {
+        "heading": "Full Specifications",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
     },
     "video": {
       "type": "product-video",
-      "settings": {"eyebrow": "Watch", "heading": "See the ezi-Step 2+2 in action", "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"}
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "See the ezi-Step 2+2 in action",
+        "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"
+      }
     },
     "cta": {
       "type": "cta-banner",
-      "settings": {"heading": "Try the ezi-Step 2+2", "subheading": "Test ride an EEB at one of our partner stores around Australia.", "cta1_text": "Book a Test Ride", "cta1_url": "", "cta2_text": "Find a Dealer", "cta2_url": ""}
+      "settings": {
+        "heading": "Try the ezi-Step 2+2",
+        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
     }
   },
-  "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "specs", "video", "cta"]
+  "order": [
+    "gallery",
+    "overview",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "specs",
+    "video",
+    "cta"
+  ]
 }
