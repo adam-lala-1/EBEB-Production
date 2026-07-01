@@ -191,6 +191,7 @@
         "b3"
       ],
       "settings": {
+        "image": "shopify://shop_images/We-support-NDIS_2020_6097946c-8992-4809-89b1-2844b52ce57e.jpg",
         "image_position": "left",
         "heading": "Built for Carers & Riders",
         "body": "Popular with seniors and riders looking for an alternative to a full trike. An optional remote motor-disable switch lets a carer safely control power delivery, and EN15194 compliance means it meets Australian e-bike safety standards."
@@ -203,21 +204,21 @@
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Frame | Alloy, central-hinge folding\nWheel size | 20\"\nTyres | 20\" × 1.75\" Kenda puncture-resistant\nGearing | Shimano Nexus internal 3-speed\nFront brakes | Promax V-brakes\nRear brakes | Shimano Roller\nStep-over height | 37.5 cm"
+            "rows": "Frame | Alloy, central-hinge folding\nWheel size | 20\"\nTyres | 20\" × 1.75\" Kenda puncture-resistant\nGearing | Shimano Nexus internal 3-speed\nFront brakes | V-brakes\nRear brakes | V-brakes\nStep-over height | 37.5 cm"
           }
         },
         "group_elec": {
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Motor | Brushless 250W front hub\nBattery | 36V 10.4Ah Samsung Li-ion\nDisplay | LCD — trip meter, odometer, walk-assist\nPAS | 5 stage\nCharge time | 4–5 hours\nAverage range | 50+ km"
+            "rows": "Motor | Brushless 250W front hub\nBattery | 36V 10.4Ah Samsung Li-ion\nDisplay | LCD — trip meter, odometer, walk-assist\nTQ/PAS Selectable | 5 stage\nCharge time | 4–5 hours\nAverage range | 50+ km"
           }
         },
         "group_weight": {
           "type": "group",
           "settings": {
             "title": "Dimensions & Weight",
-            "rows": "Weight (incl. battery) | 20.5 kg (excl. stabilisers)\nWeight (excl. battery) | 18.5 kg\nShipping weight | 24.5 kg\nMax rider load | 100 kg\nFolded dimensions | 90 × 43 × 68 cm"
+            "rows": "Weight (incl. battery) | 20.5 kg (excl. stabilisers)\nWeight (excl. battery) | 18.5 kg\nShipping weight | 24.5 kg\nMax rider load | 110 kg\nFolded dimensions | 90 × 43 × 68 cm"
           }
         }
       },
