@@ -173,7 +173,7 @@
         "image": "shopify://shop_images/ConvertOut-Resized-013A6172_everybody_ebikes_lightning_short_stature.jpg",
         "image_position": "left",
         "heading": "Built for Shorter Riders",
-        "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
+        "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle height mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
       }
     },
     "feature_2": {
@@ -182,13 +182,13 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "Butterfly handlebar adjusts from 31cm to 50cm upper-limb reach"
+            "text": "Custom designed 3 piece handlebar adjusts from 31cm to 50cm upper-limb reach"
           }
         },
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "Shortened 42cm cranks for a comfortable, efficient pedal stroke"
+            "text": "Shortened 102mm cranks for a comfortable, efficient pedal stroke"
           }
         },
         "b3": {
