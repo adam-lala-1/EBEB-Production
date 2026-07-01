@@ -238,13 +238,13 @@
       "settings": {
         "eyebrow": "Watch",
         "heading": "See the ezi-Step in action",
-        "video_url": "https://youtu.be/OTEi5Rvnnig"
+        "video_url": "https://youtube.com/embed/OTEi5Rvnnig"
       }
     },
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "heading": "Try the ezi-Step 2+2",
+        "heading": "Try the ezi-Step",
         "subheading": "Test ride an EEB at one of our partner stores around Australia.",
         "cta1_text": "Book a Test Ride",
         "cta1_url": "",
