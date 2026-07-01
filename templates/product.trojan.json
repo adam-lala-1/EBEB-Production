@@ -1,1 +1,273 @@
-{"sections": {"gallery": {"type": "trident-gallery", "blocks": {"g1": {"type": "image", "settings": {"image_url": ""}}, "g2": {"type": "image", "settings": {"image_url": ""}}, "g3": {"type": "image", "settings": {"image_url": ""}}}, "block_order": ["g1", "g2", "g3"], "settings": {}}, "overview": {"type": "trident-overview", "settings": {"title_fallback": "Trojan Fat Tyre Electric Trike", "subtitle": "Heavy-duty stability with fat tyres, differential rear axle and real-world cargo capacity", "price_fallback": "from $3,495", "cta_text": "Enquire Now", "trust_line": "2-year frame & motor warranty | NDIS-compatible — approved assistive technology | Service & support through the EEB dealer network"}}, "key_features": {"type": "trident-key-features", "blocks": {"f1": {"type": "feature", "settings": {"icon": "battery", "label": "80\u2013120 km", "sub": "48V 20Ah Samsung"}}, "f2": {"type": "feature", "settings": {"icon": "gauge", "label": "9-speed Cues", "sub": "Latest Shimano"}}, "f3": {"type": "feature", "settings": {"icon": "shield", "label": "Diff. Rear Axle", "sub": "Smooth cornering"}}, "f4": {"type": "feature", "settings": {"icon": "users", "label": "Front + Rear", "sub": "Cargo baskets"}}, "f5": {"type": "feature", "settings": {"icon": "weight", "label": "20\" \u00d7 4\"", "sub": "Fat tyres"}}}, "block_order": ["f1", "f2", "f3", "f4", "f5"], "settings": {}}, "feature_1": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "Low step-through 6061 aluminium frame"}}, "b2": {"type": "bullet", "settings": {"text": "Front suspension fork for comfort"}}, "b3": {"type": "bullet", "settings": {"text": "Upright riding position for control and visibility"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "shopify://shop_images/IMG_1991.jpg", "image_position": "left", "heading": "Fat Tyres, Fat Stability", "body": "20\" \u00d7 4\" fat tyres and a wide stance deliver grip and stability across paths, bike lanes, gravel and mixed surfaces. A front suspension fork softens the bumps for a genuinely comfortable ride."}}, "feature_2": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "Front and rear cargo baskets included"}}, "b2": {"type": "bullet", "settings": {"text": "Perfect for commuting, shopping and mobility support"}}, "b3": {"type": "bullet", "settings": {"text": "Integrated front and rear lights"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "shopify://shop_images/IMG_1997.jpg", "image_position": "right", "heading": "Real-World Cargo", "body": "Integrated front and rear baskets mean the Trojan is designed for real everyday use \u2014 groceries, shopping, gear, pets and the essentials \u2014 without needing extra racks or bags."}}, "feature_3": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "High-torque rear hub motor"}}, "b2": {"type": "bullet", "settings": {"text": "48V 20Ah Samsung lithium battery"}}, "b3": {"type": "bullet", "settings": {"text": "Customisable power delivery across 5 assist levels"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "shopify://shop_images/IMG_2003.jpg", "image_position": "left", "heading": "Smart Differential Drive", "body": "Unlike standard trikes, the Trojan's differential rear axle lets the two rear wheels track smoothly through corners \u2014 improving control and eliminating tyre scrub. Choose torque or cadence sensor to match your ride feel."}}, "specs": {"type": "trident-specs", "blocks": {"group_mech": {"type": "group", "settings": {"title": "Mechanical", "rows": "Frame | 6061 aluminium, low step-through\nTyres | 20\" \u00d7 4\" fat tyres (knobbly or smooth)\nGearing | Shimano Cues 9-speed\nBrakes | Mechanical disc (hydraulic optional)\nSuspension | Front suspension fork\nRear axle | Differential for cornering stability"}}, "group_elec": {"type": "group", "settings": {"title": "Electrical", "rows": "Motor | High-torque rear hub\nSensor | Cadence or Torque (selectable)\nBattery | 48V 20Ah Samsung lithium\nRange | Approx. 80\u2013120 km\nAssist levels | 5, customisable delivery per level\nLights | Integrated front and rear"}}, "group_incl": {"type": "group", "settings": {"title": "Included", "rows": "Front basket | Yes\nRear basket | Yes\nDisplay | LCD with detailed ride data"}}}, "block_order": ["group_mech", "group_elec", "group_incl"], "settings": {"heading": "Full Specifications", "geometry_image_url": "", "geometry_alt": "Geometry and dimensions"}}, "video": {"type": "product-video", "settings": {"eyebrow": "Watch", "heading": "Trojan on the road", "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"}}, "cta": {"type": "cta-banner", "settings": {"heading": "Ride the Trojan", "subheading": "Test ride a Trojan at one of our partner stores around Australia.", "cta1_text": "Book a Test Ride", "cta1_url": "", "cta2_text": "Find a Dealer", "cta2_url": ""}}}, "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "specs", "video", "cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gallery": {
+      "type": "trident-gallery",
+      "blocks": {
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {}
+    },
+    "overview": {
+      "type": "trident-overview",
+      "settings": {
+        "title_fallback": "Trojan Fat Tyre Electric Trike",
+        "subtitle": "Heavy-duty stability with fat tyres, differential rear axle and real-world cargo capacity",
+        "price_fallback": "from $3,495",
+        "cta_text": "Enquire Now",
+        "trust_line": "2-year frame & motor warranty | NDIS-compatible — approved assistive technology | Service & support through the EEB dealer network"
+      }
+    },
+    "key_features": {
+      "type": "trident-key-features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "80–120 km",
+            "sub": "48V 20Ah Samsung"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "9-speed Cues",
+            "sub": "Latest Shimano"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "Diff. Rear Axle",
+            "sub": "Smooth cornering"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "Front + Rear",
+            "sub": "Cargo baskets"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "20\" × 4\"",
+            "sub": "Fat tyres"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {}
+    },
+    "feature_1": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Low step-through 6061 aluminium frame"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Front suspension fork for comfort"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Upright riding position for control and visibility"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG_1991.jpg",
+        "image_position": "left",
+        "heading": "Fat Tyres, Fat Stability",
+        "body": "20\" × 4\" fat tyres and a wide stance deliver grip and stability across paths, bike lanes, gravel and mixed surfaces. A front suspension fork softens the bumps for a genuinely comfortable ride."
+      }
+    },
+    "feature_2": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Front and rear cargo baskets included"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Perfect for commuting, shopping and mobility support"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Integrated front and rear lights"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG_1997.jpg",
+        "image_position": "right",
+        "heading": "Real-World Cargo",
+        "body": "Integrated front and rear baskets mean the Trojan is designed for real everyday use — groceries, shopping, gear, pets and the essentials — without needing extra racks or bags."
+      }
+    },
+    "feature_3": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "High-torque rear hub motor"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "48V 20Ah Samsung lithium battery"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Customisable power delivery across 5 assist levels"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG_2003.jpg",
+        "image_position": "left",
+        "heading": "Smart Differential Drive",
+        "body": "Unlike standard trikes, the Trojan's differential rear axle lets the two rear wheels track smoothly through corners — improving control and eliminating tyre scrub. Choose torque or cadence sensor to match your ride feel."
+      }
+    },
+    "specs": {
+      "type": "trident-specs",
+      "blocks": {
+        "group_mech": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Frame | 6061 aluminium, low step-through\nTyres | 20\" × 4\" fat tyres (knobbly or smooth)\nGearing | Shimano Cues 9-speed\nBrakes | Mechanical disc (hydraulic optional)\nSuspension | Front suspension fork\nRear axle | Differential for cornering stability"
+          }
+        },
+        "group_elec": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor | High-torque rear hub\nSensor | Cadence or Torque (selectable)\nBattery | 48V 20Ah Samsung lithium\nRange | Approx. 80–120 km\nAssist levels | 5, customisable delivery per level\nLights | Integrated front and rear"
+          }
+        },
+        "group_incl": {
+          "type": "group",
+          "settings": {
+            "title": "Included",
+            "rows": "Front basket | Yes\nRear basket | Yes\nDisplay | LCD with detailed ride data"
+          }
+        }
+      },
+      "block_order": [
+        "group_mech",
+        "group_elec",
+        "group_incl"
+      ],
+      "settings": {
+        "heading": "Full Specifications",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
+    },
+    "video": {
+      "type": "product-video",
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "Trojan on the road",
+        "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Ride the Trojan",
+        "subheading": "Test ride a Trojan at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
+    }
+  },
+  "order": [
+    "gallery",
+    "overview",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "specs",
+    "video",
+    "cta"
+  ]
+}

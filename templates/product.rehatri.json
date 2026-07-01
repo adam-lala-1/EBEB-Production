@@ -1,13 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "gallery": {
       "type": "trident-gallery",
       "blocks": {
-        "g1": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/products/REHATRI_SPECIAL_NEEDS_REAR_STEER_16INCH1.jpg?v=1703827495&width=1400"}},
-        "g2": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/REHATRI20INCHREARSTEERELECTRICTRICYCLE1.png?v=1703827495&width=1400"}},
-        "g3": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/REHATRI20INCHREARSTEERELECTRICTRICYCLE3.png?v=1703827495&width=1400"}}
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/products/REHATRI_SPECIAL_NEEDS_REAR_STEER_16INCH1.jpg?v=1703827495&width=1400"
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/REHATRI20INCHREARSTEERELECTRICTRICYCLE1.png?v=1703827495&width=1400"
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/REHATRI20INCHREARSTEERELECTRICTRICYCLE3.png?v=1703827495&width=1400"
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3"],
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "settings": {}
     },
     "overview": {
@@ -17,31 +45,92 @@
         "subtitle": "Purpose-built adaptive electric tricycle for supported riding, therapy and everyday freedom",
         "price_fallback": "from $7,950",
         "cta_text": "Enquire Now",
+        "enquire_text": "Notify me / Enquire",
         "trust_line": "Purpose-built adaptive tricycle | Postural support & optional carer controls | Service & support through the EEB dealer network"
       }
     },
     "key_features": {
       "type": "trident-key-features",
       "blocks": {
-        "f1": {"type": "feature", "settings": {"icon": "battery", "label": "36V Battery", "sub": "Optional upgrades"}},
-        "f2": {"type": "feature", "settings": {"icon": "gauge", "label": "250W Motor", "sub": "Front hub electric"}},
-        "f3": {"type": "feature", "settings": {"icon": "shield", "label": "Parking Brake", "sub": "Integrated system"}},
-        "f4": {"type": "feature", "settings": {"icon": "users", "label": "110 kg Load", "sub": "Maximum rider"}},
-        "f5": {"type": "feature", "settings": {"icon": "weight", "label": "Steel Frame", "sub": "Heavy-duty construction"}}
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "36V Battery",
+            "sub": "Optional upgrades"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "250W Motor",
+            "sub": "Front hub electric"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "Parking Brake",
+            "sub": "Integrated system"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "110 kg Load",
+            "sub": "Maximum rider"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "Steel Frame",
+            "sub": "Heavy-duty construction"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {}
     },
     "feature_1": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Adjustable seat positioning and handlebar setup"}},
-        "b2": {"type": "bullet", "settings": {"text": "Postural support: backrests, lateral supports"}},
-        "b3": {"type": "bullet", "settings": {"text": "Optional 4-point harness adaptation"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Adjustable seat positioning and handlebar setup"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Postural support: backrests, lateral supports"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Optional 4-point harness adaptation"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/REHATRI_16_INCH_SPECIAL_NEEDS_TRICYCLE_RED_1_870d3001-5690-4b3a-8ce6-6582bfb9c686.jpg",
         "image_position": "left",
         "heading": "Rider Support, Rider First",
         "body": "A very low centre of gravity, ultra-low step-through and highly configurable support system means riders with a wide range of physical and developmental needs can experience the freedom of riding a bike — comfortably and safely."
@@ -50,13 +139,32 @@
     "feature_2": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Rear brake and power controls for carers"}},
-        "b2": {"type": "bullet", "settings": {"text": "Also available without rear steer for independent riders"}},
-        "b3": {"type": "bullet", "settings": {"text": "Reduces rider and attendant fatigue"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Rear brake and power controls for carers"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Also available without rear steer for independent riders"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Reduces rider and attendant fatigue"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/REHATRI20INCHREARSTEERELECTRICTRICYCLE3.png",
         "image_position": "right",
         "heading": "Rear-Steer for Carers",
         "body": "The most popular configuration adds a rear-steering arm on which brake and power controls can be mounted — letting a carer safely guide and stop the trike while the rider pedals and enjoys the experience."
@@ -65,13 +173,32 @@
     "feature_3": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Fixed-gear as standard for therapy applications"}},
-        "b2": {"type": "bullet", "settings": {"text": "Interchangeable free-wheel upgrade available"}},
-        "b3": {"type": "bullet", "settings": {"text": "Available in 16\" and 20\" rider sizes"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Fixed-gear as standard for therapy applications"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Interchangeable free-wheel upgrade available"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Available in 16\" and 20\" rider sizes"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/REHATRI20INCHREARSTEERELECTRICTRICYCLE6.png",
         "image_position": "left",
         "heading": "Fixed / Free-Wheel Options",
         "body": "Standard drivetrain is a simple fixed-gear, where pedals turn with the trike. Our most popular upgrade offers a fixed/free-wheel interchange hub — letting the rider rest or develop the skills to ride independently."
@@ -80,21 +207,68 @@
     "specs": {
       "type": "trident-specs",
       "blocks": {
-        "group_mech": {"type": "group", "settings": {"title": "Mechanical", "rows": "Frame | Heavy-duty steel\nWheel sizes | 16\" or 20\"\nDrivetrain | Fixed-gear standard, optional fixed/free-wheel\nBrakes | Front and rear, optional carer control\nParking brake | Integrated\nStep-through | Ultra-low for easy transfer"}},
-        "group_elec": {"type": "group", "settings": {"title": "Electrical", "rows": "Motor | 250W front hub\nBattery | 36V (optional larger-capacity upgrade)\nAssist | Multi-level pedal assist"}},
-        "group_adapt": {"type": "group", "settings": {"title": "Adaptive Options", "rows": "Steering | Rear-steer arm (optional)\nSupport | Backrests, lateral supports, seatbelt\nHarness | Optional 4-point harness\nMax rider load | 110 kg\nApplications | Adaptive cycling, rehab, supported riding"}}
+        "group_mech": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Frame | Heavy-duty steel\nWheel sizes | 16\" or 20\"\nDrivetrain | Fixed-gear standard, optional fixed/free-wheel\nBrakes | Front and rear, optional carer control\nParking brake | Integrated\nStep-through | Ultra-low for easy transfer"
+          }
+        },
+        "group_elec": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor | 250W front hub\nBattery | 36V (optional larger-capacity upgrade)\nAssist | Multi-level pedal assist"
+          }
+        },
+        "group_adapt": {
+          "type": "group",
+          "settings": {
+            "title": "Adaptive Options",
+            "rows": "Steering | Rear-steer arm (optional)\nSupport | Backrests, lateral supports, seatbelt\nHarness | Optional 4-point harness\nMax rider load | 110 kg\nApplications | Adaptive cycling, rehab, supported riding"
+          }
+        }
       },
-      "block_order": ["group_mech", "group_elec", "group_adapt"],
-      "settings": {"heading": "Full Specifications", "geometry_image_url": "", "geometry_alt": "Geometry and dimensions"}
+      "block_order": [
+        "group_mech",
+        "group_elec",
+        "group_adapt"
+      ],
+      "settings": {
+        "heading": "Full Specifications",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
     },
     "video": {
       "type": "product-video",
-      "settings": {"eyebrow": "Watch", "heading": "Rehatri in action", "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"}
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "Rehatri in action",
+        "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"
+      }
     },
     "cta": {
       "type": "cta-banner",
-      "settings": {"heading": "Rediscover riding with Rehatri", "subheading": "Test ride an EEB at one of our partner stores around Australia.", "cta1_text": "Book a Test Ride", "cta1_url": "", "cta2_text": "Find a Dealer", "cta2_url": ""}
+      "settings": {
+        "heading": "Rediscover riding with Rehatri",
+        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
     }
   },
-  "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "specs", "video", "cta"]
+  "order": [
+    "gallery",
+    "overview",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "specs",
+    "video",
+    "cta"
+  ]
 }
