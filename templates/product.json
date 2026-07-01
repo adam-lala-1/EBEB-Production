@@ -11,11 +11,30 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "settings": {}
+      "settings": {
+        "show_breadcrumb": true,
+        "eyebrow_source": "type",
+        "eyebrow_custom": "",
+        "atc_text": "Add to cart",
+        "enquire_text": "Notify me / Enquire",
+        "bullet_1": "Click and collect in Brisbane",
+        "bullet_2": "24-month warranty",
+        "bullet_3": "Service & support through EEB dealer network",
+        "show_full_description": true,
+        "details_heading": "Product details",
+        "details_max_height": 0
+      }
     },
     "cta": {
       "type": "cta-banner",
-      "settings": {}
+      "settings": {
+        "heading": "Find your nearest dealer",
+        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
     }
   },
   "order": [
