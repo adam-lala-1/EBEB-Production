@@ -45,6 +45,7 @@
         "subtitle": "Heavy-duty stability with fat tyres, differential rear axle and real-world cargo capacity",
         "price_fallback": "from $3,495",
         "cta_text": "Enquire Now",
+        "enquire_text": "Notify me / Enquire",
         "trust_line": "2-year frame & motor warranty | NDIS-compatible — approved assistive technology | Service & support through the EEB dealer network"
       }
     },
@@ -244,7 +245,7 @@
       "settings": {
         "eyebrow": "Watch",
         "heading": "Trojan on the road",
-        "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"
+        "video_url": "https://youtube.com/embed/kAMhUeghAZE"
       }
     },
     "cta": {
