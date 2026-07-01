@@ -1,1 +1,390 @@
-{"sections": {"gallery": {"type": "trident-gallery", "blocks": {"g1": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/ConvertOut-Resized-013A6537_everybody_ebikes_lightning_short_stature.jpg?v=1739340358&width=1445"}}, "g2": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007395.jpg?v=1752024605&width=1445"}}, "g3": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007394.jpg?v=1752024605&width=1445"}}, "g4": {"type": "image", "settings": {"image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007402.jpg?v=1752024605&width=1445"}}}, "block_order": ["g1", "g2", "g3", "g4"], "settings": {}}, "overview": {"type": "trident-overview", "blocks": {"tb1": {"type": "trust_bullet", "settings": {"icon": "shield", "text": "2-year frame & motor warranty"}}, "tb2": {"type": "trust_bullet", "settings": {"icon": "bike", "text": "Pre-tested & assembled in Australia"}}, "tb3": {"type": "trust_bullet", "settings": {"icon": "wrench", "text": "Service & support through the EEB dealer network"}}}, "block_order": ["tb1", "tb2", "tb3"], "settings": {"title_fallback": "Lightning Electric Bike", "subtitle": "Electric Bike for Short-Statured Riders", "price_fallback": "$2,495", "cta_text": "Enquire Now"}}, "key_features": {"type": "trident-key-features", "blocks": {"f1": {"type": "feature", "settings": {"icon": "shield", "label": "20cm Step-Over", "sub": "Feet flat on the ground"}}, "f2": {"type": "feature", "settings": {"icon": "users", "label": "46cm Saddle", "sub": "Super-low inseam fit"}}, "f3": {"type": "feature", "settings": {"icon": "gauge", "label": "30+ km Range", "sub": "5-stage pedal assist"}}, "f4": {"type": "feature", "settings": {"icon": "battery", "label": "36V 7Ah Samsung", "sub": "Removable Li-ion"}}, "f5": {"type": "feature", "settings": {"icon": "weight", "label": "14kg Weight", "sub": "Easy to handle"}}}, "block_order": ["f1", "f2", "f3", "f4", "f5"], "settings": {}}, "feature_1": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "20cm step-over height \u2014 confident feet-on-ground transfer"}}, "b2": {"type": "bullet", "settings": {"text": "Super-low 46cm saddle suits riders with shorter inseams"}}, "b3": {"type": "bullet", "settings": {"text": "Stop with both feet flat on the ground at every light"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "", "image_position": "left", "heading": "Built for Shorter Riders", "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle mean you can mount, dismount, and stop with confidence \u2014 no more tip-toeing at the lights."}}, "feature_2": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "Butterfly handlebar adjusts from 31cm to 50cm upper-limb reach"}}, "b2": {"type": "bullet", "settings": {"text": "Shortened 42cm cranks for a comfortable, efficient pedal stroke"}}, "b3": {"type": "bullet", "settings": {"text": "Quick-adjust headstem dials in your perfect cockpit in seconds"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "", "image_position": "right", "heading": "Adjustable, Tailored Fit", "body": "Every contact point is tuned for smaller frames. Reach, saddle and crank length all dial in independently so the bike fits you \u2014 not the other way around."}}, "feature_3": {"type": "trident-feature-block", "blocks": {"b1": {"type": "bullet", "settings": {"text": "250W rear hub motor with smooth 5-stage pedal assist"}}, "b2": {"type": "bullet", "settings": {"text": "36V 7Ah Samsung Li-ion battery, 30+ km real-world range"}}, "b3": {"type": "bullet", "settings": {"text": "Bengal hydraulic disc brakes front and rear for sure stopping"}}}, "block_order": ["b1", "b2", "b3"], "settings": {"image": "", "image_position": "left", "heading": "City-Ready Power", "body": "Quiet, confident assistance for everyday riding. Hydraulic disc brakes, puncture-resistant Kenda tyres and an LCD display with walking-start mode make the Lightning effortless on suburban streets and bike paths."}}, "tech": {"type": "trident-tech-showcase", "blocks": {"tech_1": {"type": "tech", "settings": {"image": "", "title": "Low Step-Over", "description": "20cm \u2014 easiest mount on the market"}}, "tech_2": {"type": "tech", "settings": {"image": "", "title": "Adjustable Cockpit", "description": "Handlebar 31\u201350cm, 42cm cranks"}}, "tech_3": {"type": "tech", "settings": {"image": "", "title": "Hydraulic Disc Brakes", "description": "Bengal front and rear"}}, "tech_4": {"type": "tech", "settings": {"image": "", "title": "Puncture-Resistant Tyres", "description": "16\" Kenda \u2014 built for city streets"}}}, "block_order": ["tech_1", "tech_2", "tech_3", "tech_4"], "settings": {"eyebrow": "The Tech", "heading": "Inclusively engineered, end to end", "subheading": "Every detail of the Lightning is designed around shorter riders \u2014 without compromising on power, range or safety."}}, "ride_story": {"type": "trident-ride-story", "settings": {"eyebrow": "My Ride Story", "image": "", "quote": "I'd given up on ever finding an ebike that actually fit me. The Lightning is the first bike I've been able to stop on with both feet flat \u2014 it's given me my independence back.", "attribution": "Short-Statured Rider", "bike": "Lightning Electric Bike", "link_label": "Read the full story", "link": ""}}, "engineered": {"type": "engineered-by-eeb", "settings": {"brand": "EveryBody eBikes", "body": "Every Lightning is inclusively engineered in Australia, designed around real riders who don't fit standard frames, and backed by a team that believes mobility is a right \u2014 not a privilege."}}, "specs": {"type": "trident-specs", "blocks": {"group_sizing": {"type": "group", "settings": {"title": "Sizing", "rows": "Step-over height|20cm \u2014 feet-on-ground transfer\nSaddle height|46cm (inseam)\nAdjustable handlebar|31cm\u201350cm (upper-limb length)\nShortened cranks|42cm (inseam)"}}, "group_mech": {"type": "group", "settings": {"title": "Mechanical", "rows": "Brand|EveryBody eBikes\nFrame material|Alloy\nWheel size|16 inch\nRim|Single-walled alloy\nTyres|16\" x 1.95\" puncture-resistant Kenda\nGearing|Single speed\nFront & rear brakes|Bengal hydraulic disc brakes\nHandlebar|Butterfly alloy with adjustable headstem\nFront suspension|Rigid\nRear suspension|Rigid"}}, "group_elec": {"type": "group", "settings": {"title": "Electrical", "rows": "Motor|Brushless 250W rear hub\nBattery|36V 7Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2\u20133 hrs\nAvg distance|30+ km"}}, "group_weight": {"type": "group", "settings": {"title": "Weight", "rows": "Weight including battery|14 kg\nShipping weight|18 kg\nMaximum load|80 kg"}}}, "block_order": ["group_sizing", "group_mech", "group_elec", "group_weight"], "settings": {"heading": "Full Specifications", "geometry_image_url": "", "geometry_alt": "Geometry and dimensions"}}, "cta": {"type": "cta-banner", "settings": {"heading": "Try the Lightning at our Gaythorne workshop", "subheading": "Come and see if the Lightning fits \u2014 quiet streets, expert fittings, no pressure.", "cta1_text": "Enquire & Try", "cta1_url": "/pages/come-and-try", "cta2_text": "Find a Dealer", "cta2_url": "/pages/dealers"}}}, "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "tech", "ride_story", "engineered", "specs", "cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gallery": {
+      "type": "trident-gallery",
+      "blocks": {
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/ConvertOut-Resized-013A6537_everybody_ebikes_lightning_short_stature.jpg?v=1739340358&width=1445"
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007395.jpg?v=1752024605&width=1445"
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007394.jpg?v=1752024605&width=1445"
+          }
+        },
+        "g4": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://everybodyebikes.com.au/cdn/shop/files/1000007402.jpg?v=1752024605&width=1445"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
+      "settings": {}
+    },
+    "overview": {
+      "type": "trident-overview",
+      "settings": {
+        "title_fallback": "Lightning Electric Bike",
+        "subtitle": "Electric Bike for Short-Statured Riders",
+        "price_fallback": "$2,495",
+        "cta_text": "Add to Cart",
+        "enquire_text": "Notify me / Enquire",
+        "trust_line": ""
+      }
+    },
+    "trident_trust_bullets_HeTGTK": {
+      "type": "trident-trust-bullets",
+      "blocks": {
+        "trust_bullet_cqntAw": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "shield",
+            "text": "2-year frame & motor warranty"
+          }
+        },
+        "trust_bullet_RyxcLR": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "truck",
+            "text": "Free click & collect<br>or enquire for Australia wide shipping"
+          }
+        },
+        "trust_bullet_Eej3bz": {
+          "type": "trust_bullet",
+          "settings": {
+            "icon": "wrench",
+            "text": "Service & support through the EBEB <br>and our dealer network"
+          }
+        }
+      },
+      "block_order": [
+        "trust_bullet_cqntAw",
+        "trust_bullet_RyxcLR",
+        "trust_bullet_Eej3bz"
+      ],
+      "name": "EEB Trust bullets",
+      "settings": {}
+    },
+    "key_features": {
+      "type": "trident-key-features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "20cm Step-Over",
+            "sub": "Feet flat on the ground"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "46cm Saddle",
+            "sub": "Super-low inseam fit"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "30+ km Range",
+            "sub": "5-stage pedal assist"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "36V 7Ah Samsung",
+            "sub": "Removable Li-ion"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "14kg Weight",
+            "sub": "Easy to handle"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {}
+    },
+    "feature_1": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "20cm step-over height — confident feet-on-ground transfer"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Super-low 46cm saddle suits riders with shorter inseams"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Rest with both feet flat on the ground at every light"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6172_everybody_ebikes_lightning_short_stature.jpg",
+        "image_position": "left",
+        "heading": "Built for Shorter Riders",
+        "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
+      }
+    },
+    "feature_2": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Butterfly handlebar adjusts from 31cm to 50cm upper-limb reach"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Shortened 42cm cranks for a comfortable, efficient pedal stroke"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Quick-adjust headstem dials in your perfect cockpit in seconds"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/29.png",
+        "image_position": "right",
+        "heading": "Adjustable, Tailored Fit",
+        "body": "Every contact point is tuned for smaller frames. Reach, saddle and crank length all dial in independently so the bike fits you — not the other way around."
+      }
+    },
+    "feature_3": {
+      "type": "trident-feature-block",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "250W rear hub motor with smooth 5-stage pedal assist"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "36V 7Ah Samsung Li-ion battery, 30+ km real-world range"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Bengal hydraulic disc brakes front and rear for sure stopping"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ConvertOut-Resized-013A6203_everybody_ebikes_lightning_short_stature.jpg",
+        "image_position": "left",
+        "heading": "City-Ready Power",
+        "body": "Quiet, confident assistance for everyday riding. Hydraulic disc brakes, puncture-resistant Kenda tyres and an LCD display with walking-start mode make the Lightning effortless on suburban streets and bike paths."
+      }
+    },
+    "tech": {
+      "type": "trident-tech-showcase",
+      "blocks": {
+        "tech_1": {
+          "type": "tech",
+          "settings": {
+            "title": "Low Step-Over",
+            "description": "20cm — easiest mount on the market"
+          }
+        },
+        "tech_2": {
+          "type": "tech",
+          "settings": {
+            "title": "Adjustable Cockpit",
+            "description": "Handlebar 31–50cm, 42cm cranks"
+          }
+        },
+        "tech_3": {
+          "type": "tech",
+          "settings": {
+            "title": "Hydraulic Disc Brakes",
+            "description": "Bengal front and rear"
+          }
+        },
+        "tech_4": {
+          "type": "tech",
+          "settings": {
+            "title": "Puncture-Resistant Tyres",
+            "description": "16\" Kenda — built for city streets"
+          }
+        }
+      },
+      "block_order": [
+        "tech_1",
+        "tech_2",
+        "tech_3",
+        "tech_4"
+      ],
+      "settings": {
+        "eyebrow": "The Tech",
+        "heading": "Inclusively engineered, end to end",
+        "subheading": "Every detail of the Lightning is designed around shorter riders — without compromising on power, range or safety."
+      }
+    },
+    "ride_story": {
+      "type": "trident-ride-story",
+      "settings": {
+        "eyebrow": "My Ride Story",
+        "quote": "I'd given up on ever finding an ebike that actually fit me. The Lightning is the first bike I've been able to stop on with both feet flat — it's given me my independence back.",
+        "attribution": "Short-Statured Rider",
+        "bike": "Lightning Electric Bike",
+        "article": "articles/e-bikes-for-short-statured-riders-comfort-and-fit-made-easy",
+        "link_label": "Read the full story",
+        "link": ""
+      }
+    },
+    "engineered": {
+      "type": "engineered-by-eeb",
+      "settings": {
+        "brand": "EveryBody eBikes",
+        "body": "Every Lightning is inclusively engineered in Australia, designed around real riders who don't fit standard frames, and backed by a team that believes mobility is a right — not a privilege."
+      }
+    },
+    "specs": {
+      "type": "trident-specs",
+      "blocks": {
+        "group_sizing": {
+          "type": "group",
+          "settings": {
+            "title": "Sizing",
+            "rows": "Step-over height|20cm — feet-on-ground transfer\nSaddle height|46cm (inseam)\nAdjustable handlebar|31cm–50cm (upper-limb length)\nShortened cranks|42cm (inseam)"
+          }
+        },
+        "group_mech": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Brand|EveryBody eBikes\nFrame material|Alloy\nWheel size|16 inch\nRim|Single-walled alloy\nTyres|16\" x 1.95\" puncture-resistant Kenda\nGearing|Single speed\nFront & rear brakes|Bengal hydraulic disc brakes\nHandlebar|Butterfly alloy with adjustable headstem\nFront suspension|Rigid\nRear suspension|Rigid"
+          }
+        },
+        "group_elec": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor|Brushless 250W rear hub\nBattery|36V 7Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2–3 hrs\nAvg distance|30+ km"
+          }
+        },
+        "group_weight": {
+          "type": "group",
+          "settings": {
+            "title": "Weight",
+            "rows": "Weight including battery|14 kg\nShipping weight|18 kg\nMaximum load|80 kg"
+          }
+        }
+      },
+      "block_order": [
+        "group_sizing",
+        "group_mech",
+        "group_elec",
+        "group_weight"
+      ],
+      "settings": {
+        "heading": "Full Specifications",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
+    },
+    "product_video_69Xj4R": {
+      "type": "product-video",
+      "name": "Product video",
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "See it in action",
+        "video_url": "https://www.youtube.com/embed/57XEKphbfmw"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Try the Lightning at our Gaythorne workshop",
+        "subheading": "Come and see if the Lightning fits — quiet streets, expert fittings, no pressure.",
+        "cta1_text": "Enquire & Try",
+        "cta1_url": "shopify://pages/book-a-test-ride",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": "shopify://pages/distributor-list"
+      }
+    }
+  },
+  "order": [
+    "gallery",
+    "overview",
+    "trident_trust_bullets_HeTGTK",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "tech",
+    "ride_story",
+    "engineered",
+    "specs",
+    "product_video_69Xj4R",
+    "cta"
+  ]
+}
