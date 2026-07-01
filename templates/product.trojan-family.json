@@ -12,11 +12,30 @@
     "gallery": {
       "type": "trident-gallery",
       "blocks": {
-        "g1": {"type": "image", "settings": {"image_url": ""}},
-        "g2": {"type": "image", "settings": {"image_url": ""}},
-        "g3": {"type": "image", "settings": {"image_url": ""}}
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image_url": ""
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3"],
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "settings": {}
     },
     "overview": {
@@ -26,31 +45,92 @@
         "subtitle": "The whole Trojan trike family — stable, powerful, made for everyday freedom",
         "price_fallback": "from $3,495",
         "cta_text": "Enquire Now",
-        "trust_line": "2-year frame & motor warranty | The whole Trojan family — trikes for every rider | Service & support through the EEB dealer network"
+        "enquire_text": "Notify me / Enquire",
+        "trust_line": "2-year frame & motor warranty | The whole Trojan family — trikes for every rider | Service & support through the EBEB dealer network"
       }
     },
     "key_features": {
       "type": "trident-key-features",
       "blocks": {
-        "f1": {"type": "feature", "settings": {"icon": "battery", "label": "Long Range", "sub": "Samsung batteries"}},
-        "f2": {"type": "feature", "settings": {"icon": "gauge", "label": "Pedal Assist", "sub": "25km/h assist"}},
-        "f3": {"type": "feature", "settings": {"icon": "shield", "label": "Disc Brakes", "sub": "Confident stopping"}},
-        "f4": {"type": "feature", "settings": {"icon": "users", "label": "Family Ready", "sub": "Cargo capable"}},
-        "f5": {"type": "feature", "settings": {"icon": "weight", "label": "Three Wheels", "sub": "Ultimate stability"}}
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "label": "Long Range",
+            "sub": "Samsung batteries"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gauge",
+            "label": "Pedal Assist",
+            "sub": "25km/h assist"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "label": "Disc Brakes",
+            "sub": "Confident stopping"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "Family Ready",
+            "sub": "Cargo capable"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "weight",
+            "label": "Three Wheels",
+            "sub": "Ultimate stability"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {}
     },
     "feature_1": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Choose from Fat Tyre, Standard and Cargo variants"}},
-        "b2": {"type": "bullet", "settings": {"text": "Three-wheel stability across the whole range"}},
-        "b3": {"type": "bullet", "settings": {"text": "Step-through frames for easy mounting"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Choose from Fat Tyre, Standard and Cargo variants"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Three-wheel stability across the whole range"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Step-through frames for easy mounting"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/Trojan_Family.png",
         "image_position": "left",
         "heading": "A Trojan for Every Rider",
         "body": "The Trojan Family covers the whole trike range — from the fat-tyre adventurer to the everyday shopper. Whatever the ride, three wheels means confidence for the whole family."
@@ -59,13 +139,32 @@
     "feature_2": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "Rear cargo racks and baskets across the range"}},
-        "b2": {"type": "bullet", "settings": {"text": "Removable Samsung batteries — charge inside, lock outside"}},
-        "b3": {"type": "bullet", "settings": {"text": "Front and rear lights integrated"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Rear cargo racks and baskets across the range"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Removable Samsung batteries — charge inside, lock outside"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Front and rear lights integrated"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/1000013384.jpg",
         "image_position": "right",
         "heading": "Family-Ready Power",
         "body": "Plenty of range for the school run, the shops, and a loop through the park. Removable batteries mean you charge them where it suits you."
@@ -74,13 +173,32 @@
     "feature_3": {
       "type": "trident-feature-block",
       "blocks": {
-        "b1": {"type": "bullet", "settings": {"text": "NDIS-compatible options across the family"}},
-        "b2": {"type": "bullet", "settings": {"text": "Low step-through frames, no balancing required"}},
-        "b3": {"type": "bullet", "settings": {"text": "Intuitive throttle and assist controls"}}
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "NDIS-compatible options across the family"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Low step-through frames, no balancing required"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "Intuitive throttle and assist controls"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/IMG_2328.jpg",
         "image_position": "left",
         "heading": "Confidence for Every Rider",
         "body": "Trojans are built for riders who want freedom without compromise. Three wheels, low entry, approachable controls — cycling is for everyone."
@@ -89,20 +207,60 @@
     "specs": {
       "type": "trident-specs",
       "blocks": {
-        "group_range": {"type": "group", "settings": {"title": "The Family", "rows": "Trojan Fat Tyre | 20\" × 4\" fat tyres, adventure-ready\nTrojan Standard | 20\" tyres, everyday commuter\nTrojan Cargo | Extended rear rack for shopping"}},
-        "group_shared": {"type": "group", "settings": {"title": "Shared Across the Range", "rows": "Frame | 6061 Alloy, step-through trike\nBrakes | Tektro disc\nMotor | 250W rear hub (500W peak)\nBattery | Samsung removable\nDisplay | LCD with USB charging"}}
+        "group_range": {
+          "type": "group",
+          "settings": {
+            "title": "The Family",
+            "rows": "Trojan Fat Tyre | 20\" × 4\" fat tyres, adventure-ready\nTrojan Standard | 20\" tyres, everyday commuter\nTrojan Cargo | Extended rear rack for shopping"
+          }
+        },
+        "group_shared": {
+          "type": "group",
+          "settings": {
+            "title": "Shared Across the Range",
+            "rows": "Frame | 6061 Alloy, step-through trike\nBrakes | Tektro disc\nMotor | High torque rear hub\nBattery | Samsung removable\nDisplay | LCD with USB charging"
+          }
+        }
       },
-      "block_order": ["group_range", "group_shared"],
-      "settings": {"heading": "The Trojan Range", "geometry_image_url": "", "geometry_alt": "Geometry and dimensions"}
+      "block_order": [
+        "group_range",
+        "group_shared"
+      ],
+      "settings": {
+        "heading": "The Trojan Range",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
     },
     "video": {
       "type": "product-video",
-      "settings": {"eyebrow": "Watch", "heading": "The Trojan Family in action", "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"}
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "The Trojan Family in action",
+        "video_url": "https://www.youtube.com/embed/YxbXa8KX8UU"
+      }
     },
     "cta": {
       "type": "cta-banner",
-      "settings": {"heading": "Meet the Trojan Family", "subheading": "Test ride a Trojan at one of our partner stores around Australia.", "cta1_text": "Book a Test Ride", "cta1_url": "", "cta2_text": "Find a Dealer", "cta2_url": ""}
+      "settings": {
+        "heading": "Meet the Trojan Family",
+        "subheading": "Test ride a Trojan at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
     }
   },
-  "order": ["gallery", "overview", "key_features", "feature_1", "feature_2", "feature_3", "specs", "video", "cta"]
+  "order": [
+    "gallery",
+    "overview",
+    "key_features",
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "specs",
+    "video",
+    "cta"
+  ]
 }
