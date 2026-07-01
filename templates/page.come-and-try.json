@@ -1,286 +1,110 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "come-try-hero",
       "settings": {
-        "image": "shopify://shop_images/Brain_Injury_Community_Group_Ride_Criterium_Track.png",
-        "eyebrow": "Events & Test Rides",
-        "heading": "Come and Try",
-        "subheading": "The best way to find the right ebike or trike is to ride one. Join us at our showroom or an upcoming event for a free test ride, fitting, and a chat with our team — no obligation, just two wheels (or three) and an open road.",
-        "cta1_text": "See upcoming events",
-        "cta1_url": "#events",
-        "cta2_text": "RSVP",
-        "cta2_url": "#rsvp"
+        "eyebrow": "Enquiries & Test Rides",
+        "heading": "Come and Try — or just ask",
+        "subheading": "The best way to find the right ebike or trike is to ride one. Book a free test ride at our Gaythorne workshop any weekday, join us at an upcoming event, or send us a question — whatever suits you best.",
+        "cta1_text": "Book a test ride",
+        "cta1_url": "#rsvp",
+        "cta2_text": "See upcoming events",
+        "cta2_url": "#events"
+      }
+    },
+    "expect": {
+      "type": "come-try-expect",
+      "blocks": {
+        "x1": { "type": "item", "settings": { "icon": "🚲", "title": "Try the full range", "body": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride." } },
+        "x2": { "type": "item", "settings": { "icon": "🤝", "title": "One-on-one fitting", "body": "Our team will match you to a bike, adjust the fit, and walk through controls." } },
+        "x3": { "type": "item", "settings": { "icon": "☕", "title": "No pressure, no cost", "body": "Free to attend. No sales pitch — just bikes, riders, and good coffee." } }
+      },
+      "block_order": ["x1", "x2", "x3"],
+      "settings": {
+        "eyebrow": "What to expect",
+        "heading": "A relaxed, hands-on try"
+      }
+    },
+    "gaythorne": {
+      "type": "come-try-gaythorne",
+      "blocks": {
+        "g1": { "type": "feature", "settings": { "icon": "🛣️", "title": "Quiet test street", "body": "Prospect Rd is low-traffic — perfect for first-time and nervous riders." } },
+        "g2": { "type": "feature", "settings": { "icon": "🧰", "title": "Full range on-site", "body": "Commuter, cargo, folding ebikes and Trident trikes all ready to ride." } },
+        "g3": { "type": "feature", "settings": { "icon": "🧑‍🔧", "title": "Expert fittings", "body": "Our mechanics will adjust the bike to you before you head out." } },
+        "g4": { "type": "feature", "settings": { "icon": "♿", "title": "Accessible entry", "body": "Step-free access and undercover ride zone for wet days." } }
+      },
+      "block_order": ["g1", "g2", "g3", "g4"],
+      "settings": {
+        "eyebrow": "Visit anytime",
+        "heading": "Test ride at our Gaythorne workshop",
+        "body": "Can't make an event? Drop in to our Gaythorne workshop any weekday. We've got the full range ready to ride, a quiet street out front for first-timers, and an undercover space for wet days.",
+        "cta_text": "Book a time",
+        "cta_url": "#rsvp",
+        "address": "6/51 Prospect Rd, Gaythorne QLD 4051",
+        "hours": "Mon–Fri 9AM–5PM, Sat 10AM–4PM (Sun by appointment)",
+        "parking": "Free street parking on Prospect Rd, plus accessible bays at the front of the unit.",
+        "transit": "5 min walk from Gaythorne train station (Ferny Grove line). Bus 390 stops on Samford Rd.",
+        "driving": "8 km / 15 min north of Brisbane CBD via Kelvin Grove Rd and Samford Rd.",
+        "map_url": "https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x"
       }
     },
     "events": {
       "type": "come-try-events",
       "blocks": {
-        "e1": {
-          "type": "event",
-          "settings": {
-            "tag": "Brisbane",
-            "capacity": "Bookings Essential",
-            "title": "Everybody E-bikes Gaythorne Showroom",
-            "date": "Opening Hours (Mon-Sat)",
-            "time": "10:00 AM – 2:00 PM",
-            "location": "EEB HQ — 6/51 Prospect Rd, Gaythorne QLD",
-            "description": "Test ride the full EEB range, including Trident trikes and cargo bikes. Service and fittings on us.",
-            "cta_text": "Book in your timeslot",
-            "rsvp_url": "https://calendly.com/bfebikes-sales/test-ride"
-          }
-        },
-        "e2": {
-          "type": "event",
-          "settings": {
-            "tag": "Bribie ISLAND",
-            "capacity": "RSVP required",
-            "title": "Bribie Island Come & Try session",
-            "date": "July 8th",
-            "time": "9:30 AM – 12:30 PM",
-            "location": "Brennan Park, Bongaree",
-            "description": "We're bringing a selection of our most popular electric trikes to Bribie Island for a hands-on Come & Try session. Our team will be there to answer your questions, offer tips, and help you find a trike that suits your needs.",
-            "cta_text": "RSVP",
-            "rsvp_url": "https://calendly.com/bfebikes-sales/test-ride"
-          }
-        }
+        "e1": { "type": "event", "settings": { "tag": "Brisbane", "capacity": "Drop-in", "title": "Gaythorne Open Workshop", "date": "Sat 15 Feb 2026", "time": "10:00 AM – 2:00 PM", "location": "EEB HQ — 6/51 Prospect Rd, Gaythorne QLD", "description": "Test ride the full EEB range, including Trident trikes and cargo bikes. Coffee and fittings on us.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e2": { "type": "event", "settings": { "tag": "Brisbane", "capacity": "RSVP required", "title": "South Bank Riverwalk Demo", "date": "Sun 8 Mar 2026", "time": "9:30 AM – 12:30 PM", "location": "South Bank Parklands, Brisbane", "description": "Try a Trident or commuter ebike along the river. Great for first-time riders and families.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e3": { "type": "event", "settings": { "tag": "Sunshine Coast", "capacity": "Bookings essential", "title": "Sunshine Coast Adaptive Day", "date": "Sat 12 Apr 2026", "time": "10:00 AM – 3:00 PM", "location": "Cotton Tree, Maroochydore", "description": "Adaptive and accessible cycling demo. OTs and support workers welcome — bring a client to trial a fit.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } },
+        "e4": { "type": "event", "settings": { "tag": "Gold Coast", "capacity": "Drop-in", "title": "Gold Coast Trike Try-Out", "date": "Sat 3 May 2026", "time": "11:00 AM – 2:00 PM", "location": "Burleigh Heads Foreshore", "description": "Trident trikes on the boardwalk — stable, electric, and easy to ride for any ability.", "cta_text": "RSVP", "rsvp_url": "#rsvp" } }
       },
-      "block_order": [
-        "e1",
-        "e2"
-      ],
+      "block_order": ["e1", "e2", "e3", "e4"],
       "settings": {
-        "eyebrow": "Upcoming",
-        "heading": "Try-out events near you",
-        "subheading": ""
+        "eyebrow": "Upcoming events",
+        "heading": "Prefer to ride at an event?",
+        "subheading": "Catch us on the road — relaxed, low-pressure events around south-east Queensland."
       }
     },
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
-        "interest_option_T6JDH6": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Trident v3 Trike"
-          }
-        },
-        "interest_option_CVBN7C": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Trojan Trike"
-          }
-        },
-        "interest_option_jr8P9Q": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Trekking eBike"
-          }
-        },
-        "interest_option_iD998c": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Cargo eBike"
-          }
-        },
-        "interest_option_dAY4ft": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Veloomi Trike"
-          }
-        },
-        "interest_option_7XDUQx": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Trident v2 Trike"
-          }
-        },
-        "interest_option_bDbDxV": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Trojan Family Trike"
-          }
-        },
-        "interest_option_BXP63L": {
-          "type": "interest_option",
-          "settings": {
-            "label": "Special Needs Trike"
-          }
-        },
-        "o1": {
-          "type": "event_option",
-          "settings": {
-            "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop"
-          }
-        },
-        "o2": {
-          "type": "event_option",
-          "disabled": true,
-          "settings": {
-            "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo"
-          }
-        },
-        "o3": {
-          "type": "event_option",
-          "disabled": true,
-          "settings": {
-            "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day"
-          }
-        },
-        "o4": {
-          "type": "event_option",
-          "disabled": true,
-          "settings": {
-            "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out"
-          }
-        }
+        "o0": { "type": "event_option", "settings": { "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop" } },
+        "o1": { "type": "event_option", "settings": { "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo" } },
+        "o2": { "type": "event_option", "settings": { "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day" } },
+        "o3": { "type": "event_option", "settings": { "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out" } },
+        "i1": { "type": "interest_option", "settings": { "label": "Trident trike" } },
+        "i2": { "type": "interest_option", "settings": { "label": "Commuter ebike" } },
+        "i3": { "type": "interest_option", "settings": { "label": "Cargo ebike" } },
+        "i4": { "type": "interest_option", "settings": { "label": "Folding ebike" } },
+        "i5": { "type": "interest_option", "settings": { "label": "Adaptive / accessible bike" } }
       },
-      "block_order": [
-        "interest_option_T6JDH6",
-        "interest_option_CVBN7C",
-        "interest_option_jr8P9Q",
-        "interest_option_iD998c",
-        "interest_option_dAY4ft",
-        "interest_option_7XDUQx",
-        "interest_option_bDbDxV",
-        "interest_option_BXP63L",
-        "o1",
-        "o2",
-        "o3",
-        "o4"
-      ],
+      "block_order": ["o0", "o1", "o2", "o3", "i1", "i2", "i3", "i4", "i5"],
       "settings": {
-        "eyebrow": "RSVP",
-        "heading": "Let us know you're coming",
-        "subheading": "Drop us a few details and we'll have a bike ready for you on the day.",
-        "submit_text": "Send RSVP"
+        "eyebrow": "Enquiry & RSVP",
+        "heading": "Get in touch or book a ride",
+        "subheading": "Tell us what you'd like to try and when suits — we'll have a bike ready, at an event or at our Gaythorne workshop.",
+        "submit_text": "Send enquiry"
       }
     },
     "faq": {
       "type": "come-try-faq",
       "blocks": {
-        "f1": {
-          "type": "faq",
-          "settings": {
-            "question": "Do I need to book?",
-            "answer": "Some events are drop-in, others require an RSVP — check the event details. If you're bringing more than 4 people or a client group, please RSVP either way so we can prepare bikes."
-          }
-        },
-        "f2": {
-          "type": "faq",
-          "settings": {
-            "question": "What should I bring?",
-            "answer": "Flat shoes, a water bottle, and your ID for test rides. Helmets are provided. If you'd like to test with your own gear (e.g. orthotic, support cushion), feel free to bring it."
-          }
-        },
-        "f3": {
-          "type": "faq",
-          "settings": {
-            "question": "Is it suitable for first-time or nervous riders?",
-            "answer": "Absolutely. Our team specialises in supporting riders of every ability. Trikes are very stable and a great place to start."
-          }
-        },
-        "f4": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I bring a support worker or OT?",
-            "answer": "Yes — we love working with OTs, physios, and support workers. Let us know in your RSVP and we'll allocate extra time."
-          }
-        },
-        "f5": {
-          "type": "faq",
-          "settings": {
-            "question": "What if it rains?",
-            "answer": "We'll email RSVPs the day before with weather updates. Most events run rain or shine under cover."
-          }
-        }
+        "f1": { "type": "faq", "settings": { "question": "Do I need to book?", "answer": "Events can be drop-in or RSVP — check the event details. For a Gaythorne workshop visit, RSVP so we can have the right bike ready." } },
+        "f2": { "type": "faq", "settings": { "question": "What should I bring?", "answer": "Flat shoes, a water bottle, and your ID for test rides. Helmets are provided. If you'd like to test with your own gear (e.g. orthotic, support cushion), feel free to bring it." } },
+        "f3": { "type": "faq", "settings": { "question": "Is it suitable for first-time or nervous riders?", "answer": "Absolutely. Our team specialises in supporting riders of every ability. Trikes are very stable and a great place to start, and Prospect Rd outside our workshop is quiet enough for true beginners." } },
+        "f4": { "type": "faq", "settings": { "question": "Can I bring a support worker or OT?", "answer": "Yes — we love working with OTs, physios, and support workers. Let us know in your enquiry and we'll allocate extra time." } },
+        "f5": { "type": "faq", "settings": { "question": "What if it rains?", "answer": "Our Gaythorne workshop has an undercover ride zone. For events we'll email you the day before with weather updates." } }
       },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4",
-        "f5"
-      ],
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
       "settings": {
         "location_eyebrow": "Find us",
         "location_heading": "Our Gaythorne home base",
         "location_body": "Most Brisbane events run from our workshop. Plenty of street parking, accessible entry, and an undercover ride zone for wet days.",
         "address": "6/51 Prospect Rd, Gaythorne QLD 4051",
         "hours": "Mon–Fri 9AM–5PM, Sat 10AM–4PM",
-        "map_url": "https://www.google.com/maps/search/?api=1&query=6%2F51+Prospect+Rd+Gaythorne+QLD+4051",
+        "map_url": "https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x",
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
-    },
-    "come_try_expect_39qrha": {
-      "type": "come-try-expect",
-      "blocks": {
-        "item_dDiaMJ": {
-          "type": "item",
-          "settings": {
-            "icon": "🚲",
-            "title": "Try the full range",
-            "body": "Commuter, cargo, folding, and adaptive trikes — all set up and ready to ride."
-          }
-        },
-        "item_f8gDkH": {
-          "type": "item",
-          "settings": {
-            "icon": "🤝",
-            "title": "One-on-one fitting",
-            "body": "Our team will match you to a bike, adjust the fit, and walk through controls."
-          }
-        },
-        "item_MWqktN": {
-          "type": "item",
-          "settings": {
-            "icon": "☕",
-            "title": "No pressure, no cost",
-            "body": "Free to attend. No sales pitch — just bikes, riders, and good coffee."
-          }
-        }
-      },
-      "block_order": [
-        "item_dDiaMJ",
-        "item_f8gDkH",
-        "item_MWqktN"
-      ],
-      "name": "What to expect",
-      "settings": {
-        "eyebrow": "What to expect",
-        "heading": "A relaxed, hands-on try",
-        "subheading": ""
-      }
-    },
-    "hero_alt_MqgiAg": {
-      "type": "hero-alt",
-      "disabled": true,
-      "name": "Hero (Alt)",
-      "settings": {
-        "image_position": "left",
-        "eyebrow": "",
-        "heading": "Engineered for the long haul.",
-        "body": "",
-        "cta_text": "",
-        "cta_url": "shopify://pages/book-a-test-ride"
-      }
     }
   },
-  "order": [
-    "hero",
-    "events",
-    "rsvp",
-    "faq",
-    "come_try_expect_39qrha",
-    "hero_alt_MqgiAg"
-  ]
+  "order": ["hero", "expect", "gaythorne", "events", "rsvp", "faq"]
 }

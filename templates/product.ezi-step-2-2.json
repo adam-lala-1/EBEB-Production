@@ -12,17 +12,12 @@
     },
     "overview": {
       "type": "trident-overview",
-      "blocks": {
-        "tb1": {"type": "trust_bullet", "settings": {"icon": "shield", "text": "EN15194 compliant e-bike"}},
-        "tb2": {"type": "trust_bullet", "settings": {"icon": "users", "text": "Quick-release adult stabilisers included"}},
-        "tb3": {"type": "trust_bullet", "settings": {"icon": "wrench", "text": "Service & support through the EEB dealer network"}}
-      },
-      "block_order": ["tb1", "tb2", "tb3"],
       "settings": {
         "title_fallback": "ezi-Step 2+2 Folding 20\" with Stabilisers",
         "subtitle": "The most versatile folding e-bike on the market — with quick-release adult stabilisers",
         "price_fallback": "from $3,995",
-        "cta_text": "Enquire Now"
+        "cta_text": "Enquire Now",
+        "trust_line": "EN15194 compliant e-bike | Quick-release adult stabilisers included | Service & support through the EEB dealer network"
       }
     },
     "key_features": {

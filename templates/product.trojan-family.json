@@ -12,17 +12,12 @@
     },
     "overview": {
       "type": "trident-overview",
-      "blocks": {
-        "tb1": {"type": "trust_bullet", "settings": {"icon": "shield", "text": "2-year frame & motor warranty"}},
-        "tb2": {"type": "trust_bullet", "settings": {"icon": "users", "text": "The whole Trojan family — trikes for every rider"}},
-        "tb3": {"type": "trust_bullet", "settings": {"icon": "wrench", "text": "Service & support through the EEB dealer network"}}
-      },
-      "block_order": ["tb1", "tb2", "tb3"],
       "settings": {
         "title_fallback": "Trojan Family",
         "subtitle": "The whole Trojan trike family — stable, powerful, made for everyday freedom",
         "price_fallback": "from $3,495",
-        "cta_text": "Enquire Now"
+        "cta_text": "Enquire Now",
+        "trust_line": "2-year frame & motor warranty | The whole Trojan family — trikes for every rider | Service & support through the EEB dealer network"
       }
     },
     "key_features": {

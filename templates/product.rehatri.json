@@ -12,17 +12,12 @@
     },
     "overview": {
       "type": "trident-overview",
-      "blocks": {
-        "tb1": {"type": "trust_bullet", "settings": {"icon": "shield", "text": "Purpose-built adaptive tricycle"}},
-        "tb2": {"type": "trust_bullet", "settings": {"icon": "users", "text": "Postural support & optional carer controls"}},
-        "tb3": {"type": "trust_bullet", "settings": {"icon": "wrench", "text": "Service & support through the EEB dealer network"}}
-      },
-      "block_order": ["tb1", "tb2", "tb3"],
       "settings": {
         "title_fallback": "Rehatri Special Needs Electric",
         "subtitle": "Purpose-built adaptive electric tricycle for supported riding, therapy and everyday freedom",
         "price_fallback": "from $7,950",
-        "cta_text": "Enquire Now"
+        "cta_text": "Enquire Now",
+        "trust_line": "Purpose-built adaptive tricycle | Postural support & optional carer controls | Service & support through the EEB dealer network"
       }
     },
     "key_features": {
