@@ -332,6 +332,7 @@
         },
         "group_mF86aJ": {
           "type": "group",
+          "disabled": true,
           "settings": {
             "title": "Weight",
             "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
