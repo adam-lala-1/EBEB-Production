@@ -174,7 +174,7 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "250W rear hub motor (500W peak)"
+            "text": "High torque rear hub motor"
           }
         },
         "b2": {
@@ -320,7 +320,7 @@
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
+            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" and 16\" × 4.0\" fat tyres\nBrakes | Bengal custom hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
           }
         },
         "group_FRP3tk": {
@@ -345,7 +345,8 @@
       ],
       "settings": {
         "heading": "Full Specifications",
-        "geometry_image_url": "https://everybodyebikes.com.au/cdn/shop/files/trident-geometry.png",
+        "geometry_image": "shopify://shop_images/Trident_v3.png",
+        "geometry_image_url": "",
         "geometry_alt": "Geometry and dimensions"
       }
     },
@@ -353,7 +354,7 @@
       "type": "cta-banner",
       "settings": {
         "heading": "Find your nearest dealer",
-        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "subheading": "Test ride an EBEB at one of our partner stores around Australia.",
         "cta1_text": "Book a Test Ride",
         "cta1_url": "",
         "cta2_text": "Find a Dealer",
