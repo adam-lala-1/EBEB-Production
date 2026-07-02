@@ -320,14 +320,14 @@
           "type": "group",
           "settings": {
             "title": "Mechanical",
-            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" and 16\" × 4.0\" fat tyres\nBrakes | Bengal custom hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
+            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" and 16\" × 4.0\" fat tyres\nBrakes | Bengal custom hydraulic disc (180mm)\nGears | Shimano Cues 9-speed\nDrivetrain | Rear differential"
           }
         },
         "group_FRP3tk": {
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Frame | 6061 Alloy, semi-recumbent\nTyres | 20\" × 4.0\" fat tyres\nBrakes | Tektro hydraulic disc (180mm)\nGears | Shimano Altus 9-speed"
+            "rows": "Motor | High torque rear hub motor\nDisplay | Torque and pas selectable control\nBattery | 48v 20Ah Samsung Cells"
           }
         },
         "group_mF86aJ": {
