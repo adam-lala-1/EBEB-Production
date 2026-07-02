@@ -70,7 +70,7 @@
           "type": "trust_bullet",
           "settings": {
             "icon": "truck",
-            "text": "Service & support through the EEB dealer network"
+            "text": "Service & support through the EBEB dealer network"
           }
         }
       },
@@ -105,7 +105,7 @@
           "settings": {
             "icon": "shield",
             "label": "Hydraulic Brakes",
-            "sub": "Tektro disc"
+            "sub": "Bengal Custom Disc"
           }
         },
         "f4": {
@@ -120,7 +120,7 @@
           "type": "feature",
           "settings": {
             "icon": "weight",
-            "label": "36kg Weight",
+            "label": "42kg Weight",
             "sub": "Alloy frame"
           }
         }
@@ -165,7 +165,7 @@
         "image": "shopify://shop_images/Trident_Beach.png",
         "image_position": "left",
         "heading": "Stability & Comfort",
-        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. Three 20×4\" fat tyres absorb bumps while providing unmatched stability."
+        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. Three 4\" fat tyres absorb bumps while providing unmatched stability."
       }
     },
     "feature_2": {
