@@ -236,6 +236,7 @@
       ],
       "settings": {
         "heading": "Full Specifications",
+        "geometry_image": "shopify://shop_images/Trojan_v3.png",
         "geometry_image_url": "",
         "geometry_alt": "Geometry and dimensions"
       }
