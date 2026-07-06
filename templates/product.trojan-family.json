@@ -228,6 +228,7 @@
       ],
       "settings": {
         "heading": "The Trojan Range",
+        "geometry_image": "shopify://shop_images/Dimensions.png",
         "geometry_image_url": "",
         "geometry_alt": "Geometry and dimensions"
       }
