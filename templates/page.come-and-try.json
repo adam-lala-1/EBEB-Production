@@ -189,6 +189,34 @@
         "subheading": "Catch us on the road — relaxed, low-pressure events around south-east Queensland."
       }
     },
+    "178348666434511e84": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5d6558c_rqywBp": {
+          "type": "ai_gen_block_5d6558c",
+          "settings": {
+            "heading": "<p>How To Find Us</p>",
+            "description": "<p><strong>Our address is Unit 6, 51 Prospect Road, Gaythorne. The complex has about 20 large warehouses we are number 6 </strong></p><ol><li>Prospect Road comes off Samford Rd at the <strong>GAYTHORNE BOWLS CLUB</strong>.</li><li>Access the complex from PROSPECT ROAD</li><li>Cross the railway line and TURN RIGHT through large black gates into COMPLEX</li><li>Ride/Drive to the RIGHT of Warehouse 9 ahead, closest to the railway line</li><li>Look for WAREHOUSE 6 on LHS and park in our dedicated car parking spaces</li></ol><p><em>If your SATNAV takes you to Bellevue Avenue, Gaythorne, drive along Delta Gym building and ignore the signage saying NO ENTRY. Drive down the small hill towards the warehouses facing the railway line</em> <em>and we are half way along.</em></p><p>If you are coming from the north, enter via Osborne Rd to Samford Road to Prospect Rd (in Orange).</p><p>If you are coming from the south or west, enter via Samford Rd to Prospect Rd (in Pink and Blue).</p><p>If you are coming from the east, enter via Pickering St to Bellevue Ave (in Yellow).</p><p>If you are coming on a bike or trike, enter via the Kedron Brook Bikeway to Bellevue Ave (in Green).</p>",
+            "image": "shopify://shop_images/How_to_find_us_1.png",
+            "layout": "column",
+            "alignment": "center",
+            "spacing": 30,
+            "desktop_width_percent": 100,
+            "heading_size": 36,
+            "heading_color": "#1B2A4A",
+            "text_size": 16,
+            "text_color": "#6B7280",
+            "text_spacing": 15,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5d6558c_rqywBp"
+      ],
+      "settings": {}
+    },
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
@@ -333,6 +361,7 @@
     "expect",
     "gaythorne",
     "events",
+    "178348666434511e84",
     "rsvp",
     "faq"
   ]
