@@ -75,13 +75,26 @@
             "website_url": "https://freedomsolutions.org.au",
             "website_label": "freedomsolutions.org.au"
           }
+        },
+        "dealer_3YCr7k": {
+          "type": "dealer",
+          "settings": {
+            "region": "SA, Australia",
+            "name": "Coming soon",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": ""
+          }
         }
       },
       "block_order": [
         "dealer_aJK7Fn",
         "dealer_rjgRCD",
         "dealer_NBAmzJ",
-        "dealer_7TknFq"
+        "dealer_7TknFq",
+        "dealer_3YCr7k"
       ],
       "settings": {
         "eyebrow": "Our partners",
