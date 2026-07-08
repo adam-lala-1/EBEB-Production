@@ -76,6 +76,19 @@
             "website_label": "novitatech.com.au"
           }
         },
+        "dealer_8NacnR": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/6_2cc70c3f-33eb-493c-b8ab-85ce66198345.png",
+            "region": "WA, Australia",
+            "name": "Impulse Cycles",
+            "address": "79 Lockyer Avenue, Albany, WA 6330",
+            "phone": "08 9842 1387",
+            "email": "ride@impulsecycles.com.au",
+            "website_url": "https://www.impulsecycles.com.au/",
+            "website_label": "impulsecycles.com.au"
+          }
+        },
         "dealer_aJK7Fn": {
           "type": "dealer",
           "settings": {
@@ -95,6 +108,7 @@
         "dealer_NBAmzJ",
         "dealer_miWpLX",
         "dealer_rjgRCD",
+        "dealer_8NacnR",
         "dealer_aJK7Fn"
       ],
       "settings": {
