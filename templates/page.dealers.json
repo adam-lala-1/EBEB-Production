@@ -101,6 +101,19 @@
             "website_url": "https://ecoquip.co.nz",
             "website_label": "ecoquip.co.nz"
           }
+        },
+        "dealer_gERcby": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2025-12-16_124335.png",
+            "region": "QLD, Australia",
+            "name": "Perfect Fit LP",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": ""
+          }
         }
       },
       "block_order": [
@@ -109,7 +122,8 @@
         "dealer_miWpLX",
         "dealer_rjgRCD",
         "dealer_8NacnR",
-        "dealer_aJK7Fn"
+        "dealer_aJK7Fn",
+        "dealer_gERcby"
       ],
       "settings": {
         "eyebrow": "Our partners",
