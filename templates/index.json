@@ -102,8 +102,8 @@
             "image_url": "",
             "title": "",
             "price": "",
-            "link": "/collections/all",
-            "show_description": false
+            "link": "shopify://products/benno-remi-demi-xl",
+            "show_description": true
           }
         },
         "a4": {
@@ -113,7 +113,7 @@
             "image_url": "",
             "title": "",
             "price": "",
-            "link": "/collections/all",
+            "link": "shopify://products/kalkhoff-entice-3-excite-belt",
             "show_description": false
           }
         },
@@ -124,7 +124,7 @@
             "image_url": "",
             "title": "",
             "price": "",
-            "link": "/collections/accessories",
+            "link": "shopify://products/abus-infinity-loop-1806-lock",
             "show_description": false
           }
         },
@@ -135,7 +135,7 @@
             "image_url": "",
             "title": "",
             "price": "",
-            "link": "/collections/accessories",
+            "link": "shopify://products/rack-n-roll-trike-carrier",
             "show_description": false
           }
         }
