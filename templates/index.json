@@ -235,6 +235,7 @@
         },
         "b3": {
           "type": "manual_card",
+          "disabled": true,
           "settings": {
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/Screenshot2024-01-09120138.png?v=1704765964&width=1445",
             "title": "Lightning",
@@ -325,14 +326,14 @@
         "image": "shopify://shop_images/people_planet.png",
         "eyebrow": "People & Planet",
         "heading": "Built to last, designed to include",
-        "body": "<p>Every EEB bike is assembled in Australia and built around inclusive design principles — because mobility is a right, not a privilege.</p>"
+        "body": "<p>Every EBEB bike is assembled in Australia and built around inclusive design principles — because mobility is a right, not a privilege.</p>"
       }
     },
     "cta": {
       "type": "cta-banner",
       "settings": {
         "heading": "Find your nearest dealer",
-        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "subheading": "Test ride an EBEB at one of our partner stores around Australia.",
         "cta1_text": "Book a Test Ride",
         "cta1_url": "",
         "cta2_text": "Find a Dealer",
