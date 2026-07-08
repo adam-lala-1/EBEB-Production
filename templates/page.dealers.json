@@ -30,7 +30,7 @@
             "logo": "shopify://shop_images/7_266d8b11-e24f-4daa-8465-e9b8728beb3d.png",
             "region": "NSW & VIC, Australia",
             "name": "Freedom Solutions",
-            "address": "Unit 10, 185 Briens Rd, Northmead, NSW 2152 & 27 Catherine St, Coburg North, VIC 3058",
+            "address": "Unit 10, 185 Briens Road, Northmead, NSW 2152 & 27 Catherine Street, Coburg North, VIC 3058",
             "phone": "1300 663 243",
             "email": "info@freedomsolutions.org.au",
             "website_url": "https://freedomsolutions.org.au",
@@ -48,6 +48,19 @@
             "email": "sales@cargocycles.com.au",
             "website_url": "https://cargocycles.com.au",
             "website_label": "cargocycles.com.au"
+          }
+        },
+        "dealer_miWpLX": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Logos.png",
+            "region": "QLD, Australia",
+            "name": "Cairns Electric Bikes",
+            "address": "46 McLeod Street, Cairns City, QLD 4870",
+            "phone": "07 4051 4470",
+            "email": "admin@cairns-electric-bikes.com.au",
+            "website_url": "https://www.cairns-electric-bikes.com.au/",
+            "website_label": "cairns-electric-bikes.com.au"
           }
         },
         "dealer_rjgRCD": {
@@ -75,26 +88,14 @@
             "website_url": "https://ecoquip.co.nz",
             "website_label": "ecoquip.co.nz"
           }
-        },
-        "dealer_3YCr7k": {
-          "type": "dealer",
-          "settings": {
-            "region": "SA, Australia",
-            "name": "Coming soon",
-            "address": "",
-            "phone": "",
-            "email": "",
-            "website_url": "",
-            "website_label": ""
-          }
         }
       },
       "block_order": [
         "dealer_7TknFq",
         "dealer_NBAmzJ",
+        "dealer_miWpLX",
         "dealer_rjgRCD",
-        "dealer_aJK7Fn",
-        "dealer_3YCr7k"
+        "dealer_aJK7Fn"
       ],
       "settings": {
         "eyebrow": "Our partners",
