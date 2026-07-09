@@ -97,6 +97,15 @@
                 {% endif %}
               {% endfor %}
             </ol>
+          {% else %}
+            <ol class="eeb-location-steps">
+              <li><p>Prospect Road comes off Samford Road at the <strong>Gaythorne Bowls Club</strong>.</p></li>
+              <li><p>Access the complex from <strong>Prospect Road</strong>, cross the railway line, then turn <strong>right</strong>.</p></li>
+              <li><p>Go through the large black gates into the complex.</p></li>
+              <li><p>Ride or drive to the <strong>right of Warehouse 9</strong> — the warehouse facing the railway line.</p></li>
+              <li><p>Look for <strong>Warehouse 6 on your left</strong>; we are half way along.</p></li>
+            </ol>
+            <p class="eeb-location-hint"><em>Tip: add or edit these steps using “Add block → Direction step”.</em></p>
           {% endif %}
 
           {% if has_routes %}
@@ -112,6 +121,17 @@
                   {% endif %}
                 {% endfor %}
               </ul>
+            </div>
+          {% else %}
+            <div class="eeb-route-list-wrap">
+              <strong>{{ section.settings.routes_heading | default: 'Which route to take (see map)' }}</strong>
+              <ul class="eeb-route-list">
+                <li><span class="eeb-route-dot" style="background:#F59E0B;" aria-hidden="true"></span><span><strong>From the north</strong> — Osborne Road → Samford Road → Prospect Road.</span></li>
+                <li><span class="eeb-route-dot" style="background:#EC4899;" aria-hidden="true"></span><span><strong>From the south or west</strong> — Samford Road → Prospect Road (pink and blue routes).</span></li>
+                <li><span class="eeb-route-dot" style="background:#FACC15;" aria-hidden="true"></span><span><strong>From the east</strong> — Pickering Street → Bellevue Ave.</span></li>
+                <li><span class="eeb-route-dot" style="background:#10B981;" aria-hidden="true"></span><span><strong>By bike or trike</strong> — Kedron Brook Bikeway → Bellevue Ave.</span></li>
+              </ul>
+              <p class="eeb-location-hint"><em>Tip: add or edit routes using “Add block → Route (coloured)”.</em></p>
             </div>
           {% endif %}
         </div>
