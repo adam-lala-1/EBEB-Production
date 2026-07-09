@@ -39,9 +39,7 @@ This file can be re-written at any time.
 
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
-  
-  {% render 'shogun-head' %}
-</head>
+  </head>
   <body class="template-{{ template | replace: '.', '-' | handle }}">
     {% include 'shogun-content-handler' %}
 
