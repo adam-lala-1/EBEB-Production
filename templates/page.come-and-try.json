@@ -106,6 +106,30 @@
     "gaythorne": {
       "type": "come-try-gaythorne",
       "blocks": {
+        "direction_step_mhyMV8": {
+          "type": "direction_step",
+          "settings": {
+            "text": "<p>Prospect Rd is off Samford Road at the <strong>Gaythorne Bowls Club</strong>.</p>"
+          }
+        },
+        "direction_step_6JtfbJ": {
+          "type": "direction_step",
+          "settings": {
+            "text": "<p>Cross the railway line and turn <strong>right</strong> through the large black gates into the complex.</p>"
+          }
+        },
+        "direction_step_RKpXgk": {
+          "type": "direction_step",
+          "settings": {
+            "text": "<p>Ride or drive to the <strong>right of Warehouse 9</strong> ahead — the one closest to the railway line.</p>"
+          }
+        },
+        "direction_step_Y468d7": {
+          "type": "direction_step",
+          "settings": {
+            "text": "<p>Look for <strong>Warehouse 6 on your left</strong> & park in our dedicated bays.</p>"
+          }
+        },
         "g1": {
           "type": "feature",
           "settings": {
@@ -140,6 +164,10 @@
         }
       },
       "block_order": [
+        "direction_step_mhyMV8",
+        "direction_step_6JtfbJ",
+        "direction_step_RKpXgk",
+        "direction_step_Y468d7",
         "g1",
         "g2",
         "g3",
@@ -151,12 +179,20 @@
         "body": "Can't make an event? Drop in to our Gaythorne workshop any weekday. We've got the full range ready to ride, a quiet street out front for first-timers, and an undercover space for wet days.",
         "cta_text": "Book a time",
         "cta_url": "#rsvp",
+        "map_url": "https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x",
+        "satnav_tip": "<p><strong>SATNAV tip:</strong> If your GPS routes you via Bellevue Ave, drive past the Delta Gym building and ignore the “No Entry” signage. Continue down the small hill toward the warehouses facing the railway line — we're half way along.</p>",
+        "how_to_get_there_heading": "How to get there",
+        "label_address": "Address",
         "address": "6/51 Prospect Rd, Gaythorne QLD 4051",
+        "address_note": "a complex of about 20 large warehouses; we're number 6.",
+        "label_hours": "Open",
         "hours": "Mon–Fri 9AM–5PM, Sat 10AM–4PM",
+        "label_parking": "Parking",
         "parking": "Free street parking on Prospect Rd, plus accessible bays at the front of the unit.",
+        "label_transit": "Public transport",
         "transit": "5 min walk from Gaythorne train station (Ferny Grove line). Bus 390 stops on Samford Rd.",
-        "driving": "8 km / 15 min north of Brisbane CBD via Kelvin Grove Rd and Samford Rd.",
-        "map_url": "https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x"
+        "finding_heading": "Finding the complex",
+        "routes_heading": "Which route to take (see map)"
       }
     },
     "events": {
