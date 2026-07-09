@@ -80,7 +80,7 @@
         "event_eyefNn": {
           "type": "event",
           "settings": {
-            "tag": "Brisbane",
+            "tag": "Bribie Island",
             "capacity": "RSVP required",
             "title": "South Bank Riverwalk Demo",
             "date": "Sun 8 Mar 2026",
@@ -106,6 +106,38 @@
     "gaythorne": {
       "type": "come-try-gaythorne",
       "blocks": {
+        "route_agHYgC": {
+          "type": "route",
+          "settings": {
+            "color": "#f59e0b",
+            "label": "From the north",
+            "text": "Osborne Road → Samford Road → Prospect Road."
+          }
+        },
+        "route_c7zHYM": {
+          "type": "route",
+          "settings": {
+            "color": "#ED0BF5",
+            "label": "From the South or West",
+            "text": "Samford Rd → Prospect Rd (pink and blue routes)."
+          }
+        },
+        "route_pjCaPP": {
+          "type": "route",
+          "settings": {
+            "color": "#F5E90B",
+            "label": "From the east ",
+            "text": "Pickering St → Bellevue Ave."
+          }
+        },
+        "route_ERWDCH": {
+          "type": "route",
+          "settings": {
+            "color": "#49F50B",
+            "label": "By bike or trike",
+            "text": "Kedron Brook Bikeway → Bellevue Ave."
+          }
+        },
         "direction_step_mhyMV8": {
           "type": "direction_step",
           "settings": {
@@ -164,6 +196,10 @@
         }
       },
       "block_order": [
+        "route_agHYgC",
+        "route_c7zHYM",
+        "route_pjCaPP",
+        "route_ERWDCH",
         "direction_step_mhyMV8",
         "direction_step_6JtfbJ",
         "direction_step_RKpXgk",
