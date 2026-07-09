@@ -18,7 +18,7 @@
         "cta1_text": "Book a test ride",
         "cta1_url": "#rsvp",
         "cta2_text": "See upcoming events",
-        "cta2_url": "shopify://pages/bribie-island"
+        "cta2_url": "shopify://pages/book-a-test-ride"
       }
     },
     "expect": {
