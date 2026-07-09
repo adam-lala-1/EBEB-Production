@@ -41,57 +41,79 @@
             {% if section.settings.map_url != blank %}
               <a class="eeb-btn eeb-btn--dark" href="{{ section.settings.map_url }}" target="_blank" rel="noopener">Open in Google Maps</a>
             {% endif %}
-            <p><strong>SATNAV tip:</strong> If your GPS routes you via Bellevue Ave, drive past the Delta Gym building and ignore the “No Entry” signage. Continue down the small hill toward the warehouses facing the railway line — we're half way along.</p>
+            {% if section.settings.satnav_tip != blank %}
+              <div class="eeb-location-map-tip">{{ section.settings.satnav_tip }}</div>
+            {% endif %}
           </div>
         </div>
       </div>
 
       <div class="eeb-gaythorne-side">
         <div class="eeb-location-card">
-          <h3>How to get there</h3>
+          <h3>{{ section.settings.how_to_get_there_heading | default: 'How to get there' }}</h3>
           <ul class="eeb-location-list">
-            <li>
-              <span aria-hidden="true">📍</span>
-              <div><strong>Address</strong><br>Unit 6, 51 Prospect Road, Gaythorne QLD 4051 — a complex of about 20 large warehouses; we're number 6.</div>
-            </li>
+            {% if section.settings.address != blank %}
+              <li>
+                <span aria-hidden="true">📍</span>
+                <div><strong>{{ section.settings.label_address | default: 'Address' }}</strong><br>{{ section.settings.address }}{% if section.settings.address_note != blank %} — {{ section.settings.address_note }}{% endif %}</div>
+              </li>
+            {% endif %}
             {% if section.settings.hours != blank %}
               <li>
                 <span aria-hidden="true">🕘</span>
-                <div><strong>Open</strong><br>{{ section.settings.hours }}</div>
+                <div><strong>{{ section.settings.label_hours | default: 'Open' }}</strong><br>{{ section.settings.hours }}</div>
               </li>
             {% endif %}
-            <li>
-              <span aria-hidden="true">🅿️</span>
-              <div><strong>Parking</strong><br>Dedicated bays in front of Warehouse 6, plus free street parking on Prospect Road.</div>
-            </li>
+            {% if section.settings.parking != blank %}
+              <li>
+                <span aria-hidden="true">🅿️</span>
+                <div><strong>{{ section.settings.label_parking | default: 'Parking' }}</strong><br>{{ section.settings.parking }}</div>
+              </li>
+            {% endif %}
             {% if section.settings.transit != blank %}
               <li>
                 <span aria-hidden="true">🚆</span>
-                <div><strong>Public transport</strong><br>{{ section.settings.transit }}</div>
+                <div><strong>{{ section.settings.label_transit | default: 'Public transport' }}</strong><br>{{ section.settings.transit }}</div>
               </li>
             {% endif %}
           </ul>
         </div>
 
         <div class="eeb-location-card">
-          <h3>Finding the complex</h3>
-          <ol class="eeb-location-steps">
-            <li>Prospect Road comes off Samford Road at the <strong>Gaythorne Bowls Club</strong>.</li>
-            <li>Access the complex from <strong>Prospect Road</strong>, cross the railway line, then turn <strong>right</strong>.</li>
-            <li>Go through the large black gates into the complex.</li>
-            <li>Ride or drive to the <strong>right of Warehouse 9</strong> — the warehouse facing the railway line.</li>
-            <li>Look for <strong>Warehouse 6 on your left</strong>; we are half way along.</li>
-          </ol>
+          <h3>{{ section.settings.finding_heading | default: 'Finding the complex' }}</h3>
 
-          <div class="eeb-route-list-wrap">
-            <strong>Which route to take (see map)</strong>
-            <ul class="eeb-route-list">
-              <li><span class="eeb-route-dot eeb-route-dot--north" aria-hidden="true"></span><span><strong>From the north</strong> — Osborne Road → Samford Road → Prospect Road.</span></li>
-              <li><span class="eeb-route-dot eeb-route-dot--south" aria-hidden="true"></span><span><strong>From the south or west</strong> — Samford Road → Prospect Road (pink and blue routes).</span></li>
-              <li><span class="eeb-route-dot eeb-route-dot--east" aria-hidden="true"></span><span><strong>From the east</strong> — Pickering Street → Bellevue Ave.</span></li>
-              <li><span class="eeb-route-dot eeb-route-dot--bike" aria-hidden="true"></span><span><strong>By bike or trike</strong> — Kedron Brook Bikeway → Bellevue Ave.</span></li>
-            </ul>
-          </div>
+          {% assign has_steps = false %}
+          {% assign has_routes = false %}
+          {% for block in section.blocks %}
+            {% if block.type == 'direction_step' %}{% assign has_steps = true %}{% endif %}
+            {% if block.type == 'route' %}{% assign has_routes = true %}{% endif %}
+          {% endfor %}
+
+          {% if has_steps %}
+            <ol class="eeb-location-steps">
+              {% for block in section.blocks %}
+                {% if block.type == 'direction_step' %}
+                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          {% endif %}
+
+          {% if has_routes %}
+            <div class="eeb-route-list-wrap">
+              <strong>{{ section.settings.routes_heading | default: 'Which route to take (see map)' }}</strong>
+              <ul class="eeb-route-list">
+                {% for block in section.blocks %}
+                  {% if block.type == 'route' %}
+                    <li {{ block.shopify_attributes }}>
+                      <span class="eeb-route-dot" style="background: {{ block.settings.color | default: '#E86C2C' }};" aria-hidden="true"></span>
+                      <span><strong>{{ block.settings.label }}</strong>{% if block.settings.text != blank %} — {{ block.settings.text }}{% endif %}</span>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -156,8 +178,9 @@
   #shopify-section-{{ section.id }} .eeb-location-map-trigger:focus-visible { outline: 2px solid var(--color-orange); outline-offset: 3px; }
   #shopify-section-{{ section.id }} .eeb-location-map-badge { position: absolute; right: .75rem; bottom: .75rem; display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--color-border); background: rgba(255,255,255,.92); color: var(--color-navy); font-size: .78rem; font-weight: 700; box-shadow: 0 4px 14px rgba(27,42,74,.12); }
   #shopify-section-{{ section.id }} .eeb-location-map-actions { display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; margin-top: 1rem; }
-  #shopify-section-{{ section.id }} .eeb-location-map-actions p { flex: 1 1 18rem; margin: 0; color: var(--color-muted); font-size: .82rem; font-style: italic; line-height: 1.65; }
-  #shopify-section-{{ section.id }} .eeb-location-map-actions strong { color: var(--color-foreground); font-style: normal; }
+  #shopify-section-{{ section.id }} .eeb-location-map-tip { flex: 1 1 18rem; margin: 0; color: var(--color-muted); font-size: .82rem; font-style: italic; line-height: 1.65; }
+  #shopify-section-{{ section.id }} .eeb-location-map-tip strong { color: var(--color-foreground); font-style: normal; }
+  #shopify-section-{{ section.id }} .eeb-location-map-tip p { margin: 0; }
   #shopify-section-{{ section.id }} .eeb-location-card { background: #fff; border: 1px solid var(--color-border); border-radius: 1rem; padding: 1.75rem; }
   #shopify-section-{{ section.id }} .eeb-location-card h3 { margin-bottom: 1rem; }
   #shopify-section-{{ section.id }} .eeb-location-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; color: var(--color-muted); font-size: .95rem; }
@@ -172,10 +195,6 @@
   #shopify-section-{{ section.id }} .eeb-route-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .65rem; color: var(--color-muted); font-size: .92rem; }
   #shopify-section-{{ section.id }} .eeb-route-list li { display: grid; grid-template-columns: .85rem 1fr; gap: .75rem; align-items: start; }
   #shopify-section-{{ section.id }} .eeb-route-dot { width: .75rem; height: .75rem; border-radius: 999px; margin-top: .35rem; }
-  #shopify-section-{{ section.id }} .eeb-route-dot--north { background: #F59E0B; }
-  #shopify-section-{{ section.id }} .eeb-route-dot--south { background: #EC4899; }
-  #shopify-section-{{ section.id }} .eeb-route-dot--east { background: #FACC15; }
-  #shopify-section-{{ section.id }} .eeb-route-dot--bike { background: #10B981; }
   #shopify-section-{{ section.id }} .eeb-location-lightbox[hidden] { display: none; }
   #shopify-section-{{ section.id }} .eeb-location-lightbox { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 2rem; background: rgba(10,16,28,.76); }
   #shopify-section-{{ section.id }} .eeb-location-lightbox img { width: min(100%, 72rem); max-height: 88vh; object-fit: contain; border-radius: .75rem; background: #fff; box-shadow: 0 24px 70px rgba(0,0,0,.35); }
@@ -199,13 +218,27 @@
     { "type": "textarea", "id": "body", "label": "Body", "default": "Can't make an event? Drop in to our Gaythorne workshop any weekday. We've got the full range ready to ride, a quiet street out front for first-timers, and an undercover space for wet days." },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book a time" },
     { "type": "url", "id": "cta_url", "label": "CTA URL" },
-    { "type": "header", "content": "Location details" },
+
+    { "type": "header", "content": "Map & SATNAV" },
+    { "type": "url", "id": "map_url", "label": "Google Maps URL", "info": "Paste the Google Maps share link" },
+    { "type": "richtext", "id": "satnav_tip", "label": "SATNAV tip (under map)", "default": "<p><strong>SATNAV tip:</strong> If your GPS routes you via Bellevue Ave, drive past the Delta Gym building and ignore the “No Entry” signage. Continue down the small hill toward the warehouses facing the railway line — we're half way along.</p>" },
+
+    { "type": "header", "content": "How to get there (right column)" },
+    { "type": "text", "id": "how_to_get_there_heading", "label": "Card heading", "default": "How to get there" },
+    { "type": "text", "id": "label_address", "label": "Address label", "default": "Address" },
     { "type": "text", "id": "address", "label": "Address", "default": "Unit 6, 51 Prospect Road, Gaythorne QLD 4051" },
+    { "type": "textarea", "id": "address_note", "label": "Address note", "default": "a complex of about 20 large warehouses; we're number 6." },
+    { "type": "text", "id": "label_hours", "label": "Hours label", "default": "Open" },
     { "type": "text", "id": "hours", "label": "Hours", "default": "Mon–Fri 9AM–5PM, Sat 10AM–4PM (Sun by appointment)" },
+    { "type": "text", "id": "label_parking", "label": "Parking label", "default": "Parking" },
     { "type": "textarea", "id": "parking", "label": "Parking", "default": "Dedicated bays in front of Warehouse 6, plus free street parking on Prospect Road." },
+    { "type": "text", "id": "label_transit", "label": "Public transport label", "default": "Public transport" },
     { "type": "textarea", "id": "transit", "label": "Public transport", "default": "5 min walk from Gaythorne train station (Ferny Grove line). Bus 390 stops on Samford Road." },
-    { "type": "textarea", "id": "driving", "label": "By car", "default": "Prospect Road comes off Samford Road at the Gaythorne Bowls Club. Cross the railway line and turn right through the large black gates into the warehouse complex." },
-    { "type": "url", "id": "map_url", "label": "Google Maps URL", "info": "Paste the Google Maps share link" }
+
+    { "type": "header", "content": "Finding the complex (right column)" },
+    { "type": "text", "id": "finding_heading", "label": "Card heading", "default": "Finding the complex" },
+    { "type": "text", "id": "routes_heading", "label": "Routes sub-heading", "default": "Which route to take (see map)" },
+    { "type": "paragraph", "content": "Add step-by-step directions and colour-coded routes using the blocks below." }
   ],
   "blocks": [
     {
@@ -216,9 +249,25 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Quiet test street" },
         { "type": "textarea", "id": "body", "label": "Body" }
       ]
+    },
+    {
+      "type": "direction_step",
+      "name": "Direction step",
+      "settings": [
+        { "type": "richtext", "id": "text", "label": "Step text", "default": "<p>Prospect Road comes off Samford Road at the <strong>Gaythorne Bowls Club</strong>.</p>" }
+      ]
+    },
+    {
+      "type": "route",
+      "name": "Route (coloured)",
+      "settings": [
+        { "type": "color", "id": "color", "label": "Dot colour", "default": "#F59E0B" },
+        { "type": "text", "id": "label", "label": "Route label", "default": "From the north" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Osborne Road → Samford Road → Prospect Road." }
+      ]
     }
   ],
-  "max_blocks": 8,
+  "max_blocks": 24,
   "presets": [
     {
       "name": "Gaythorne — visit anytime",
@@ -226,7 +275,16 @@
         { "type": "feature", "settings": { "icon": "🛣️", "title": "Quiet test street", "body": "Prospect Rd is low-traffic — perfect for first-time and nervous riders." } },
         { "type": "feature", "settings": { "icon": "🧰", "title": "Full range on-site", "body": "Commuter, cargo, folding ebikes and Trident trikes all ready to ride." } },
         { "type": "feature", "settings": { "icon": "🧑‍🔧", "title": "Expert fittings", "body": "Our mechanics will adjust the bike to you before you head out." } },
-        { "type": "feature", "settings": { "icon": "♿", "title": "Accessible entry", "body": "Step-free access and undercover ride zone for wet days." } }
+        { "type": "feature", "settings": { "icon": "♿", "title": "Accessible entry", "body": "Step-free access and undercover ride zone for wet days." } },
+        { "type": "direction_step", "settings": { "text": "<p>Prospect Road comes off Samford Road at the <strong>Gaythorne Bowls Club</strong>.</p>" } },
+        { "type": "direction_step", "settings": { "text": "<p>Access the complex from <strong>Prospect Road</strong>, cross the railway line, then turn <strong>right</strong>.</p>" } },
+        { "type": "direction_step", "settings": { "text": "<p>Go through the large black gates into the complex.</p>" } },
+        { "type": "direction_step", "settings": { "text": "<p>Ride or drive to the <strong>right of Warehouse 9</strong> — the warehouse facing the railway line.</p>" } },
+        { "type": "direction_step", "settings": { "text": "<p>Look for <strong>Warehouse 6 on your left</strong>; we are half way along.</p>" } },
+        { "type": "route", "settings": { "color": "#F59E0B", "label": "From the north", "text": "Osborne Road → Samford Road → Prospect Road." } },
+        { "type": "route", "settings": { "color": "#EC4899", "label": "From the south or west", "text": "Samford Road → Prospect Road (pink and blue routes)." } },
+        { "type": "route", "settings": { "color": "#FACC15", "label": "From the east", "text": "Pickering Street → Bellevue Ave." } },
+        { "type": "route", "settings": { "color": "#10B981", "label": "By bike or trike", "text": "Kedron Brook Bikeway → Bellevue Ave." } }
       ]
     }
   ]
