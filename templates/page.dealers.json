@@ -152,9 +152,9 @@
         "heading": "Not sure which EBEB is right for you?",
         "subheading": "Our team and dealer network can help match you to the right ride. Book a chat or test ride today.",
         "cta1_text": "Book a test ride",
-        "cta1_url": "",
+        "cta1_url": "shopify://pages/book-a-test-ride",
         "cta2_text": "Talk to our team",
-        "cta2_url": ""
+        "cta2_url": "shopify://pages/contact"
       }
     }
   },
