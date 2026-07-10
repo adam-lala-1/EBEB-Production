@@ -117,7 +117,7 @@
         "route_c7zHYM": {
           "type": "route",
           "settings": {
-            "color": "#ED0BF5",
+            "color": "#ed0bf5",
             "label": "From the South or West",
             "text": "Samford Rd → Prospect Rd (pink and blue routes)."
           }
@@ -125,7 +125,7 @@
         "route_pjCaPP": {
           "type": "route",
           "settings": {
-            "color": "#F5E90B",
+            "color": "#f5e90b",
             "label": "From the east ",
             "text": "Pickering St → Bellevue Ave."
           }
@@ -133,7 +133,7 @@
         "route_ERWDCH": {
           "type": "route",
           "settings": {
-            "color": "#49F50B",
+            "color": "#49f50b",
             "label": "By bike or trike",
             "text": "Kedron Brook Bikeway → Bellevue Ave."
           }
@@ -224,7 +224,7 @@
         "label_hours": "Open",
         "hours": "Mon–Fri 9AM–5PM, Sat 10AM–4PM",
         "label_parking": "Parking",
-        "parking": "Free street parking on Prospect Rd, plus accessible bays at the front of the unit.",
+        "parking": "Many parking spots right out the front of the shop and workshop.",
         "label_transit": "Public transport",
         "transit": "5 min walk from Gaythorne train station (Ferny Grove line). Bus 390 stops on Samford Rd.",
         "finding_heading": "Finding the complex",
