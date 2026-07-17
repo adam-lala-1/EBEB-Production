@@ -34,7 +34,9 @@
 
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
-  </head>
+  
+  {% render 'shogun-head' %}
+</head>
   <body class="template-{{ template | replace: '.', '-' | handle }}">
     <a class="skip-link" href="#main">Skip to content</a>
     {% section 'header-eeb' %}
