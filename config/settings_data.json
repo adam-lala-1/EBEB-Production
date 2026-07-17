@@ -43,7 +43,12 @@
           "cta_url": "shopify://pages/book-a-test-ride",
           "dealer_label": "Dealers",
           "dealer_url": "",
-          "dealer_color": "#ff6b00"
+          "dealer_color": "#ff6b00",
+          "sale_enabled": true,
+          "sale_label": "🔥 SALE ITEMS",
+          "sale_url": "shopify://collections/on-sale",
+          "sale_bg_color": "#e86c2c",
+          "sale_text_color": "#ffffff"
         }
       },
       "footer-eeb": {
