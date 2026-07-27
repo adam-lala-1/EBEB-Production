@@ -69,7 +69,8 @@ p { margin: 0 0 1em; }
 .eeb-hero__slide.is-active { display: block; }
 .eeb-hero__panel { display: grid; gap: 2rem; align-items: center; }
 .eeb-hero__copy { max-width: 640px; }
-.eeb-hero__copy h1 { margin-bottom: 1rem; }
+.eeb-hero__copy h1,
+.eeb-hero__copy .eeb-hero__heading { margin-bottom: 1rem; }
 .eeb-hero__highlight { color: var(--color-orange); font-style: italic; }
 .eeb-hero__copy p { font-size: 1.05rem; color: var(--color-muted); margin-bottom: 1.75rem; max-width: 36rem; }
 .eeb-hero__badges { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }

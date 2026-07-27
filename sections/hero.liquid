@@ -6,7 +6,11 @@
           <div class="eeb-hero__panel">
             <div class="eeb-hero__copy">
               {% if block.settings.eyebrow != blank %}<span class="eeb-eyebrow">{{ block.settings.eyebrow }}</span>{% endif %}
-              <h1>{{ block.settings.heading }} {% if block.settings.heading_highlight != blank %}<span class="eeb-hero__highlight">{{ block.settings.heading_highlight }}</span>{% endif %}</h1>
+              {%- if forloop.first -%}
+                <h1>{{ block.settings.heading }} {% if block.settings.heading_highlight != blank %}<span class="eeb-hero__highlight">{{ block.settings.heading_highlight }}</span>{% endif %}</h1>
+              {%- else -%}
+                <h2 class="eeb-hero__heading">{{ block.settings.heading }} {% if block.settings.heading_highlight != blank %}<span class="eeb-hero__highlight">{{ block.settings.heading_highlight }}</span>{% endif %}</h2>
+              {%- endif -%}
               <p>{{ block.settings.body }}</p>
               {% if block.settings.cta_text != blank %}
                 <a class="eeb-btn eeb-btn--primary" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
