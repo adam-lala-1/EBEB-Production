@@ -68,9 +68,19 @@
           <span style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.4rem;">Anything we should know? (Optional)</span>
           <textarea name="contact[body]" rows="4" maxlength="1000" placeholder="Bringing a group, accessibility needs, specific questions…" style="width:100%;padding:.6rem .75rem;border:1px solid var(--color-border);border-radius:6px;"></textarea>
         </label>
+        <label class="eeb-rsvp-marketing" style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--color-muted);cursor:pointer;margin:-.25rem 0 .25rem;">
+          <input type="checkbox" name="contact[marketing_consent]" class="eeb-rsvp-marketing-input" value="yes" style="margin-top:3px;flex-shrink:0;">
+          <span>{{ section.settings.marketing_consent_label | default: "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime." }}</span>
+        </label>
         <button type="submit" data-eeb-submit class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.submit_text | default: 'Send enquiry' }}</button>
       </div>
     {%- endform -%}
+
+    {%- form 'customer', id: 'eeb-rsvp-newsletter', class: 'visually-hidden' -%}
+      <input type="email" name="contact[email]" class="eeb-rsvp-newsletter-email" value="">
+      <input type="hidden" name="contact[tags]" value="source: come-and-try-rsvp">
+    {%- endform -%}
+    <iframe name="eeb-rsvp-newsletter-iframe" style="display:none;"></iframe>
   </div>
 </section>
 
@@ -99,16 +109,57 @@
 
     form.addEventListener('submit', function(e) {
       var url = selectedCalendlyUrl();
-      if (!url) return;
-      if (!window.Calendly || !window.Calendly.initPopupWidget) return;
-      e.preventDefault();
-      window.Calendly.initPopupWidget({
-        url: url,
-        prefill: {
-          name: nameInput ? nameInput.value : '',
-          email: emailInput ? emailInput.value : ''
+      var marketingCheckbox = form.querySelector('.eeb-rsvp-marketing-input');
+      var marketingChecked = marketingCheckbox && marketingCheckbox.checked;
+
+      function openCalendly() {
+        if (!url || !window.Calendly || !window.Calendly.initPopupWidget) return;
+        window.Calendly.initPopupWidget({
+          url: url,
+          prefill: {
+            name: nameInput ? nameInput.value : '',
+            email: emailInput ? emailInput.value : ''
+          }
+        });
+      }
+
+      function continueSubmit() {
+        if (url) {
+          e.preventDefault();
+          openCalendly();
         }
-      });
+      }
+
+      if (marketingChecked) {
+        var newsletterForm = document.getElementById('eeb-rsvp-newsletter');
+        var newsletterEmail = newsletterForm ? newsletterForm.querySelector('.eeb-rsvp-newsletter-email') : null;
+        var newsletterIframe = document.querySelector('iframe[name="eeb-rsvp-newsletter-iframe"]');
+        if (newsletterForm && newsletterEmail && newsletterIframe) {
+          e.preventDefault();
+          if (emailInput) newsletterEmail.value = emailInput.value;
+          newsletterForm.target = 'eeb-rsvp-newsletter-iframe';
+          var submitted = false;
+          var onLoad = function onRsvpNewsletterLoad() {
+            if (submitted) return;
+            submitted = true;
+            newsletterIframe.removeEventListener('load', onRsvpNewsletterLoad);
+            continueSubmit();
+            if (!url) form.submit();
+          };
+          newsletterIframe.addEventListener('load', onLoad);
+          newsletterForm.submit();
+          setTimeout(function() {
+            if (!submitted) {
+              submitted = true;
+              continueSubmit();
+              if (!url) form.submit();
+            }
+          }, 2500);
+          return;
+        }
+      }
+
+      continueSubmit();
     });
   })();
 </script>
@@ -121,6 +172,7 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch or book a ride" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Tell us what you'd like to try and when suits — we'll have a bike ready." },
     { "type": "text", "id": "submit_text", "label": "Submit button text", "default": "Send enquiry" },
+    { "type": "text", "id": "marketing_consent_label", "label": "Marketing consent label", "default": "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime.", "info": "Shown next to the marketing opt-in checkbox." },
     { "type": "header", "content": "Calendly booking" },
     { "type": "paragraph", "content": "Paste a Calendly event link to turn 'Visit Gaythorne workshop' into a real time-slot booking. Each pop-up event option can also have its own one-off Calendly link." },
     { "type": "url", "id": "gaythorne_calendly_url", "label": "Gaythorne Calendly URL", "info": "e.g. https://calendly.com/bfebikes-sales/test-ride" }

@@ -365,6 +365,8 @@ document.querySelectorAll('.eeb-nav__item--has-dropdown').forEach(function(item)
 })();
 {% endjavascript %}
 
+{% render 'floating-enquiry', marketing_label: section.settings.marketing_consent_label %}
+
 {% schema %}
 {
   "name": "EEB Header",
@@ -386,7 +388,9 @@ document.querySelectorAll('.eeb-nav__item--has-dropdown').forEach(function(item)
     { "type": "text", "id": "sale_label", "label": "Badge text", "default": "🔥 SALE ITEMS" },
     { "type": "url", "id": "sale_url", "label": "Badge link (collection)" },
     { "type": "color", "id": "sale_bg_color", "label": "Badge background", "default": "#E86C2C" },
-    { "type": "color", "id": "sale_text_color", "label": "Badge text colour", "default": "#FFFFFF" }
+    { "type": "color", "id": "sale_text_color", "label": "Badge text colour", "default": "#FFFFFF" },
+    { "type": "header", "content": "Floating enquiry" },
+    { "type": "text", "id": "marketing_consent_label", "label": "Marketing consent label", "default": "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime.", "info": "Shown next to the marketing opt-in checkbox on the floating enquiry form." }
   ],
   "blocks": [
     {

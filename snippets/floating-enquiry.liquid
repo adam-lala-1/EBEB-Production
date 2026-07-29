@@ -104,11 +104,22 @@
 
           <input type="hidden" name="contact[page_url]" class="eeb-fe-page-url" value="">
 
+          <label class="eeb-fe-marketing-label">
+            <input type="checkbox" name="contact[marketing_consent]" class="eeb-fe-marketing" value="yes">
+            <span>{{ marketing_label | default: "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime." }}</span>
+          </label>
+
           <button type="submit" class="eeb-fe-btn eeb-fe-btn-primary">Send enquiry</button>
           <div class="eeb-fe-divider"><span>or</span></div>
           <button type="button" class="eeb-fe-btn eeb-fe-btn-outline eeb-fe-calendly">Book a test ride</button>
         {%- endif -%}
       {%- endform -%}
+
+      {%- form 'customer', id: 'eeb-floating-newsletter', class: 'eeb-fe-newsletter' -%}
+        <input type="email" name="contact[email]" class="eeb-fe-newsletter-email" value="">
+        <input type="hidden" name="contact[tags]" value="source: floating-enquiry">
+      {%- endform -%}
+      <iframe name="eeb-floating-newsletter-iframe" style="display:none;"></iframe>
     </div>
   </div>
 </div>
@@ -146,6 +157,9 @@
   .eeb-fe-success { text-align: center; padding: 16px 0; }
   .eeb-fe-success-title { font-family: var(--font-heading, serif); font-size: 20px; color: var(--color-navy, #1B2A4A); margin: 0 0 4px; }
   .eeb-fe-success-text { font-size: 14px; color: var(--color-muted, #6B7280); margin: 0; }
+  .eeb-fe-marketing-label { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; line-height: 1.4; color: var(--color-muted, #6B7280); cursor: pointer; margin: 2px 0; }
+  .eeb-fe-marketing-label input { margin-top: 2px; flex-shrink: 0; }
+  .eeb-fe-newsletter { display: none; }
 </style>
 
 <script>
@@ -165,6 +179,10 @@
     var messageInput = root.querySelector('.eeb-fe-message');
     var detectedTopic = root.dataset.topic;
     var calendlyUrl = root.dataset.calendly;
+    var marketingCheckbox = form ? form.querySelector('.eeb-fe-marketing') : null;
+    var newsletterForm = document.getElementById('eeb-floating-newsletter');
+    var newsletterEmail = newsletterForm ? newsletterForm.querySelector('.eeb-fe-newsletter-email') : null;
+    var newsletterIframe = document.querySelector('iframe[name="eeb-floating-newsletter-iframe"]');
 
     function setOpen(open) {
       panel.hidden = !open;
@@ -215,17 +233,43 @@
     }
 
     if (form) {
-      form.addEventListener('submit', function () {
+      form.addEventListener('submit', function (e) {
         if (pageUrlInput) pageUrlInput.value = window.location.href;
         var topicVal = (topicInput && topicInput.value || '').trim() || 'General enquiry';
         if (subjectInput) subjectInput.value = 'Floating enquiry: ' + topicVal;
-        // Append page context to message body so the team sees where it came from
+        // Append page context + marketing consent to message body
         if (messageInput) {
           var existing = messageInput.value || '';
-          var footer = '\n\n— Sent via floating enquiry\nTopic: ' + topicVal + '\nPage: ' + window.location.href;
+          var consentLine = 'Marketing consent: ' + (marketingCheckbox && marketingCheckbox.checked ? 'YES' : 'NO');
+          var footer = '\n\n— Sent via floating enquiry\nTopic: ' + topicVal + '\n' + consentLine + '\nPage: ' + window.location.href;
           if (existing.indexOf('Sent via floating enquiry') === -1) {
             messageInput.value = existing + footer;
+          } else if (existing.indexOf('Marketing consent:') === -1) {
+            messageInput.value = existing + '\n' + consentLine;
           }
+        }
+
+        // Auto-subscribe to Shopify marketing list if consent given
+        if (marketingCheckbox && marketingCheckbox.checked && newsletterForm && newsletterEmail && newsletterIframe) {
+          var emailField = form.querySelector('[name="contact[email]"]');
+          if (emailField) newsletterEmail.value = emailField.value;
+          e.preventDefault();
+          newsletterForm.target = 'eeb-floating-newsletter-iframe';
+          var submitted = false;
+          var onLoad = function onFloatingNewsletterLoad() {
+            if (submitted) return;
+            submitted = true;
+            newsletterIframe.removeEventListener('load', onFloatingNewsletterLoad);
+            form.submit();
+          };
+          newsletterIframe.addEventListener('load', onLoad);
+          newsletterForm.submit();
+          setTimeout(function () {
+            if (!submitted) {
+              submitted = true;
+              form.submit();
+            }
+          }, 2500);
         }
       });
     }
