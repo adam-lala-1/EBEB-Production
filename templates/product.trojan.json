@@ -221,6 +221,13 @@
             "rows": "Motor | High-torque rear hub\nSensor | Cadence or Torque (selectable)\nBattery | 48V 20Ah Samsung lithium\nRange | Approx. 80–120 km\nAssist levels | 5, customisable delivery per level\nLights | Integrated front and rear"
           }
         },
+        "group_xCK8zw": {
+          "type": "group",
+          "settings": {
+            "title": "Weights",
+            "rows": "Max Rider | 140kg\nGross Vehicle | 200kg\nTrike | 42kg\nRemovable Battery | 3kg"
+          }
+        },
         "group_incl": {
           "type": "group",
           "settings": {
@@ -232,6 +239,7 @@
       "block_order": [
         "group_mech",
         "group_elec",
+        "group_xCK8zw",
         "group_incl"
       ],
       "settings": {
