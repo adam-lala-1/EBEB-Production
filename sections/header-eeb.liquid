@@ -1,6 +1,6 @@
 <div class="eeb-topbar{% if section.settings.sale_enabled %} eeb-topbar--with-sale{% endif %}">
   <div class="eeb-topbar__inner">
-    <a class="eeb-topbar__addr" href="https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x" target="_blank" rel="noopener">📍 Unit 6/51 Prospect Rd, Gaythorne QLD 4051</a>
+    <a class="eeb-topbar__addr" href="https://www.google.com/maps/place/EveryBody+eBikes/@-27.4140661,152.9819054,17z/data=!3m1!4b1!4m6!3m5!1s0x6b93fc6b78ff5a35:0x5f92d04e3b321f07!8m2!3d-27.4140661!4d152.9819054!16s%2Fg%2F119vhl73x" target="_blank" rel="noopener" aria-label="Unit 6/51 Prospect Rd, Gaythorne QLD 4051"><span class="eeb-topbar__ico" aria-hidden="true">📍</span><span class="eeb-topbar__label">Unit 6/51 Prospect Rd, Gaythorne QLD 4051</span></a>
 
     {%- if section.settings.sale_enabled -%}
       <div class="eeb-topbar__sale">
@@ -12,10 +12,11 @@
     {%- endif -%}
 
     <div class="eeb-topbar__contact">
-      <a href="tel:+61409126669">📞 0409 126 669</a>
-      <span aria-hidden="true">•</span>
-      <a href="mailto:enquiry@everybodyebikes.com.au">✉ enquiry@everybodyebikes.com.au</a>
+      <a href="tel:+61409126669" aria-label="Call 0409 126 669"><span class="eeb-topbar__ico" aria-hidden="true">📞</span><span class="eeb-topbar__label">0409 126 669</span></a>
+      <span aria-hidden="true" class="eeb-topbar__label">•</span>
+      <a href="mailto:enquiry@everybodyebikes.com.au" aria-label="Email enquiry@everybodyebikes.com.au"><span class="eeb-topbar__ico" aria-hidden="true">✉</span><span class="eeb-topbar__label">enquiry@everybodyebikes.com.au</span></a>
     </div>
+
   </div>
 </div>
 
@@ -68,7 +69,14 @@
           </a>
         </div>
       {%- endif -%}
+
+      {% if section.settings.cta_text != blank %}
+        <div class="eeb-nav__item eeb-nav__item--mobile-cta">
+          <a class="eeb-btn eeb-btn--primary" href="{{ section.settings.cta_url | default: '/pages/come-and-try' }}">{{ section.settings.cta_text }}</a>
+        </div>
+      {% endif %}
     </nav>
+
 
     <div class="eeb-header__actions">
       <button type="button" class="eeb-header__search-toggle eeb-header__iconbtn" aria-label="Search" aria-expanded="false" aria-controls="eeb-header-search">
@@ -138,15 +146,23 @@
   50% { transform: scale(1.06); box-shadow: 0 0 18px 4px rgba(232,108,44,.55); }
 }
 @media (prefers-reduced-motion: reduce) { .eeb-sale-badge { animation: none; } }
-@media (max-width: 720px) {
+@media (max-width: 860px) {
+  /* Icon-only contact details, sale badge on the left, contact on the right */
+  .eeb-topbar__label { display: none !important; }
+  .eeb-topbar__ico { font-size: 1rem; line-height: 1; }
+  .eeb-topbar__inner,
   .eeb-topbar--with-sale .eeb-topbar__inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
   }
-  .eeb-topbar--with-sale .eeb-topbar__addr,
-  .eeb-topbar--with-sale .eeb-topbar__sale,
-  .eeb-topbar--with-sale .eeb-topbar__contact { justify-self: center; text-align: center; }
-  .eeb-topbar--with-sale .eeb-topbar__sale { order: -1; }
+  .eeb-topbar--with-sale .eeb-topbar__sale { order: 1; margin-right: auto; }
+  .eeb-topbar__addr { order: 2; }
+  .eeb-topbar__contact { order: 3; gap: .75rem; }
 }
+
 .eeb-header { overflow-x: clip; }
 .eeb-header__inner {
   display: flex;
@@ -214,8 +230,11 @@
   gap: 0;
   flex: 1 1 auto;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
+
+.eeb-nav__item--mobile-cta { display: none; }
+
 
 
 .eeb-nav__item {
@@ -355,6 +374,20 @@
     padding-left: 1.25rem;
     margin-top: 0.25rem;
   }
+
+  .eeb-nav__item--mobile-cta {
+    display: block;
+    padding: 0.75rem 1.25rem 0.25rem;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 0.25rem;
+  }
+  .eeb-nav__item--mobile-cta > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+
 
   .eeb-nav__dropdown {
     position: static;
