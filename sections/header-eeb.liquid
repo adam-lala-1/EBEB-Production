@@ -36,6 +36,8 @@
       <span></span><span></span><span></span>
     </button>
 
+
+
     <nav class="eeb-header__nav" id="eeb-mobile-nav" aria-label="Primary">
       {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
         {%- for link in section.settings.menu.links -%}
@@ -69,16 +71,17 @@
     </nav>
 
     <div class="eeb-header__actions">
-      <button type="button" class="eeb-header__search-toggle" aria-label="Search" aria-expanded="false" aria-controls="eeb-header-search">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <button type="button" class="eeb-header__search-toggle eeb-header__iconbtn" aria-label="Search" aria-expanded="false" aria-controls="eeb-header-search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       </button>
-      <a href="{{ routes.cart_url }}" aria-label="Cart">
+      <a href="{{ routes.cart_url }}" class="eeb-header__iconbtn" aria-label="Cart">
         {% render 'icon', icon: 'cart', size: 22 %}
       </a>
       {% if section.settings.cta_text != blank %}
-        <a href="{{ section.settings.cta_url | default: '/pages/come-and-try' }}" class="eeb-btn eeb-btn--primary eeb-header__cta" style="padding: .5rem 1rem; font-size: .85rem; white-space: nowrap;">{{ section.settings.cta_text }}</a>
+        <a href="{{ section.settings.cta_url | default: '/pages/come-and-try' }}" class="eeb-btn eeb-btn--primary eeb-header__cta">{{ section.settings.cta_text }}</a>
       {% endif %}
     </div>
+
   </div>
   <div class="eeb-header__search" id="eeb-header-search" hidden>
     <form action="{{ routes.search_url }}" method="get" role="search" class="eeb-header__search-form">
@@ -144,17 +147,47 @@
   .eeb-topbar--with-sale .eeb-topbar__contact { justify-self: center; text-align: center; }
   .eeb-topbar--with-sale .eeb-topbar__sale { order: -1; }
 }
-.eeb-header__search-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: inherit;
+.eeb-header { overflow-x: clip; }
+.eeb-header__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: .5rem;
+}
+.eeb-header__logo { flex: 0 1 auto; min-width: 0; }
+.eeb-header__logo img { max-width: 40vw; }
+.eeb-header__actions {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--color-navy, #1B2A4A);
+}
+.eeb-header__iconbtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-navy, #1B2A4A);
 }
-.eeb-header__search-toggle:hover { color: var(--color-orange, #E86C2C); }
+.eeb-header__iconbtn svg { display: block; width: 22px; height: 22px; fill: none; stroke: currentColor; }
+.eeb-header__iconbtn:hover { color: var(--color-orange, #E86C2C); }
+.eeb-header__cta {
+  padding: .5rem 1rem;
+  font-size: .85rem;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .eeb-header__search {
   border-top: 1px solid #e5e5e5;
   background: #fff;
@@ -168,6 +201,7 @@
 }
 .eeb-header__search-form input[type="search"] {
   flex: 1;
+  min-width: 0;
   padding: 0.6rem 0.9rem;
   border: 1px solid #e5e5e5;
   border-radius: 6px;
@@ -178,7 +212,11 @@
   display: flex;
   align-items: center;
   gap: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
 }
+
 
 .eeb-nav__item {
   position: relative;
@@ -260,8 +298,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: auto;
-  color: inherit;
+  flex: 0 0 auto;
+  order: 3;
+  color: var(--color-navy, #1B2A4A);
 }
 .eeb-header__burger span {
   display: block;
@@ -274,7 +313,14 @@
 .eeb-header__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .eeb-header__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 900px) {
+/* Narrow the CTA before the icons ever get pushed off screen */
+@media (max-width: 1180px) {
+  .eeb-header__cta { padding: .5rem .75rem; font-size: .8rem; }
+}
+
+@media (max-width: 1023px) {
+  .eeb-header__logo { order: 1; }
+  .eeb-header__actions { order: 2; }
   .eeb-header__burger { display: flex; }
   .eeb-header__cta { display: none; }
 
@@ -286,6 +332,7 @@
     right: 0;
     flex-direction: column;
     align-items: stretch;
+    overflow: visible;
     background: #fff;
     border-top: 1px solid #e5e5e5;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
@@ -317,6 +364,7 @@
     padding: 0 0 0.25rem 1rem;
   }
 }
+
 {% endstylesheet %}
 
 {% javascript %}
