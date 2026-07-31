@@ -1,9 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hub": {
       "type": "blog-hub",
-      "settings": {}
+      "blocks": {
+        "blog_eLBJHd": {
+          "type": "blog",
+          "settings": {
+            "blog": "events",
+            "label": ""
+          }
+        },
+        "blog_jNnYtJ": {
+          "type": "blog",
+          "settings": {
+            "blog": "community",
+            "label": ""
+          }
+        },
+        "blog_fmMABG": {
+          "type": "blog",
+          "settings": {
+            "blog": "articles",
+            "label": ""
+          }
+        }
+      },
+      "block_order": [
+        "blog_eLBJHd",
+        "blog_jNnYtJ",
+        "blog_fmMABG"
+      ],
+      "settings": {
+        "eyebrow": "Journal",
+        "heading": "Stories, guides and updates",
+        "subheading": "Everything from all of our blogs in one place — filter by category or topic.",
+        "articles_per_blog": 50,
+        "show_tag_filter": true
+      }
     }
   },
-  "order": ["hub"]
+  "order": [
+    "hub"
+  ]
 }
