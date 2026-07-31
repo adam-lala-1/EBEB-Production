@@ -1,10 +1,11 @@
 {%- comment -%}
-  Unified blog hub: pulls articles from every blog (or a chosen subset)
-  and renders one feed with category (blog) + tag filters.
+  Unified blog hub: add one "Blog" block per blog you want included,
+  then renders one merged feed with category (blog) + tag filters.
+  NOTE: Liquid's global `blogs` object cannot be iterated — blogs must be
+  referenced by handle, which is why this uses blocks with a blog picker.
 {%- endcomment -%}
 
 {%- assign per_blog = section.settings.articles_per_blog | default: 50 -%}
-{%- assign only_handles = section.settings.blog_handles | strip -%}
 
 <section class="eeb-section eeb-section--cream">
   <div class="eeb-container" style="text-align:center;">
@@ -20,16 +21,15 @@
   <div class="eeb-container">
     {%- liquid
       assign tag_list = ''
-      assign total = 0
+      assign card_count = 0
     -%}
 
     {%- capture cards -%}
-      {%- for blog in blogs -%}
-        {%- if only_handles != blank -%}
-          {%- unless only_handles contains blog.handle -%}{%- continue -%}{%- endunless -%}
-        {%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- assign blog = blogs[block.settings.blog] -%}
+        {%- if blog == blank or blog.articles_count == 0 -%}{%- continue -%}{%- endif -%}
         {%- for article in blog.articles limit: per_blog -%}
-          {%- assign total = total | plus: 1 -%}
+          {%- assign card_count = card_count | plus: 1 -%}
           {%- for t in article.tags -%}
             {%- assign tag_list = tag_list | append: t | append: '|' -%}
           {%- endfor -%}
@@ -57,43 +57,45 @@
       {%- endfor -%}
     {%- endcapture -%}
 
-    <div class="blog-hub__filters" role="group" aria-label="Filter articles by category">
-      <span class="blog-hub__filter-label">Category</span>
-      <div class="blog-hub__chips">
-        <button type="button" class="blog-hub__chip is-active" data-filter-blog="all">All</button>
-        {%- for blog in blogs -%}
-          {%- if only_handles != blank -%}
-            {%- unless only_handles contains blog.handle -%}{%- continue -%}{%- endunless -%}
-          {%- endif -%}
-          {%- if blog.articles_count > 0 -%}
-            <button type="button" class="blog-hub__chip" data-filter-blog="{{ blog.handle }}">{{ blog.title }}</button>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-
-    {%- if section.settings.show_tag_filter -%}
-      {%- assign uniq_tags = tag_list | split: '|' | uniq | sort_natural -%}
-      {%- if uniq_tags.size > 0 -%}
-        <div class="blog-hub__filters" role="group" aria-label="Filter articles by tag">
-          <span class="blog-hub__filter-label">Topic</span>
-          <div class="blog-hub__chips">
-            <button type="button" class="blog-hub__chip blog-hub__chip--tag is-active" data-filter-tag="all">All</button>
-            {%- for t in uniq_tags -%}
-              {%- if t != blank -%}
-                <button type="button" class="blog-hub__chip blog-hub__chip--tag" data-filter-tag="{{ t | escape }}">{{ t }}</button>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
+    {%- if section.blocks.size == 0 -%}
+      <p class="blog-hub__empty">Add a “Blog” block in the theme editor and choose which blogs to show here.</p>
+    {%- else -%}
+      <div class="blog-hub__filters" role="group" aria-label="Filter articles by category">
+        <span class="blog-hub__filter-label">Category</span>
+        <div class="blog-hub__chips">
+          <button type="button" class="blog-hub__chip is-active" data-filter-blog="all">All</button>
+          {%- for block in section.blocks -%}
+            {%- assign blog = blogs[block.settings.blog] -%}
+            {%- if blog != blank and blog.articles_count > 0 -%}
+              <button type="button" class="blog-hub__chip" data-filter-blog="{{ blog.handle }}">{{ block.settings.label | default: blog.title }}</button>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
+      </div>
+
+      {%- if section.settings.show_tag_filter -%}
+        {%- assign uniq_tags = tag_list | split: '|' | uniq | sort_natural -%}
+        {%- if uniq_tags.size > 0 -%}
+          <div class="blog-hub__filters" role="group" aria-label="Filter articles by tag">
+            <span class="blog-hub__filter-label">Topic</span>
+            <div class="blog-hub__chips">
+              <button type="button" class="blog-hub__chip blog-hub__chip--tag is-active" data-filter-tag="all">All</button>
+              {%- for t in uniq_tags -%}
+                {%- if t != blank -%}
+                  <button type="button" class="blog-hub__chip blog-hub__chip--tag" data-filter-tag="{{ t | escape }}">{{ t }}</button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
       {%- endif -%}
+
+      <div class="eeb-grid eeb-grid--3 blog-hub__grid" data-blog-hub-grid>
+        {{ cards }}
+      </div>
+
+      <p class="blog-hub__empty" {% if card_count > 0 %}hidden{% endif %}>No articles match those filters yet.</p>
     {%- endif -%}
-
-    <div class="eeb-grid eeb-grid--3 blog-hub__grid" data-blog-hub-grid>
-      {{ cards }}
-    </div>
-
-    <p class="blog-hub__empty" hidden>No articles match those filters yet.</p>
   </div>
 </section>
 
@@ -183,14 +185,24 @@
 {% schema %}
 {
   "name": "Blog hub",
+  "max_blocks": 10,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Stories, guides and updates" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Everything from all of our blogs in one place — filter by category or topic." },
-    { "type": "text", "id": "blog_handles", "label": "Limit to blog handles", "info": "Optional. Comma separated, e.g. news, guides, ride-stories. Leave blank to include every blog." },
     { "type": "range", "id": "articles_per_blog", "label": "Max articles per blog", "min": 10, "max": 200, "step": 10, "default": 50 },
     { "type": "checkbox", "id": "show_tag_filter", "label": "Show tag filter", "default": true }
   ],
-  "presets": [{ "name": "Blog hub" }]
+  "blocks": [
+    {
+      "type": "blog",
+      "name": "Blog",
+      "settings": [
+        { "type": "blog", "id": "blog", "label": "Blog" },
+        { "type": "text", "id": "label", "label": "Filter label", "info": "Optional. Defaults to the blog title." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Blog hub", "blocks": [{ "type": "blog" }, { "type": "blog" }, { "type": "blog" }] }]
 }
 {% endschema %}
