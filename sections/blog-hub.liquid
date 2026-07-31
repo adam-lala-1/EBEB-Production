@@ -76,15 +76,30 @@
       {%- if section.settings.show_tag_filter -%}
         {%- assign uniq_tags = tag_list | split: '|' | uniq | sort_natural -%}
         {%- if uniq_tags.size > 0 -%}
-          <div class="blog-hub__filters" role="group" aria-label="Filter articles by tag">
+          <div class="blog-hub__filters">
             <span class="blog-hub__filter-label">Topic</span>
-            <div class="blog-hub__chips">
-              <button type="button" class="blog-hub__chip blog-hub__chip--tag is-active" data-filter-tag="all">All</button>
-              {%- for t in uniq_tags -%}
-                {%- if t != blank -%}
-                  <button type="button" class="blog-hub__chip blog-hub__chip--tag" data-filter-tag="{{ t | escape }}">{{ t }}</button>
-                {%- endif -%}
-              {%- endfor -%}
+            <button type="button" class="blog-hub__chip blog-hub__topic-toggle" data-topic-open aria-haspopup="dialog" aria-expanded="false">
+              <span data-topic-current>All topics</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+            <button type="button" class="blog-hub__clear" data-topic-clear hidden>Clear</button>
+          </div>
+
+          <div class="blog-hub__overlay" data-topic-overlay hidden>
+            <div class="blog-hub__modal" role="dialog" aria-modal="true" aria-label="Search topics">
+              <div class="blog-hub__modal-head">
+                <input type="search" class="blog-hub__search" placeholder="Search topics…" data-topic-search aria-label="Search topics">
+                <button type="button" class="blog-hub__close" data-topic-close aria-label="Close">&times;</button>
+              </div>
+              <div class="blog-hub__chips blog-hub__modal-chips">
+                <button type="button" class="blog-hub__chip blog-hub__chip--tag is-active" data-filter-tag="all">All</button>
+                {%- for t in uniq_tags -%}
+                  {%- if t != blank -%}
+                    <button type="button" class="blog-hub__chip blog-hub__chip--tag" data-filter-tag="{{ t | escape }}">{{ t }}</button>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              <p class="blog-hub__empty" data-topic-none hidden>No topics match that search.</p>
             </div>
           </div>
         {%- endif -%}
@@ -117,6 +132,17 @@
   .blog-hub__tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .75rem; }
   .blog-hub__tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--color-orange); background: rgba(232,108,44,.1); padding: .2rem .55rem; border-radius: 999px; }
   .blog-hub__empty { text-align: center; color: var(--color-muted); padding: 2rem 0; }
+  .blog-hub__topic-toggle { display: inline-flex; align-items: center; gap: .5rem; }
+  .blog-hub__clear { background: none; border: 0; color: var(--color-orange); font-weight: 600; font-size: .85rem; cursor: pointer; text-decoration: underline; }
+  .blog-hub__overlay { position: fixed; inset: 0; background: rgba(27,42,74,.55); z-index: 9998; display: flex; align-items: flex-start; justify-content: center; padding: 6vh 1rem; }
+  .blog-hub__overlay[hidden] { display: none; }
+  .blog-hub__modal { background: #fff; border-radius: 16px; width: min(760px, 100%); max-height: 80vh; display: flex; flex-direction: column; padding: 1.25rem; box-shadow: 0 24px 60px rgba(0,0,0,.25); }
+  .blog-hub__modal-head { display: flex; gap: .75rem; align-items: center; margin-bottom: 1rem; }
+  .blog-hub__search { flex: 1; border: 1px solid var(--color-border); border-radius: 999px; padding: .65rem 1rem; font-size: 1rem; font-family: var(--font-body); }
+  .blog-hub__search:focus { outline: none; border-color: var(--color-orange); }
+  .blog-hub__close { background: none; border: 0; font-size: 1.75rem; line-height: 1; cursor: pointer; color: var(--color-muted); }
+  .blog-hub__modal-chips { overflow-y: auto; align-content: flex-start; }
+  .blog-hub__chip[hidden] { display: none !important; }
 </style>
 
 <script>
@@ -126,7 +152,7 @@
     var grid = root.querySelector('[data-blog-hub-grid]');
     if (!grid) return;
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.blog-hub__card'));
-    var empty = root.querySelector('.blog-hub__empty');
+    var empty = root.querySelector('.blog-hub__empty:not([data-topic-none])');
     var state = { blog: 'all', tag: 'all' };
 
     // Merge feeds from all blogs into one newest-first list.
@@ -164,6 +190,55 @@
 
     var blogBtns = bind('data-filter-blog', 'blog');
     var tagBtns = bind('data-filter-tag', 'tag');
+
+    // Topic overlay
+    var overlay = root.querySelector('[data-topic-overlay]');
+    if (overlay) {
+      var openBtn = root.querySelector('[data-topic-open]');
+      var label = root.querySelector('[data-topic-current]');
+      var clearBtn = root.querySelector('[data-topic-clear]');
+      var search = root.querySelector('[data-topic-search]');
+      var noneMsg = root.querySelector('[data-topic-none]');
+
+      function setOpen(open) {
+        overlay.hidden = !open;
+        openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open && search) { search.focus(); }
+      }
+      function syncLabel() {
+        var active = overlay.querySelector('[data-filter-tag].is-active');
+        var val = active ? active.getAttribute('data-filter-tag') : 'all';
+        label.textContent = val === 'all' ? 'All topics' : active.textContent.trim();
+        openBtn.classList.toggle('is-active', val !== 'all');
+        if (clearBtn) clearBtn.hidden = val === 'all';
+      }
+      openBtn.addEventListener('click', function () { setOpen(overlay.hidden); });
+      root.querySelector('[data-topic-close]').addEventListener('click', function () { setOpen(false); });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) setOpen(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) setOpen(false); });
+      tagBtns.forEach(function (b) { b.addEventListener('click', function () { syncLabel(); setOpen(false); }); });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          var all = overlay.querySelector('[data-filter-tag="all"]');
+          if (all) all.click();
+        });
+      }
+      if (search) {
+        search.addEventListener('input', function () {
+          var q = search.value.trim().toLowerCase();
+          var shown = 0;
+          tagBtns.forEach(function (b) {
+            if (b.getAttribute('data-filter-tag') === 'all') return;
+            var ok = !q || b.textContent.toLowerCase().indexOf(q) !== -1;
+            b.hidden = !ok;
+            if (ok) shown++;
+          });
+          if (noneMsg) noneMsg.hidden = shown !== 0 || !q;
+        });
+      }
+      setTimeout(syncLabel, 0);
+    }
 
     // Deep links: /pages/blog?category=news&tag=touring
     var params = new URLSearchParams(window.location.search);
