@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "hub": {
+      "type": "blog-hub",
+      "settings": {}
+    }
+  },
+  "order": ["hub"]
+}
