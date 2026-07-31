@@ -314,7 +314,7 @@
           "type": "group",
           "settings": {
             "title": "Sizing",
-            "rows": "Step-over height|20cm — feet-on-ground transfer\nSaddle height|46cm (inseam)\nAdjustable handlebar|31cm–50cm (upper-limb length)\nShortened cranks |102mm"
+            "rows": "Step-over height|18cm — feet-on-ground transfer\nSaddle height|50cm (inseam)\nAdjustable handlebar|33cm–65cm (upper-limb length)\nShortened cranks |102mm"
           }
         },
         "group_mech": {
@@ -328,14 +328,14 @@
           "type": "group",
           "settings": {
             "title": "Electrical",
-            "rows": "Motor|Brushless 250W front hub\nBattery|36V 7Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2–3 hrs\nAvg distance|30+ km"
+            "rows": "Motor|Brushless 250W front hub\nBattery|36V 10Ah Samsung Li-ion cells\nDisplay|LCD with trip meter, odometer and walking start\nPAS|5 stage\nCharge time|2–3 hrs\nAvg distance|45+ km"
           }
         },
         "group_weight": {
           "type": "group",
           "settings": {
             "title": "Weight",
-            "rows": "Weight including battery|14 kg\nShipping weight|18 kg\nMaximum load|80 kg"
+            "rows": "Weight including battery|15 kg\nShipping weight|25 kg\nMaximum load|80 kg"
           }
         }
       },
