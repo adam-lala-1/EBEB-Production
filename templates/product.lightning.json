@@ -96,7 +96,7 @@
           "type": "feature",
           "settings": {
             "icon": "shield",
-            "label": "20cm Step-Over",
+            "label": "18cm Step-Over",
             "sub": "Feet flat on the ground"
           }
         },
@@ -104,7 +104,7 @@
           "type": "feature",
           "settings": {
             "icon": "users",
-            "label": "46cm Saddle",
+            "label": "50cm Saddle",
             "sub": "Super-low inseam fit"
           }
         },
@@ -112,7 +112,7 @@
           "type": "feature",
           "settings": {
             "icon": "gauge",
-            "label": "30+ km Range",
+            "label": "40+ km Range",
             "sub": "5-stage pedal assist"
           }
         },
@@ -128,7 +128,7 @@
           "type": "feature",
           "settings": {
             "icon": "weight",
-            "label": "14kg Weight",
+            "label": "15kg Weight",
             "sub": "Easy to handle"
           }
         }
@@ -148,13 +148,13 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "20cm step-over height — confident feet-on-ground transfer"
+            "text": "18cm step-over height — confident feet-on-ground transfer"
           }
         },
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "Super-low 46cm saddle suits riders with shorter inseams"
+            "text": "Super-low 50cm saddle suits riders with shorter inseams"
           }
         },
         "b3": {
@@ -173,7 +173,7 @@
         "image": "shopify://shop_images/ConvertOut-Resized-013A6172_everybody_ebikes_lightning_short_stature.jpg",
         "image_position": "left",
         "heading": "Built for Shorter Riders",
-        "body": "The Lightning is purpose-built for short-statured riders. A 20cm step-over and 46cm saddle height mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
+        "body": "The Lightning is purpose-built for short-statured riders. A 18cm step-over and 50cm saddle height mean you can mount, dismount, and stop with confidence — no more tip-toeing at the lights."
       }
     },
     "feature_2": {
@@ -182,7 +182,7 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "Custom designed 3 piece handlebar adjusts from 31cm to 50cm upper-limb reach"
+            "text": "Custom designed 3 piece handlebar adjusts from 33cm to 65cm upper-limb reach"
           }
         },
         "b2": {
@@ -251,14 +251,14 @@
           "type": "tech",
           "settings": {
             "title": "Low Step-Over",
-            "description": "20cm — easiest mount on the market"
+            "description": "18cm — easiest mount on the market"
           }
         },
         "tech_2": {
           "type": "tech",
           "settings": {
             "title": "Adjustable Cockpit",
-            "description": "Handlebar 31–50cm, 42cm cranks"
+            "description": "Handlebar 33–65cm, 102mm cranks"
           }
         },
         "tech_3": {
