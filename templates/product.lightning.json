@@ -120,7 +120,7 @@
           "type": "feature",
           "settings": {
             "icon": "battery",
-            "label": "36V 7Ah Samsung",
+            "label": "36V 10Ah Samsung",
             "sub": "Removable Li-ion"
           }
         },
@@ -222,7 +222,7 @@
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "36V 7Ah Samsung Li-ion battery, 30+ km real-world range"
+            "text": "36V 10Ah Samsung Li-ion battery, 45+ km real-world range"
           }
         },
         "b3": {
