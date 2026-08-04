@@ -13,18 +13,129 @@
       "type": "main-page",
       "settings": {}
     },
-    "shogun-helper": {
-      "type": "shogun-helper",
-      "settings": {}
-    },
-    "shogun-optimizer": {
-      "type": "shogun-optimizer",
-      "settings": {}
+    "dealer_list_zPUbxj": {
+      "type": "dealer-list",
+      "blocks": {
+        "dealer_TgytXp": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Untitled_design_1_64847885-fdec-473a-b519-c5ecd2634321.png",
+            "region": "2026",
+            "name": "EBEB Trident",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trident_v3_Rear_Drive_-_Complete.pdf?v=1785822552",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_pwbVaa": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/IMG_2055.jpg",
+            "region": "2026",
+            "name": "EBEB Trojan",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_2026_-_Complete.pdf?v=1785822734",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_LixCy9": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/IMG_1643.jpg",
+            "region": "2026",
+            "name": "EBEB Trojan Family",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_Family_2026_-_Complete.pdf?v=1785822734",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_HYcPXE": {
+          "type": "dealer",
+          "settings": {
+            "region": "2026",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_zNQBPn": {
+          "type": "dealer",
+          "settings": {
+            "region": "2026",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_YLAXXe": {
+          "type": "dealer",
+          "settings": {
+            "region": "2026",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_QHMeA7": {
+          "type": "dealer",
+          "settings": {
+            "region": "2026",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": "Open PDF Here"
+          }
+        },
+        "dealer_pPeJzQ": {
+          "type": "dealer",
+          "settings": {
+            "region": "2026",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": "Open PDF Here"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_TgytXp",
+        "dealer_pwbVaa",
+        "dealer_LixCy9",
+        "dealer_HYcPXE",
+        "dealer_zNQBPn",
+        "dealer_YLAXXe",
+        "dealer_QHMeA7",
+        "dealer_pPeJzQ"
+      ],
+      "name": "Dealer list",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "subheading": ""
+      }
     }
   },
   "order": [
-    "shogun-helper",
     "main",
-    "shogun-optimizer"
+    "dealer_list_zPUbxj"
   ]
 }
