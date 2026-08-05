@@ -13,9 +13,9 @@
       "type": "dealer-hero",
       "name": "Dealer hero",
       "settings": {
-        "eyebrow": "EEB Tech Directory",
-        "heading": "EEB User Manuals",
-        "subheading": "WORDS words words our main showroom is in Brisbane, our trusted partners across Australia and New Zealand share our mission to make e-bikes and trikes inclusive and accessible for every body. Visit a partner location to test ride and purchase locally.",
+        "eyebrow": "EBEB Tech Directory",
+        "heading": "EBEB User Manuals",
+        "subheading": "",
         "cta1_text": "",
         "cta1_url": "",
         "cta2_text": "",
@@ -62,18 +62,6 @@
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_Family_2026_-_Complete.pdf?v=1785822734",
             "website_label": "Open PDF Here"
-          }
-        },
-        "dealer_W86hUy": {
-          "type": "dealer",
-          "settings": {
-            "region": "QLD, Australia",
-            "name": "Dealer name",
-            "address": "",
-            "phone": "",
-            "email": "",
-            "website_url": "",
-            "website_label": ""
           }
         },
         "dealer_HYcPXE": {
@@ -146,7 +134,6 @@
         "dealer_TgytXp",
         "dealer_pwbVaa",
         "dealer_LixCy9",
-        "dealer_W86hUy",
         "dealer_HYcPXE",
         "dealer_zNQBPn",
         "dealer_YLAXXe",
