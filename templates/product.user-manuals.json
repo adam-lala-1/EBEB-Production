@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_breadcrumb": true,
+        "eyebrow_source": "type",
+        "eyebrow_custom": "",
+        "atc_text": "Add to cart",
+        "enquire_text": "Notify me / Enquire",
+        "bullet_1": "Click and collect in Brisbane",
+        "bullet_2": "Full warranty support",
+        "bullet_3": "Service & support through EBEB dealer network",
+        "show_full_description": true,
+        "details_heading": "Product details",
+        "details_max_height": 0
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Find your nearest dealer",
+        "subheading": "Test ride an EEB at one of our partner stores around Australia.",
+        "cta1_text": "Book a Test Ride",
+        "cta1_url": "",
+        "cta2_text": "Find a Dealer",
+        "cta2_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}
