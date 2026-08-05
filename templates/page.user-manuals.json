@@ -1,0 +1,167 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "dealer-hero",
+      "settings": {
+        "eyebrow": "EBEB Dealer Network",
+        "heading": "Find an EBEB dealer near you",
+        "subheading": "While our main showroom is in Brisbane, our trusted partners across Australia, New Zealand, and the USA share our mission to make e-bikes and trikes inclusive and accessible for every body. Visit a partner location to test ride and purchase locally.",
+        "cta1_text": "Browse dealers",
+        "cta1_url": "",
+        "cta2_text": "Become a dealer",
+        "cta2_url": ""
+      }
+    },
+    "list": {
+      "type": "dealer-list",
+      "blocks": {
+        "dealer_7TknFq": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/7_266d8b11-e24f-4daa-8465-e9b8728beb3d.png",
+            "region": "NSW & VIC, Australia",
+            "name": "Freedom Solutions",
+            "address": "Unit 10, 185 Briens Road, Northmead, NSW 2152 & 27 Catherine Street, Coburg North, VIC 3058",
+            "phone": "1300 663 243",
+            "email": "info@freedomsolutions.org.au",
+            "website_url": "https://freedomsolutions.org.au",
+            "website_label": "freedomsolutions.org.au"
+          }
+        },
+        "dealer_NBAmzJ": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Cargocycles.jpg",
+            "region": "VIC, Australia",
+            "name": "Cargo Cycles",
+            "address": "66 Brunswick Road, Brunswick, VIC 3056",
+            "phone": "03 9042 9058",
+            "email": "sales@cargocycles.com.au",
+            "website_url": "https://cargocycles.com.au",
+            "website_label": "cargocycles.com.au"
+          }
+        },
+        "dealer_miWpLX": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Logos.png",
+            "region": "QLD, Australia",
+            "name": "Cairns Electric Bikes",
+            "address": "46 McLeod Street, Cairns City, QLD 4870",
+            "phone": "07 4051 4470",
+            "email": "admin@cairns-electric-bikes.com.au",
+            "website_url": "https://www.cairns-electric-bikes.com.au/",
+            "website_label": "cairns-electric-bikes.com.au"
+          }
+        },
+        "dealer_rjgRCD": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/5_25b61679-cf69-4406-9b27-470b071e80a2.png",
+            "region": "SA, Australia",
+            "name": "Novita",
+            "address": "31 Manton Street, Hindmarsh, SA 5007",
+            "phone": "(08) 8424 6160",
+            "email": "enquiries@novitatech.com.au",
+            "website_url": "https://novitatech.com.au",
+            "website_label": "novitatech.com.au"
+          }
+        },
+        "dealer_8NacnR": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/6_2cc70c3f-33eb-493c-b8ab-85ce66198345.png",
+            "region": "WA, Australia",
+            "name": "Impulse Cycles",
+            "address": "79 Lockyer Avenue, Albany, WA 6330",
+            "phone": "08 9842 1387",
+            "email": "ride@impulsecycles.com.au",
+            "website_url": "https://www.impulsecycles.com.au/",
+            "website_label": "impulsecycles.com.au"
+          }
+        },
+        "dealer_aJK7Fn": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/8.png",
+            "region": "New Zealand",
+            "name": "Ecoquip",
+            "address": "2 Chesterfield Place, Rangiora, New Zealand",
+            "phone": "0800 115 068",
+            "email": "sales@ecoquip.co.nz",
+            "website_url": "https://ecoquip.co.nz",
+            "website_label": "ecoquip.co.nz"
+          }
+        },
+        "dealer_gERcby": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2025-12-16_124335.png",
+            "region": "California, USA",
+            "name": "Perfect Fit LP",
+            "address": "113 N Church St Ste 319\nVisalia, CA 93291",
+            "phone": "(559) 429-8512",
+            "email": "ben@perfectfitlp.com",
+            "website_url": "https://www.perfectfitlp.com/",
+            "website_label": "perfectfitlp.com"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_7TknFq",
+        "dealer_NBAmzJ",
+        "dealer_miWpLX",
+        "dealer_rjgRCD",
+        "dealer_8NacnR",
+        "dealer_aJK7Fn",
+        "dealer_gERcby"
+      ],
+      "settings": {
+        "eyebrow": "Our partners",
+        "heading": "Our distributor list",
+        "subheading": "Come and try our products near you. Each partner stocks and supports the EBEB range."
+      }
+    },
+    "portal": {
+      "type": "dealer-portal",
+      "settings": {
+        "portal_heading": "Dealer Portal",
+        "portal_text": "A dedicated B2B hub for EBEB dealers — order stock, manage warranty claims, and access training and marketing assets in one place.",
+        "notify_text": "Notify me when it launches",
+        "notify_url": "",
+        "apply_heading": "Become an EBEB dealer",
+        "apply_text": "Join a growing network of independent retailers and disability mobility specialists helping more Australians ride. Tell us about your store and we'll be in touch.",
+        "apply_cta_text": "Apply to become a dealer",
+        "apply_cta_url": "",
+        "apply_cta2_text": "Download dealer pack",
+        "apply_cta2_url": ""
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Not sure which EBEB is right for you?",
+        "subheading": "Our team and dealer network can help match you to the right ride. Book a chat or test ride today.",
+        "cta1_text": "Book a test ride",
+        "cta1_url": "shopify://pages/book-a-test-ride",
+        "cta2_text": "Talk to our team",
+        "cta2_url": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "list",
+    "portal",
+    "cta"
+  ]
+}
