@@ -9,9 +9,18 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {}
+    "dealer_hero_KEYyXx": {
+      "type": "dealer-hero",
+      "name": "Dealer hero",
+      "settings": {
+        "eyebrow": "EEB Tech Directory",
+        "heading": "EEB User Manuals",
+        "subheading": "WORDS words words our main showroom is in Brisbane, our trusted partners across Australia and New Zealand share our mission to make e-bikes and trikes inclusive and accessible for every body. Visit a partner location to test ride and purchase locally.",
+        "cta1_text": "",
+        "cta1_url": "",
+        "cta2_text": "",
+        "cta2_url": ""
+      }
     },
     "dealer_list_zPUbxj": {
       "type": "dealer-list",
@@ -144,7 +153,6 @@
         "dealer_QHMeA7",
         "dealer_pPeJzQ"
       ],
-      "disabled": true,
       "name": "Dealer list",
       "settings": {
         "eyebrow": "",
@@ -154,7 +162,7 @@
     }
   },
   "order": [
-    "main",
+    "dealer_hero_KEYyXx",
     "dealer_list_zPUbxj"
   ]
 }
