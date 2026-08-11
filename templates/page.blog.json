@@ -32,12 +32,20 @@
             "blog": "showroom",
             "label": ""
           }
+        },
+        "blog_nkDacd": {
+          "type": "blog",
+          "settings": {
+            "blog": "advocacy",
+            "label": "Inclusive Pathways & Advocacy"
+          }
         }
       },
       "block_order": [
         "blog_eLBJHd",
         "blog_jNnYtJ",
-        "blog_fmMABG"
+        "blog_fmMABG",
+        "blog_nkDacd"
       ],
       "settings": {
         "eyebrow": "Journal",
