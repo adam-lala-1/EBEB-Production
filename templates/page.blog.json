@@ -29,7 +29,7 @@
         "blog_fmMABG": {
           "type": "blog",
           "settings": {
-            "blog": "articles",
+            "blog": "showroom",
             "label": ""
           }
         }
