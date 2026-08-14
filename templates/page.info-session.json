@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "info": {
+      "type": "info-session",
+      "blocks": {
+        "c1": { "type": "cover", "settings": { "icon": "💪", "title": "Staying active for longer", "body": "Why riding is one of the best ways to keep your fitness, independence, and routine." } },
+        "c2": { "type": "cover", "settings": { "icon": "🚲", "title": "Finding your fit", "body": "Bike, trike, or semi-recumbent — matched to how you actually want to get around." } },
+        "c3": { "type": "cover", "settings": { "icon": "🛣️", "title": "Confidence on the road and path", "body": "Where you can ride, what's changed, and what to expect out there." } },
+        "c4": { "type": "cover", "settings": { "icon": "🔋", "title": "What to know before you ride", "body": "Battery care and the latest e-mobility rules, explained simply." } },
+        "r1": { "type": "review", "settings": { "quote": "The team took the time to understand exactly what I needed and set the bike up perfectly. Service was outstanding.", "attribution": "Google review — service quality" } },
+        "r2": { "type": "review", "settings": { "quote": "Genuine experts. They answered every question about trikes and batteries without a hint of a sales pitch.", "attribution": "Google review — expertise" } },
+        "r3": { "type": "review", "settings": { "quote": "Riding again after years off the bike. Couldn't be happier with the whole experience.", "attribution": "Google review — general satisfaction" } },
+        "f1": { "type": "faq", "settings": { "question": "What happens at the session?", "answer": "A relaxed group chat covering everything above, plus test rides — no pressure, just information and a go on the bikes." } },
+        "f2": { "type": "faq", "settings": { "question": "How long does it run?", "answer": "Around 60–90 minutes, plus test ride time. We'll confirm when we book you in." } },
+        "f3": { "type": "faq", "settings": { "question": "Is it one-on-one or a group session?", "answer": "Usually a group session for your community, with one-on-one time during the test rides." } },
+        "f4": { "type": "faq", "settings": { "question": "What happens after?", "answer": "Entirely up to you. We'll follow up with anything you asked for — a quote, a fitting, or nothing at all." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "f1", "f2", "f3", "f4"],
+      "settings": {
+        "community_name": "your community"
+      }
+    }
+  },
+  "order": ["info"]
+}

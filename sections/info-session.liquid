@@ -1,0 +1,198 @@
+{%- assign community = section.settings.community_name | default: 'your community' -%}
+
+<style>
+  .is-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .is-band { padding: clamp(2.5rem, 6vw, 5rem) 0; }
+  .is-band--alt { background: var(--color-cream, #FAF7F2); }
+  .is-center { text-align: center; }
+  .is-narrow { max-width: 760px; margin: 0 auto; }
+  .is-grid { display: grid; gap: 1.25rem; }
+  @media (min-width: 720px) { .is-grid--2 { grid-template-columns: repeat(2, 1fr); } .is-grid--3 { grid-template-columns: repeat(3, 1fr); } }
+  .is-card { background: #fff; border: 1px solid rgba(27,42,74,.12); border-radius: 14px; padding: 1.5rem; }
+  .is-icon { width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(232,108,44,.12); color: var(--color-orange, #E86C2C); margin-bottom: .9rem; font-size: 1.25rem; }
+  .is-callout { background: var(--color-navy, #1B2A4A); color: #fff; border-radius: 14px; padding: 1.5rem; text-align: center; margin-top: 2rem; }
+  .is-cta { margin-top: 2rem; }
+  .is-stars { color: var(--color-orange, #E86C2C); letter-spacing: 2px; margin-bottom: .6rem; }
+  .is-quote { font-style: normal; color: var(--color-muted, #5b6478); margin: 0 0 1rem; }
+  .is-attrib { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: var(--color-navy, #1B2A4A); }
+  .is-faq { background:#fff; border: 1px solid rgba(27,42,74,.12); border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: .75rem; }
+  .is-faq summary { font-weight: 700; color: var(--color-navy, #1B2A4A); cursor: pointer; }
+  .is-faq p { margin: .75rem 0 0; color: var(--color-muted, #5b6478); font-size: .95rem; }
+  .is-field { margin-bottom: 1.1rem; }
+  .is-field label { display:block; font-weight:600; font-size:.9rem; margin-bottom:.35rem; color: var(--color-navy, #1B2A4A); }
+  .is-field input { width:100%; padding:.7rem .85rem; border:1px solid rgba(27,42,74,.2); border-radius:8px; font: inherit; }
+</style>
+
+<section class="is-band is-band--alt">
+  <div class="is-wrap is-center is-narrow">
+    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1>{{ section.settings.heading }}</h1>
+    <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
+      {{ section.settings.subheading | replace: '[Community Name]', community }}
+    </p>
+    <a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a>
+  </div>
+</section>
+
+<section class="is-band">
+  <div class="is-wrap">
+    <div class="is-center" style="margin-bottom:2.5rem;">
+      <h2>{{ section.settings.covers_heading }}</h2>
+      <p style="color:var(--color-muted);">{{ section.settings.covers_intro }}</p>
+    </div>
+    <div class="is-grid is-grid--2">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'cover' -%}
+          <article class="is-card" {{ block.shopify_attributes }}>
+            <div class="is-icon">{{ block.settings.icon }}</div>
+            <h3 style="margin:0 0 .5rem;">{{ block.settings.title }}</h3>
+            <p style="margin:0;color:var(--color-muted);font-size:.95rem;">{{ block.settings.body }}</p>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% if section.settings.test_ride_note != blank %}
+      <div class="is-callout">{{ section.settings.test_ride_note }}</div>
+    {% endif %}
+    <div class="is-center is-cta">
+      <a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="is-band is-band--alt">
+  <div class="is-wrap is-narrow is-center">
+    <h2>{{ section.settings.why_heading }}</h2>
+    <div style="color:var(--color-muted);font-size:1.05rem;">{{ section.settings.why_body }}</div>
+    <div class="is-cta"><a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a></div>
+  </div>
+</section>
+
+<section class="is-band">
+  <div class="is-wrap is-narrow">
+    <div class="is-card is-center">
+      <h2 style="margin-top:0;">{{ section.settings.proof_heading }}</h2>
+      <div style="color:var(--color-muted);">{{ section.settings.proof_body | replace: '[Community Name]', community }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="is-band is-band--alt">
+  <div class="is-wrap">
+    <h2 class="is-center" style="margin-bottom:2.5rem;">{{ section.settings.reviews_heading }}</h2>
+    <div class="is-grid is-grid--3">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review' -%}
+          <blockquote class="is-card" style="margin:0;" {{ block.shopify_attributes }}>
+            <div class="is-stars" aria-hidden="true">★★★★★</div>
+            <p class="is-quote">“{{ block.settings.quote }}”</p>
+            <footer class="is-attrib">{{ block.settings.attribution }}</footer>
+          </blockquote>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="is-band">
+  <div class="is-wrap is-narrow">
+    <h2 class="is-center" style="margin-bottom:2.5rem;">{{ section.settings.faq_heading }}</h2>
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'faq' -%}
+        <details class="is-faq" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <p>{{ block.settings.answer }}</p>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="is-band is-band--alt" id="is-book">
+  <div class="is-wrap" style="max-width:620px;">
+    <div class="is-center" style="margin-bottom:2rem;">
+      <h2>{{ section.settings.form_heading }}</h2>
+      <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+    </div>
+
+    {%- form 'contact', class: 'is-card' -%}
+      {%- if form.posted_successfully? -%}
+        <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your community.</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[enquiry_type]" value="Community Info Session">
+        <div class="is-field">
+          <label for="is-name">Name</label>
+          <input id="is-name" type="text" name="contact[name]" required maxlength="100">
+        </div>
+        <div class="is-field">
+          <label for="is-community">Community / Village</label>
+          <input id="is-community" type="text" name="contact[community]" required maxlength="150">
+        </div>
+        <div class="is-field">
+          <label for="is-contact">Phone or Email</label>
+          <input id="is-contact" type="text" name="contact[email]" required maxlength="255">
+        </div>
+        <div class="is-field">
+          <label for="is-time">Preferred time</label>
+          <input id="is-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday mornings">
+        </div>
+        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Community info session",
+  "settings": [
+    { "type": "text", "id": "community_name", "label": "Community name", "default": "your community" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Community Info Session" },
+    { "type": "text", "id": "heading", "label": "Hero heading", "default": "Find Out How to Keep Riding — Longer, Stronger, With More Confidence." },
+    { "type": "textarea", "id": "subheading", "label": "Hero subheading", "default": "Book a free session at [Community Name] and walk away knowing exactly how to stay active, stay social, and keep your freedom on two or three wheels — plus a chance to test ride on the day." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book Your Free Session" },
+    { "type": "text", "id": "covers_heading", "label": "Covers heading", "default": "What the Session Covers" },
+    { "type": "text", "id": "covers_intro", "label": "Covers intro", "default": "A relaxed, no-obligation session at your place, covering:" },
+    { "type": "richtext", "id": "test_ride_note", "label": "Test ride note", "default": "<p><strong>Plus — test rides on the day.</strong> Everyone gets the chance to get on a bike or trike and feel it for themselves.</p>" },
+    { "type": "text", "id": "why_heading", "label": "Why now heading", "default": "Why Now" },
+    { "type": "richtext", "id": "why_body", "label": "Why now body", "default": "<p>This is the stage where riding gets easier, not harder — if you've got the right setup.</p><p>A trike gives you the ease of a golf cart with the freedom of two wheels. No license, no fuss — just the ride, whenever you feel like it.</p><p>And it's better together. Ride with your partner, your neighbours, your community — staying social, staying moving, on your own terms.</p>" },
+    { "type": "text", "id": "proof_heading", "label": "Proof heading", "default": "Proven at Bribie Island" },
+    { "type": "richtext", "id": "proof_body", "label": "Proof body", "default": "<p>We've been running Come &amp; Try days on Bribie Island for months — real residents, real communities, building the confidence to start riding, or keep riding for longer.</p><p><strong>It works. And now we're bringing it to [Community Name].</strong></p>" },
+    { "type": "text", "id": "reviews_heading", "label": "Reviews heading", "default": "What Riders Are Saying" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "FAQ" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Book Your Session" },
+    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the session to [Community Name]." }
+  ],
+  "blocks": [
+    {
+      "type": "cover",
+      "name": "Session topic",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🚴" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "attribution", "label": "Attribution" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Community info session" }]
+}
+{% endschema %}
