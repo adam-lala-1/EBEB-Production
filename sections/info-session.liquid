@@ -32,6 +32,13 @@
     </p>
     <a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a>
   </div>
+  {% if section.settings.hero_image %}
+    <div class="is-wrap">
+      <div style="margin-top:2.5rem;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(27,42,74,.14);">
+        {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 1060px, 100vw', widths: '600,900,1200,1600' }}
+      </div>
+    </div>
+  {% endif %}
 </section>
 
 <section class="is-band">
@@ -73,6 +80,11 @@
     <div class="is-card is-center">
       <h2 style="margin-top:0;">{{ section.settings.proof_heading }}</h2>
       <div style="color:var(--color-muted);">{{ section.settings.proof_body | replace: '[Community Name]', community }}</div>
+      {% if section.settings.proof_image %}
+        <div style="margin-top:2rem;border-radius:12px;overflow:hidden;">
+          {{ section.settings.proof_image | image_url: width: 1600 | image_tag: alt: section.settings.proof_heading, loading: 'lazy', sizes: '(min-width: 800px) 700px, 100vw', widths: '600,900,1200,1600' }}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -150,6 +162,8 @@
   "name": "Community info session",
   "settings": [
     { "type": "text", "id": "community_name", "label": "Community name", "default": "your community" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "image_picker", "id": "proof_image", "label": "Proof image" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Community Info Session" },
     { "type": "text", "id": "heading", "label": "Hero heading", "default": "Find Out How to Keep Riding — Longer, Stronger, With More Confidence." },
     { "type": "textarea", "id": "subheading", "label": "Hero subheading", "default": "Book a free session at [Community Name] and walk away knowing exactly how to stay active, stay social, and keep your freedom on two or three wheels — plus a chance to test ride on the day." },

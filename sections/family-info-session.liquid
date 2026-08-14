@@ -1,0 +1,215 @@
+{%- assign community = section.settings.community_name | default: 'your community' -%}
+
+<style>
+  .fs-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .fs-band { padding: clamp(2.5rem, 6vw, 5rem) 0; }
+  .fs-band--alt { background: var(--color-cream, #FAF7F2); }
+  .fs-center { text-align: center; }
+  .fs-narrow { max-width: 760px; margin: 0 auto; }
+  .fs-grid { display: grid; gap: 1.25rem; }
+  @media (min-width: 720px) { .fs-grid--2 { grid-template-columns: repeat(2, 1fr); } .fs-grid--3 { grid-template-columns: repeat(3, 1fr); } }
+  .fs-card { background: #fff; border: 1px solid rgba(27,42,74,.12); border-radius: 14px; padding: 1.5rem; }
+  .fs-icon { width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(232,108,44,.12); color: var(--color-orange, #E86C2C); margin-bottom: .9rem; font-size: 1.25rem; }
+  .fs-callout { background: var(--color-navy, #1B2A4A); color: #fff; border-radius: 14px; padding: 1.5rem; text-align: center; margin-top: 2rem; }
+  .fs-cta { margin-top: 2rem; }
+  .fs-stars { color: var(--color-orange, #E86C2C); letter-spacing: 2px; margin-bottom: .6rem; }
+  .fs-quote { color: var(--color-muted, #5b6478); margin: 0 0 1rem; }
+  .fs-attrib { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: var(--color-navy, #1B2A4A); }
+  .fs-faq { background:#fff; border: 1px solid rgba(27,42,74,.12); border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: .75rem; }
+  .fs-faq summary { font-weight: 700; color: var(--color-navy, #1B2A4A); cursor: pointer; }
+  .fs-faq p { margin: .75rem 0 0; color: var(--color-muted, #5b6478); font-size: .95rem; }
+  .fs-field { margin-bottom: 1.1rem; }
+  .fs-field label { display:block; font-weight:600; font-size:.9rem; margin-bottom:.35rem; color: var(--color-navy, #1B2A4A); }
+  .fs-field input { width:100%; padding:.7rem .85rem; border:1px solid rgba(27,42,74,.2); border-radius:8px; font: inherit; }
+  .fs-media { margin-top: 2.5rem; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(27,42,74,.14); }
+  .fs-media img { display:block; width:100%; height:auto; }
+  .fs-media--flat { margin-top: 2rem; border-radius: 12px; box-shadow: none; }
+</style>
+
+<section class="fs-band fs-band--alt">
+  <div class="fs-wrap fs-center fs-narrow">
+    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1>{{ section.settings.heading }}</h1>
+    <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
+      {{ section.settings.subheading | replace: '[Community Name]', community }}
+    </p>
+    <a class="eeb-btn eeb-btn--primary" href="#fs-book">{{ section.settings.cta_text }}</a>
+  </div>
+  {% if section.settings.hero_image %}
+    <div class="fs-wrap">
+      <div class="fs-media">
+        {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 1060px, 100vw', widths: '600,900,1200,1600' }}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<section class="fs-band">
+  <div class="fs-wrap">
+    <div class="fs-center" style="margin-bottom:2.5rem;">
+      <h2>{{ section.settings.covers_heading }}</h2>
+      <p style="color:var(--color-muted);">{{ section.settings.covers_intro }}</p>
+    </div>
+    <div class="fs-grid fs-grid--2">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'cover' -%}
+          <article class="fs-card" {{ block.shopify_attributes }}>
+            <div class="fs-icon">{{ block.settings.icon }}</div>
+            <h3 style="margin:0 0 .5rem;">{{ block.settings.title }}</h3>
+            <p style="margin:0;color:var(--color-muted);font-size:.95rem;">{{ block.settings.body }}</p>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% if section.settings.demo_note != blank %}
+      <div class="fs-callout">{{ section.settings.demo_note }}</div>
+    {% endif %}
+    <div class="fs-center fs-cta">
+      <a class="eeb-btn eeb-btn--primary" href="#fs-book">{{ section.settings.cta_text }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="fs-band fs-band--alt">
+  <div class="fs-wrap fs-narrow fs-center">
+    <h2>{{ section.settings.why_heading }}</h2>
+    <div style="color:var(--color-muted);font-size:1.05rem;">{{ section.settings.why_body }}</div>
+    <div class="fs-cta"><a class="eeb-btn eeb-btn--primary" href="#fs-book">{{ section.settings.cta_text }}</a></div>
+  </div>
+</section>
+
+<section class="fs-band">
+  <div class="fs-wrap fs-narrow">
+    <div class="fs-card fs-center">
+      <h2 style="margin-top:0;">{{ section.settings.who_heading }}</h2>
+      <div style="color:var(--color-muted);">{{ section.settings.who_body | replace: '[Community Name]', community }}</div>
+      {% if section.settings.who_image %}
+        <div class="fs-media fs-media--flat">
+          {{ section.settings.who_image | image_url: width: 1600 | image_tag: alt: section.settings.who_heading, loading: 'lazy', sizes: '(min-width: 800px) 700px, 100vw', widths: '600,900,1200,1600' }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="fs-band fs-band--alt">
+  <div class="fs-wrap">
+    <h2 class="fs-center" style="margin-bottom:2.5rem;">{{ section.settings.reviews_heading }}</h2>
+    <div class="fs-grid fs-grid--3">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review' -%}
+          <blockquote class="fs-card" style="margin:0;" {{ block.shopify_attributes }}>
+            <div class="fs-stars" aria-hidden="true">★★★★★</div>
+            <p class="fs-quote">“{{ block.settings.quote }}”</p>
+            <footer class="fs-attrib">{{ block.settings.attribution }}</footer>
+          </blockquote>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="fs-band">
+  <div class="fs-wrap fs-narrow">
+    <h2 class="fs-center" style="margin-bottom:2.5rem;">{{ section.settings.faq_heading }}</h2>
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'faq' -%}
+        <details class="fs-faq" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <p>{{ block.settings.answer }}</p>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="fs-band fs-band--alt" id="fs-book">
+  <div class="fs-wrap" style="max-width:620px;">
+    <div class="fs-center" style="margin-bottom:2rem;">
+      <h2>{{ section.settings.form_heading }}</h2>
+      <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+    </div>
+
+    {%- form 'contact', class: 'fs-card' -%}
+      {%- if form.posted_successfully? -%}
+        <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your group.</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[enquiry_type]" value="Community Safety Workshop">
+        <div class="fs-field">
+          <label for="fs-name">Name</label>
+          <input id="fs-name" type="text" name="contact[name]" required maxlength="100">
+        </div>
+        <div class="fs-field">
+          <label for="fs-community">School / Club / Community</label>
+          <input id="fs-community" type="text" name="contact[community]" required maxlength="150">
+        </div>
+        <div class="fs-field">
+          <label for="fs-contact">Phone or Email</label>
+          <input id="fs-contact" type="text" name="contact[email]" required maxlength="255">
+        </div>
+        <div class="fs-field">
+          <label for="fs-time">Preferred time</label>
+          <input id="fs-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday evenings">
+        </div>
+        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Community safety workshop",
+  "settings": [
+    { "type": "text", "id": "community_name", "label": "Community name", "default": "your community" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Community Safety Workshop — E-Bikes & Illegal Motorised Vehicles" },
+    { "type": "text", "id": "heading", "label": "Hero heading", "default": "Know the Law. Ride Safe. Keep Your Family Confident on E-Bikes." },
+    { "type": "textarea", "id": "subheading", "label": "Hero subheading", "default": "Book a free safety workshop for [Community Name] and get clear, up-to-date answers on what's legal, what isn't, and how to keep your kids safe on e-bikes, e-scooters and other motorised devices." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book Your Free Workshop" },
+    { "type": "text", "id": "covers_heading", "label": "Covers heading", "default": "What You'll Learn" },
+    { "type": "text", "id": "covers_intro", "label": "Covers intro", "default": "A relaxed, no-obligation session at your place, covering:" },
+    { "type": "richtext", "id": "demo_note", "label": "Demo note", "default": "<p><strong>Plus — legal and illegal devices side by side.</strong> See exactly what makes one compliant and the other a problem, so your family knows what to look for.</p>" },
+    { "type": "text", "id": "why_heading", "label": "Why now heading", "default": "Why Now" },
+    { "type": "richtext", "id": "why_body", "label": "Why now body", "default": "<p>E-bikes and e-scooters are everywhere — and so is the confusion about what's actually allowed on our roads and shared paths.</p><p>Many of the devices being sold and modified online aren't legal to ride. Families are finding out the hard way: through a fine, an insurance knock-back, a crash, or a battery fire in the garage.</p><p>The fix is information. Once you know the rules and how to buy well, e-mobility is one of the safest, cheapest and most freeing ways for a family to get around.</p>" },
+    { "type": "text", "id": "who_heading", "label": "Who should attend heading", "default": "Who Should Attend" },
+    { "type": "richtext", "id": "who_body", "label": "Who should attend body", "default": "<p>Parents, young people, residents, schools, councils, sporting clubs and neighbourhood groups — anyone using, buying, or concerned about e-bikes, e-scooters and similar devices.</p><p><strong>Come along, ask questions, and leave knowing how to ride safely and legally in [Community Name].</strong></p>" },
+    { "type": "image_picker", "id": "who_image", "label": "Who should attend image" },
+    { "type": "text", "id": "reviews_heading", "label": "Reviews heading", "default": "What Families Are Saying" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "FAQ" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Book Your Workshop" },
+    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the safety workshop to [Community Name]." }
+  ],
+  "blocks": [
+    {
+      "type": "cover",
+      "name": "Workshop topic",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "📜" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "attribution", "label": "Attribution" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Community safety workshop" }]
+}
+{% endschema %}
