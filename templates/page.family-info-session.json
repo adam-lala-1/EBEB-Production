@@ -1,26 +1,142 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "workshop": {
       "type": "family-info-session",
       "blocks": {
-        "c1": { "type": "cover", "settings": { "icon": "📜", "title": "Legal vs illegal — the simple version", "body": "What actually makes an e-bike, e-scooter or motorised device road legal, and what turns it into an unregistered motorbike in the eyes of the law." } },
-        "c2": { "type": "cover", "settings": { "icon": "🚨", "title": "The rules, the fines, the risks", "body": "Speed limits, helmets, footpaths and paths, age limits — plus what police are seeing in the community and the penalties families get caught by." } },
-        "c3": { "type": "cover", "settings": { "icon": "🚲", "title": "Buying safely for your kids", "body": "How to spot a dodgy import or modified build before you buy, and what to look for in a bike that will still be legal next year." } },
-        "c4": { "type": "cover", "settings": { "icon": "🔋", "title": "Battery and charging fire safety", "body": "Why cheap batteries catch fire, how to charge and store safely at home, and the warning signs to never ignore." } },
-        "r1": { "type": "review", "settings": { "quote": "Straight answers about what's legal and what isn't. Exactly what we needed before buying our son a bike.", "attribution": "Google review — advice" } },
-        "r2": { "type": "review", "settings": { "quote": "Genuine experts. They answered every question about the rules and batteries without a hint of a sales pitch.", "attribution": "Google review — expertise" } },
-        "r3": { "type": "review", "settings": { "quote": "The team took the time to understand what we needed and set the bikes up perfectly. Service was outstanding.", "attribution": "Google review — service quality" } },
-        "f1": { "type": "faq", "settings": { "question": "What happens at the session?", "answer": "A relaxed, plain-English workshop covering the rules, safety and buying advice — with legal and illegal devices in the room so you can see the difference. Bring your questions." } },
-        "f2": { "type": "faq", "settings": { "question": "How long does it run?", "answer": "Around 60–90 minutes including questions. We'll confirm the format when we book you in." } },
-        "f3": { "type": "faq", "settings": { "question": "Who should attend?", "answer": "Parents, teenagers, residents, schools, councils and community groups — anyone riding, buying, or worried about e-bikes and e-scooters in their neighbourhood." } },
-        "f4": { "type": "faq", "settings": { "question": "Is it a sales pitch?", "answer": "No. It's community education. We'll answer product questions if you ask, and that's it." } },
-        "f5": { "type": "faq", "settings": { "question": "Can you bring bikes to look at?", "answer": "Yes — we can bring compliant bikes so families can see and, where there's space, try a legal setup for themselves." } }
+        "c1": {
+          "type": "cover",
+          "settings": {
+            "icon": "📜",
+            "title": "Legal vs illegal — the simple version",
+            "body": "What actually makes an e-bike, e-scooter or motorised device road legal, and what turns it into an unregistered motorbike in the eyes of the law."
+          }
+        },
+        "c2": {
+          "type": "cover",
+          "settings": {
+            "icon": "🚨",
+            "title": "The rules, the fines, the risks",
+            "body": "Speed limits, helmets, footpaths and paths, age limits — plus what police are seeing in the community and the penalties families get caught by."
+          }
+        },
+        "c3": {
+          "type": "cover",
+          "settings": {
+            "icon": "🚲",
+            "title": "Buying safely for your kids",
+            "body": "How to spot a dodgy import or modified build before you buy, and what to look for in a bike that will still be legal next year."
+          }
+        },
+        "c4": {
+          "type": "cover",
+          "settings": {
+            "icon": "🔋",
+            "title": "Battery and charging fire safety",
+            "body": "Why cheap batteries catch fire, how to charge and store safely at home, and the warning signs to never ignore."
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "Straight answers about what's legal and what isn't. Exactly what we needed before buying our son a bike.",
+            "attribution": "Google review — advice"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "Genuine experts. They answered every question about the rules and batteries without a hint of a sales pitch.",
+            "attribution": "Google review — expertise"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "The team took the time to understand what we needed and set the bikes up perfectly. Service was outstanding.",
+            "attribution": "Google review — service quality"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens at the session?",
+            "answer": "A relaxed, plain-English workshop covering the rules, safety and buying advice — with legal and illegal devices in the room so you can see the difference. Bring your questions."
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it run?",
+            "answer": "Around 60–90 minutes including questions. We'll confirm the format when we book you in."
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "Who should attend?",
+            "answer": "Parents, teenagers, residents, schools, councils and community groups — anyone riding, buying, or worried about e-bikes and e-scooters in their neighbourhood."
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it a sales pitch?",
+            "answer": "No. It's community education. We'll answer product questions if you ask, and that's it."
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you bring bikes to look at?",
+            "answer": "Yes — we can bring compliant bikes so families can see and, where there's space, try a legal setup for themselves."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "r1",
+        "r2",
+        "r3",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {
-        "community_name": "your community"
+        "community_name": "your community",
+        "hero_image": "shopify://shop_images/Servicing-Tim.png",
+        "eyebrow": "Community Safety Workshop — E-Bikes & Illegal Motorised Vehicles",
+        "heading": "Know the Law. Ride Safe. Keep Your Family Confident on E-Bikes.",
+        "subheading": "Book a free safety workshop for [Community Name] and get clear, up-to-date answers on what's legal, what isn't, and how to keep your kids safe on e-bikes, e-scooters and other motorised devices.",
+        "cta_text": "Book Your Free Workshop",
+        "covers_heading": "What You'll Learn",
+        "covers_intro": "A relaxed, no-obligation session at your place, covering:",
+        "demo_note": "<p><strong>Plus — legal and illegal devices side by side.</strong> See exactly what makes one compliant and the other a problem, so your family knows what to look for.</p>",
+        "why_heading": "Why Now",
+        "why_body": "<p>E-bikes and e-scooters are everywhere — and so is the confusion about what's actually allowed on our roads and shared paths.</p><p>Many of the devices being sold and modified online aren't legal to ride. Families are finding out the hard way: through a fine, an insurance knock-back, a crash, or a battery fire in the garage.</p><p>The fix is information. Once you know the rules and how to buy well, e-mobility is one of the safest, cheapest and most freeing ways for a family to get around.</p>",
+        "who_heading": "Who Should Attend",
+        "who_body": "<p>Parents, young people, residents, schools, councils, sporting clubs and neighbourhood groups — anyone using, buying, or concerned about e-bikes, e-scooters and similar devices.</p><p><strong>Come along, ask questions, and leave knowing how to ride safely and legally in [Community Name].</strong></p>",
+        "reviews_heading": "What Families Are Saying",
+        "faq_heading": "FAQ",
+        "form_heading": "Book Your Workshop",
+        "form_intro": "Bring the safety workshop to [Community Name]."
       }
     }
   },
-  "order": ["workshop"]
+  "order": [
+    "workshop"
+  ]
 }
