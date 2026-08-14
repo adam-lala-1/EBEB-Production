@@ -12,23 +12,124 @@
     "info": {
       "type": "info-session",
       "blocks": {
-        "c1": { "type": "cover", "settings": { "icon": "💪", "title": "Staying active for longer", "body": "Why riding is one of the best ways to keep your fitness, independence, and routine." } },
-        "c2": { "type": "cover", "settings": { "icon": "🚲", "title": "Finding your fit", "body": "Bike, trike, or semi-recumbent — matched to how you actually want to get around." } },
-        "c3": { "type": "cover", "settings": { "icon": "🛣️", "title": "Confidence on the road and path", "body": "Where you can ride, what's changed, and what to expect out there." } },
-        "c4": { "type": "cover", "settings": { "icon": "🔋", "title": "What to know before you ride", "body": "Battery care and the latest e-mobility rules, explained simply." } },
-        "r1": { "type": "review", "settings": { "quote": "The team took the time to understand exactly what I needed and set the bike up perfectly. Service was outstanding.", "attribution": "Google review — service quality" } },
-        "r2": { "type": "review", "settings": { "quote": "Genuine experts. They answered every question about trikes and batteries without a hint of a sales pitch.", "attribution": "Google review — expertise" } },
-        "r3": { "type": "review", "settings": { "quote": "Riding again after years off the bike. Couldn't be happier with the whole experience.", "attribution": "Google review — general satisfaction" } },
-        "f1": { "type": "faq", "settings": { "question": "What happens at the session?", "answer": "A relaxed group chat covering everything above, plus test rides — no pressure, just information and a go on the bikes." } },
-        "f2": { "type": "faq", "settings": { "question": "How long does it run?", "answer": "Around 60–90 minutes, plus test ride time. We'll confirm when we book you in." } },
-        "f3": { "type": "faq", "settings": { "question": "Is it one-on-one or a group session?", "answer": "Usually a group session for your community, with one-on-one time during the test rides." } },
-        "f4": { "type": "faq", "settings": { "question": "What happens after?", "answer": "Entirely up to you. We'll follow up with anything you asked for — a quote, a fitting, or nothing at all." } }
+        "c1": {
+          "type": "cover",
+          "settings": {
+            "icon": "💪",
+            "title": "Staying active for longer",
+            "body": "Why riding is one of the best ways to keep your fitness, independence, and routine."
+          }
+        },
+        "c2": {
+          "type": "cover",
+          "settings": {
+            "icon": "🚲",
+            "title": "Finding your fit",
+            "body": "Bike, trike, or semi-recumbent — matched to how you actually want to get around."
+          }
+        },
+        "c3": {
+          "type": "cover",
+          "settings": {
+            "icon": "🛣️",
+            "title": "Confidence on the road and path",
+            "body": "Where you can ride, what's changed, and what to expect out there."
+          }
+        },
+        "c4": {
+          "type": "cover",
+          "settings": {
+            "icon": "🔋",
+            "title": "What to know before you ride",
+            "body": "Battery care and the latest e-mobility rules, explained simply."
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "The team took the time to understand exactly what I needed and set the bike up perfectly. Service was outstanding.",
+            "attribution": "Google review — service quality"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "Genuine experts. They answered every question about trikes and batteries without a hint of a sales pitch.",
+            "attribution": "Google review — expertise"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "Riding again after years off the bike. Couldn't be happier with the whole experience.",
+            "attribution": "Google review — general satisfaction"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens at the session?",
+            "answer": "A relaxed group chat covering everything above, plus test rides — no pressure, just information and a go on the bikes."
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it run?",
+            "answer": "Around 60–90 minutes, plus test ride time. We'll confirm when we book you in."
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it one-on-one or a group session?",
+            "answer": "Usually a group session for your community, with one-on-one time during the test rides."
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens after?",
+            "answer": "Entirely up to you. We'll follow up with anything you asked for — a quote, a fitting, or nothing at all."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "f1", "f2", "f3", "f4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "r1",
+        "r2",
+        "r3",
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
       "settings": {
-        "community_name": "your community"
+        "community_name": "your community",
+        "hero_image": "shopify://shop_images/490968728_1273792231415826_1966302748392275896_n.jpg",
+        "proof_image": "shopify://shop_images/508650184_18060980813225561_3359558423320109631_n.jpg",
+        "eyebrow": "Community Info Session",
+        "heading": "Find Out How to Keep Riding — Longer, Stronger, With More Confidence.",
+        "subheading": "Book a free session at [Community Name] and walk away knowing exactly how to stay active, stay social, and keep your freedom on two or three wheels — plus a chance to test ride on the day.",
+        "cta_text": "Book Your Free Session",
+        "covers_heading": "What the Session Covers",
+        "covers_intro": "A relaxed, no-obligation session at your place, covering:",
+        "test_ride_note": "<p><strong>Plus — test rides on the day.</strong> Everyone gets the chance to get on a bike or trike and feel it for themselves.</p>",
+        "why_heading": "Why Now",
+        "why_body": "<p>This is the stage where riding gets easier, not harder — if you've got the right setup.</p><p>A trike gives you the ease of a golf cart with the freedom of two wheels. No license, no fuss — just the ride, whenever you feel like it.</p><p>And it's better together. Ride with your partner, your neighbours, your community — staying social, staying moving, on your own terms.</p>",
+        "proof_heading": "Proven at Bribie Island",
+        "proof_body": "<p>We've been running Come & Try days on Bribie Island for months — real residents, real communities, building the confidence to start riding, or keep riding for longer.</p><p><strong>It works. And now we're bringing it to [Community Name].</strong></p>",
+        "reviews_heading": "What Riders Are Saying",
+        "faq_heading": "FAQ",
+        "form_heading": "Book Your Session",
+        "form_intro": "Bring the session to [Community Name]."
       }
     }
   },
-  "order": ["info"]
+  "order": [
+    "info"
+  ]
 }
