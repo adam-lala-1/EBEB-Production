@@ -20,26 +20,76 @@
   .is-faq p { margin: .75rem 0 0; color: var(--color-muted, #5b6478); font-size: .95rem; }
   .is-field { margin-bottom: 1.1rem; }
   .is-field label { display:block; font-weight:600; font-size:.9rem; margin-bottom:.35rem; color: var(--color-navy, #1B2A4A); }
-  .is-field input { width:100%; padding:.7rem .85rem; border:1px solid rgba(27,42,74,.2); border-radius:8px; font: inherit; }
+  .is-field input[type="text"] { width:100%; padding:.7rem .85rem; border:1px solid rgba(27,42,74,.2); border-radius:8px; font: inherit; }
+  .is-legend { display:block; font-weight:600; font-size:.9rem; margin-bottom:.45rem; color: var(--color-navy, #1B2A4A); }
+  .is-check { display:inline-flex; align-items:center; gap:.4rem; font-size:.9rem; color: var(--color-muted, #5b6478); margin-right:1rem; font-weight:400; }
+  .is-check input { width:16px; height:16px; accent-color: var(--color-orange, #E86C2C); }
+  .is-disclaimer { font-size:.7rem; line-height:1.5; color: var(--color-muted, #5b6478); margin:1rem 0 0; }
+  .is-hero { display: grid; gap: 2rem; align-items: start; }
+  .is-hero__media { border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(27,42,74,.14); }
+  .is-hero__media img { display:block; width:100%; height:auto; }
+  @media (min-width: 1000px) {
+    .is-hero { grid-template-columns: 2fr 1fr; gap: 3rem; }
+    .is-hero__form { position: sticky; top: 7rem; }
+  }
 </style>
 
+
 <section class="is-band is-band--alt">
-  <div class="is-wrap is-center is-narrow">
-    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
-    <h1>{{ section.settings.heading }}</h1>
-    <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
-      {{ section.settings.subheading | replace: '[Community Name]', community }}
-    </p>
-    <a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a>
-  </div>
-  {% if section.settings.hero_image %}
-    <div class="is-wrap">
-      <div style="margin-top:2.5rem;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(27,42,74,.14);">
-        {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 1060px, 100vw', widths: '600,900,1200,1600' }}
-      </div>
+  <div class="is-wrap is-hero">
+    <div class="is-hero__main">
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h1>{{ section.settings.heading }}</h1>
+      <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
+        {{ section.settings.subheading | replace: '[Community Name]', community }}
+      </p>
+      {% if section.settings.hero_image %}
+        <div class="is-hero__media">
+          {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 700px, 100vw', widths: '600,900,1200,1600' }}
+        </div>
+      {% endif %}
     </div>
-  {% endif %}
+
+    <div class="is-hero__form" id="is-book">
+      {%- form 'contact', class: 'is-card' -%}
+        {%- if form.posted_successfully? -%}
+          <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your community.</p>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+          <h2 style="margin:0 0 .35rem;font-size:1.5rem;">{{ section.settings.form_heading }}</h2>
+          <p style="margin:0 0 1.25rem;color:var(--color-muted);font-size:.9rem;">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+          <input type="hidden" name="contact[enquiry_type]" value="Community Info Session">
+          <div class="is-field">
+            <label for="is-name">Name</label>
+            <input id="is-name" type="text" name="contact[name]" required maxlength="100">
+          </div>
+          <div class="is-field">
+            <label for="is-community">Community / Village</label>
+            <input id="is-community" type="text" name="contact[community]" required maxlength="150">
+          </div>
+          <div class="is-field">
+            <span class="is-legend">I am a</span>
+            <label class="is-check"><input type="checkbox" name="contact[i_am_a_resident]" value="Yes"> Resident</label>
+            <label class="is-check"><input type="checkbox" name="contact[i_am_a_committee_member]" value="Yes"> Committee Member</label>
+          </div>
+          <div class="is-field">
+            <label for="is-contact">Phone or Email</label>
+            <input id="is-contact" type="text" name="contact[email]" required maxlength="255">
+          </div>
+          <div class="is-field">
+            <label for="is-time">Preferred time</label>
+            <input id="is-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday mornings">
+          </div>
+          <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
+          <p class="is-disclaimer">{{ section.settings.disclaimer }}</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
 </section>
+
 
 <section class="is-band">
   <div class="is-wrap">
@@ -120,42 +170,14 @@
   </div>
 </section>
 
-<section class="is-band is-band--alt" id="is-book">
-  <div class="is-wrap" style="max-width:620px;">
-    <div class="is-center" style="margin-bottom:2rem;">
-      <h2>{{ section.settings.form_heading }}</h2>
-      <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
-    </div>
-
-    {%- form 'contact', class: 'is-card' -%}
-      {%- if form.posted_successfully? -%}
-        <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your community.</p>
-      {%- else -%}
-        {%- if form.errors -%}
-          <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
-        {%- endif -%}
-        <input type="hidden" name="contact[enquiry_type]" value="Community Info Session">
-        <div class="is-field">
-          <label for="is-name">Name</label>
-          <input id="is-name" type="text" name="contact[name]" required maxlength="100">
-        </div>
-        <div class="is-field">
-          <label for="is-community">Community / Village</label>
-          <input id="is-community" type="text" name="contact[community]" required maxlength="150">
-        </div>
-        <div class="is-field">
-          <label for="is-contact">Phone or Email</label>
-          <input id="is-contact" type="text" name="contact[email]" required maxlength="255">
-        </div>
-        <div class="is-field">
-          <label for="is-time">Preferred time</label>
-          <input id="is-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday mornings">
-        </div>
-        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
-      {%- endif -%}
-    {%- endform -%}
+<section class="is-band is-band--alt">
+  <div class="is-wrap is-narrow is-center">
+    <h2>{{ section.settings.form_heading }}</h2>
+    <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+    <div class="is-cta"><a class="eeb-btn eeb-btn--primary" href="#is-book">{{ section.settings.cta_text }}</a></div>
   </div>
 </section>
+
 
 {% schema %}
 {
@@ -178,7 +200,8 @@
     { "type": "text", "id": "reviews_heading", "label": "Reviews heading", "default": "What Riders Are Saying" },
     { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "FAQ" },
     { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Book Your Session" },
-    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the session to [Community Name]." }
+    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the session to [Community Name]." },
+    { "type": "textarea", "id": "disclaimer", "label": "Booking disclaimer", "default": "Call out visits are restricted to relevant groups, residents and individuals attached to groups, such as over 50's lifestyle communities, councils, community groups, schools, NDIS providers, body corporates or similar. Bookings will be made based on time, location and availability. We will try to meet all needs, but have the right to refuse a booking request." }
   ],
   "blocks": [
     {

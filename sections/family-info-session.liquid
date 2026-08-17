@@ -24,25 +24,65 @@
   .fs-media { margin-top: 2.5rem; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(27,42,74,.14); }
   .fs-media img { display:block; width:100%; height:auto; }
   .fs-media--flat { margin-top: 2rem; border-radius: 12px; box-shadow: none; }
+  .fs-disclaimer { font-size:.7rem; line-height:1.5; color: var(--color-muted, #5b6478); margin:1rem 0 0; }
+  .fs-hero { display: grid; gap: 2rem; align-items: start; }
+  @media (min-width: 1000px) {
+    .fs-hero { grid-template-columns: 2fr 1fr; gap: 3rem; }
+    .fs-hero__form { position: sticky; top: 7rem; }
+  }
 </style>
 
+
 <section class="fs-band fs-band--alt">
-  <div class="fs-wrap fs-center fs-narrow">
-    <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
-    <h1>{{ section.settings.heading }}</h1>
-    <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
-      {{ section.settings.subheading | replace: '[Community Name]', community }}
-    </p>
-    <a class="eeb-btn eeb-btn--primary" href="#fs-book">{{ section.settings.cta_text }}</a>
-  </div>
-  {% if section.settings.hero_image %}
-    <div class="fs-wrap">
-      <div class="fs-media">
-        {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 1060px, 100vw', widths: '600,900,1200,1600' }}
-      </div>
+  <div class="fs-wrap fs-hero">
+    <div class="fs-hero__main">
+      <span class="eeb-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h1>{{ section.settings.heading }}</h1>
+      <p style="font-size:1.1rem;color:var(--color-muted);margin:1rem 0 2rem;">
+        {{ section.settings.subheading | replace: '[Community Name]', community }}
+      </p>
+      {% if section.settings.hero_image %}
+        <div class="fs-media" style="margin-top:0;">
+          {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: section.settings.heading, sizes: '(min-width: 1100px) 700px, 100vw', widths: '600,900,1200,1600' }}
+        </div>
+      {% endif %}
     </div>
-  {% endif %}
+
+    <div class="fs-hero__form" id="fs-book">
+      {%- form 'contact', class: 'fs-card' -%}
+        {%- if form.posted_successfully? -%}
+          <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your group.</p>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+          <h2 style="margin:0 0 .35rem;font-size:1.5rem;">{{ section.settings.form_heading }}</h2>
+          <p style="margin:0 0 1.25rem;color:var(--color-muted);font-size:.9rem;">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+          <input type="hidden" name="contact[enquiry_type]" value="Community Safety Workshop">
+          <div class="fs-field">
+            <label for="fs-name">Name</label>
+            <input id="fs-name" type="text" name="contact[name]" required maxlength="100">
+          </div>
+          <div class="fs-field">
+            <label for="fs-community">School / Club / Community</label>
+            <input id="fs-community" type="text" name="contact[community]" required maxlength="150">
+          </div>
+          <div class="fs-field">
+            <label for="fs-contact">Phone or Email</label>
+            <input id="fs-contact" type="text" name="contact[email]" required maxlength="255">
+          </div>
+          <div class="fs-field">
+            <label for="fs-time">Preferred time</label>
+            <input id="fs-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday evenings">
+          </div>
+          <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
+          <p class="fs-disclaimer">{{ section.settings.disclaimer }}</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
 </section>
+
 
 <section class="fs-band">
   <div class="fs-wrap">
@@ -123,42 +163,14 @@
   </div>
 </section>
 
-<section class="fs-band fs-band--alt" id="fs-book">
-  <div class="fs-wrap" style="max-width:620px;">
-    <div class="fs-center" style="margin-bottom:2rem;">
-      <h2>{{ section.settings.form_heading }}</h2>
-      <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
-    </div>
-
-    {%- form 'contact', class: 'fs-card' -%}
-      {%- if form.posted_successfully? -%}
-        <p style="color:var(--color-navy);font-weight:700;">Thanks — we'll be in touch to lock in a time that suits your group.</p>
-      {%- else -%}
-        {%- if form.errors -%}
-          <p style="color:#b42318;">{{ form.errors | default_errors }}</p>
-        {%- endif -%}
-        <input type="hidden" name="contact[enquiry_type]" value="Community Safety Workshop">
-        <div class="fs-field">
-          <label for="fs-name">Name</label>
-          <input id="fs-name" type="text" name="contact[name]" required maxlength="100">
-        </div>
-        <div class="fs-field">
-          <label for="fs-community">School / Club / Community</label>
-          <input id="fs-community" type="text" name="contact[community]" required maxlength="150">
-        </div>
-        <div class="fs-field">
-          <label for="fs-contact">Phone or Email</label>
-          <input id="fs-contact" type="text" name="contact[email]" required maxlength="255">
-        </div>
-        <div class="fs-field">
-          <label for="fs-time">Preferred time</label>
-          <input id="fs-time" type="text" name="contact[preferred_time]" maxlength="150" placeholder="e.g. weekday evenings">
-        </div>
-        <button type="submit" class="eeb-btn eeb-btn--primary" style="width:100%;">{{ section.settings.cta_text }}</button>
-      {%- endif -%}
-    {%- endform -%}
+<section class="fs-band fs-band--alt">
+  <div class="fs-wrap fs-narrow fs-center">
+    <h2>{{ section.settings.form_heading }}</h2>
+    <p style="color:var(--color-muted);">{{ section.settings.form_intro | replace: '[Community Name]', community }}</p>
+    <div class="fs-cta"><a class="eeb-btn eeb-btn--primary" href="#fs-book">{{ section.settings.cta_text }}</a></div>
   </div>
 </section>
+
 
 {% schema %}
 {
@@ -181,7 +193,8 @@
     { "type": "text", "id": "reviews_heading", "label": "Reviews heading", "default": "What Families Are Saying" },
     { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "FAQ" },
     { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Book Your Workshop" },
-    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the safety workshop to [Community Name]." }
+    { "type": "text", "id": "form_intro", "label": "Form intro", "default": "Bring the safety workshop to [Community Name]." },
+    { "type": "textarea", "id": "disclaimer", "label": "Booking disclaimer", "default": "Call out visits are restricted to relevant groups, residents and individuals attached to groups, such as over 50's lifestyle communities, councils, community groups, schools, NDIS providers, body corporates or similar. Bookings will be made based on time, location and availability. We will try to meet all needs, but have the right to refuse a booking request." }
   ],
   "blocks": [
     {
