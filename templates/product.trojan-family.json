@@ -233,6 +233,43 @@
         "geometry_alt": "Geometry and dimensions"
       }
     },
+    "trident_specs_JnPLFY": {
+      "type": "trident-specs",
+      "blocks": {
+        "group_HXLRTb": {
+          "type": "group",
+          "settings": {
+            "title": "Mechanical",
+            "rows": "Frame | 6061 Alloy\nTyres | Front 24\" x 4.0\" Rear 20\" × 4.0\" fat tyres\nBrakes | Bengal Ares 9 Custom 4 Piston hydraulic disc\nGears | Shimano Altus 8-speed\nSeat | Memory Foam with optional backrest\nSuspension | Triple clamp heavy duty shocks\nParking Brake | Integrated lever-actuated"
+          }
+        },
+        "group_7r9TgD": {
+          "type": "group",
+          "settings": {
+            "title": "Electrical",
+            "rows": "Motor | 500W High torque\nBattery | 48V 20Ah Samsung cells\nRange | Up to 80km (pedal assist)\nCharge Time | 5–6 hours\nDisplay | Colour with 5 assist levels\nSensor | Cadence or Torque (selectable)\nLights | Integrated LED front & rear + indicators"
+          }
+        },
+        "group_yern6p": {
+          "type": "group",
+          "settings": {
+            "title": "Dimensions & Weight",
+            "rows": "Weight | ~74 kg\nMax Rider Load | 140 kg\nMax Total Load | 200kg\nLength | ~2080 mm\nWidth | ~860 mm\nRider Height | 155–200 cm"
+          }
+        }
+      },
+      "block_order": [
+        "group_HXLRTb",
+        "group_7r9TgD",
+        "group_yern6p"
+      ],
+      "name": "EEB Product specs",
+      "settings": {
+        "heading": "Full Specifications",
+        "geometry_image_url": "",
+        "geometry_alt": "Geometry and dimensions"
+      }
+    },
     "video": {
       "type": "product-video",
       "settings": {
@@ -261,6 +298,7 @@
     "feature_2",
     "feature_3",
     "specs",
+    "trident_specs_JnPLFY",
     "video",
     "cta"
   ]
