@@ -20,7 +20,7 @@
             "eyebrow": "The Humanized Hub",
             "heading": "E-Bikes and e-trikes for",
             "heading_highlight": "every body.",
-            "body": "Meet, Richard, Jack & Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
+            "body": "Meet Richard, Jack & Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
             "cta_text": "Explore the Range",
             "cta_url": "shopify://collections"
           }
@@ -41,7 +41,6 @@
         "slide2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/651154709_1568576748604038_7723894973394397158_n.jpg",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445",
             "eyebrow": "Adventure Together",
             "heading": "Ride together,",
