@@ -12,9 +12,37 @@
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "dealer_list_YHnEkF": {
+      "type": "dealer-list",
+      "blocks": {
+        "dealer_TgD4P4": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2026-08-28_164231.png",
+            "region": "Special Purpose EPAC",
+            "name": "",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/SPEPAC_Legislation.pdf?v=1787899070",
+            "website_label": "Transport Legislation (E-mobility Use)Amendment Regulation 2026"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_TgD4P4"
+      ],
+      "name": "Dealer list",
+      "settings": {
+        "eyebrow": "Legislation Documents",
+        "heading": "",
+        "subheading": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "dealer_list_YHnEkF"
   ]
 }
