@@ -209,6 +209,7 @@
       "blocks": {
         "group_range": {
           "type": "group",
+          "disabled": true,
           "settings": {
             "title": "The Family",
             "rows": "Trojan Fat Tyre | 20\" × 4\" fat tyres, adventure-ready\nTrojan Standard | 20\" tyres, everyday commuter\nTrojan Cargo | Extended rear rack for shopping"
@@ -216,6 +217,7 @@
         },
         "group_shared": {
           "type": "group",
+          "disabled": true,
           "settings": {
             "title": "Shared Across the Range",
             "rows": "Frame | 6061 Alloy, step-through trike\nBrakes | Bengal custom disc\nMotor | High torque rear hub\nBattery | Samsung removable\nDisplay | LCD with USB charging"
@@ -227,7 +229,7 @@
         "group_shared"
       ],
       "settings": {
-        "heading": "The Trojan Range",
+        "heading": "",
         "geometry_image": "shopify://shop_images/Trojan_Family_v3.png",
         "geometry_image_url": "",
         "geometry_alt": "Geometry and dimensions"
