@@ -83,7 +83,7 @@
             "tag": "Bribie Island",
             "capacity": "RSVP required",
             "title": "Bribie Island Come & Try",
-            "date": "Weds 12 Aug 2026",
+            "date": "Weds 9 Sep 2026",
             "time": "9:00 AM – 11:30 AM",
             "location": "Brennan Park, Bongaree, Bribie Island",
             "description": "Opportunity to test ride a 2-wheeled ebike or an upright or sit-down tricycle in your own backyard. Great to work out which option best suits your needs.",
@@ -386,6 +386,7 @@
         "heading": "Get in touch or book a ride",
         "subheading": "Tell us what you'd like to try and when suits — we'll have a bike ready, at an event or at our Gaythorne workshop.",
         "submit_text": "Send enquiry",
+        "marketing_consent_label": "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime.",
         "gaythorne_calendly_url": ""
       }
     },
