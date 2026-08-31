@@ -41,6 +41,7 @@
         "slide2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Trojan_Family.png",
             "image_url": "https://everybodyebikes.com.au/cdn/shop/files/IMG_1997.jpg?v=1762408959&width=1445",
             "eyebrow": "Adventure Together",
             "heading": "Ride together,",
