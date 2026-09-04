@@ -28,10 +28,24 @@
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/SPEPAC_Legislation.pdf?v=1787899070",
             "website_label": "Transport Legislation (E-mobility Use)Amendment Regulation 2026"
           }
+        },
+        "dealer_KUdbbc": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2026-08-28_164231.png",
+            "region": "Exemption Form",
+            "name": "",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://www.qld.gov.au/transport/safety/rules/wheeled-devices/e-mobility-licence-exemptions",
+            "website_label": "Queensland E-Mobility Exemption Information"
+          }
         }
       },
       "block_order": [
-        "dealer_TgD4P4"
+        "dealer_TgD4P4",
+        "dealer_KUdbbc"
       ],
       "name": "Dealer list",
       "settings": {
