@@ -311,6 +311,14 @@
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
+        "event_option_UyYbar": {
+          "type": "event_option",
+          "name": "Bribie Island Come & Try Day",
+          "settings": {
+            "option": "Wed 14 Oct 2026 — Brennan Park, Bongaree",
+            "calendly_url": ""
+          }
+        },
         "i1": {
           "type": "interest_option",
           "name": "Trident",
@@ -348,6 +356,7 @@
         }
       },
       "block_order": [
+        "event_option_UyYbar",
         "i1",
         "i2",
         "i3",
