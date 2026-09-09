@@ -311,70 +311,43 @@
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
-        "o0": {
-          "type": "event_option",
-          "settings": {
-            "option": "Sat 15 Feb 2026 — Gaythorne Open Workshop",
-            "calendly_url": ""
-          }
-        },
-        "o1": {
-          "type": "event_option",
-          "settings": {
-            "option": "Sun 8 Mar 2026 — South Bank Riverwalk Demo",
-            "calendly_url": ""
-          }
-        },
-        "o2": {
-          "type": "event_option",
-          "settings": {
-            "option": "Sat 12 Apr 2026 — Sunshine Coast Adaptive Day",
-            "calendly_url": ""
-          }
-        },
-        "o3": {
-          "type": "event_option",
-          "settings": {
-            "option": "Sat 3 May 2026 — Gold Coast Trike Try-Out",
-            "calendly_url": ""
-          }
-        },
         "i1": {
           "type": "interest_option",
+          "name": "Trident",
           "settings": {
             "label": "Trident trike"
           }
         },
         "i2": {
           "type": "interest_option",
+          "name": "Commuter",
           "settings": {
             "label": "Commuter ebike"
           }
         },
         "i3": {
           "type": "interest_option",
+          "name": "Cargo",
           "settings": {
             "label": "Cargo ebike"
           }
         },
         "i4": {
           "type": "interest_option",
+          "name": "Folding",
           "settings": {
             "label": "Folding ebike"
           }
         },
         "i5": {
           "type": "interest_option",
+          "name": "Adaptive",
           "settings": {
             "label": "Adaptive / accessible bike"
           }
         }
       },
       "block_order": [
-        "o0",
-        "o1",
-        "o2",
-        "o3",
         "i1",
         "i2",
         "i3",
