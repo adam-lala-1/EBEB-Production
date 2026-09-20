@@ -52,6 +52,7 @@
         },
         "dealer_miWpLX": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/Logos.png",
             "region": "QLD, Australia",
