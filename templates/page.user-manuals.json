@@ -154,6 +154,19 @@
             "website_url": "https://velectrix.com.au/support/manuals/",
             "website_label": "View All Velectrix Manuals"
           }
+        },
+        "dealer_KbbmDH": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Bosch_ebike_logo.jpg",
+            "region": "",
+            "name": "Bosch Manuals",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://help.bosch-ebike.com/#/help-center/manuals",
+            "website_label": "View Bosch Manuals"
+          }
         }
       },
       "block_order": [
@@ -166,7 +179,8 @@
         "dealer_QHMeA7",
         "dealer_pPeJzQ",
         "dealer_BLiLwk",
-        "dealer_Xg9KYG"
+        "dealer_Xg9KYG",
+        "dealer_KbbmDH"
       ],
       "name": "Dealer list",
       "settings": {
