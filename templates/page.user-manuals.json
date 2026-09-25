@@ -128,6 +128,19 @@
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/EVERYBODY_EBIKES_maintenance_battery_care.pdf?v=1785824964",
             "website_label": "Open PDF Here"
           }
+        },
+        "dealer_BLiLwk": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/unnamed.jpg",
+            "region": "",
+            "name": "Tribe Evamos",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://tribebikes.com.au/evamos-longtail-guide/",
+            "website_label": "Visit Tribe's Website"
+          }
         }
       },
       "block_order": [
@@ -138,7 +151,8 @@
         "dealer_zNQBPn",
         "dealer_YLAXXe",
         "dealer_QHMeA7",
-        "dealer_pPeJzQ"
+        "dealer_pPeJzQ",
+        "dealer_BLiLwk"
       ],
       "name": "Dealer list",
       "settings": {
