@@ -141,6 +141,19 @@
             "website_url": "https://tribebikes.com.au/evamos-longtail-guide/",
             "website_label": "Visit Tribe's Website"
           }
+        },
+        "dealer_Xg9KYG": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Velectrix_eBikes.png",
+            "region": "",
+            "name": "Velectrix",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://velectrix.com.au/support/manuals/",
+            "website_label": "View All Velectrix Manuals"
+          }
         }
       },
       "block_order": [
@@ -152,7 +165,8 @@
         "dealer_YLAXXe",
         "dealer_QHMeA7",
         "dealer_pPeJzQ",
-        "dealer_BLiLwk"
+        "dealer_BLiLwk",
+        "dealer_Xg9KYG"
       ],
       "name": "Dealer list",
       "settings": {
