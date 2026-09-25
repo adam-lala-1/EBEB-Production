@@ -160,12 +160,25 @@
           "settings": {
             "logo": "shopify://shop_images/Bosch_ebike_logo.jpg",
             "region": "",
-            "name": "Bosch Manuals",
+            "name": "Bosch",
             "address": "",
             "phone": "",
             "email": "",
             "website_url": "https://help.bosch-ebike.com/#/help-center/manuals",
-            "website_label": "View Bosch Manuals"
+            "website_label": "View All Bosch Manuals"
+          }
+        },
+        "dealer_gjLGQJ": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/yuba.png",
+            "region": "",
+            "name": "Yuba",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://yubabikes.eu/add-ons-tech-notices/?srsltid=AU7gw4UBJHGhN2hNurDI9j0CQzCjZUzrh2ZvKsvBcIyei7um6hnAoFhE",
+            "website_label": "View All Yuba Manuals"
           }
         }
       },
@@ -180,7 +193,8 @@
         "dealer_pPeJzQ",
         "dealer_BLiLwk",
         "dealer_Xg9KYG",
-        "dealer_KbbmDH"
+        "dealer_KbbmDH",
+        "dealer_gjLGQJ"
       ],
       "name": "Dealer list",
       "settings": {
