@@ -180,6 +180,32 @@
             "website_url": "https://yubabikes.eu/add-ons-tech-notices/?srsltid=AU7gw4UBJHGhN2hNurDI9j0CQzCjZUzrh2ZvKsvBcIyei7um6hnAoFhE",
             "website_label": "View All Yuba Manuals"
           }
+        },
+        "dealer_E7pUFy": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2025-11-06_155851.png",
+            "region": "",
+            "name": "Benno",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "https://bennobikes.com/support-main/#owners_manuals",
+            "website_label": "View All Benno Manuals"
+          }
+        },
+        "dealer_WwEDfj": {
+          "type": "dealer",
+          "settings": {
+            "logo": "shopify://shop_images/tern-logo.webp",
+            "region": "QLD, Australia",
+            "name": "Dealer name",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website_url": "",
+            "website_label": ""
+          }
         }
       },
       "block_order": [
@@ -194,7 +220,9 @@
         "dealer_BLiLwk",
         "dealer_Xg9KYG",
         "dealer_KbbmDH",
-        "dealer_gjLGQJ"
+        "dealer_gjLGQJ",
+        "dealer_E7pUFy",
+        "dealer_WwEDfj"
       ],
       "name": "Dealer list",
       "settings": {
