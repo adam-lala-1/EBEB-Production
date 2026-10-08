@@ -198,13 +198,13 @@
           "type": "dealer",
           "settings": {
             "logo": "shopify://shop_images/tern-logo.webp",
-            "region": "QLD, Australia",
-            "name": "Dealer name",
+            "region": "Tern",
+            "name": "",
             "address": "",
             "phone": "",
             "email": "",
-            "website_url": "",
-            "website_label": ""
+            "website_url": "https://www.ternbicycles.com/au/support",
+            "website_label": "View All Tern Manuals"
           }
         }
       },
