@@ -1,33 +1,24 @@
 
-(function () {
-    function changeDescriptionHeading() {
-        document.querySelectorAll(".eeb-pdp_details-body h1").forEach(function (heading) {
-            var h2 = document.createElement("h2");
+document.querySelectorAll(".eeb-pdp_details-body h1").forEach(function (heading) {
+    console.log("Found H1:", heading, "| Text:", heading.textContent);
 
-            Array.from(heading.attributes).forEach(function (attr) {
-                h2.setAttribute(attr.name, attr.value);
-            });
+    var h2 = document.createElement("h2");
 
-            h2.innerHTML = heading.innerHTML;
-            heading.replaceWith(h2);
-        });
-    }
-
-    // Run immediately
-    changeDescriptionHeading();
-
-    // Run when the DOM is ready
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", changeDescriptionHeading);
-    }
-
-    // Handle dynamically loaded Shopify content
-    var observer = new MutationObserver(function () {
-        changeDescriptionHeading();
+    Array.from(heading.attributes).forEach(function (attr) {
+        h2.setAttribute(attr.name, attr.value);
     });
 
-    observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-    });
-})();
+    h2.innerHTML = heading.innerHTML;
+    heading.replaceWith(h2);
+
+    console.log("Changed H1 to H2:", h2);
+});
+
+console.log(
+    "Remaining H1 elements:",
+    document.querySelectorAll(".eeb-pdp_details-body h1").length
+);
+console.log(
+    "H2 elements:",
+    document.querySelectorAll(".eeb-pdp_details-body h2").length
+);
