@@ -48,7 +48,8 @@
           "sale_label": "🔥 SALE ITEMS",
           "sale_url": "shopify://collections/on-sale",
           "sale_bg_color": "#e86c2c",
-          "sale_text_color": "#ffffff"
+          "sale_text_color": "#ffffff",
+          "marketing_consent_label": "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime."
         }
       },
       "footer-eeb": {
@@ -77,6 +78,7 @@
           "support"
         ],
         "settings": {
+          "logo": "shopify://shop_images/EBEB-logo-lowres.png",
           "logo_width": 160,
           "tagline": "Mobility for every body.",
           "facebook_url": "https://www.facebook.com/everybodyebikes",
