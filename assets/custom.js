@@ -1,16 +1,28 @@
-console.log("Description body:", document.querySelector(".eeb-pdp_details-body"));
 
-console.log(
-    "Elements with eeb-pdp_details-body class:",
-    document.querySelectorAll('[class*="eeb-pdp_details-body"]')
-);
+(function () {
+    function changeDescriptionHeading() {
+        document.querySelectorAll('h1').forEach(function (heading) {
+            if (
+                heading.textContent.trim() === 'Description' &&
+                heading.parentElement.classList.contains('rte')
+            ) {
+                var h2 = document.createElement('h2');
 
-console.log(
-    "All Description headings:",
-    [...document.querySelectorAll("h1, h2")].map(el => ({
-        tag: el.tagName,
-        text: el.innerText,
-        class: el.className,
-        parent: el.parentElement?.className
-    }))
-);
+                Array.from(heading.attributes).forEach(function (attr) {
+                    h2.setAttribute(attr.name, attr.value);
+                });
+
+                h2.innerHTML = heading.innerHTML;
+                heading.replaceWith(h2);
+            }
+        });
+    }
+
+    changeDescriptionHeading();
+
+    var observer = new MutationObserver(changeDescriptionHeading);
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+})();
