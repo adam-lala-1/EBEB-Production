@@ -77,7 +77,7 @@
     {%- endform -%}
 
     {%- form 'customer', id: 'eeb-rsvp-newsletter', class: 'visually-hidden' -%}
-      <input type="email" name="contact[email]" class="eeb-rsvp-newsletter-email" value="">
+      <input type="hidden" name="contact[email]" class="eeb-rsvp-newsletter-email" value="">
       <input type="hidden" name="contact[tags]" value="source: come-and-try-rsvp">
     {%- endform -%}
     <iframe name="eeb-rsvp-newsletter-iframe" style="display:none;"></iframe>
