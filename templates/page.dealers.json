@@ -52,16 +52,15 @@
         },
         "dealer_miWpLX": {
           "type": "dealer",
-          "disabled": true,
           "settings": {
-            "logo": "shopify://shop_images/Logos.png",
+            "logo": "shopify://shop_images/Untitled_Design_6cfd5c04-f3a2-4ede-8c98-1f1ea1b1bdda.png",
             "region": "QLD, Australia",
-            "name": "Cairns Electric Bikes",
-            "address": "46 McLeod Street, Cairns City, QLD 4870",
-            "phone": "07 4051 4470",
-            "email": "admin@cairns-electric-bikes.com.au",
-            "website_url": "https://www.cairns-electric-bikes.com.au/",
-            "website_label": "cairns-electric-bikes.com.au"
+            "name": "Adrenalin Cycling",
+            "address": "68 Torquay Road, Pialba, QLD 4655",
+            "phone": "(07) 4112 4636",
+            "email": "info@adrenalincycling.com.au",
+            "website_url": "https://www.adrenalincycling.com.au/",
+            "website_label": "adrenalincycling.com.au"
           }
         },
         "dealer_rjgRCD": {
@@ -103,6 +102,18 @@
             "website_label": "ecoquip.co.nz"
           }
         },
+        "dealer_89MdDW": {
+          "type": "dealer",
+          "settings": {
+            "region": "SA, Australia",
+            "name": "Copper Trails Bike Hire",
+            "address": "40 George Street, Moonta, SA 5558",
+            "phone": "0447 764 777",
+            "email": "coppercoastbikes@gmail.com",
+            "website_url": "https://www.coppertrailsbikehire.com/",
+            "website_label": "coppertrailsbikehire.com"
+          }
+        },
         "dealer_gERcby": {
           "type": "dealer",
           "settings": {
@@ -124,6 +135,7 @@
         "dealer_rjgRCD",
         "dealer_8NacnR",
         "dealer_aJK7Fn",
+        "dealer_89MdDW",
         "dealer_gERcby"
       ],
       "settings": {
