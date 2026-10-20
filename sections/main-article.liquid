@@ -4,6 +4,7 @@
 -%}
 <article class="eeb-section article-body">
   <div class="eeb-container" style="max-width: {{ max_width }}px;">
+    <h1 class="article-body__title">{{ article.title | escape }}</h1>
     {%- if show_inline_image and article.image -%}
       <img class="article-body__hero-img" src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}">
     {%- endif -%}
