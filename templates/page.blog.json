@@ -50,7 +50,7 @@
       "settings": {
         "eyebrow": "Journal",
         "heading": "Stories, guides and updates",
-        "subheading": "Everything from all of our blogs in one place — filter by category or topic.",
+        "subheading": "<h2 style=\"font-size: 24px;\">E-Bike, Trike and Inclusive Cycling Guides</h2>\nEverything from all of our blogs in one place — filter by category or topic.",
         "articles_per_blog": 50,
         "show_tag_filter": true
       }
