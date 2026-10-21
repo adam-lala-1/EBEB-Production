@@ -104,12 +104,27 @@
             "cta_text": "RSVP",
             "rsvp_url": ""
           }
+        },
+        "event_HyLxJW": {
+          "type": "event",
+          "settings": {
+            "tag": "Medowie",
+            "capacity": "Drop-in",
+            "title": "Medowie Come and Try Day",
+            "date": "Monday 2nd Nov 2026",
+            "time": "9:00 AM – 11:00 AM",
+            "location": "Active Fitness Medowie - Carpark",
+            "description": "",
+            "cta_text": "RSVP",
+            "rsvp_url": ""
+          }
         }
       },
       "block_order": [
         "event_aYwfFV",
         "event_eyefNn",
-        "event_kLXbqU"
+        "event_kLXbqU",
+        "event_HyLxJW"
       ],
       "name": "Come & Try events",
       "settings": {
