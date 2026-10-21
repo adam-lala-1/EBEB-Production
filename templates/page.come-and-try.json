@@ -90,11 +90,26 @@
             "cta_text": "RSVP",
             "rsvp_url": ""
           }
+        },
+        "event_kLXbqU": {
+          "type": "event",
+          "settings": {
+            "tag": "Hervey Bay",
+            "capacity": "Drop-in",
+            "title": "Hervey Bay Come and Try Day",
+            "date": "Friday 30th Oct 2026",
+            "time": "9:00 AM – 11:00 AM",
+            "location": "Southern Carpark - All Abilities Playground - Esplanade, Pialba, QLD 4655",
+            "description": "Opportunity to test ride a 2-wheeled ebike or an upright or sit-down tricycle in your own backyard. Great to work out which option best suits your needs.",
+            "cta_text": "RSVP",
+            "rsvp_url": ""
+          }
         }
       },
       "block_order": [
         "event_aYwfFV",
-        "event_eyefNn"
+        "event_eyefNn",
+        "event_kLXbqU"
       ],
       "name": "Come & Try events",
       "settings": {
