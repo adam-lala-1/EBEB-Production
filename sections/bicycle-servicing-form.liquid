@@ -1,0 +1,145 @@
+{% comment %}
+  EveryBody eBikes – Bicycle Servicing Enquiry
+  Native Shopify contact form. Add as a section in the theme editor.
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} { --ebsf-navy:#10264c; --ebsf-orange:#ec6726; --ebsf-muted:#64748b; --ebsf-border:#dce2ea; }
+  #shopify-section-{{ section.id }} .ebsf-wrap { padding:{{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px; background:{{ section.settings.background_color }}; scroll-margin-top:120px; }
+  #shopify-section-{{ section.id }} .ebsf-wrap, #shopify-section-{{ section.id }} .ebsf-wrap * { box-sizing:border-box; }
+  #shopify-section-{{ section.id }} .ebsf-inner { max-width:{{ section.settings.form_width }}px; margin:auto; }
+  #shopify-section-{{ section.id }} .ebsf-heading { text-align:center; margin:0 auto 30px; }
+  #shopify-section-{{ section.id }} .ebsf-eyebrow { display:block; color:var(--ebsf-orange); font-size:11px; letter-spacing:1.7px; font-weight:800; text-transform:uppercase; margin-bottom:12px; }
+  #shopify-section-{{ section.id }} .ebsf-heading h2 { margin:0 0 14px; font-family:Georgia,'Times New Roman',serif; color:var(--ebsf-navy); font-size:clamp(29px,4vw,39px); font-weight:600; line-height:1.2; }
+  #shopify-section-{{ section.id }} .ebsf-heading p { font-size:14px; line-height:1.75; color:var(--ebsf-muted); margin:0 auto; max-width:600px; }
+  #shopify-section-{{ section.id }} .ebsf-card { background:#fff; border:1px solid var(--ebsf-border); border-radius:11px; padding:32px; }
+  #shopify-section-{{ section.id }} .ebsf-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  #shopify-section-{{ section.id }} .ebsf-field { margin-bottom:18px; }
+  #shopify-section-{{ section.id }} .ebsf-field label { display:block; margin-bottom:8px; font-size:12px; line-height:1.5; font-weight:700; color:var(--ebsf-navy); }
+  #shopify-section-{{ section.id }} .ebsf-req { color:var(--ebsf-orange); }
+  #shopify-section-{{ section.id }} .ebsf-field input, #shopify-section-{{ section.id }} .ebsf-field select, #shopify-section-{{ section.id }} .ebsf-field textarea { display:block; width:100%; max-width:100%; min-height:46px; margin:0; padding:11px 13px; background:#fff; border:1px solid var(--ebsf-border); border-radius:6px; color:#233650; font-family:inherit; font-weight:400; font-size:13px; line-height:1.5; box-shadow:none; outline:none; }
+  #shopify-section-{{ section.id }} .ebsf-field textarea { min-height:116px; resize:vertical; }
+  #shopify-section-{{ section.id }} .ebsf-field input:focus, #shopify-section-{{ section.id }} .ebsf-field select:focus, #shopify-section-{{ section.id }} .ebsf-field textarea:focus { border-color:var(--ebsf-orange); box-shadow:0 0 0 3px rgba(236,103,38,.1); }
+  #shopify-section-{{ section.id }} .ebsf-submit { display:block; width:100%; min-height:49px; border:0; border-radius:6px; background:var(--ebsf-orange); color:white; font-family:inherit; font-size:14px; font-weight:700; line-height:1.4; padding:14px 22px; cursor:pointer; }
+  #shopify-section-{{ section.id }} .ebsf-submit:hover { background:#d95619; color:white; }
+  #shopify-section-{{ section.id }} .ebsf-note { text-align:center; margin:14px 0 0; color:var(--ebsf-muted); font-size:12px; line-height:1.7; }
+  #shopify-section-{{ section.id }} .ebsf-alert { padding:16px; margin-bottom:22px; border-radius:7px; font-size:14px; line-height:1.6; }
+  #shopify-section-{{ section.id }} .ebsf-success { background:#eef9f1; border:1px solid #b5dfbf; color:#236b3a; }
+  #shopify-section-{{ section.id }} .ebsf-error { background:#fff1f0; border:1px solid #f2b5af; color:#a52b24; }
+  @media(max-width:600px) { #shopify-section-{{ section.id }} .ebsf-wrap { padding:50px 16px 60px; } #shopify-section-{{ section.id }} .ebsf-card { padding:23px 18px; } #shopify-section-{{ section.id }} .ebsf-grid { grid-template-columns:1fr; gap:0; } }
+</style>
+
+<div class="ebsf-wrap" id="bike-servicing-enquiry">
+  <div class="ebsf-inner">
+    <header class="ebsf-heading">
+      {% if section.settings.eyebrow != blank %}<span class="ebsf-eyebrow">{{ section.settings.eyebrow | escape }}</span>{% endif %}
+      <h2>{{ section.settings.heading | escape }}</h2>
+      {% if section.settings.description != blank %}<p>{{ section.settings.description | escape }}</p>{% endif %}
+    </header>
+
+    <div class="ebsf-card">
+      {% form 'contact', id: 'EBBicycleServicingForm' %}
+        <input type="hidden" name="contact[Enquiry Type]" value="Bicycle Servicing Enquiry">
+
+        {% if form.posted_successfully? %}
+          <div class="ebsf-alert ebsf-success" role="status" tabindex="-1" data-ebsf-success><strong>Thank you!</strong> Your servicing enquiry has been received. Our team will be in touch shortly.</div>
+        {% endif %}
+        {% if form.errors %}
+          <div class="ebsf-alert ebsf-error" role="alert">{{ form.errors | default_errors }}</div>
+        {% endif %}
+
+        <div class="ebsf-grid">
+          <div class="ebsf-field">
+            <label for="ebsf-name-{{ section.id }}">Full name <span class="ebsf-req">*</span></label>
+            <input id="ebsf-name-{{ section.id }}" type="text" name="contact[name]" value="{{ form.name | escape }}" placeholder="Your full name" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="ebsf-field">
+            <label for="ebsf-phone-{{ section.id }}">Phone <span class="ebsf-req">*</span></label>
+            <input id="ebsf-phone-{{ section.id }}" type="tel" name="contact[phone]" value="{{ form.phone | escape }}" placeholder="Your phone number" autocomplete="tel" maxlength="30" required>
+          </div>
+        </div>
+
+        <div class="ebsf-field">
+          <label for="ebsf-email-{{ section.id }}">Email address <span class="ebsf-req">*</span></label>
+          <input id="ebsf-email-{{ section.id }}" type="email" name="contact[email]" value="{{ form.email | escape }}" placeholder="Your email address" autocomplete="email" maxlength="255" required>
+        </div>
+
+        <div class="ebsf-field">
+          <label for="ebsf-service-{{ section.id }}">Which service are you interested in? <span class="ebsf-req">*</span></label>
+          <select id="ebsf-service-{{ section.id }}" name="contact[Service Requested]" data-ebsf-service required>
+            <option value="" selected disabled>Select a service...</option>
+            <option value="Check-Up Service">Check-Up Service</option>
+            <option value="Standard Service">Standard Service</option>
+            <option value="Premium Service">Premium Service</option>
+          </select>
+        </div>
+
+        <div class="ebsf-field">
+          <label for="ebsf-bike-{{ section.id }}">Bike brand / model (Optional)</label>
+          <input id="ebsf-bike-{{ section.id }}" type="text" name="contact[Bike Brand and Model]" placeholder="e.g. NCM Moscow Plus" maxlength="150">
+        </div>
+
+        <div class="ebsf-field">
+          <label for="ebsf-arrangement-{{ section.id }}">How would you like to arrange your bike’s servicing? <span class="ebsf-req">*</span></label>
+          <select id="ebsf-arrangement-{{ section.id }}" name="contact[Servicing Arrangement]" required>
+            <option value="" selected disabled>Select an option...</option>
+            <option value="I'd like the bike to be picked up for servicing">I’d like the bike to be picked up for servicing</option>
+            <option value="I'll bring the bike in myself">I’ll bring the bike in myself</option>
+          </select>
+        </div>
+
+        <div class="ebsf-field">
+          <label for="ebsf-message-{{ section.id }}">Anything we should know? (Optional)</label>
+          <textarea id="ebsf-message-{{ section.id }}" name="contact[body]" rows="4" maxlength="2000" placeholder="Tell us about your bike, any issues you're experiencing, or specific questions...">{{ form.body | escape }}</textarea>
+        </div>
+
+        <button class="ebsf-submit" type="submit">{{ section.settings.button_text | escape }}</button>
+        <p class="ebsf-note">Submitting an enquiry does not confirm a servicing appointment. Our team will contact you to discuss the next steps.</p>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function init() {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var select = root.querySelector('[data-ebsf-service]');
+    if (root.dataset.ebsfBound !== 'true') {
+      root.dataset.ebsfBound = 'true';
+      document.querySelectorAll('[data-ebs-service], [data-eb-service]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (!select) return;
+          var value = link.getAttribute('data-ebs-service') || link.getAttribute('data-eb-service');
+          if (value) select.value = value;
+        });
+      });
+    }
+    var success = root.querySelector('[data-ebsf-success]');
+    if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('shopify:section:load', init);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Bicycle Servicing Form",
+  "tag": "section",
+  "class": "eb-bicycle-servicing-section",
+  "settings": [
+    {"type":"text","id":"eyebrow","label":"Small heading","default":"SERVICING ENQUIRY"},
+    {"type":"text","id":"heading","label":"Main heading","default":"Enquire About a Bike Service"},
+    {"type":"textarea","id":"description","label":"Description","default":"Tell us which service you're interested in and a little about your bike. Our team will get back to you with the next steps."},
+    {"type":"text","id":"button_text","label":"Submit button","default":"Send Servicing Enquiry"},
+    {"type":"range","id":"form_width","label":"Form width","min":500,"max":1000,"step":50,"unit":"px","default":700},
+    {"type":"range","id":"padding_top","label":"Top spacing","min":0,"max":120,"step":5,"unit":"px","default":70},
+    {"type":"range","id":"padding_bottom","label":"Bottom spacing","min":0,"max":120,"step":5,"unit":"px","default":80},
+    {"type":"color","id":"background_color","label":"Background colour","default":"#FFFFFF"}
+  ],
+  "presets":[{"name":"Bicycle Servicing Form"}]
+}
+{% endschema %}
