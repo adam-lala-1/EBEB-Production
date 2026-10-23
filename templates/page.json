@@ -138,10 +138,25 @@
         "heading": "",
         "subheading": ""
       }
+    },
+    "bicycle_servicing_form_4CyHed": {
+      "type": "bicycle-servicing-form",
+      "name": "Bicycle Servicing Form",
+      "settings": {
+        "eyebrow": "SERVICING ENQUIRY",
+        "heading": "Enquire About a Bike Service",
+        "description": "Tell us which service you're interested in and a little about your bike. Our team will get back to you with the next steps.",
+        "button_text": "Send Servicing Enquiry",
+        "form_width": 700,
+        "padding_top": 70,
+        "padding_bottom": 80,
+        "background_color": "#FFFFFF"
+      }
     }
   },
   "order": [
     "main",
-    "dealer_list_zPUbxj"
+    "dealer_list_zPUbxj",
+    "bicycle_servicing_form_4CyHed"
   ]
 }
