@@ -78,15 +78,15 @@
             "rsvp_url": "shopify://collections/electric-cargo-bikes"
           }
         },
-        "event_eyefNn": {
+        "event_mtQNAa": {
           "type": "event",
           "settings": {
-            "tag": "Bribie Island",
-            "capacity": "RSVP required",
-            "title": "Bribie Island Come & Try",
-            "date": "Weds 11 Nov 2026",
-            "time": "9:00 AM – 11:30 AM",
-            "location": "Brennan Park, Bongaree, Bribie Island",
+            "tag": "Brisbane",
+            "capacity": "Drop-in",
+            "title": "Bribie Island Pop-Up",
+            "date": "Wednesday 28th Oct 2026",
+            "time": "12:00 PM – 1:00 PM",
+            "location": "Bongaree, Bribie Island",
             "description": "Opportunity to test ride a 2-wheeled ebike or an upright or sit-down tricycle in your own backyard. Great to work out which option best suits your needs.",
             "cta_text": "RSVP",
             "rsvp_url": ""
@@ -120,15 +120,15 @@
             "rsvp_url": ""
           }
         },
-        "event_mtQNAa": {
+        "event_eyefNn": {
           "type": "event",
           "settings": {
-            "tag": "Brisbane",
-            "capacity": "Drop-in",
-            "title": "Bribie Island Pop-Up",
-            "date": "Wednesday 28th Oct 2026",
-            "time": "12:00 PM – 1:00 PM",
-            "location": "Bongaree, Bribie Island",
+            "tag": "Bribie Island",
+            "capacity": "RSVP required",
+            "title": "Bribie Island Come & Try",
+            "date": "Weds 11 Nov 2026",
+            "time": "9:00 AM – 11:30 AM",
+            "location": "Brennan Park, Bongaree, Bribie Island",
             "description": "Opportunity to test ride a 2-wheeled ebike or an upright or sit-down tricycle in your own backyard. Great to work out which option best suits your needs.",
             "cta_text": "RSVP",
             "rsvp_url": ""
@@ -137,10 +137,10 @@
       },
       "block_order": [
         "event_aYwfFV",
-        "event_eyefNn",
+        "event_mtQNAa",
         "event_kLXbqU",
         "event_HyLxJW",
-        "event_mtQNAa"
+        "event_eyefNn"
       ],
       "name": "Come & Try events",
       "settings": {
