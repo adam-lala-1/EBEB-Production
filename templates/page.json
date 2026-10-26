@@ -138,10 +138,20 @@
         "heading": "",
         "subheading": ""
       }
+    },
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
     }
   },
   "order": [
+    "shogun-helper",
     "main",
-    "dealer_list_zPUbxj"
+    "dealer_list_zPUbxj",
+    "shogun-optimizer"
   ]
 }
