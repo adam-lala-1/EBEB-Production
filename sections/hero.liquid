@@ -12,9 +12,14 @@
                 <h2 class="eeb-hero__heading">{{ block.settings.heading }} {% if block.settings.heading_highlight != blank %}<span class="eeb-hero__highlight">{{ block.settings.heading_highlight }}</span>{% endif %}</h2>
               {%- endif -%}
               <p>{{ block.settings.body }}</p>
+              <div class="eeb-hero__actions">
               {% if block.settings.cta_text != blank %}
                 <a class="eeb-btn eeb-btn--primary" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
               {% endif %}
+              {%- if block.settings.cta_text_2 != blank -%}
+                <a class="eeb-btn eeb-btn--secondary" href="{{ block.settings.cta_url_2 | default: '#' }}"> {{ block.settings.cta_text_2 }}</a>
+              {%- endif -%}
+            </div>
             </div>
             <div class="eeb-hero__media">
               {% if block.settings.image != blank %}
