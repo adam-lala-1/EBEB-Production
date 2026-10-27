@@ -417,3 +417,7 @@ p { margin: 0 0 1em; }
 a.eeb-btn.eeb-btn--secondary {
     border: 1px solid #E86C2C;
 }
+.eeb-hero__actions {
+    display: flex;
+    gap: 20px;
+}
