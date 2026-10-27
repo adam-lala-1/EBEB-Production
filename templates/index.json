@@ -22,7 +22,9 @@
             "heading_highlight": "every body.",
             "body": "Meet Richard, Jack & Andrea. We do not just sell e-bikes; we engineer solutions that restore freedom, joy, and independence to your daily ride.",
             "cta_text": "Explore the Range",
-            "cta_url": "shopify://collections"
+            "cta_url": "shopify://collections",
+            "cta_text_2": "Book a Test Ride",
+            "cta_url_2": "https://everybodyebikes.com.au/pages/book-a-test-ride"
           }
         },
         "slide_NtJ6yY": {
@@ -35,7 +37,9 @@
             "heading_highlight": "Kalkhoff",
             "body": "Authorised Kalkhoff Dealer for Brisbane. All powered by Bosch System motors, Kalkhoff blend smart electric tech with everyday usability and smooth riding.",
             "cta_text": "Shop Kalkhoff",
-            "cta_url": "shopify://collections/kalkhoff-e-bikes"
+            "cta_url": "shopify://collections/kalkhoff-e-bikes",
+            "cta_text_2": "Book a Test Ride",
+            "cta_url_2": "https://everybodyebikes.com.au/pages/book-a-test-ride"
           }
         },
         "slide2": {
@@ -48,7 +52,9 @@
             "heading_highlight": "stay together.",
             "body": "From family adventures to daily commutes — our e-bikes and trikes bring people together and keep them moving.",
             "cta_text": "Explore the Range",
-            "cta_url": "shopify://collections"
+            "cta_url": "shopify://collections",
+            "cta_text_2": "Book a Test Ride",
+            "cta_url_2": "https://everybodyebikes.com.au/pages/book-a-test-ride"
           }
         },
         "slide3": {
@@ -61,7 +67,9 @@
             "heading_highlight": "the all new Trident V3",
             "body": "Proudly engineered in Australia. The new Trident V3 delivers freedom, style and comfort.",
             "cta_text": "ORDER NOW",
-            "cta_url": "shopify://products/trident"
+            "cta_url": "shopify://products/trident",
+            "cta_text_2": "Book a Test Ride",
+            "cta_url_2": "https://everybodyebikes.com.au/pages/book-a-test-ride"
           }
         }
       },
