@@ -413,3 +413,7 @@ p { margin: 0 0 1em; }
     z-index: 9999;
     width: 100%;
 }
+
+a.eeb-btn.eeb-btn--secondary {
+    border: 1px solid #E86C2C;
+}
