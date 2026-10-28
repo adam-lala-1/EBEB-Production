@@ -123,6 +123,45 @@
       "block_order": [
         "ai_gen_block_808bace_GMfRb6"
       ],
+      "name": "USP Section",
+      "settings": {}
+    },
+    "1793163546656fcde3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_59cdc55_tBQahU": {
+          "type": "ai_gen_block_59cdc55",
+          "settings": {
+            "heading": "More than eBikes. A more inclusive Australia. ",
+            "desktop_width_percent": 80,
+            "vertical_padding": 40,
+            "heading_size": 30,
+            "item_heading_size": 16,
+            "image_size": 48,
+            "image_radius": 8,
+            "background_color": "#1B2A4A",
+            "heading_color": "#FFFFFF",
+            "text_color": "#FFFFFF",
+            "divider_color": "#AAB3C2",
+            "usp_1_image": "shopify://shop_images/expert_support.png",
+            "usp_1_title": "",
+            "usp_1_text": "Expert support ",
+            "usp_2_image": "shopify://shop_images/Trusted_brands.png",
+            "usp_2_title": "",
+            "usp_2_text": "Trusted brands",
+            "usp_3_image": "shopify://shop_images/Real_people.png",
+            "usp_3_title": "",
+            "usp_3_text": "Real people",
+            "usp_4_image": "shopify://shop_images/Delivery_Click_Collect_avaialble.png",
+            "usp_4_title": "",
+            "usp_4_text": "Delivery & Click & Collect available "
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_59cdc55_tBQahU"
+      ],
       "settings": {}
     },
     "cta_banner_FN9gGA": {
@@ -130,7 +169,7 @@
       "name": "CTA banner",
       "settings": {
         "heading": "Free Delivery* or Click & Collect",
-        "subheading": "Shop with confidence with our 10km Free Delivery Service. Or come Click & Collect from our Gaythorne location. Australia Wide Delivery also available.",
+        "subheading": "Shop with confidence with our 10km Free Delivery Service. Or come Click & Collect from our Gaythorne location. Australia Wide Delivery also available. <p></p>",
         "cta1_text": "",
         "cta1_url": "/collections/all",
         "cta2_text": "",
@@ -389,6 +428,7 @@
   "order": [
     "hero",
     "1793162933bef14383",
+    "1793163546656fcde3",
     "cta_banner_FN9gGA",
     "accessories",
     "categories",
