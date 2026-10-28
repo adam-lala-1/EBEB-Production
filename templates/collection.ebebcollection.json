@@ -66,8 +66,8 @@
             "placeholder_color": "#e5e7eb",
             "button_color": "#ffffff",
             "button_text_color": "#e86c2c",
-            "button_hover_color": "#FFFFFF",
-            "button_hover_text_color": "#ffffff"
+            "button_hover_color": "#ffffff",
+            "button_hover_text_color": "#E86C2C"
           },
           "blocks": {}
         }
