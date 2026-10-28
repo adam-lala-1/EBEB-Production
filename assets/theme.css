@@ -443,3 +443,11 @@ section.collectionuspsection {
 .uspitem:not(:last-child) {
     border-right: 1px solid #E86C2C;
 }
+@media only screen and (max-width:767px){
+  .uspdetails{
+    flex-direction:column;
+  }
+  .uspitem:not(:last-child){
+    border:none!important;
+  }
+}
