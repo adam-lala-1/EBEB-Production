@@ -438,7 +438,7 @@ section.collectionuspsection {
 }
 .uspheading{
   font-size:19px!important;
-  font-weight:700!important;
+  font-weight:400!important;
   font-family: var(--font-heading);
 }
 .uspitem:not(:last-child) {
