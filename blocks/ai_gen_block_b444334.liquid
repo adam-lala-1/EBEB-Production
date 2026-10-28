@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    max-width: 1280px;
+    
     margin: 0 auto;
   }
 
@@ -106,6 +106,7 @@
 {% endstyle %}
 
 <div class="ai-usp-grid-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
   <div class="ai-usp-grid-{{ ai_gen_id }}__inner">
     {% for i in (1..3) %}
       {% liquid
@@ -133,6 +134,7 @@
         </div>
       </article>
     {% endfor %}
+  </div>
   </div>
 </div>
 
