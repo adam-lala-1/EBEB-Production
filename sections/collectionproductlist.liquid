@@ -1,0 +1,70 @@
+{% paginate collection.products by section.settings.products_per_page %}
+
+<section class="eeb-section">
+  <div class="eeb-container">
+    <div class="eeb-collection-toolbar">
+      <p class="eeb-collection-toolbar__count">
+        {%- if collection.products_count > 0 -%}
+          Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: collection.products.size }} of {{ collection.products_count }} {% if collection.products_count == 1 %}product{% else %}products{% endif %}
+        {%- else -%}
+          No products yet
+        {%- endif -%}
+      </p>
+      {% if section.settings.show_sort and collection.products_count > 1 %}
+        <form class="eeb-collection-toolbar__sort" method="get">
+          <label for="SortBy">Sort by</label>
+          <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+            {%- assign sort_options = 'manual|Featured,best-selling|Best selling,title-ascending|A–Z,title-descending|Z–A,price-ascending|Price: Low to High,price-descending|Price: High to Low,created-descending|Newest' | split: ',' -%}
+            {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+            {%- for opt in sort_options -%}
+              {%- assign parts = opt | split: '|' -%}
+              <option value="{{ parts[0] }}" {% if current_sort == parts[0] %}selected{% endif %}>{{ parts[1] }}</option>
+            {%- endfor -%}
+          </select>
+        </form>
+      {% endif %}
+    </div>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="eeb-grid eeb-grid--{{ section.settings.columns | default: 3 }}">
+        {%- for product in collection.products -%}
+          <a href="{{ product.url }}" class="eeb-card eeb-card--product">
+            <div class="eeb-card__img">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;">
+              {%- endif -%}
+              {%- if product.compare_at_price > product.price -%}<span class="eeb-card__badge">Sale</span>{%- endif -%}
+              {%- unless product.available -%}<span class="eeb-card__badge eeb-card__badge--muted">Sold out</span>{%- endunless -%}
+            </div>
+            <div class="eeb-card__body">
+              {%- if product.vendor != blank and section.settings.show_vendor -%}<span class="eeb-card__eyebrow">{{ product.vendor }}</span>{%- endif -%}
+              <h3>{{ product.title }}</h3>
+              <p class="eeb-card__price">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="eeb-card__price--sale">{{ product.price | money }}</span>
+                  <s>{{ product.compare_at_price | money }}</s>
+                {%- elsif product.price_varies -%}
+                  From {{ product.price_min | money }}
+                {%- else -%}
+                  {{ product.price | money }}
+                {%- endif -%}
+              </p>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="eeb-pagination" aria-label="Pagination">
+          {{ paginate | default_pagination }}
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <div class="eeb-empty">
+        <p>No products in this collection yet. Check back soon.</p>
+        <a href="{{ routes.collections_url }}" class="eeb-btn eeb-btn--dark">Browse all collections</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{% endpaginate %}
