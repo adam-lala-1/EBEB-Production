@@ -14,7 +14,7 @@
     background: {{ block.settings.background_color }};
     color: {{ block.settings.text_color }};
   }
-  .ai-feature-panel-{{ ai_gen_id }}__inner { width: 100%; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  .ai-feature-panel-{{ ai_gen_id }}__inner { width: 100%; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
   .ai-feature-panel-{{ ai_gen_id }}__content { min-width: 0; }
   .ai-feature-panel-{{ ai_gen_id }}__eyebrow { margin: 0 0 12px; color: {{ block.settings.accent_color }}; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
   .ai-feature-panel-{{ ai_gen_id }}__heading { margin: 0 0 12px; color: inherit; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; }
@@ -44,6 +44,7 @@
 {% endstyle %}
 
 <div class="ai-feature-panel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
   <div class="ai-feature-panel-{{ ai_gen_id }}__inner">
     <div class="ai-feature-panel-{{ ai_gen_id }}__content">
       {% if block.settings.eyebrow != blank %}<p class="ai-feature-panel-{{ ai_gen_id }}__eyebrow">{{ block.settings.eyebrow | escape }}</p>{% endif %}
@@ -71,6 +72,7 @@
         {% endif %}
       {% endfor %}
     </div>
+  </div>
   </div>
 </div>
 
