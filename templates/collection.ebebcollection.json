@@ -19,9 +19,22 @@
         "show_sort": true,
         "show_vendor": false
       }
+    },
+    "main_collection_kByidb": {
+      "type": "main-collection",
+      "name": "Collection main",
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "Shop the range",
+        "products_per_page": 24,
+        "columns": "3",
+        "show_sort": true,
+        "show_vendor": false
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "main_collection_kByidb"
   ]
 }
