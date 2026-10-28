@@ -458,7 +458,7 @@ color: #1b2a4a;
     padding: 10px 15px;
     gap: 15px;
     display: flex;
-    flex-wrap: wrap;
+    
 }
 .productbtns a {
    width:100%!important;
