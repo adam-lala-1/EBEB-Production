@@ -437,9 +437,19 @@ section.collectionuspsection {
     margin-top: 40px;
 }
 .uspheading{
-  font-size:19px!important;
+  font-size:18px!important;
   font-weight:400!important;
   font-family: var(--font-heading);
+      color: #1b2a4a;
+    
+    line-height: 1.2;
+    margin: 0 0 5px;
+}
+.uspitmecont p{
+color: #1b2a4a;
+    font-size: 14px;
+    line-height: 1.35;
+    margin: 0;
 }
 .uspitem:not(:last-child) {
     border-right: 1px solid #E86C2C;
