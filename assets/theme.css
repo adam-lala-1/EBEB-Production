@@ -462,3 +462,8 @@ color: #1b2a4a;
     border:none!important;
   }
 }
+@media only screen and (min-width:768px) and (max-width:992px){
+  .ai-info-actions-abtvrztkwamlrdzuzdaigenblocka504746crmtex__inner{
+    flex-direction:column;
+  }
+}
