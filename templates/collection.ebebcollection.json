@@ -20,8 +20,8 @@
         "show_vendor": false
       }
     },
-    "main_collection_kByidb": {
-      "type": "main-collection",
+    "ebebmaincollection_AkPnpQ": {
+      "type": "ebebmaincollection",
       "name": "Collection main",
       "settings": {
         "show_eyebrow": true,
@@ -35,6 +35,6 @@
   },
   "order": [
     "main",
-    "main_collection_kByidb"
+    "ebebmaincollection_AkPnpQ"
   ]
 }
