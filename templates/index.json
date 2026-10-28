@@ -184,7 +184,7 @@
             "image_width": 64,
             "title_size": 20,
             "image_radius": 8,
-            "background_color": "#F8F5F0",
+            "background_color": "#FFFFFF",
             "text_color": "#1B2A4A",
             "divider_color": "#1B2A4A"
           },
