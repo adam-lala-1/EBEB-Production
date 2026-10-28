@@ -434,3 +434,7 @@ p { margin: 0 0 1em; }
 section.collectionuspsection {
     margin-top: 40px;
 }
+.uspheading{
+  font-size:16px!important;
+  font-weight:700!important;
+}
