@@ -13,8 +13,8 @@
       "type": "come-try-hero",
       "settings": {
         "eyebrow": "Enquiries & Test Rides",
-        "heading": "Come and Try — or just ask",
-        "subheading": "The best way to find the right ebike or trike is to ride one. Book a free test ride at our Gaythorne workshop any weekday, join us at an upcoming event, or send us a question — whatever suits you best.",
+        "heading": "Book a Test Ride — we’ll take care of the rest",
+        "subheading": "Try the right eBike or trike with friendly, expert support at our Gaythorne workshop. No pressure, no sales pitch — just a relaxed, helpful experience to find the right fit for you.",
         "cta1_text": "Book a test ride",
         "cta1_url": "#rsvp",
         "cta2_text": "See upcoming events",
@@ -474,10 +474,45 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
+    },
+    "blocks_YFbQwB": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_BWztcH": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_heading": "Free delivery",
+            "usp_1_text": "Delivered to your door",
+            "usp_2_heading": "Quality support",
+            "usp_2_text": "Here when you need us",
+            "usp_3_heading": "Secure checkout",
+            "usp_3_text": "Shop with confidence",
+            "usp_4_heading": "Built for adventure",
+            "usp_4_text": "Find your next ride",
+            "desktop_width_percent": 100,
+            "image_size": 48,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "secondary_text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_BWztcH"
+      ],
+      "name": "Four USP row",
+      "settings": {}
     }
   },
   "order": [
     "hero",
+    "blocks_YFbQwB",
     "expect",
     "come_try_events_rMMWWF",
     "gaythorne",
