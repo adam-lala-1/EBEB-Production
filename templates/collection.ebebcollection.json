@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-collection",
+      "disabled": true,
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "FOR DEALERS & BUSINESS PARTNERS",
@@ -22,7 +23,7 @@
     },
     "ebebmaincollection_AkPnpQ": {
       "type": "ebebmaincollection",
-      "name": "Collection main",
+      "name": "EBEB Collection main",
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "Shop the range",
