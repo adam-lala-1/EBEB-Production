@@ -1,6 +1,129 @@
+{% doc %}
+  @prompt
+    a section with 2 cols, left col has a heading, and para text and followed with 2 buttons in a row, and in right col one image, option for button text and bg color too
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-column-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.padding }}px 24px;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+  .ai-two-column__inner-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+  }
+  .ai-two-column__content-{{ ai_gen_id }} { min-width: 0; }
+  .ai-two-column__heading-{{ ai_gen_id }} {
+    margin: 0 0 18px;
+    color: {{ block.settings.heading_color }};
+    font-size: clamp(30px, 4vw, {{ block.settings.heading_size }}px);
+    line-height: 1.12;
+  }
+  .ai-two-column__text-{{ ai_gen_id }} { color: {{ block.settings.text_color }}; line-height: 1.65; margin-bottom: 26px; }
+  .ai-two-column__text-{{ ai_gen_id }} p { margin: 0 0 12px; }
+  .ai-two-column__text-{{ ai_gen_id }} p:last-child { margin-bottom: 0; }
+  .ai-two-column__buttons-{{ ai_gen_id }} { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ai-two-column__button-{{ ai_gen_id }} {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 2px solid {{ block.settings.button_one_bg }};
+    border-radius: {{ block.settings.button_radius }}px;
+    background: {{ block.settings.button_one_bg }};
+    color: {{ block.settings.button_one_text }};
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .ai-two-column__button-{{ ai_gen_id }}:hover { filter: brightness(0.9); }
+  .ai-two-column__button-{{ ai_gen_id }}:focus-visible { outline: 3px solid {{ block.settings.heading_color }}; outline-offset: 3px; }
+  .ai-two-column__button-{{ ai_gen_id }}--secondary {
+    border-color: {{ block.settings.button_two_bg }};
+    background: {{ block.settings.button_two_bg }};
+    color: {{ block.settings.button_two_text }};
+  }
+  .ai-two-column__image-wrap-{{ ai_gen_id }} { width: 100%; overflow: hidden; border-radius: {{ block.settings.image_radius }}px; }
+  .ai-two-column__image-wrap-{{ ai_gen_id }} img { display: block; width: 100%; height: auto; object-fit: cover; }
+  .ai-two-column__placeholder-{{ ai_gen_id }} { position: relative; width: 100%; aspect-ratio: 4 / 3; background: #eeeae3; display: grid; place-items: center; }
+  .ai-two-column__placeholder-{{ ai_gen_id }} svg { width: 100%; height: 100%; }
+  .ai-two-column__empty-{{ ai_gen_id }} { position: absolute; bottom: 14px; left: 12px; right: 12px; color: #444444; text-align: center; font-size: 14px; }
+  @media screen and (max-width: 749px) {
+    .ai-two-column-{{ ai_gen_id }} { padding: {{ block.settings.mobile_padding }}px 20px; }
+    .ai-two-column__inner-{{ ai_gen_id }} { grid-template-columns: 1fr; gap: 28px; }
+    .ai-two-column__content-{{ ai_gen_id }} { order: 1; }
+    .ai-two-column__visual-{{ ai_gen_id }} { order: 2; }
+    .ai-two-column__buttons-{{ ai_gen_id }} { gap: 10px; }
+  }
+{% endstyle %}
+
+<div class="ai-two-column-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-two-column__inner-{{ ai_gen_id }}">
+    <div class="ai-two-column__content-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}<h2 class="ai-two-column__heading-{{ ai_gen_id }}">{{ block.settings.heading | escape }}</h2>{% endif %}
+      {% if block.settings.body != blank %}<div class="ai-two-column__text-{{ ai_gen_id }}">{{ block.settings.body }}</div>{% endif %}
+      <div class="ai-two-column__buttons-{{ ai_gen_id }}">
+        {% if block.settings.button_one_label != blank and block.settings.button_one_link != blank %}<a class="ai-two-column__button-{{ ai_gen_id }}" href="{{ block.settings.button_one_link }}">{{ block.settings.button_one_label | escape }}</a>{% endif %}
+        {% if block.settings.button_two_label != blank and block.settings.button_two_link != blank %}<a class="ai-two-column__button-{{ ai_gen_id }} ai-two-column__button-{{ ai_gen_id }}--secondary" href="{{ block.settings.button_two_link }}">{{ block.settings.button_two_label | escape }}</a>{% endif %}
+      </div>
+    </div>
+    <div class="ai-two-column__visual-{{ ai_gen_id }}">
+      <div class="ai-two-column__image-wrap-{{ ai_gen_id }}">
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+        {% else %}
+          <div class="ai-two-column__placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <span class="ai-two-column__empty-{{ ai_gen_id }}">Choose an image to complete this section</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Two-column feature",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Explore further, your way" },
+    { "type": "richtext", "id": "body", "label": "Text", "default": "<p>Discover the freedom of electric biking with a ride designed to make every journey more enjoyable.</p>" },
+    { "type": "text", "id": "button_one_label", "label": "First button label", "default": "Shop e-bikes" },
+    { "type": "url", "id": "button_one_link", "label": "First button link" },
+    { "type": "text", "id": "button_two_label", "label": "Second button label", "default": "Learn more" },
+    { "type": "url", "id": "button_two_link", "label": "Second button link" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F8F5F0" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1B2A4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1B2A4A" },
+    { "type": "header", "content": "First button colors" },
+    { "type": "color", "id": "button_one_bg", "label": "Background", "default": "#1B2A4A" },
+    { "type": "color", "id": "button_one_text", "label": "Text", "default": "#FFFFFF" },
+    { "type": "header", "content": "Second button colors" },
+    { "type": "color", "id": "button_two_bg", "label": "Background", "default": "#E86C2C" },
+    { "type": "color", "id": "button_two_text", "label": "Text", "default": "#FFFFFF" },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 30, "max": 60, "step": 2, "unit": "px", "default": 42 },
+    { "type": "range", "id": "padding", "label": "Desktop spacing", "min": 20, "max": 100, "step": 5, "unit": "px", "default": 60 },
+    { "type": "range", "id": "mobile_padding", "label": "Mobile spacing", "min": 10, "max": 60, "step": 5, "unit": "px", "default": 30 },
+    { "type": "range", "id": "button_radius", "label": "Button corner radius", "min": 0, "max": 30, "step": 2, "unit": "px", "default": 4 },
+    { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 30, "step": 2, "unit": "px", "default": 8 }
+  ],
+  "presets": [{ "name": "Two-column feature" }],
+  "tag": null,
+  "class": "two-column-feature"
+}
 {% endschema %}
