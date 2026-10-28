@@ -1,6 +1,203 @@
+{% doc %}
+  @prompt
+    generate a section that displays the products for the specific collections with the same template and style used in the website across all collections, and it should get auto selected by the title or slug or anything
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign source_collection = block.settings.collection_source %}
+{% if source_collection == blank and collection != blank %}
+  {% assign source_collection = collection %}
+{% endif %}
+
+{% style %}
+  .ai-collection-products-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    color: #1B2A4A;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__heading {
+    margin: 0 0 24px;
+    color: #1B2A4A;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.2;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #fff;
+    color: #1B2A4A;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__card:hover {
+    border-color: #E86C2C;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #F8F5F0;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__media img,
+  .ai-collection-products-{{ ai_gen_id }}__media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__details {
+    padding: 16px;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__title {
+    margin: 0 0 8px;
+    color: #1B2A4A;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__price {
+    margin: 0;
+    color: #1B2A4A;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__compare {
+    margin-left: 8px;
+    color: #6B7280;
+    font-weight: 400;
+    text-decoration: line-through;
+  }
+
+  .ai-collection-products-{{ ai_gen_id }}__empty {
+    padding: 28px 20px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    color: #1B2A4A;
+    background: #F8F5F0;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-collection-products-{{ ai_gen_id }}__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .ai-collection-products-{{ ai_gen_id }}__details {
+      padding: 12px;
+    }
+
+    .ai-collection-products-{{ ai_gen_id }}__title {
+      font-size: 14px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-collection-products-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if source_collection != blank %}
+    {% if block.settings.show_heading %}
+      <h2 class="ai-collection-products-{{ ai_gen_id }}__heading">{{ block.settings.heading | default: source_collection.title | escape }}</h2>
+    {% endif %}
+    {% if source_collection.products_count > 0 %}
+      <div class="ai-collection-products-{{ ai_gen_id }}__grid">
+        {% for product in source_collection.products limit: block.settings.products_to_show %}
+          <a class="ai-collection-products-{{ ai_gen_id }}__card" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+            <span class="ai-collection-products-{{ ai_gen_id }}__media">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}">
+              {% else %}
+                {{ 'product-apparel-1' | placeholder_svg_tag }}
+              {% endif %}
+            </span>
+            <span class="ai-collection-products-{{ ai_gen_id }}__details">
+              <span class="ai-collection-products-{{ ai_gen_id }}__title">{{ product.title | escape }}</span>
+              <span class="ai-collection-products-{{ ai_gen_id }}__price">
+                {{ product.price | money }}
+                {% if product.compare_at_price > product.price %}<span class="ai-collection-products-{{ ai_gen_id }}__compare">{{ product.compare_at_price | money }}</span>{% endif %}
+              </span>
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="ai-collection-products-{{ ai_gen_id }}__empty">This collection has no products to display yet.</div>
+    {% endif %}
+  {% else %}
+    <div class="ai-collection-products-{{ ai_gen_id }}__empty">Choose a collection, or add this block to a collection page to display that collection automatically.</div>
+  {% endif %}
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Collection products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection_source",
+      "label": "Collection override"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 4,
+      "max": 20,
+      "step": 4,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection products"
+    }
+  ],
+  "tag": null,
+  "class": "collection-products-block"
+}
 {% endschema %}
