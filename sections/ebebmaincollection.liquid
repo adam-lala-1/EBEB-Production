@@ -90,7 +90,7 @@
     {%- if collection.products.size > 0 -%}
       <div class="eeb-grid eeb-grid--{{ section.settings.columns | default: 3 }}">
         {%- for product in collection.products -%}
-          <div href="{{ product.url }}" class="eeb-card eeb-card--product">
+          <div class="eeb-card eeb-card--product">
             <div class="eeb-card__img">
               {%- if product.featured_image -%}
                 <a href="{{ product.url }}"><img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;"></a>
