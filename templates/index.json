@@ -220,7 +220,7 @@
             "title": "",
             "price": "",
             "link": "shopify://products/benno-remi-demi-xl",
-            "show_description": true
+            "show_description": false
           }
         },
         "a4": {
@@ -262,6 +262,9 @@
         "a4",
         "a1",
         "a2"
+      ],
+      "custom_css": [
+        ".eeb-card__body p {color: red; font-size: 20px; margin-top: 5px; font-weight: bold;}"
       ],
       "settings": {
         "eyebrow": "Order online or Instore",
