@@ -13,7 +13,7 @@
     background: {{ block.settings.background_color }};
     color: {{ block.settings.text_color }};
   }
-  .ai-two-column__inner-{{ ai_gen_id }} { width: 100%; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 48px; }
+  .ai-two-column__inner-{{ ai_gen_id }} { width: 100%;  margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 48px; }
   .ai-two-column__content-{{ ai_gen_id }} { min-width: 0; }
   .ai-two-column__heading-{{ ai_gen_id }} { margin: 0 0 18px; color: {{ block.settings.heading_color }}; font-size: clamp(30px, 4vw, {{ block.settings.heading_size }}px); line-height: 1.12; }
   .ai-two-column__text-{{ ai_gen_id }} { color: {{ block.settings.text_color }}; line-height: 1.65; margin-bottom: 26px; }
@@ -40,6 +40,7 @@
 {% endstyle %}
 
 <div class="ai-two-column-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
   <div class="ai-two-column__inner-{{ ai_gen_id }}">
     <div class="ai-two-column__content-{{ ai_gen_id }}">
       {% if block.settings.heading != blank %}<h2 class="ai-two-column__heading-{{ ai_gen_id }}">{{ block.settings.heading | escape }}</h2>{% endif %}
@@ -59,6 +60,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 {% schema %}
