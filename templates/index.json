@@ -80,13 +80,50 @@
         "slide3"
       ],
       "settings": {
-        "show_badges": true,
+        "show_badges": false,
         "badge_1": "🏅 QLD Social Enterprise",
         "badge_2": "🚴 Free Test Rides",
         "badge_3": "⚡️ E-Bike & Trike Specialist",
         "autoplay_speed": 8000,
         "transition_speed": 500
       }
+    },
+    "1793162933bef14383": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_GMfRb6": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/Test_Rides_available.png",
+            "usp_1_heading": "Test rides available",
+            "usp_1_text": "Try before you buy",
+            "usp_2_image": "shopify://shop_images/Workshop_support.png",
+            "usp_2_heading": "Workshop support",
+            "usp_2_text": "Expert service & repairs",
+            "usp_3_image": "shopify://shop_images/Registered_NDIS_Provider.png",
+            "usp_3_heading": "Registered NDIS Provider",
+            "usp_3_text": "Supporting more ability",
+            "usp_4_image": "shopify://shop_images/Free_delivery.png",
+            "usp_4_heading": "Free delivery /  Click & Collect",
+            "usp_4_text": "— Australia-wide available",
+            "desktop_width_percent": 100,
+            "image_size": 52,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "secondary_text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_GMfRb6"
+      ],
+      "settings": {}
     },
     "cta_banner_FN9gGA": {
       "type": "cta-banner",
@@ -351,6 +388,7 @@
   },
   "order": [
     "hero",
+    "1793162933bef14383",
     "cta_banner_FN9gGA",
     "accessories",
     "categories",
