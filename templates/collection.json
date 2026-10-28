@@ -1,9 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-collection",
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "Shop the range",
+        "products_per_page": 24,
+        "columns": "3",
+        "show_sort": true,
+        "show_vendor": false
+      }
+    },
+    "blocks_9mMYH3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_9e4FCW": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/australia_wide_support_6b6c15b3-73b6-4027-91c8-1bd50f8f06f3.png",
+            "usp_1_heading": "Australia-wide support",
+            "usp_1_text": "Delivery & dealer network",
+            "usp_2_image": "shopify://shop_images/manual_Servicing.png",
+            "usp_2_heading": "Manuals & servicing",
+            "usp_2_text": "Technical support & spare parts ",
+            "usp_3_image": "shopify://shop_images/Dealer_Training.png",
+            "usp_3_heading": "Dealer training",
+            "usp_3_text": "Product training & resources ",
+            "usp_4_image": "shopify://shop_images/Friendly_Local_advice.png",
+            "usp_4_heading": "Friendly local advice",
+            "usp_4_text": "Real people, real partnership",
+            "desktop_width_percent": 100,
+            "image_size": 56,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#ffffff",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_9e4FCW"
+      ],
+      "name": "Four USP row",
       "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "blocks_9mMYH3"
+  ]
 }
