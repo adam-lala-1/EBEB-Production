@@ -133,6 +133,7 @@
 {% endstyle %}
 
 <div class="ai-usp-band-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
   <div class="ai-usp-band__inner-{{ ai_gen_id }}">
     {% if block.settings.heading != blank %}
       <h2 class="ai-usp-band__heading-{{ ai_gen_id }}">{{ block.settings.heading | escape }}</h2>
@@ -162,6 +163,7 @@
         </div>
       {% endfor %}
     </div>
+  </div>
   </div>
 </div>
 
