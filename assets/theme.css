@@ -437,8 +437,9 @@ section.collectionuspsection {
     margin-top: 40px;
 }
 .uspheading{
-  font-size:17px!important;
+  font-size:19px!important;
   font-weight:700!important;
+  font-family: var(--font-heading);
 }
 .uspitem:not(:last-child) {
     border-right: 1px solid #E86C2C;
