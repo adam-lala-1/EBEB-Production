@@ -106,16 +106,16 @@
             "usp_4_image": "shopify://shop_images/Free_delivery.png",
             "usp_4_heading": "Free delivery /  Click & Collect",
             "usp_4_text": "Australia-wide available",
-            "desktop_width_percent": 90,
+            "desktop_width_percent": 100,
             "image_size": 52,
             "item_gap": 20,
             "vertical_padding": 15,
             "heading_size": 16,
             "text_size": 14,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "secondary_text_color": "#1B2A4A",
-            "placeholder_color": "#E5E7EB"
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
           },
           "blocks": {}
         }
@@ -139,10 +139,10 @@
             "item_heading_size": 16,
             "image_size": 48,
             "image_radius": 8,
-            "background_color": "#1B2A4A",
-            "heading_color": "#FFFFFF",
-            "text_color": "#FFFFFF",
-            "divider_color": "#AAB3C2",
+            "background_color": "#1b2a4a",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "divider_color": "#aab3c2",
             "usp_1_image": "shopify://shop_images/expert_support.png",
             "usp_1_title": "",
             "usp_1_text": "Expert support ",
@@ -184,9 +184,9 @@
             "image_width": 64,
             "title_size": 20,
             "image_radius": 8,
-            "background_color": "#FFFFFF",
-            "text_color": "#1B2A4A",
-            "divider_color": "#1B2A4A"
+            "background_color": "#ffffff",
+            "text_color": "#1b2a4a",
+            "divider_color": "#1b2a4a"
           },
           "blocks": {}
         }
