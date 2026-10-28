@@ -44,7 +44,7 @@
             "description": "Talk to our team about wholesale pricing, dealership opportunities, demo options and tailored support.",
             "buttons_label": "Explore more",
             "button_1_label": "Book a Dealer Call",
-            "button_1_link": "#",
+            "button_1_link": "https://everybodyebikes.com.au/pages/distributor-list",
             "button_1_icon": "shopify://shop_images/Book_a_Dealer_Call.png",
             "button_2_label": "Talk to our dealer team",
             "button_2_link": "shopify://pages/contact",
