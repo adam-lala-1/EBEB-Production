@@ -1,6 +1,171 @@
+{% doc %}
+  @prompt
+    generate a section for 4 usp in one row, each usp has left side image and right side heading text and later the para of one line, give me color options too 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-usp-row-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    padding: {{ block.settings.vertical_padding }}px 20px;
+  }
+
+  .ai-usp-row__inner-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: {{ block.settings.item_gap }}px;
+    width: 100%;
+  }
+
+  .ai-usp-row__item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .ai-usp-row__image-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    flex: 0 0 {{ block.settings.image_size }}px;
+    object-fit: contain;
+  }
+
+  .ai-usp-row__image-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    flex: 0 0 {{ block.settings.image_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: {{ block.settings.placeholder_color }};
+    border-radius: 50%;
+  }
+
+  .ai-usp-row__image-placeholder-{{ ai_gen_id }} svg {
+    width: 70%;
+    height: 70%;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-usp-row__content-{{ ai_gen_id }} {
+    min-width: 0;
+  }
+
+  .ai-usp-row__heading-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    line-height: 1.2;
+    margin: 0 0 5px;
+  }
+
+  .ai-usp-row__text-{{ ai_gen_id }} {
+    color: {{ block.settings.secondary_text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-usp-row__inner-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 22px;
+    }
+  }
+
+  @media screen and (max-width: 549px) {
+    .ai-usp-row-{{ ai_gen_id }} {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .ai-usp-row__inner-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-usp-row-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-usp-row__inner-{{ ai_gen_id }}">
+    {% for i in (1..4) %}
+      {% liquid
+        assign image_key = 'usp_' | append: i | append: '_image'
+        assign heading_key = 'usp_' | append: i | append: '_heading'
+        assign text_key = 'usp_' | append: i | append: '_text'
+        assign usp_image = block.settings[image_key]
+        assign usp_heading = block.settings[heading_key]
+        assign usp_text = block.settings[text_key]
+      %}
+      <div class="ai-usp-row__item-{{ ai_gen_id }}">
+        {% if usp_image != blank %}
+          <img
+            class="ai-usp-row__image-{{ ai_gen_id }}"
+            src="{{ usp_image | image_url: width: 160 }}"
+            alt="{{ usp_image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_size }}"
+            height="{{ block.settings.image_size }}"
+          >
+        {% else %}
+          <div class="ai-usp-row__image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+        <div class="ai-usp-row__content-{{ ai_gen_id }}">
+          {% if usp_heading != blank %}
+            <h3 class="ai-usp-row__heading-{{ ai_gen_id }}">{{ usp_heading | escape }}</h3>
+          {% endif %}
+          {% if usp_text != blank %}
+            <p class="ai-usp-row__text-{{ ai_gen_id }}">{{ usp_text | escape }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Four USP row",
+  "settings": [
+    { "type": "header", "content": "USP 1" },
+    { "type": "image_picker", "id": "usp_1_image", "label": "Image" },
+    { "type": "text", "id": "usp_1_heading", "label": "Heading", "default": "Free delivery" },
+    { "type": "text", "id": "usp_1_text", "label": "Description", "default": "Delivered to your door" },
+    { "type": "header", "content": "USP 2" },
+    { "type": "image_picker", "id": "usp_2_image", "label": "Image" },
+    { "type": "text", "id": "usp_2_heading", "label": "Heading", "default": "Quality support" },
+    { "type": "text", "id": "usp_2_text", "label": "Description", "default": "Here when you need us" },
+    { "type": "header", "content": "USP 3" },
+    { "type": "image_picker", "id": "usp_3_image", "label": "Image" },
+    { "type": "text", "id": "usp_3_heading", "label": "Heading", "default": "Secure checkout" },
+    { "type": "text", "id": "usp_3_text", "label": "Description", "default": "Shop with confidence" },
+    { "type": "header", "content": "USP 4" },
+    { "type": "image_picker", "id": "usp_4_image", "label": "Image" },
+    { "type": "text", "id": "usp_4_heading", "label": "Heading", "default": "Built for adventure" },
+    { "type": "text", "id": "usp_4_text", "label": "Description", "default": "Find your next ride" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "image_size", "label": "Image size", "min": 32, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "item_gap", "label": "Item spacing", "min": 8, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "vertical_padding", "label": "Vertical padding", "min": 0, "max": 40, "step": 5, "unit": "px", "default": 15 },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "text_size", "label": "Description size", "min": 12, "max": 20, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F8F5F0" },
+    { "type": "color", "id": "text_color", "label": "Heading and icons", "default": "#1B2A4A" },
+    { "type": "color", "id": "secondary_text_color", "label": "Description", "default": "#1B2A4A" },
+    { "type": "color", "id": "placeholder_color", "label": "Image placeholder", "default": "#E5E7EB" }
+  ],
+  "presets": [
+    { "name": "Four USP row" }
+  ],
+  "tag": null,
+  "class": "four-usp-row"
+}
 {% endschema %}
