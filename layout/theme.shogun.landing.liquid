@@ -47,9 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
-  
-  {% render 'shogun-head' %}
-</head>
+  </head>
   <body class="template-{{ template | replace: '.', '-' | handle }}">
     {% include 'shogun-content-handler' %}
 
