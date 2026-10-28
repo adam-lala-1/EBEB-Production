@@ -449,6 +449,51 @@
         "body": "<p>Every EBEB bike is assembled in Australia and built around inclusive design principles — because mobility is a right, not a privilege.</p>"
       }
     },
+    "1793165534916abaed": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_446186a_c6FDgj": {
+          "type": "ai_gen_block_446186a",
+          "settings": {
+            "heading": "Find your nearest dealer or book a test ride",
+            "body": "<p>Try before you buy at one of our showrooms or local dealers across Australia.</p>",
+            "button_one_label": "Book a Test Ride ->",
+            "button_one_link": "https://everybodyebikes.com.au/pages/book-a-test-ride",
+            "button_two_label": "Find a Dealer ->",
+            "button_two_link": "shopify://pages/distributor-list",
+            "image": "shopify://shop_images/Sunny_Seaside_Cycling_Couple.png",
+            "desktop_width_percent": 100,
+            "background_color": "#F8F5F0",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "heading_size": 42,
+            "padding": 60,
+            "mobile_padding": 30,
+            "image_radius": 8,
+            "button_one_bg": "#E86C2C",
+            "button_one_text": "#FFFFFF",
+            "button_one_border": "#E86C2C",
+            "button_one_border_width": 2,
+            "button_one_hover_bg": "#FBF5F0",
+            "button_one_hover_text": "#E86C2C",
+            "button_one_hover_border": "#E86C2C",
+            "button_two_bg": "#FBF5F0",
+            "button_two_text": "#E86C2C",
+            "button_two_border": "#E86C2C",
+            "button_two_border_width": 2,
+            "button_two_hover_bg": "#E86C2C",
+            "button_two_hover_text": "#FFFFFF",
+            "button_two_hover_border": "#E86C2C",
+            "button_radius": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_446186a_c6FDgj"
+      ],
+      "settings": {}
+    },
     "cta": {
       "type": "cta-banner",
       "settings": {
@@ -473,6 +518,7 @@
     "hero_alt",
     "stories",
     "people",
+    "1793165534916abaed",
     "cta"
   ]
 }
