@@ -427,6 +427,7 @@ p { margin: 0 0 1em; }
 }
 .uspdetails .uspitem{
   display:flex;
+  gap:20px;
 }
 .uspdetails .uspitem img{
   height:70px!important;
