@@ -67,7 +67,7 @@
             "button_color": "#ffffff",
             "button_text_color": "#e86c2c",
             "button_hover_color": "#ffffff",
-            "button_hover_text_color": "#E86C2C"
+            "button_hover_text_color": "#e86c2c"
           },
           "blocks": {}
         }
@@ -76,11 +76,50 @@
         "ai_gen_block_a504746_cRMTeX"
       ],
       "settings": {}
+    },
+    "blocks_C3We6f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_YFG9xR": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/australia_wide_support_6b6c15b3-73b6-4027-91c8-1bd50f8f06f3.png",
+            "usp_1_heading": "Australia-wide support",
+            "usp_1_text": "Delivery & dealer network",
+            "usp_2_image": "shopify://shop_images/manual_Servicing.png",
+            "usp_2_heading": "Manuals & servicing",
+            "usp_2_text": "Technical support & spare parts ",
+            "usp_3_image": "shopify://shop_images/Dealer_Training.png",
+            "usp_3_heading": "Dealer training",
+            "usp_3_text": "Product training & resources ",
+            "usp_4_image": "shopify://shop_images/Friendly_Local_advice.png",
+            "usp_4_heading": "Friendly local advice",
+            "usp_4_text": "Real people, real partnership",
+            "desktop_width_percent": 100,
+            "image_size": 48,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#FFFFFF",
+            "text_color": "#1B2A4A",
+            "secondary_text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_YFG9xR"
+      ],
+      "name": "Four USP row",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "ebebmaincollection_AkPnpQ",
-    "1793178018582c0542"
+    "1793178018582c0542",
+    "blocks_C3We6f"
   ]
 }
