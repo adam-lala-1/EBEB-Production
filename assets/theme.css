@@ -431,6 +431,7 @@ p { margin: 0 0 1em; }
 }
 .uspdetails .uspitem img{
   height:50px!important;
+  object-fit:contain;
 }
 section.collectionuspsection {
     margin-top: 40px;
