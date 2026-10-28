@@ -106,7 +106,7 @@
             "usp_4_image": "shopify://shop_images/Free_delivery.png",
             "usp_4_heading": "Free delivery /  Click & Collect",
             "usp_4_text": "Australia-wide available",
-            "desktop_width_percent": 100,
+            "desktop_width_percent": 90,
             "image_size": 52,
             "item_gap": 20,
             "vertical_padding": 15,
@@ -133,8 +133,8 @@
           "type": "ai_gen_block_59cdc55",
           "settings": {
             "heading": "More than eBikes. A more inclusive Australia. ",
-            "desktop_width_percent": 80,
-            "vertical_padding": 40,
+            "desktop_width_percent": 95,
+            "vertical_padding": 20,
             "heading_size": 30,
             "item_heading_size": 16,
             "image_size": 48,
@@ -164,8 +164,41 @@
       ],
       "settings": {}
     },
+    "1793163914bee4a3f8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b444334_GxEyBJ": {
+          "type": "ai_gen_block_b444334",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/QLD_Social_Enterprise_People_planet_purpose.png",
+            "usp_1_title": "QLD Social Enterprise",
+            "usp_1_text": "<p>&nbsp;People, planet, purpose</p>",
+            "usp_2_image": "shopify://shop_images/For_Purpose_Business_Creating_a_more_inclusive_future.png",
+            "usp_2_title": "For Purpose Business",
+            "usp_2_text": "<p>Creating a more inclusive future</p>",
+            "usp_3_image": "shopify://shop_images/People_Planet_First_Member_Building_a_fairer_cleaner_future.png",
+            "usp_3_title": "People + Planet First Member",
+            "usp_3_text": "<p>Building a fairer, cleaner future</p>",
+            "desktop_width_percent": 100,
+            "padding": 20,
+            "image_width": 64,
+            "title_size": 20,
+            "image_radius": 8,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "divider_color": "#1B2A4A"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b444334_GxEyBJ"
+      ],
+      "settings": {}
+    },
     "cta_banner_FN9gGA": {
       "type": "cta-banner",
+      "disabled": true,
       "name": "CTA banner",
       "settings": {
         "heading": "Free Delivery* or Click & Collect",
@@ -429,6 +462,7 @@
     "hero",
     "1793162933bef14383",
     "1793163546656fcde3",
+    "1793163914bee4a3f8",
     "cta_banner_FN9gGA",
     "accessories",
     "categories",
