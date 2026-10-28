@@ -1,6 +1,137 @@
+{% doc %}
+  @prompt
+    generate a section that displays the products for the specific collections with the same template and style used in the website across all collections, and it should get auto selected by the title or slug or anything, no the template is totally different, it is like this  <section class="eeb-section">
+      <div class="eeb-container">
+        <div class="eeb-collection-toolbar">
+          <p class="eeb-collection-toolbar__count">
+            {%- if collection.products_count > 0 -%}
+              Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: collection.products.size }} of {{ collection.products_count }} {% if collection.products_count == 1 %}product{% else %}products{% endif %}
+            {%- else -%}
+              No products yet
+            {%- endif -%}
+          </p>
+          {% if section.settings.show_sort and collection.products_count > 1 %}
+            <form class="eeb-collection-toolbar__sort" method="get">
+              <label for="SortBy">Sort by</label>
+              <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+                {%- assign sort_options = 'manual|Featured,best-selling|Best selling,title-ascending|A–Z,title-descending|Z–A,price-ascending|Price: Low to High,price-descending|Price: High to Low,created-descending|Newest' | split: ',' -%}
+                {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+                {%- for opt in sort_options -%}
+                  {%- assign parts = opt | split: '|' -%}
+                  <option value="{{ parts[0] }}" {% if current_sort == parts[0] %}selected{% endif %}>{{ parts[1] }}</option>
+                {%- endfor -%}
+              </select>
+            </form>
+          {% endif %}
+        </div>
+    
+        {%- if collection.products.size > 0 -%}
+          <div class="eeb-grid eeb-grid--{{ section.settings.columns | default: 3 }}">
+            {%- for product in collection.products -%}
+              <a href="{{ product.url }}" class="eeb-card eeb-card--product">
+                <div class="eeb-card__img">
+                  {%- if product.featured_image -%}
+                    <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" style="object-fit:contain;background:#fff;padding:1rem;">
+                  {%- endif -%}
+                  {%- if product.compare_at_price > product.price -%}<span class="eeb-card__badge">Sale</span>{%- endif -%}
+                  {%- unless product.available -%}<span class="eeb-card__badge eeb-card__badge--muted">Sold out</span>{%- endunless -%}
+                </div>
+                <div class="eeb-card__body">
+                  {%- if product.vendor != blank and section.settings.show_vendor -%}<span class="eeb-card__eyebrow">{{ product.vendor }}</span>{%- endif -%}
+                  <h3>{{ product.title }}</h3>
+                  <p class="eeb-card__price">
+                    {%- if product.compare_at_price > product.price -%}
+                      <span class="eeb-card__price--sale">{{ product.price | money }}</span>
+                      <s>{{ product.compare_at_price | money }}</s>
+                    {%- elsif product.price_varies -%}
+                      From {{ product.price_min | money }}
+                    {%- else -%}
+                      {{ product.price | money }}
+                    {%- endif -%}
+                  </p>
+                </div>
+              </a>
+            {%- endfor -%}
+          </div>
+    
+          {%- if paginate.pages > 1 -%}
+            <nav class="eeb-pagination" aria-label="Pagination">
+              {{ paginate | default_pagination }}
+            </nav>
+          {%- endif -%}
+        {%- else -%}
+          <div class="eeb-empty">
+            <p>No products in this collection yet. Check back soon.</p>
+            <a href="{{ routes.collections_url }}" class="eeb-btn eeb-btn--dark">Browse all collections</a>
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+    {% endpaginate %}
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign source_collection = block.settings.collection_source %}
+{% if source_collection == blank and collection != blank %}{% assign source_collection = collection %}{% endif %}
+{% style %}
+  .ai-eeb-collection-{{ ai_gen_id }} { display: block; width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; }
+  .ai-eeb-collection-{{ ai_gen_id }} .eeb-grid { grid-template-columns: repeat({{ block.settings.columns }}, minmax(0, 1fr)); }
+  @media screen and (max-width: 749px) { .ai-eeb-collection-{{ ai_gen_id }} .eeb-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+{% endstyle %}
+<section class="eeb-section ai-eeb-collection-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="eeb-container">
+    {% if source_collection != blank %}
+      {% paginate source_collection.products by block.settings.products_per_page %}
+        <div class="eeb-collection-toolbar">
+          <p class="eeb-collection-toolbar__count">{% if source_collection.products_count > 0 %}Showing {{ paginate.current_offset | plus: 1 }}–{{ paginate.current_offset | plus: source_collection.products.size }} of {{ source_collection.products_count }} {% if source_collection.products_count == 1 %}product{% else %}products{% endif %}{% else %}No products yet{% endif %}</p>
+          {% if block.settings.show_sort and source_collection.products_count > 1 %}
+            <form class="eeb-collection-toolbar__sort" method="get">
+              <label for="SortBy-{{ ai_gen_id }}">Sort by</label>
+              <select name="sort_by" id="SortBy-{{ ai_gen_id }}" onchange="this.form.submit()">
+                {% assign sort_options = 'manual|Featured,best-selling|Best selling,title-ascending|A–Z,title-descending|Z–A,price-ascending|Price: Low to High,price-descending|Price: High to Low,created-descending|Newest' | split: ',' %}
+                {% assign current_sort = source_collection.sort_by | default: source_collection.default_sort_by %}
+                {% for opt in sort_options %}{% assign parts = opt | split: '|' %}<option value="{{ parts[0] }}" {% if current_sort == parts[0] %}selected{% endif %}>{{ parts[1] }}</option>{% endfor %}
+              </select>
+            </form>
+          {% endif %}
+        </div>
+        {% if source_collection.products.size > 0 %}
+          <div class="eeb-grid eeb-grid--{{ block.settings.columns }}">
+            {% for product in source_collection.products %}
+              <a href="{{ product.url }}" class="eeb-card eeb-card--product">
+                <div class="eeb-card__img">
+                  {% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" style="object-fit:contain;background:#fff;padding:1rem;">{% else %}<div class="ai-eeb-collection-{{ ai_gen_id }}__placeholder">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>{% endif %}
+                  {% if product.compare_at_price > product.price %}<span class="eeb-card__badge">Sale</span>{% endif %}
+                  {% unless product.available %}<span class="eeb-card__badge eeb-card__badge--muted">Sold out</span>{% endunless %}
+                </div>
+                <div class="eeb-card__body">
+                  {% if product.vendor != blank and block.settings.show_vendor %}<span class="eeb-card__eyebrow">{{ product.vendor }}</span>{% endif %}
+                  <h3>{{ product.title | escape }}</h3>
+                  <p class="eeb-card__price">{% if product.compare_at_price > product.price %}<span class="eeb-card__price--sale">{{ product.price | money }}</span> <s>{{ product.compare_at_price | money }}</s>{% elsif product.price_varies %}From {{ product.price_min | money }}{% else %}{{ product.price | money }}{% endif %}</p>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          {% if paginate.pages > 1 %}<nav class="eeb-pagination" aria-label="Pagination">{{ paginate | default_pagination }}</nav>{% endif %}
+        {% else %}
+          <div class="eeb-empty"><p>No products in this collection yet. Check back soon.</p><a href="{{ routes.collections_url }}" class="eeb-btn eeb-btn--dark">Browse all collections</a></div>
+        {% endif %}
+      {% endpaginate %}
+    {% else %}<div class="eeb-empty"><p>Add this block to a collection page or select a collection override.</p></div>{% endif %}
+  </div>
+</section>
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Collection product grid",
+  "settings": [
+    {"type":"collection","id":"collection_source","label":"Collection override"},
+    {"type":"range","id":"products_per_page","label":"Products per page","min":4,"max":24,"step":4,"default":12},
+    {"type":"range","id":"columns","label":"Desktop columns","min":2,"max":4,"step":1,"default":3},
+    {"type":"checkbox","id":"show_sort","label":"Show sort control","default":true},
+    {"type":"checkbox","id":"show_vendor","label":"Show product vendor","default":true},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100}
+  ],
+  "presets":[{"name":"Collection product grid"}],
+  "tag":null,
+  "class":"collection-products-block"
+}
 {% endschema %}
