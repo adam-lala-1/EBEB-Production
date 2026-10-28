@@ -32,10 +32,55 @@
         "show_sort": true,
         "show_vendor": false
       }
+    },
+    "1793178018582c0542": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_a504746_cRMTeX": {
+          "type": "ai_gen_block_a504746",
+          "settings": {
+            "image": "shopify://shop_images/Support_for_organisation_71fe4bf6-800c-45ab-9377-b9a1e7c62559.png",
+            "heading": "Need help choosing the right EBEB range for your store or organisation?",
+            "description": "Talk to our team about wholesale pricing, dealership opportunities, demo options and tailored support.",
+            "buttons_label": "Explore more",
+            "button_1_label": "Book a Dealer Call",
+            "button_1_link": "#",
+            "button_1_icon": "shopify://shop_images/Book_a_Dealer_Call.png",
+            "button_2_label": "Talk to our dealer team",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_icon": "shopify://shop_images/talk.png",
+            "button_3_label": "",
+            "button_3_link": "#",
+            "desktop_width_percent": 100,
+            "content_width": 1200,
+            "column_gap": 40,
+            "padding": 50,
+            "mobile_padding": 24,
+            "heading_size": 32,
+            "mobile_heading_size": 26,
+            "image_radius": 8,
+            "button_radius": 6,
+            "icon_size": 24,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB",
+            "button_color": "#FFFFFF",
+            "button_text_color": "#E86C2C",
+            "button_hover_color": "#E86C2C",
+            "button_hover_text_color": "#FFFFFF"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a504746_cRMTeX"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "ebebmaincollection_AkPnpQ"
+    "ebebmaincollection_AkPnpQ",
+    "1793178018582c0542"
   ]
 }
