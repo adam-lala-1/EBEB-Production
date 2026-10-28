@@ -11,7 +11,14 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "FOR DEALERS & BUSINESS PARTNERS",
+        "products_per_page": 24,
+        "columns": "3",
+        "show_sort": true,
+        "show_vendor": false
+      }
     }
   },
   "order": [
