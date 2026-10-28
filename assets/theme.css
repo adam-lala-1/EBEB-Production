@@ -428,3 +428,6 @@ p { margin: 0 0 1em; }
 .uspdetails .uspitem{
   display:flex;
 }
+.uspdetails .uspitem img{
+  height:70px!important;
+}
