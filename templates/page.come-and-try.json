@@ -392,6 +392,33 @@
       "type": "_blocks",
       "settings": {}
     },
+    "1793256634a277e7d5": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_84e5d59_xmz3Vq": {
+          "type": "ai_gen_block_84e5d59",
+          "settings": {
+            "image": "shopify://shop_images/Our_team_is_here_to_help.png",
+            "heading": "Our team is here to help",
+            "description": "Our experienced staff will guide you through the options, provide a proper fitting and answer any questions. Support workers and OTs are very welcome — we can assist with assessments and access needs.",
+            "list_label": "Key details",
+            "list_item_1": "Experienced with first time and nervous riders",
+            "list_item_2": "Support workers & OTs welcome",
+            "list_item_3": "Assessments and access-needs supported",
+            "list_item_4": "Ongoing & touch base support",
+            "desktop_width_percent": 100,
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "icon_background": "#e86c2c"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_84e5d59_xmz3Vq"
+      ],
+      "settings": {}
+    },
     "rsvp": {
       "type": "come-try-form",
       "blocks": {
@@ -450,7 +477,7 @@
       "settings": {
         "eyebrow": "Enquiry & RSVP",
         "heading": "Get in touch or book a ride",
-        "subheading": "Tell us what you'd like to try and when suits — we'll have a bike ready, at an event or at our Gaythorne workshop.",
+        "subheading": "Tell us what you'd like to try and when suits — we'll have a bike ready, at an event or at our Gaythorne workshop.<br><br><b>Why do we ask for your name and phone?</b><br>It helps us prepare the right bike for you, confirm your booking and contact you if there are any changes. We only use your details for your enquiry and won’t spam you.",
         "submit_text": "Send enquiry",
         "marketing_consent_label": "Yes, keep me posted — about special deals, stories and more. No spam, unsubscribe anytime.",
         "gaythorne_calendly_url": ""
@@ -512,33 +539,6 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
-    },
-    "1793256634a277e7d5": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_84e5d59_xmz3Vq": {
-          "type": "ai_gen_block_84e5d59",
-          "settings": {
-            "image": "shopify://shop_images/Our_team_is_here_to_help.png",
-            "heading": "Our team is here to help",
-            "description": "Our experienced staff will guide you through the options, provide a proper fitting and answer any questions. Support workers and OTs are very welcome — we can assist with assessments and access needs.",
-            "list_label": "Key details",
-            "list_item_1": "Experienced with first time and nervous riders",
-            "list_item_2": "Support workers & OTs welcome",
-            "list_item_3": "Assessments and access-needs supported",
-            "list_item_4": "Ongoing & touch base support",
-            "desktop_width_percent": 100,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "icon_background": "#E86C2C"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_84e5d59_xmz3Vq"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -549,8 +549,8 @@
     "gaythorne",
     "events",
     "178348666434511e84",
+    "1793256634a277e7d5",
     "rsvp",
-    "faq",
-    "1793256634a277e7d5"
+    "faq"
   ]
 }
