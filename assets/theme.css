@@ -484,3 +484,7 @@ color: #1b2a4a;
    grid-template-columns:1fr!important;
   }
 }
+.eventicons img{
+  height:30px;
+  width:30px;
+}

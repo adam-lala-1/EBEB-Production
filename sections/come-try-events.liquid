@@ -23,10 +23,10 @@
               {% endif %}
             </div>
             <h3>{{ block.settings.title }}</h3>
-            <ul class="eeb-dealer-card__meta">
-              {% if block.settings.date != blank %}<li><strong>Date:</strong> {{ block.settings.date }}</li>{% endif %}
-              {% if block.settings.time != blank %}<li><strong>Time:</strong> {{ block.settings.time }}</li>{% endif %}
-              {% if block.settings.location != blank %}<li><strong>Where:</strong> {{ block.settings.location }}</li>{% endif %}
+            <ul class="eeb-dealer-card__meta eventicons">
+              {% if block.settings.date != blank %}<li><img src="https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Date.png?v=1793255145"/> {{ block.settings.date }}</li>{% endif %}
+              {% if block.settings.time != blank %}<li><img src="https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Time.png?v=1793255158"/> {{ block.settings.time }}</li>{% endif %}
+              {% if block.settings.location != blank %}<li><img src="https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Where.png?v=1793255158"/> {{ block.settings.location }}</li>{% endif %}
             </ul>
             {% if block.settings.description != blank %}
               <p style="color:var(--color-muted);font-size:.95rem;margin:.75rem 0 1.25rem;flex:1;">{{ block.settings.description }}</p>
