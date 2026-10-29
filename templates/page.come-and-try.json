@@ -21,6 +21,41 @@
         "cta2_url": "shopify://pages/book-a-test-ride"
       }
     },
+    "blocks_YFbQwB": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_BWztcH": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_heading": "No pressure, no obligation",
+            "usp_1_text": "Just friendly advice ",
+            "usp_2_heading": "Quality support",
+            "usp_2_text": "Here when you need us",
+            "usp_3_heading": "Secure checkout",
+            "usp_3_text": "Shop with confidence",
+            "usp_4_heading": "Built for adventure",
+            "usp_4_text": "Find your next ride",
+            "desktop_width_percent": 100,
+            "image_size": 48,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_BWztcH"
+      ],
+      "disabled": true,
+      "name": "Four USP row",
+      "settings": {}
+    },
     "expect": {
       "type": "come-try-expect",
       "blocks": {
@@ -474,40 +509,6 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
-    },
-    "blocks_YFbQwB": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_808bace_BWztcH": {
-          "type": "ai_gen_block_808bace",
-          "settings": {
-            "usp_1_heading": "Free delivery",
-            "usp_1_text": "Delivered to your door",
-            "usp_2_heading": "Quality support",
-            "usp_2_text": "Here when you need us",
-            "usp_3_heading": "Secure checkout",
-            "usp_3_text": "Shop with confidence",
-            "usp_4_heading": "Built for adventure",
-            "usp_4_text": "Find your next ride",
-            "desktop_width_percent": 100,
-            "image_size": 48,
-            "item_gap": 20,
-            "vertical_padding": 15,
-            "heading_size": 16,
-            "text_size": 14,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "secondary_text_color": "#1B2A4A",
-            "placeholder_color": "#E5E7EB"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_808bace_BWztcH"
-      ],
-      "name": "Four USP row",
-      "settings": {}
     }
   },
   "order": [
