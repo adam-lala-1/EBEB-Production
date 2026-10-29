@@ -493,3 +493,10 @@ color: #1b2a4a;
     align-items: center;
     gap: 10px;
 }
+.eeb-card__eyebrow{
+  background: var(--color-orange)!important;
+    margin-bottom: .5rem;
+    color: white!important;
+    padding: 10px;
+    border-radius: 5px;
+}
