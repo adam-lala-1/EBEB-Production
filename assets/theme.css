@@ -488,3 +488,8 @@ color: #1b2a4a;
   height:30px;
   width:30px;
 }
+.eventicons li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
