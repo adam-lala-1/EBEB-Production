@@ -183,8 +183,8 @@
       "name": "Come & Try events",
       "settings": {
         "eyebrow": "Upcoming",
-        "heading": "Try-out events near you",
-        "subheading": ""
+        "heading": "Book a test ride at an event or at our workshop",
+        "subheading": "A relaxed, hands-on experience"
       }
     },
     "gaythorne": {
@@ -512,6 +512,33 @@
         "faq_eyebrow": "FAQ",
         "faq_heading": "Good to know"
       }
+    },
+    "1793256634a277e7d5": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_84e5d59_xmz3Vq": {
+          "type": "ai_gen_block_84e5d59",
+          "settings": {
+            "image": "shopify://shop_images/Our_team_is_here_to_help.png",
+            "heading": "Our team is here to help",
+            "description": "Our experienced staff will guide you through the options, provide a proper fitting and answer any questions. Support workers and OTs are very welcome — we can assist with assessments and access needs.",
+            "list_label": "Key details",
+            "list_item_1": "Experienced with first time and nervous riders",
+            "list_item_2": "Support workers & OTs welcome",
+            "list_item_3": "Assessments and access-needs supported",
+            "list_item_4": "Ongoing & touch base support",
+            "desktop_width_percent": 100,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "icon_background": "#E86C2C"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_84e5d59_xmz3Vq"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -523,6 +550,7 @@
     "events",
     "178348666434511e84",
     "rsvp",
-    "faq"
+    "faq",
+    "1793256634a277e7d5"
   ]
 }

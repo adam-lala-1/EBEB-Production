@@ -1,0 +1,179 @@
+{% doc %}
+  @prompt
+    generate a section with 2 cols, left col has an image and a text beside, and the right col has lists of text with list icon
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-feature-split-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 36px;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    border-radius: 12px;
+  }
+
+  .ai-feature-split__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  .ai-feature-split__left-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.85fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+
+  .ai-feature-split__media-{{ ai_gen_id }} {
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 4 / 5;
+    background: #e9e7e3;
+  }
+
+  .ai-feature-split__media-{{ ai_gen_id }} img,
+  .ai-feature-split__media-{{ ai_gen_id }} svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-feature-split__copy-{{ ai_gen_id }} h2 {
+    margin: 0 0 12px;
+    color: {{ block.settings.text_color }};
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.2;
+  }
+
+  .ai-feature-split__copy-{{ ai_gen_id }} p {
+    margin: 0;
+    color: {{ block.settings.text_color }};
+    line-height: 1.65;
+  }
+
+  .ai-feature-split__list-{{ ai_gen_id }} {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ai-feature-split__item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    line-height: 1.55;
+  }
+
+  .ai-feature-split__icon-{{ ai_gen_id }} {
+    display: inline-flex;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: {{ block.settings.icon_background }};
+    color: #ffffff;
+  }
+
+  .ai-feature-split__icon-{{ ai_gen_id }} svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-feature-split-{{ ai_gen_id }} {
+      padding: 24px 18px;
+    }
+
+    .ai-feature-split__grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .ai-feature-split__left-{{ ai_gen_id }} {
+      grid-template-columns: minmax(100px, 0.7fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .ai-feature-split__left-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-feature-split__media-{{ ai_gen_id }} {
+      aspect-ratio: 16 / 10;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-feature-split-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-feature-split__grid-{{ ai_gen_id }}">
+    <div class="ai-feature-split__left-{{ ai_gen_id }}">
+      <div class="ai-feature-split__media-{{ ai_gen_id }}">
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+      <div class="ai-feature-split__copy-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}<h2>{{ block.settings.heading | escape }}</h2>{% endif %}
+        {% if block.settings.description != blank %}<p>{{ block.settings.description | escape | newline_to_br }}</p>{% endif %}
+      </div>
+    </div>
+
+    <ul class="ai-feature-split__list-{{ ai_gen_id }}" aria-label="{{ block.settings.list_label | escape }}">
+      {% for i in (1..4) %}
+        {% assign item_key = 'list_item_' | append: i %}
+        {% assign item_text = block.settings[item_key] %}
+        {% if item_text != blank %}
+          <li class="ai-feature-split__item-{{ ai_gen_id }}">
+            <span class="ai-feature-split__icon-{{ ai_gen_id }}" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m4.5 10.2 3.4 3.4 7.6-7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>{{ item_text | escape }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image and text list",
+  "settings": [
+    { "type": "header", "content": "Image and text" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built around your ride" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Add a short introduction to your service, product, or experience." },
+    { "type": "header", "content": "List" },
+    { "type": "text", "id": "list_label", "label": "List accessible label", "default": "Key details" },
+    { "type": "text", "id": "list_item_1", "label": "List item 1", "default": "Expert advice from a knowledgeable team" },
+    { "type": "text", "id": "list_item_2", "label": "List item 2", "default": "Practical support tailored to your needs" },
+    { "type": "text", "id": "list_item_3", "label": "List item 3", "default": "Quality products and dependable service" },
+    { "type": "text", "id": "list_item_4", "label": "List item 4", "default": "Help before and after your purchase" },
+    { "type": "header", "content": "Style" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F8F5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1B2A4A" },
+    { "type": "color", "id": "icon_background", "label": "Icon background", "default": "#1B2A4A" }
+  ],
+  "presets": [{ "name": "Image and text list" }],
+  "tag": null,
+  "class": "image-text-list-block"
+}
+{% endschema %}
