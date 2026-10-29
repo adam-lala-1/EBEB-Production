@@ -506,3 +506,10 @@ span.capaci {
     border-radius: 5px;
     color: var(--color-orange) !important;
 }
+a.callsd{
+  display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    gap: 5px;
+}
