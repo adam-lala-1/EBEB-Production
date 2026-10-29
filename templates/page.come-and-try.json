@@ -27,12 +27,16 @@
         "ai_gen_block_808bace_BWztcH": {
           "type": "ai_gen_block_808bace",
           "settings": {
+            "usp_1_image": "shopify://shop_images/No_pressure_no_obligation.png",
             "usp_1_heading": "No pressure, no obligation",
             "usp_1_text": "Just friendly advice ",
+            "usp_2_image": "shopify://shop_images/Great_for_first-time_riders.png",
             "usp_2_heading": "Great for first-time riders",
             "usp_2_text": "We’ll guide you at your pace",
+            "usp_3_image": "shopify://shop_images/Support_workers_OTs_welcome.png",
             "usp_3_heading": "Support workers & OTs welcome",
             "usp_3_text": "We can assist with assessments",
+            "usp_4_image": "shopify://shop_images/Local_Brisbane_team.png",
             "usp_4_heading": "Local Brisbane team",
             "usp_4_text": "Real people, ongoing support ",
             "desktop_width_percent": 100,
@@ -52,7 +56,6 @@
       "block_order": [
         "ai_gen_block_808bace_BWztcH"
       ],
-      "disabled": true,
       "name": "Four USP row",
       "settings": {}
     },
