@@ -57,6 +57,7 @@
 {% endstyle %}
 
 <div class="ai-image-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+ <div class="eeb-container">
   <div class="ai-image-section__media-{{ ai_gen_id }}">
     {% if block.settings.image != blank %}
       <img
@@ -74,6 +75,7 @@
   {% if block.settings.caption != blank %}
     <p class="ai-image-section__caption-{{ ai_gen_id }}">{{ block.settings.caption | escape }}</p>
   {% endif %}
+   </div>
 </div>
 
 {% schema %}
