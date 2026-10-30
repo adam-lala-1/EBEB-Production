@@ -60,6 +60,12 @@
           <a href="https://everybodyebikes.com.au/pages/distributor-list" class="eeb-btn" style="display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:#fff;color:var(--color-foreground,#1B2A4A);border:2px solid var(--color-foreground,#1B2A4A);font-weight:600;">
               Find a Dealer</a>
         </div>
+        {%- assign pdf_url = product.metafields.custom.download_pdf.value -%}
+{%- if pdf_url != blank -%}
+  <a href="{{ pdf_url }}" target="_blank" rel="noopener" class="eeb-btn" style="display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:#fff;color:var(--color-foreground,#1B2A4A);border:2px solid var(--color-foreground,#1B2A4A);font-weight:600;">
+    Download PDF
+  </a>
+{%- endif -%}
       </div>
     {% endform %}
 
