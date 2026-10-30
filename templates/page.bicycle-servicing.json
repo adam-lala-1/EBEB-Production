@@ -34,7 +34,7 @@
             "image_fit": "contain",
             "caption_alignment": "center",
             "corner_radius": 8,
-            "desktop_width_percent": 90
+            "desktop_width_percent": 100
           },
           "blocks": {}
         }
@@ -56,11 +56,11 @@
           "settings": {
             "heading": "",
             "desktop_width_percent": 100,
-            "background_color": "#FFFFFF",
-            "image_background": "#F8F5F0",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "separator_color": "#E5E7EB",
+            "background_color": "#ffffff",
+            "image_background": "#f8f5f0",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "separator_color": "#e5e7eb",
             "usp_1_title": "Bosch, Bafang & CYC Specialists",
             "usp_1_copy": "Trained & experienced",
             "usp_2_title": "Expert Workshop",
@@ -96,9 +96,9 @@
             "body_size": 16,
             "corner_radius": 0,
             "image_radius": 8,
-            "background_color": "#FFFFFF",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A"
+            "background_color": "#ffffff",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a"
           },
           "blocks": {}
         }
@@ -128,10 +128,10 @@
             "vertical_padding": 15,
             "heading_size": 16,
             "text_size": 14,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "secondary_text_color": "#1B2A4A",
-            "placeholder_color": "#E5E7EB"
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
           },
           "blocks": {}
         }
@@ -154,9 +154,9 @@
             "right_heading": "Labour",
             "right_content": "<ul><li>Mechanical / hour $150</li><li>Tyre / Tube Change (simple) $25</li><li>Tyre / Tube Change (motor or gear hub) $50</li><li>Brake Bleed $55 / side</li></ul>",
             "desktop_width_percent": 100,
-            "background_color": "#F8F5F0",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
+            "background_color": "#f8f5f0",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
             "heading_size": 32,
             "card_heading_size": 22,
             "body_size": 16,
@@ -178,6 +178,37 @@
       "settings": {
         "html": "<!-- Elfsight Google Reviews | Real Riders, Real Freedom -->\n<script src=\"https://elfsightcdn.com/platform.js\" async=\"\"></script>\n<div class=\"elfsight-app-5f2ba4ea-5c36-4c42-9efe-3459041ed15d\" data-elfsight-app-lazy=\"\"></div>"
       }
+    },
+    "179336007616552c13": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2b2a964_8WaJUR": {
+          "type": "ai_gen_block_2b2a964",
+          "settings": {
+            "left_content": "<h2>Why choose EBEB?</h2><p>As Brisbane's friendly e-bike specialists, we combine extensive experience with Bosch, Bafang, and CYC systems and a specialized workshop for large-format etrikes and cargo bikes to deliver trusted service for families, commuters, and riders with mobility needs.</p>",
+            "right_heading": "Ready to book your service? ",
+            "right_description": "<p>Get expert care for your e-bike or e-trike today.&nbsp;</p>",
+            "button_one_label": "Book a Service",
+            "button_one_link": "https://everybodyebikes.com.au/pages/bicycle-servicing#bike-servicing-enquiry",
+            "button_two_label": "Call 0409 126 669",
+            "button_two_link": "tel:0409126669",
+            "desktop_width_percent": 100,
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "card_background": "#ffffff",
+            "border_color": "#e86c2c",
+            "button_color": "#e86c2c",
+            "button_text_color": "#ffffff",
+            "border_radius": 10,
+            "button_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2b2a964_8WaJUR"
+      ],
+      "settings": {}
     },
     "dealer_list_zPUbxj": {
       "type": "dealer-list",
@@ -318,37 +349,6 @@
         "padding_bottom": 80,
         "background_color": "#ffffff"
       }
-    },
-    "179336007616552c13": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_2b2a964_8WaJUR": {
-          "type": "ai_gen_block_2b2a964",
-          "settings": {
-            "left_content": "<h2>Why choose EBEB?</h2><p>As Brisbane's friendly e-bike specialists, we combine extensive experience with Bosch, Bafang, and CYC systems and a specialized workshop for large-format etrikes and cargo bikes to deliver trusted service for families, commuters, and riders with mobility needs.</p>",
-            "right_heading": "Ready to book your service? ",
-            "right_description": "<p>Get expert care for your e-bike or e-trike today.&nbsp;</p>",
-            "button_one_label": "Book a Service",
-            "button_one_link": "https://everybodyebikes.com.au/pages/bicycle-servicing#bike-servicing-enquiry",
-            "button_two_label": "Call 0409 126 669",
-            "button_two_link": "tel:0409126669",
-            "desktop_width_percent": 100,
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "card_background": "#FFFFFF",
-            "border_color": "#E86C2C",
-            "button_color": "#E86C2C",
-            "button_text_color": "#FFFFFF",
-            "border_radius": 10,
-            "button_radius": 6
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_2b2a964_8WaJUR"
-      ],
-      "settings": {}
     }
   },
   "order": [
