@@ -204,6 +204,31 @@
         "body": "Trojans are built for riders who want freedom without compromise. Three wheels, low entry, approachable controls — cycling is for everyone."
       }
     },
+    "1793355701feb0a65f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5bcdac2_EKk9GX": {
+          "type": "ai_gen_block_5bcdac2",
+          "settings": {
+            "desktop_width_percent": 100,
+            "column_1_image": "shopify://shop_images/Safe_for_the_Whole_Family.png",
+            "column_1_heading": "Safe for the Whole Family",
+            "column_1_items": "Rear seat with backrest & seatbelts\nDesigned for child passengers\nMax combined load 200kg (rider + passengers + cargo)",
+            "column_2_image": "shopify://shop_images/Premium_Battery_Servicing.png",
+            "column_2_heading": "Premium Battery & Servicing",
+            "column_2_items": "Samsung batteries with long range\nLocal servicing & support network\nBattery warranty up to 2 years",
+            "column_3_image": "shopify://shop_images/What_Riders_Say.png",
+            "column_3_heading": "What Riders Say",
+            "column_3_items": "Perfect for our family! Stable, powerful and so easy to ride.\nThe kids love it and it’s made school runs a breeze."
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5bcdac2_EKk9GX"
+      ],
+      "settings": {}
+    },
     "specs": {
       "type": "trident-specs",
       "blocks": {
@@ -299,6 +324,7 @@
     "feature_1",
     "feature_2",
     "feature_3",
+    "1793355701feb0a65f",
     "specs",
     "trident_specs_JnPLFY",
     "video",
