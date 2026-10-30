@@ -529,4 +529,5 @@ a.callsd img{
 }
 .consequitivebtns a {
     border-color:var(--color-orange)!important;
+    color:var(--color-orange)!important;
 }
