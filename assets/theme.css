@@ -531,3 +531,8 @@ a.callsd img{
     border-color:var(--color-orange)!important;
     color:var(--color-orange)!important;
 }
+@media only screen and (max-width:767px){
+  .consequitivebtns {
+    flex-direction:column;
+  }
+}
