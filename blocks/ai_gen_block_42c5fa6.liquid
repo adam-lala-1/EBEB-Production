@@ -122,6 +122,7 @@
 {% endstyle %}
 
 <section class="ai-usp-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+ <div class="eeb-container">
   <div class="ai-usp-{{ ai_gen_id }}__inner">
     {% if block.settings.heading != blank %}
       <h2 class="ai-usp-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>
@@ -153,6 +154,7 @@
         </article>
       {% endfor %}
     </div>
+  </div>
   </div>
 </section>
 
