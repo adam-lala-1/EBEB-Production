@@ -523,3 +523,10 @@ a.callsd img{
   height:20px;
   width:20px;
 }
+.consequitivebtns {
+    display: flex;
+    gap: 20px;
+}
+.consequitivebtns a {
+    border-color:var(--color-orange)!important;
+}
