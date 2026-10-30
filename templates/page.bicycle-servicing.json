@@ -9,9 +9,175 @@
  */
 {
   "sections": {
+    "come_try_hero_EFqWKU": {
+      "type": "come-try-hero",
+      "name": "Come & Try hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Expert E-Bike & E-Trike Servicing in Brisbane",
+        "subheading": "Keep your e-bike or e-trike running smoothly with Brisbane’s trusted specialists. We service all major brands, including Bosch, Bafang, CYC and more — with friendly support, expert technicians and fair, transparent pricing.",
+        "cta1_text": "Book a Service",
+        "cta1_url": "https://everybodyebikes.com.au/pages/bicycle-servicing#bike-servicing-enquiry",
+        "cta2_text": "Call Now 0409 126 669",
+        "cta2_url": "tel:0409126669"
+      }
+    },
+    "1793359965d5b0d5ae": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_10f459f_jPr9td": {
+          "type": "ai_gen_block_10f459f",
+          "settings": {
+            "image": "shopify://shop_images/Copy_of_CHECK_UP_1200_x_710_px.svg",
+            "caption": "",
+            "aspect_ratio": "16 / 9",
+            "image_fit": "contain",
+            "caption_alignment": "center",
+            "corner_radius": 8,
+            "desktop_width_percent": 90
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_10f459f_jPr9td"
+      ],
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "17933585090230c2ba": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_42c5fa6_P84gAD": {
+          "type": "ai_gen_block_42c5fa6",
+          "settings": {
+            "heading": "",
+            "desktop_width_percent": 100,
+            "background_color": "#FFFFFF",
+            "image_background": "#F8F5F0",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "separator_color": "#E5E7EB",
+            "usp_1_title": "Bosch, Bafang & CYC Specialists",
+            "usp_1_copy": "Trained & experienced",
+            "usp_2_title": "Expert Workshop",
+            "usp_2_copy": "For e-bikes, e-trikes & cargo bikes",
+            "usp_3_title": "10+ Years Experience",
+            "usp_3_copy": "Local e-bike servicing experts",
+            "usp_4_title": "Quick Turnarounds",
+            "usp_4_copy": "Typically 3–5 business days",
+            "usp_5_title": "Quality Guarantee",
+            "usp_5_copy": "All workmanship guaranteed"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_42c5fa6_P84gAD"
+      ],
+      "settings": {}
+    },
+    "179335884197ffe50c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_bb7cedd_Ddj3Rd": {
+          "type": "ai_gen_block_bb7cedd",
+          "settings": {
+            "heading": "What we service",
+            "content": "<ul><li>Ebikes and pedal-assist bikes</li><li>Etrikes (electric tricycles)</li><li>Cargo bikes (bucket and long-tail)</li><li>Bosch, Bafang, CYC & Shimano e-systems</li><li>Mechanical bikes needing general servicing and pedal-assist bikes</li></ul><p>We service a wide range of popular electric bike brands, including: <strong>NCM, Rilu, DiroDi, Ampd Bros, Pedal, Reid, Vamos, Eunorau, Addmotor, Leitner, Tebco, XDS, Valk, Earth, Lekker, Smartmotion, Fatfish, Cilo, Velectrix, Polygon, Marin, and Dyson.</strong></p>",
+            "image": "shopify://shop_images/EveryBody_eBikes_Workshop.png",
+            "desktop_width_percent": 100,
+            "column_gap": 40,
+            "section_padding": 24,
+            "heading_size": 40,
+            "body_size": 16,
+            "corner_radius": 0,
+            "image_radius": 8,
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_bb7cedd_Ddj3Rd"
+      ],
+      "settings": {}
+    },
+    "blocks_UkWUDw": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_GQiq4E": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_heading": "Easy drop-off process",
+            "usp_1_text": "Unit 6/51 Prospect Rd, Gaythorne QLD 4051",
+            "usp_2_heading": "Typical turnaround",
+            "usp_2_text": "3–5 business days (we’ll keep you updated)",
+            "usp_3_heading": "Transparent pricing",
+            "usp_3_text": "All prices include GST",
+            "usp_4_heading": "Workmanship guarantee",
+            "usp_4_text": "Peace of mind with quality service ",
+            "desktop_width_percent": 100,
+            "image_size": 48,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "secondary_text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_GQiq4E"
+      ],
+      "name": "Four USP row",
+      "settings": {}
+    },
+    "179335931669078eba": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b14b131_amkJN7": {
+          "type": "ai_gen_block_b14b131",
+          "settings": {
+            "section_heading": "Pricing",
+            "left_heading": "Labour rates",
+            "left_content": "<h3>Testing / Diagnosis</h3><ul><li>Battery Test (including report) $50</li><li>Mechanical Diagnosis $100</li><li>Electrical Diagnosis $200</li></ul>",
+            "right_heading": "Labour",
+            "right_content": "<ul><li>Mechanical / hour $150</li><li>Tyre / Tube Change (simple) $25</li><li>Tyre / Tube Change (motor or gear hub) $50</li><li>Brake Bleed $55 / side</li></ul>",
+            "desktop_width_percent": 100,
+            "background_color": "#F8F5F0",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "heading_size": 32,
+            "card_heading_size": 22,
+            "body_size": 16,
+            "column_gap": 20,
+            "card_padding": 28,
+            "border_radius": 12
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b14b131_amkJN7"
+      ],
+      "settings": {}
+    },
+    "shogun_custom_html_GjzLmc": {
+      "type": "shogun-custom-html",
+      "name": "Shogun Custom HTML",
+      "settings": {
+        "html": "<!-- Elfsight Google Reviews | Real Riders, Real Freedom -->\n<script src=\"https://elfsightcdn.com/platform.js\" async=\"\"></script>\n<div class=\"elfsight-app-5f2ba4ea-5c36-4c42-9efe-3459041ed15d\" data-elfsight-app-lazy=\"\"></div>"
+      }
     },
     "dealer_list_zPUbxj": {
       "type": "dealer-list",
@@ -150,12 +316,51 @@
         "form_width": 700,
         "padding_top": 70,
         "padding_bottom": 80,
-        "background_color": "#FFFFFF"
+        "background_color": "#ffffff"
       }
+    },
+    "179336007616552c13": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2b2a964_8WaJUR": {
+          "type": "ai_gen_block_2b2a964",
+          "settings": {
+            "left_content": "<h2>Why choose EBEB?</h2><p>As Brisbane's friendly e-bike specialists, we combine extensive experience with Bosch, Bafang, and CYC systems and a specialized workshop for large-format etrikes and cargo bikes to deliver trusted service for families, commuters, and riders with mobility needs.</p>",
+            "right_heading": "Ready to book your service? ",
+            "right_description": "<p>Get expert care for your e-bike or e-trike today.&nbsp;</p>",
+            "button_one_label": "Book a Service",
+            "button_one_link": "https://everybodyebikes.com.au/pages/bicycle-servicing#bike-servicing-enquiry",
+            "button_two_label": "Call 0409 126 669",
+            "button_two_link": "tel:0409126669",
+            "desktop_width_percent": 100,
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "card_background": "#FFFFFF",
+            "border_color": "#E86C2C",
+            "button_color": "#E86C2C",
+            "button_text_color": "#FFFFFF",
+            "border_radius": 10,
+            "button_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2b2a964_8WaJUR"
+      ],
+      "settings": {}
     }
   },
   "order": [
+    "come_try_hero_EFqWKU",
+    "1793359965d5b0d5ae",
     "main",
+    "17933585090230c2ba",
+    "179335884197ffe50c",
+    "blocks_UkWUDw",
+    "179335931669078eba",
+    "shogun_custom_html_GjzLmc",
+    "179336007616552c13",
     "dealer_list_zPUbxj",
     "bicycle_servicing_form_PNrBcR"
   ]
