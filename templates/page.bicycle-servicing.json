@@ -46,6 +46,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "17933585090230c2ba": {
@@ -183,6 +184,9 @@
     },
     "shogun_custom_html_GjzLmc": {
       "type": "shogun-custom-html",
+      "custom_css": [
+        ".shopify_section {margin-bottom: 40px; margin-top: 40px;}"
+      ],
       "name": "Shogun Custom HTML",
       "settings": {
         "html": "<!-- Elfsight Google Reviews | Real Riders, Real Freedom -->\n<script src=\"https://elfsightcdn.com/platform.js\" async=\"\"></script>\n<div class=\"elfsight-app-5f2ba4ea-5c36-4c42-9efe-3459041ed15d\" data-elfsight-app-lazy=\"\"></div>"
@@ -216,6 +220,40 @@
       },
       "block_order": [
         "ai_gen_block_2b2a964_8WaJUR"
+      ],
+      "settings": {}
+    },
+    "179336164255819cd7": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8fbb776_tMicQU": {
+          "type": "ai_gen_block_8fbb776",
+          "settings": {
+            "section_heading": "What's involved in our services?",
+            "heading_alignment": "center",
+            "column_1_heading": "$100 Check Up",
+            "column_1_text": "<ul><li>Bolt check – Torque check of exposed bolts.</li><li>Tyre inflation – Check and inflate tyres to recommended PSI.</li><li>Tim check – Visual inspection of wheel.</li><li>Gear and brake operation – Physical check of brake and gear systems.</li></ul>",
+            "column_2_heading": "$169 Standard",
+            "column_2_text": "<ul><li>Brake tune – Minor adjustment of cables, calipers, and rotors.</li><li>Update firmware – Bosch ebikes only, with a provided report.</li><li>Suspension check – Check for leaks and smooth operation.</li><li>Clean frame, fork, wheels – Light clean with Muc-off Nano Tech wash.</li><li>Gear tune and hanger alignment – Limit screws, derailleur, index gears.</li></ul>",
+            "column_3_heading": "$299 Premium",
+            "column_3_text": "<ul><li>Deep clean whole bike – Muc-off Nano Tech wash + Bike Protect.</li><li>Service bottom bracket – Remove, re-grease bearings, torque to spec.</li><li>Wheel true – Check and adjust spoke tensions in truing stand.</li><li>Service headset – Remove forks, re-grease bearings, torque to spec.</li><li>Service hubs – Re-grease bearings, reassemble and adjust cones.</li><li>Degrease full drivetrain – Chain, cassette, derailleur cleaned and re-lubed.</li><li>2 parts installed at no extra labour cost – e.g. pads, chain, grips, cables.</li></ul>",
+            "desktop_width_percent": 100,
+            "heading_size": 34,
+            "mobile_heading_size": 28,
+            "column_heading_size": 22,
+            "vertical_padding": 80,
+            "mobile_padding": 25,
+            "background_color": "#FFFFFF",
+            "card_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "border_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8fbb776_tMicQU"
       ],
       "settings": {}
     },
@@ -370,6 +408,7 @@
     "179335931669078eba",
     "shogun_custom_html_GjzLmc",
     "179336007616552c13",
+    "179336164255819cd7",
     "dealer_list_zPUbxj",
     "bicycle_servicing_form_PNrBcR"
   ]
