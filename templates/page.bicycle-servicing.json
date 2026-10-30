@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/Copy_of_CHECK_UP_1200_x_710_px.svg",
             "caption": "",
-            "aspect_ratio": "16 / 9",
-            "image_fit": "contain",
+            "aspect_ratio": "4 / 3",
+            "image_fit": "cover",
             "caption_alignment": "center",
             "corner_radius": 8,
             "desktop_width_percent": 100
