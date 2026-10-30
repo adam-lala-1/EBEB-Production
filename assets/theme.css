@@ -527,7 +527,7 @@ a.callsd img{
     display: flex;
     gap: 20px;
 }
-.consequitivebtns a {
+.consequitivebtns a, .btnborder {
     border-color:var(--color-orange)!important;
     color:var(--color-orange)!important;
 }
