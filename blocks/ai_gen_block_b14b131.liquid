@@ -53,6 +53,7 @@
 {% endstyle %}
 
 <div class="ai-two-column-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+ <div class="eeb-container">
   <div class="ai-two-column__inner-{{ ai_gen_id }}">
     {% if block.settings.section_heading != blank %}
       <h2 class="ai-two-column__heading-{{ ai_gen_id }}">{{ block.settings.section_heading | escape }}</h2>
@@ -67,6 +68,7 @@
         <div class="ai-two-column__content-{{ ai_gen_id }}">{{ block.settings.right_content }}</div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
