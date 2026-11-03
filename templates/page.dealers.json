@@ -53,7 +53,7 @@
         "dealer_miWpLX": {
           "type": "dealer",
           "settings": {
-            "logo": "shopify://shop_images/Untitled_Design_6cfd5c04-f3a2-4ede-8c98-1f1ea1b1bdda.png",
+            "logo": "shopify://shop_images/adrenalin_cycling.png",
             "region": "QLD, Australia",
             "name": "Adrenalin Cycling",
             "address": "68 Torquay Road, Pialba, QLD 4655",
@@ -105,7 +105,6 @@
         "dealer_89MdDW": {
           "type": "dealer",
           "settings": {
-            "logo": "shopify://shop_images/Untitled_Design_2_26a0f517-39f7-4e2c-ab7a-effa9f7de06d.png",
             "region": "SA, Australia",
             "name": "Copper Trails Bike Hire",
             "address": "40 George Street, Moonta, SA 5558",
