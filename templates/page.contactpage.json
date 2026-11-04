@@ -185,8 +185,8 @@
         "ai_gen_block_1880656_rhBBgf": {
           "type": "ai_gen_block_1880656",
           "settings": {
-            "heading": "Service enquiry",
-            "intro": "Tell us how we can help with your bike servicing.",
+            "heading": "Get in Touch",
+            "intro": "Tell us how we can help",
             "button_label": "Send enquiry",
             "success_message": "Thanks for your enquiry. We’ll be in touch soon.",
             "desktop_width_percent": 100,
