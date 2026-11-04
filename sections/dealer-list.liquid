@@ -39,12 +39,60 @@
                 <li><strong>Website:</strong> <a href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
               {% endif %}
             </ul>
+            {% if block.settings.pdf_url != blank or block.settings.link2_url != blank %}
+  <div class="eeb-dealer-card__actions">
+    {% if block.settings.pdf_url != blank %}
+      <a class="eeb-dealer-btn eeb-dealer-btn--pdf"
+         href="{{ block.settings.pdf_url }}"
+         target="_blank"
+         rel="noopener"
+         download>
+        {{ block.settings.pdf_label | default: 'Download PDF' }}
+      </a>
+    {% endif %}
+    {% if block.settings.link2_url != blank %}
+      <a class="eeb-dealer-btn eeb-dealer-btn--link"
+         href="{{ block.settings.link2_url }}"
+         target="_blank"
+         rel="noopener">
+        {{ block.settings.link2_label | default: 'Visit website' }}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
           </div>
         </article>
       {% endfor %}
     </div>
   </div>
 </section>
+<style>
+  .eeb-dealer-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+  .eeb-dealer-btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .eeb-dealer-btn:hover { opacity: 0.85; }
+  .eeb-dealer-btn--pdf {
+    background: var(--color-primary, #111);
+    color: #fff;
+  }
+  .eeb-dealer-btn--link {
+    border: 1.5px solid var(--color-primary, #111);
+    color: var(--color-primary, #111);
+    background: transparent;
+  }
+</style>
 
 {% schema %}
 {
@@ -66,7 +114,11 @@
         { "type": "text", "id": "phone", "label": "Phone" },
         { "type": "text", "id": "email", "label": "Email" },
         { "type": "url", "id": "website_url", "label": "Website URL" },
-        { "type": "text", "id": "website_label", "label": "Website display text" }
+        { "type": "text", "id": "website_label", "label": "Website display text" },
+        { "type": "url", "id": "pdf_url", "label": "PDF URL (download button)" },
+        { "type": "text", "id": "pdf_label", "label": "PDF button text", "default": "Download PDF" },
+        { "type": "url", "id": "link2_url", "label": "Extra link URL (button)" },
+        { "type": "text", "id": "link2_label", "label": "Extra link button text", "default": "Visit website" }
       ]
     }
   ],
