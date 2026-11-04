@@ -188,11 +188,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://velectrix.com.au/support/manuals/",
-            "website_label": "View All Velectrix Manuals",
+            "website_label": "View All Velectrix Manuals ->",
             "pdf_url": "",
             "pdf_label": "Download PDF",
-            "link2_url": "",
-            "link2_label": "Visit website"
+            "link2_url": "https://everybodyebikes.com.au/products/velectrix-cruiser-x-st",
+            "link2_label": "View Velectrix's Product ->"
           }
         },
         "dealer_KbbmDH": {
@@ -205,11 +205,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://help.bosch-ebike.com/#/help-center/manuals",
-            "website_label": "View All Bosch Manuals",
+            "website_label": "View All Bosch Manuals ->",
             "pdf_url": "",
             "pdf_label": "Download PDF",
-            "link2_url": "",
-            "link2_label": "Visit website"
+            "link2_url": "https://everybodyebikes.com.au/blogs/technical/bosch-ebike-care-where-to-get-expert-servicing",
+            "link2_label": "View Bosch Details ->"
           }
         },
         "dealer_gjLGQJ": {
@@ -222,11 +222,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://yubabikes.eu/tech-notices/",
-            "website_label": "View All Yuba Manuals",
+            "website_label": "View All Yuba Manuals ->",
             "pdf_url": "",
             "pdf_label": "Download PDF",
-            "link2_url": "",
-            "link2_label": "Visit website"
+            "link2_url": "https://everybodyebikes.com.au/products/yuba-spicy-curry-v4",
+            "link2_label": "View Yuba's Product ->"
           }
         },
         "dealer_E7pUFy": {
@@ -239,11 +239,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://bennobikes.com/support-main/#owners_manuals",
-            "website_label": "View All Benno Manuals",
+            "website_label": "View All Benno Manuals ->",
             "pdf_url": "",
             "pdf_label": "Download PDF",
-            "link2_url": "",
-            "link2_label": "Visit website"
+            "link2_url": "https://everybodyebikes.com.au/products/benno-46er-evo2",
+            "link2_label": "View Benno's Product ->"
           }
         },
         "dealer_WwEDfj": {
@@ -256,11 +256,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://www.ternbicycles.com/au/support",
-            "website_label": "View All Tern Manuals",
+            "website_label": "View All Tern Manuals ->",
             "pdf_url": "",
             "pdf_label": "Download PDF",
-            "link2_url": "",
-            "link2_label": "Visit website"
+            "link2_url": "https://everybodyebikes.com.au/products/tern-hsd-p10",
+            "link2_label": "View Tern's Products ->"
           }
         }
       },
