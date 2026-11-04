@@ -238,7 +238,7 @@ p { margin: 0 0 1em; }
 .eeb-dealer-card__logo { background: var(--color-cream); border-radius: .75rem; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .eeb-dealer-card__logo img { width: 100%; height: 100%; object-fit: contain; padding: .5rem; }
 .eeb-dealer-card__placeholder { font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-navy); }
-.eeb-dealer-card__body h3 { font-size: 1.3rem; margin: .25rem 0 .75rem; font-weight:600; }
+.eeb-dealer-card__body h3 { font-size: 1.3rem; margin: .25rem 0 1rem; font-weight:600; }
 .eeb-dealer-card__meta { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; font-size: .9rem; color: var(--color-muted); }
 .eeb-dealer-card__meta strong { color: var(--color-foreground); font-weight: 600; margin-right: .25rem; }
 .eeb-dealer-card__meta a { color: var(--color-orange); }
