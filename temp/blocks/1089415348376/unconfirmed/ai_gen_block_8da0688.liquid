@@ -1,6 +1,292 @@
+{% doc %}
+  @prompt
+    generate a section with 2cols, one col has 70% and another is 30%, In the first col has, the left col has 40% image and 60% content, the content contains heading contentt and button with pdf icon and the rightcol of the section has a icon optoin and a heading and at bottom the text/description and a button and then the call icon with number and link and then email icon with email id and its link
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-service-info-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    color: {{ block.settings.text_color }};
+    background: {{ block.settings.background_color }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__layout {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    min-width: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__feature {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    align-items: stretch;
+    min-width: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__image,
+  .ai-service-info-{{ ai_gen_id }}__image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__image-placeholder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f3f5;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__image-placeholder svg {
+    width: 100%;
+    height: 100%;
+    max-height: 390px;
+    color: #9ca3af;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__empty-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    margin: 0;
+    padding: 8px 10px;
+    color: #374151;
+    background: #ffffff;
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__feature-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 18px;
+    padding: 36px;
+    min-width: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__heading {
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+    font-size: clamp(22px, 2.3vw, 34px);
+    line-height: 1.2;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__body p {
+    margin: 0 0 12px;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 2px solid {{ block.settings.button_color }};
+    border-radius: 6px;
+    background: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__button:hover {
+    background: {{ block.settings.button_hover_color }};
+    border-color: {{ block.settings.button_hover_color }};
+    color: #ffffff;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__button:focus-visible,
+  .ai-service-info-{{ ai_gen_id }}__contact-link:focus-visible {
+    outline: 3px solid {{ block.settings.heading_color }};
+    outline-offset: 3px;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__button svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 34px;
+    border-left: 1px solid {{ block.settings.border_color }};
+    min-width: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #ffffff;
+    background: {{ block.settings.button_color }};
+    border-radius: 50%;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact-heading {
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+    font-size: 23px;
+    line-height: 1.25;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact-body p {
+    margin: 0;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__details {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    padding-top: 8px;
+    border-top: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: {{ block.settings.heading_color }};
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+  }
+
+  .ai-service-info-{{ ai_gen_id }}__contact-link svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 auto;
+    color: {{ block.settings.button_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-service-info-{{ ai_gen_id }} { width: 100%; }
+    .ai-service-info-{{ ai_gen_id }}__layout,
+    .ai-service-info-{{ ai_gen_id }}__feature { grid-template-columns: 1fr; }
+    .ai-service-info-{{ ai_gen_id }}__image,
+    .ai-service-info-{{ ai_gen_id }}__image-placeholder { min-height: 220px; max-height: 360px; }
+    .ai-service-info-{{ ai_gen_id }}__feature-copy,
+    .ai-service-info-{{ ai_gen_id }}__contact { padding: 26px 22px; }
+    .ai-service-info-{{ ai_gen_id }}__contact { border-left: 0; border-top: 1px solid {{ block.settings.border_color }}; }
+  }
+{% endstyle %}
+
+<div class="ai-service-info-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-service-info-{{ ai_gen_id }}__layout">
+    <div class="ai-service-info-{{ ai_gen_id }}__feature">
+      {% if block.settings.feature_image != blank %}
+        <img class="ai-service-info-{{ ai_gen_id }}__image" src="{{ block.settings.feature_image | image_url: width: 1000 }}" alt="{{ block.settings.feature_image.alt | escape }}" loading="lazy" width="{{ block.settings.feature_image.width }}" height="{{ block.settings.feature_image.height }}">
+      {% else %}
+        <div class="ai-service-info-{{ ai_gen_id }}__image-placeholder">
+          {{ 'image' | placeholder_svg_tag }}
+          <p class="ai-service-info-{{ ai_gen_id }}__empty-label">Add an image to introduce this service or guide.</p>
+        </div>
+      {% endif %}
+      <div class="ai-service-info-{{ ai_gen_id }}__feature-copy">
+        {% if block.settings.feature_heading != blank %}<h2 class="ai-service-info-{{ ai_gen_id }}__heading">{{ block.settings.feature_heading | escape }}</h2>{% endif %}
+        {% if block.settings.feature_content != blank %}<div class="ai-service-info-{{ ai_gen_id }}__body">{{ block.settings.feature_content }}</div>{% endif %}
+        {% if block.settings.pdf_link != blank and block.settings.pdf_button_label != blank %}
+          <a class="ai-service-info-{{ ai_gen_id }}__button" href="{{ block.settings.pdf_link }}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M8 15h8M8 18h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>{{ block.settings.pdf_button_label | escape }}</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <aside class="ai-service-info-{{ ai_gen_id }}__contact" aria-label="{{ block.settings.contact_heading | escape }}">
+      <div class="ai-service-info-{{ ai_gen_id }}__icon" aria-hidden="true">
+        {% case block.settings.contact_icon %}
+          {% when 'bicycle' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="m15 6 3.5 11.5M5.5 17.5 10 10h4l4.5 7.5M8 6h4M10 10l-2-4"/></svg>
+          {% when 'wrench' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18l3 3 5.3-5.3a5 5 0 0 0 6.4-6.4L14 13l-3-3z"/></svg>
+          {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+        {% endcase %}
+      </div>
+      {% if block.settings.contact_heading != blank %}<h2 class="ai-service-info-{{ ai_gen_id }}__contact-heading">{{ block.settings.contact_heading | escape }}</h2>{% endif %}
+      {% if block.settings.contact_description != blank %}<div class="ai-service-info-{{ ai_gen_id }}__contact-body">{{ block.settings.contact_description }}</div>{% endif %}
+      {% if block.settings.contact_button_link != blank and block.settings.contact_button_label != blank %}<a class="ai-service-info-{{ ai_gen_id }}__button" href="{{ block.settings.contact_button_link }}">{{ block.settings.contact_button_label | escape }}</a>{% endif %}
+      <div class="ai-service-info-{{ ai_gen_id }}__details">
+        {% if block.settings.phone_number != blank %}<a class="ai-service-info-{{ ai_gen_id }}__contact-link" href="tel:{{ block.settings.phone_number | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span>{{ block.settings.phone_number | escape }}</span></a>{% endif %}
+        {% if block.settings.email_address != blank %}<a class="ai-service-info-{{ ai_gen_id }}__contact-link" href="mailto:{{ block.settings.email_address | escape }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>{{ block.settings.email_address | escape }}</span></a>{% endif %}
+      </div>
+    </aside>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Service and contact",
+  "settings": [
+    { "type": "header", "content": "Feature content" },
+    { "type": "image_picker", "id": "feature_image", "label": "Image" },
+    { "type": "text", "id": "feature_heading", "label": "Heading", "default": "Service information" },
+    { "type": "richtext", "id": "feature_content", "label": "Content", "default": "<p>Share helpful information about your service, guide or workshop.</p>" },
+    { "type": "url", "id": "pdf_link", "label": "PDF link" },
+    { "type": "text", "id": "pdf_button_label", "label": "PDF button label", "default": "View PDF guide" },
+    { "type": "header", "content": "Contact panel" },
+    { "type": "select", "id": "contact_icon", "label": "Icon", "options": [{ "value": "bicycle", "label": "Bicycle" }, { "value": "wrench", "label": "Wrench" }, { "value": "message", "label": "Message" }], "default": "bicycle" },
+    { "type": "text", "id": "contact_heading", "label": "Heading", "default": "Need a hand?" },
+    { "type": "richtext", "id": "contact_description", "label": "Description", "default": "<p>Get in touch with our team and we’ll help you find the right solution.</p>" },
+    { "type": "text", "id": "contact_button_label", "label": "Button label", "default": "Contact us" },
+    { "type": "url", "id": "contact_button_link", "label": "Button link" },
+    { "type": "text", "id": "phone_number", "label": "Phone number" },
+    { "type": "text", "id": "email_address", "label": "Email address" },
+    { "type": "header", "content": "Style" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "corner_radius", "label": "Corner radius", "min": 0, "max": 30, "step": 2, "unit": "px", "default": 10 },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Headings", "default": "#1B2A4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1B2A4A" },
+    { "type": "color", "id": "button_color", "label": "Button background", "default": "#1B2A4A" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_hover_color", "label": "Button hover", "default": "#E86C2C" },
+    { "type": "color", "id": "border_color", "label": "Borders", "default": "#E5E7EB" }
+  ],
+  "presets": [{ "name": "Service and contact" }],
+  "tag": null,
+  "class": "service-contact-block"
+}
 {% endschema %}
