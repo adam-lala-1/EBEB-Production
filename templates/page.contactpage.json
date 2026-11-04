@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "settings": {}
@@ -26,7 +30,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trident_v3_Rear_Drive_-_Complete.pdf?v=1785822552",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_pwbVaa": {
@@ -39,7 +47,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_2026_-_Complete.pdf?v=1785822734",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_LixCy9": {
@@ -52,7 +64,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_Family_2026_-_Complete.pdf?v=1785822734",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_HYcPXE": {
@@ -65,7 +81,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/ezi-Step_2026_-_Complete.pdf?v=1785822750",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_zNQBPn": {
@@ -78,7 +98,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/ezi-Step_2_2_2026_-_Complete.pdf?v=1785822750",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_YLAXXe": {
@@ -91,7 +115,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Lightning_2026_-_Complete.pdf?v=1785822743",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_QHMeA7": {
@@ -104,7 +132,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Lightning_2_2_2026_-_Complete.pdf?v=1785822743",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_pPeJzQ": {
@@ -117,7 +149,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/EVERYBODY_EBIKES_maintenance_battery_care.pdf?v=1785824964",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         }
       },
@@ -139,12 +175,36 @@
         "subheading": ""
       }
     },
-    "shogun-helper": {
-      "type": "shogun-helper",
-      "settings": {}
-    },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "1793791997d21bc5d8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1880656_rhBBgf": {
+          "type": "ai_gen_block_1880656",
+          "settings": {
+            "heading": "Service enquiry",
+            "intro": "Tell us how we can help with your bike servicing.",
+            "button_label": "Send enquiry",
+            "success_message": "Thanks for your enquiry. We’ll be in touch soon.",
+            "desktop_width_percent": 100,
+            "padding": 30,
+            "border_radius": 12,
+            "input_radius": 8,
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "border_color": "#E5E7EB",
+            "button_color": "#B94710"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1880656_rhBBgf"
+      ],
       "settings": {}
     }
   },
@@ -152,6 +212,7 @@
     "shogun-helper",
     "main",
     "dealer_list_zPUbxj",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "1793791997d21bc5d8"
   ]
 }
