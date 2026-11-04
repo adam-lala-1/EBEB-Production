@@ -128,9 +128,9 @@
             "image_width": 96,
             "title_size": 20,
             "image_radius": 8,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "divider_color": "#D9D5CF"
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "divider_color": "#d9d5cf"
           },
           "blocks": {}
         }
@@ -166,12 +166,12 @@
             "manual_note": "This overview is a quick reference only. Download and read the complete owner manual for full instructions.",
             "manual_url": "",
             "button_label": "Download the full manual",
-            "background_color": "#FFFFFF",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "accent_color": "#B94A12",
-            "border_color": "#E5E7EB",
-            "callout_color": "#F8F5F0"
+            "background_color": "#ffffff",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "accent_color": "#b94a12",
+            "border_color": "#e5e7eb",
+            "callout_color": "#f8f5f0"
           },
           "blocks": {}
         }
@@ -214,13 +214,13 @@
             "corner_radius": 12,
             "heading_size": 30,
             "text_size": 16,
-            "background_color": "#FFFFFF",
-            "border_color": "#E5E7EB",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "button_color": "#E86C2C",
-            "button_hover_color": "#1B2A4A",
-            "button_text_color": "#FFFFFF",
+            "background_color": "#ffffff",
+            "border_color": "#E86C2C",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "button_color": "#e86c2c",
+            "button_hover_color": "#1b2a4a",
+            "button_text_color": "#ffffff",
             "button_radius": 8
           },
           "blocks": {}
