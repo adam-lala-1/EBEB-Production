@@ -23,8 +23,8 @@
             "eyebrow": "EBEB Dealer Network",
             "heading": "Find an EBEB dealer near you",
             "description": "<p>Discover our trusted partner network across Australia, New Zealand and the USA. Test ride, get expert advice and purchase locally — with friendly support close to home.<br/><br/></p>",
-            "text_color": "#C3C3C3",
-            "eyebrow_color": "#E86C2C",
+            "text_color": "#c3c3c3",
+            "eyebrow_color": "#e86c2c",
             "background_color": "#1b2a4a",
             "heading_size": 56,
             "primary_label": "Become a dealer",
@@ -87,10 +87,10 @@
             "vertical_padding": 15,
             "heading_size": 16,
             "text_size": 14,
-            "background_color": "#F8F5F0",
-            "text_color": "#1B2A4A",
-            "secondary_text_color": "#1B2A4A",
-            "placeholder_color": "#E5E7EB"
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
           },
           "blocks": {}
         }
@@ -316,6 +316,45 @@
         "ai_gen_block_b7ed1d3_Dzjab6"
       ],
       "settings": {}
+    },
+    "blocks_mdJ3Am": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b7ed1d3_idWKK4": {
+          "type": "ai_gen_block_b7ed1d3",
+          "settings": {
+            "image": "shopify://shop_images/Evrybody_e_bikes_gaythrone.jpg",
+            "desktop_width_percent": 100,
+            "panel_height": 400,
+            "mobile_image_height": 220,
+            "eyebrow": "Our Flagship Store",
+            "heading": "EveryBody eBikes – Gaythorne",
+            "description": "<p>Unit 6/51 Prospect Rd, Gaythorne QLD 4051</p>",
+            "usp_1_icon": "bike",
+            "usp_1_custom_icon": "shopify://shop_images/New_e_bikes_trikes.png",
+            "usp_1_text": "New e-bikes & trikes",
+            "usp_2_icon": "key",
+            "usp_2_custom_icon": "shopify://shop_images/Test_Rides.png",
+            "usp_2_text": "Test rides",
+            "usp_3_icon": "settings",
+            "usp_3_custom_icon": "shopify://shop_images/Service_Support.png",
+            "usp_3_text": "Service & support",
+            "directions_label": "Get directions",
+            "directions_url": "https://www.google.com/maps/dir//Unit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia/@-27.4133087,152.9798658,17z/data=!4m17!1m8!3m7!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2sUnit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia!3b1!8m2!3d-27.4133135!4d152.9824407!16s%2Fg%2F11vj44g6gt!4m7!1m0!1m5!1m1!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2m2!1d152.9824407!2d-27.4133135?entry=ttu&g_ep=EgoyMDI2MTEwMS4wIKXMDSoASAFQAw%3D%3D",
+            "button_one_label": "Book a Test Ride",
+            "button_one_url": "https://everybodyebikes.com.au/pages/book-a-test-ride",
+            "button_two_label": "Visit Our Showroom",
+            "button_two_url": "#",
+            "heading_size": 34
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b7ed1d3_idWKK4"
+      ],
+      "name": "Location info panel",
+      "settings": {}
     }
   },
   "order": [
@@ -325,6 +364,7 @@
     "list",
     "portal",
     "cta",
-    "179377651392bc4535"
+    "179377651392bc4535",
+    "blocks_mdJ3Am"
   ]
 }
