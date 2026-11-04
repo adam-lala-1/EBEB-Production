@@ -315,14 +315,14 @@
             "image_3": "shopify://shop_images/Email.png",
             "heading_3": "Email",
             "text_3": "<p><a href=\"mailto:enquiry@everybodyebikes.com.au\" title=\"mailto:enquiry@everybodyebikes.com.au\">enquiry@everybodyebikes.com.au</a></p>",
-            "image_height": 80,
+            "image_height": 60,
             "column_gap": 16,
             "corner_radius": 8,
             "heading_size": 18,
-            "background_color": "#FFFFFF",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "border_color": "#FFFFFF"
+            "background_color": "#ffffff",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "border_color": "#ffffff"
           },
           "blocks": {}
         }
