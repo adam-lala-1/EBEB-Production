@@ -13,6 +13,10 @@
       "type": "shogun-helper",
       "settings": {}
     },
+    "main_page_kQypGm": {
+      "type": "main-page",
+      "settings": {}
+    },
     "1793791997d21bc5d8": {
       "type": "_blocks",
       "blocks": {
@@ -203,16 +207,20 @@
       "type": "shogun-optimizer",
       "settings": {}
     },
-    "main_page_kQypGm": {
-      "type": "main-page",
-      "settings": {}
+    "shogun_custom_html_9qt8gj": {
+      "type": "shogun-custom-html",
+      "name": "Shogun Custom HTML",
+      "settings": {
+        "html": "<div class=\"eeb-container\">\n<h2 style=\"font-size: 24px;\">Contact Everybody Ebikes</h2>\n<p><iframe loading=\"lazy\" style=\"border: 0;\" height=\"450\" width=\"600\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.4762514123217!2d153.03116261531335!3d-27.423264682910425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93fc6b78ff5a35%3A0x5f92d04e3b321f07!2sEveryBody%20eBikes%20(incorporating%20BF%20eBikes)!5e0!3m2!1sen!2sau!4v1668032435636!5m2!1sen!2sau\"></iframe></p>\n<div class=\"grid-item-30\">\n<h4 class=\"h3 footer-header\">Contact Us</h4>\n<p class=\"h3 footer-header\">0409 126 669<br>enquiry@everybodyebikes.com.au</p>\n<h4 class=\"h3 footer-header\">\n<br>Business Hours</h4>\n<div class=\"rte footer-article text-link-animated richtext-block\">\n<p>Mon: 9AM to 5PM<br>Tues: 9AM to 5PM<br>Wed: 9AM to 5PM<br>Thur: 9AM to 5PM<br>Fri: 9AM to 5PM<br>Saturday: 10AM to 4PM<br>Sunday: CLOSED</p>\n</div>\n<br>\n</div>\n</div>"
+      }
     }
   },
   "order": [
     "shogun-helper",
+    "main_page_kQypGm",
     "1793791997d21bc5d8",
     "dealer_list_zPUbxj",
     "shogun-optimizer",
-    "main_page_kQypGm"
+    "shogun_custom_html_9qt8gj"
   ]
 }
