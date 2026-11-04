@@ -321,16 +321,38 @@
         "cta2_url": "shopify://pages/contact"
       }
     },
-    "main_search_fm4qew": {
-      "type": "main-search",
-      "name": "Search results",
-      "settings": {
-        "eyebrow": "Search",
-        "products_per_page": 24,
-        "columns": "3",
-        "show_content_results": true,
-        "show_vendor": false
-      }
+    "blocks_6TPREY": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2ce8664_QGMpUk": {
+          "type": "ai_gen_block_2ce8664",
+          "settings": {
+            "desktop_width_percent": 100,
+            "image_1": "shopify://shop_images/Need_help___were_here_for_you.png",
+            "heading_1": "Need Help? We’re Here for You. ",
+            "text_1": "<p>Talk to our friendly team for manual support, technical questions or general advice.</p>",
+            "image_2": "shopify://shop_images/call_12648137-88c3-4fc3-a4c2-853060b46bfe.png",
+            "heading_2": "Phone",
+            "text_2": "<p><a href=\"tel:+61409126669\" title=\"tel:+61409126669\">0409 126 669</a></p><p></p>",
+            "image_3": "shopify://shop_images/Email.png",
+            "heading_3": "Email",
+            "text_3": "<p><a href=\"mailto:enquiry@everybodyebikes.com.au\" title=\"mailto:enquiry@everybodyebikes.com.au\">enquiry@everybodyebikes.com.au</a></p>",
+            "image_height": 60,
+            "column_gap": 16,
+            "corner_radius": 8,
+            "heading_size": 18,
+            "background_color": "#ffffff",
+            "heading_color": "#1b2a4a",
+            "text_color": "#1b2a4a",
+            "border_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2ce8664_QGMpUk"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -341,6 +363,6 @@
     "list",
     "portal",
     "cta",
-    "main_search_fm4qew"
+    "blocks_6TPREY"
   ]
 }
