@@ -541,4 +541,7 @@ a.eeb-dealer-btn.eeb-dealer-btn--pdf.pdfbtn {
     background: transparent;
     border: 1px solid;
     width: fit-content;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
