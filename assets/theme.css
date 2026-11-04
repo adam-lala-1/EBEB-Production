@@ -499,6 +499,7 @@ color: #1b2a4a;
     color: white!important;
     padding: 10px;
     border-radius: 5px;
+    width:fit-content;
 }
 span.capaci {
     border: 1px solid var(--color-orange);
