@@ -45,7 +45,7 @@
       </a>
     {% endif %}
               {% if block.settings.website_url != blank %}
-                <li><a href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
+                <li><a style="font-weight:600!important;" href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
               {% endif %}
             </ul>
             {% if block.settings.pdf_url != blank or block.settings.link2_url != blank %}
@@ -92,7 +92,6 @@
   .secondbtn{
   padding:0px!important;
   color: var(--color-orange);
-      font-weight: 400!important;
 
 }
 .secondbtn:hover{
