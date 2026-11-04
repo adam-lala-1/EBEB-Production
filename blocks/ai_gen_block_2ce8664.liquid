@@ -1,0 +1,152 @@
+{% doc %}
+  @prompt
+    generate a 3 cols section, where 1st col is big and other 2cols are equal, each col has an image at left, heading and text at right, image height will be around 80
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-info-columns-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-inline: auto;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: {{ block.settings.column_gap }}px;
+    align-items: stretch;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    min-width: 0;
+    padding: 18px;
+    background: {{ block.settings.background_color }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__item:first-child {
+    grid-column: span 1;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 {{ block.settings.image_height }}px;
+    width: {{ block.settings.image_height }}px;
+    height: {{ block.settings.image_height }}px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f3f4f6;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__media img,
+  .ai-info-columns-{{ ai_gen_id }}__media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__content {
+    min-width: 0;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__heading {
+    margin: 0 0 6px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    line-height: 1.25;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__text {
+    color: {{ block.settings.text_color }};
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .ai-info-columns-{{ ai_gen_id }}__text p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-info-columns-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-info-columns-{{ ai_gen_id }}__grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .ai-info-columns-{{ ai_gen_id }}__item {
+      padding: 14px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-info-columns-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-info-columns-{{ ai_gen_id }}__grid">
+    {% for i in (1..3) %}
+      {% assign image_key = 'image_' | append: i %}
+      {% assign heading_key = 'heading_' | append: i %}
+      {% assign text_key = 'text_' | append: i %}
+      {% assign item_image = block.settings[image_key] %}
+      {% assign item_heading = block.settings[heading_key] %}
+      {% assign item_text = block.settings[text_key] %}
+      <article class="ai-info-columns-{{ ai_gen_id }}__item">
+        <div class="ai-info-columns-{{ ai_gen_id }}__media">
+          {% if item_image != blank %}
+            <img src="{{ item_image | image_url: width: 240 }}" alt="{{ item_image.alt | escape }}" loading="lazy" width="{{ item_image.width }}" height="{{ item_image.height }}">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+        <div class="ai-info-columns-{{ ai_gen_id }}__content">
+          {% if item_heading != blank %}<h3 class="ai-info-columns-{{ ai_gen_id }}__heading">{{ item_heading | escape }}</h3>{% endif %}
+          {% if item_text != blank %}<div class="ai-info-columns-{{ ai_gen_id }}__text">{{ item_text }}</div>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Three info columns",
+  "settings": [
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "header", "content": "Column 1" },
+    { "type": "image_picker", "id": "image_1", "label": "Image" },
+    { "type": "text", "id": "heading_1", "label": "Heading", "default": "Expert servicing" },
+    { "type": "richtext", "id": "text_1", "label": "Text", "default": "<p>Keep your ride running smoothly with experienced care.</p>" },
+    { "type": "header", "content": "Column 2" },
+    { "type": "image_picker", "id": "image_2", "label": "Image" },
+    { "type": "text", "id": "heading_2", "label": "Heading", "default": "Book a service" },
+    { "type": "richtext", "id": "text_2", "label": "Text", "default": "<p>Choose a convenient time to bring your bike in.</p>" },
+    { "type": "header", "content": "Column 3" },
+    { "type": "image_picker", "id": "image_3", "label": "Image" },
+    { "type": "text", "id": "heading_3", "label": "Heading", "default": "Ride with confidence" },
+    { "type": "richtext", "id": "text_3", "label": "Text", "default": "<p>Get helpful advice and support for every journey.</p>" },
+    { "type": "header", "content": "Style" },
+    { "type": "range", "id": "image_height", "label": "Image size", "min": 50, "max": 120, "step": 5, "unit": "px", "default": 80 },
+    { "type": "range", "id": "column_gap", "label": "Column gap", "min": 8, "max": 40, "step": 4, "unit": "px", "default": 16 },
+    { "type": "range", "id": "corner_radius", "label": "Corner radius", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 8 },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 28, "step": 2, "unit": "px", "default": 18 },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1B2A4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1B2A4A" },
+    { "type": "color", "id": "border_color", "label": "Border", "default": "#E5E7EB" }
+  ],
+  "presets": [{ "name": "Three info columns" }],
+  "tag": null,
+  "class": "three-info-columns"
+}
+{% endschema %}

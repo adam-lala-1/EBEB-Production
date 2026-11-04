@@ -286,10 +286,57 @@
         "heading": "",
         "subheading": ""
       }
+    },
+    "cta_banner_jpjKG4": {
+      "type": "cta-banner",
+      "name": "CTA banner",
+      "settings": {
+        "heading": "Need Help Finding a Manual?",
+        "subheading": "Can’t find your manual or need the latest version? Our team is here to help.",
+        "cta1_text": "Get Support",
+        "cta1_url": "https://everybodyebikes.com.au/pages/contact",
+        "cta2_text": "",
+        "cta2_url": ""
+      }
+    },
+    "179376924052a4007a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2ce8664_cghPy9": {
+          "type": "ai_gen_block_2ce8664",
+          "settings": {
+            "desktop_width_percent": 100,
+            "image_1": "shopify://shop_images/Need_help___were_here_for_you.png",
+            "heading_1": "Need Help? We’re Here for You. ",
+            "text_1": "<p>Talk to our friendly team for manual support, technical questions or general advice.</p>",
+            "image_2": "shopify://shop_images/call_12648137-88c3-4fc3-a4c2-853060b46bfe.png",
+            "heading_2": "Phone",
+            "text_2": "<p><a href=\"tel:+61409126669\" title=\"tel:+61409126669\">0409 126 669</a></p><p></p>",
+            "image_3": "shopify://shop_images/Email.png",
+            "heading_3": "Email",
+            "text_3": "<p><a href=\"mailto:enquiry@everybodyebikes.com.au\" title=\"mailto:enquiry@everybodyebikes.com.au\">enquiry@everybodyebikes.com.au</a></p>",
+            "image_height": 80,
+            "column_gap": 16,
+            "corner_radius": 8,
+            "heading_size": 18,
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "border_color": "#FFFFFF"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2ce8664_cghPy9"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "dealer_hero_KEYyXx",
-    "dealer_list_zPUbxj"
+    "dealer_list_zPUbxj",
+    "cta_banner_jpjKG4",
+    "179376924052a4007a"
   ]
 }
