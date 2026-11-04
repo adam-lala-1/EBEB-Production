@@ -1,6 +1,304 @@
+{% doc %}
+  @prompt
+    generate a section in 3cols, 1st colaround 25%width has image full height and full width, 2nd col has 50% width and has an eyebrow text withicon and heading and desciription and then with 3 usp icons and text in one row only dividide by a dividerm, and below that one button as get directions, and inthe last col we will have 2 buttons
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-location-panel-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-inline: auto;
+    color: {{ block.settings.text_color }};
+    background: {{ block.settings.background_color }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(190px, 1fr);
+    min-height: {{ block.settings.panel_height }}px;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__image {
+    position: relative;
+    min-height: 100%;
+    background: {{ block.settings.image_background }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__image img,
+  .ai-location-panel-{{ ai_gen_id }}__image svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: {{ block.settings.panel_height }}px;
+    object-fit: cover;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__image-placeholder {
+    height: 100%;
+    min-height: {{ block.settings.panel_height }}px;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__image-placeholder svg {
+    color: {{ block.settings.muted_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__main {
+    padding: clamp(24px, 4vw, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 13px;
+    color: {{ block.settings.accent_color }};
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__eyebrow svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__heading {
+    margin: 0 0 12px;
+    color: {{ block.settings.heading_color }};
+    font-size: clamp(25px, 3vw, {{ block.settings.heading_size }}px);
+    line-height: 1.15;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__description {
+    margin: 0;
+    color: {{ block.settings.muted_color }};
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__usps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 26px 0 22px;
+    border-block: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__usp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 15px 10px;
+    color: {{ block.settings.heading_color }};
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__usp + .ai-location-panel-{{ ai_gen_id }}__usp {
+    border-left: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__usp svg {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+    color: {{ block.settings.accent_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px;
+    background: {{ block.settings.actions_background }};
+    border-left: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__button {
+    display: inline-flex;
+    min-height: 48px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border: 2px solid {{ block.settings.accent_color }};
+    border-radius: {{ block.settings.button_radius }}px;
+    background: {{ block.settings.accent_color }};
+    color: {{ block.settings.button_text_color }};
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__button--secondary {
+    background: transparent;
+    color: {{ block.settings.heading_color }};
+    border-color: {{ block.settings.border_color }};
+  }
+
+  .ai-location-panel-{{ ai_gen_id }}__button:focus-visible {
+    outline: 3px solid {{ block.settings.heading_color }};
+    outline-offset: 3px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-location-panel-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-location-panel-{{ ai_gen_id }}__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ai-location-panel-{{ ai_gen_id }}__image,
+    .ai-location-panel-{{ ai_gen_id }}__image img,
+    .ai-location-panel-{{ ai_gen_id }}__image-placeholder,
+    .ai-location-panel-{{ ai_gen_id }}__image-placeholder svg {
+      min-height: {{ block.settings.mobile_image_height }}px;
+      height: {{ block.settings.mobile_image_height }}px;
+    }
+
+    .ai-location-panel-{{ ai_gen_id }}__actions {
+      border-left: 0;
+      border-top: 1px solid {{ block.settings.border_color }};
+      padding: 22px;
+    }
+
+    .ai-location-panel-{{ ai_gen_id }}__usp {
+      flex-direction: column;
+      gap: 7px;
+      padding: 13px 6px;
+      font-size: 12px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-location-panel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-location-panel-{{ ai_gen_id }}__grid">
+    <div class="ai-location-panel-{{ ai_gen_id }}__image">
+      {% if block.settings.image != blank %}
+        <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+      {% else %}
+        <div class="ai-location-panel-{{ ai_gen_id }}__image-placeholder">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-location-panel-{{ ai_gen_id }}__main">
+      {% if block.settings.eyebrow != blank %}
+        <p class="ai-location-panel-{{ ai_gen_id }}__eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            {% case block.settings.eyebrow_icon %}
+              {% when 'pin' %}<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+              {% when 'bike' %}<circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="m15 6 3.5 11.5M8 17.5 12 9l4 8.5M9 6h4M12 9h5"/>
+              {% else %}<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/>
+            {% endcase %}
+          </svg>
+          {{ block.settings.eyebrow | escape }}
+        </p>
+      {% endif %}
+      {% if block.settings.heading != blank %}<h2 class="ai-location-panel-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>{% endif %}
+      {% if block.settings.description != blank %}<div class="ai-location-panel-{{ ai_gen_id }}__description">{{ block.settings.description }}</div>{% endif %}
+
+      <div class="ai-location-panel-{{ ai_gen_id }}__usps">
+        {% for i in (1..3) %}
+          {% liquid
+            assign usp_text_key = 'usp_' | append: i | append: '_text'
+            assign usp_icon_key = 'usp_' | append: i | append: '_icon'
+            assign usp_text = block.settings[usp_text_key]
+            assign usp_icon = block.settings[usp_icon_key]
+          %}
+          {% if usp_text != blank %}
+            <div class="ai-location-panel-{{ ai_gen_id }}__usp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {% case usp_icon %}
+                  {% when 'bike' %}<circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="m15 6 3.5 11.5M8 17.5 12 9l4 8.5M9 6h4M12 9h5"/>
+                  {% when 'pin' %}<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+                  {% else %}<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/>
+                {% endcase %}
+              </svg>
+              <span>{{ usp_text | escape }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if block.settings.directions_label != blank and block.settings.directions_url != blank %}
+        <a class="ai-location-panel-{{ ai_gen_id }}__button" href="{{ block.settings.directions_url }}" {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ block.settings.directions_label | escape }}</a>
+      {% endif %}
+    </div>
+
+    <div class="ai-location-panel-{{ ai_gen_id }}__actions">
+      {% if block.settings.button_one_label != blank and block.settings.button_one_url != blank %}<a class="ai-location-panel-{{ ai_gen_id }}__button" href="{{ block.settings.button_one_url }}">{{ block.settings.button_one_label | escape }}</a>{% endif %}
+      {% if block.settings.button_two_label != blank and block.settings.button_two_url != blank %}<a class="ai-location-panel-{{ ai_gen_id }}__button ai-location-panel-{{ ai_gen_id }}__button--secondary" href="{{ block.settings.button_two_url }}">{{ block.settings.button_two_label | escape }}</a>{% endif %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Location info panel",
+  "settings": [
+    { "type": "header", "content": "Image and layout" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "panel_height", "label": "Panel height", "min": 260, "max": 600, "step": 20, "unit": "px", "default": 400 },
+    { "type": "range", "id": "mobile_image_height", "label": "Mobile image height", "min": 140, "max": 360, "step": 20, "unit": "px", "default": 220 },
+    { "type": "header", "content": "Location details" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Visit our store" },
+    { "type": "select", "id": "eyebrow_icon", "label": "Eyebrow icon", "options": [{ "value": "pin", "label": "Location pin" }, { "value": "bike", "label": "Bicycle" }, { "value": "shield", "label": "Shield" }], "default": "pin" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Find us and say hello" },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Visit our team for expert advice, friendly service and everything you need for your next ride.</p>" },
+    { "type": "header", "content": "Three highlights" },
+    { "type": "select", "id": "usp_1_icon", "label": "Highlight 1 icon", "options": [{ "value": "bike", "label": "Bicycle" }, { "value": "pin", "label": "Location pin" }, { "value": "shield", "label": "Shield" }], "default": "bike" },
+    { "type": "text", "id": "usp_1_text", "label": "Highlight 1", "default": "Expert e-bike advice" },
+    { "type": "select", "id": "usp_2_icon", "label": "Highlight 2 icon", "options": [{ "value": "bike", "label": "Bicycle" }, { "value": "pin", "label": "Location pin" }, { "value": "shield", "label": "Shield" }], "default": "pin" },
+    { "type": "text", "id": "usp_2_text", "label": "Highlight 2", "default": "Test rides available" },
+    { "type": "select", "id": "usp_3_icon", "label": "Highlight 3 icon", "options": [{ "value": "bike", "label": "Bicycle" }, { "value": "pin", "label": "Location pin" }, { "value": "shield", "label": "Shield" }], "default": "shield" },
+    { "type": "text", "id": "usp_3_text", "label": "Highlight 3", "default": "Trusted local service" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "directions_label", "label": "Directions button label", "default": "Get directions" },
+    { "type": "url", "id": "directions_url", "label": "Directions link" },
+    { "type": "checkbox", "id": "open_new_tab", "label": "Open directions in new tab", "default": true },
+    { "type": "text", "id": "button_one_label", "label": "First button label", "default": "Book a service" },
+    { "type": "url", "id": "button_one_url", "label": "First button link" },
+    { "type": "text", "id": "button_two_label", "label": "Second button label", "default": "Contact us" },
+    { "type": "url", "id": "button_two_url", "label": "Second button link" },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "actions_background", "label": "Button area background", "default": "#F8F5F0" },
+    { "type": "color", "id": "image_background", "label": "Image placeholder background", "default": "#F8F5F0" },
+    { "type": "color", "id": "heading_color", "label": "Headings", "default": "#1B2A4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1B2A4A" },
+    { "type": "color", "id": "muted_color", "label": "Description", "default": "#555D6B" },
+    { "type": "color", "id": "accent_color", "label": "Accent and button", "default": "#B9470A" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#FFFFFF" },
+    { "type": "color", "id": "border_color", "label": "Borders", "default": "#E5E7EB" },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 24, "max": 48, "step": 2, "unit": "px", "default": 34 },
+    { "type": "range", "id": "corner_radius", "label": "Panel corner radius", "min": 0, "max": 30, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "button_radius", "label": "Button corner radius", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 6 }
+  ],
+  "presets": [{ "name": "Location info panel" }],
+  "tag": null,
+  "class": "location-info-panel-block"
+}
 {% endschema %}
