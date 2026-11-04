@@ -34,7 +34,11 @@
             "phone": "1300 663 243",
             "email": "info@freedomsolutions.org.au",
             "website_url": "https://freedomsolutions.org.au",
-            "website_label": "freedomsolutions.org.au"
+            "website_label": "freedomsolutions.org.au",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_NBAmzJ": {
@@ -47,7 +51,11 @@
             "phone": "03 9042 9058",
             "email": "sales@cargocycles.com.au",
             "website_url": "https://cargocycles.com.au",
-            "website_label": "cargocycles.com.au"
+            "website_label": "cargocycles.com.au",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_miWpLX": {
@@ -60,7 +68,11 @@
             "phone": "(07) 4112 4636",
             "email": "info@adrenalincycling.com.au",
             "website_url": "https://www.adrenalincycling.com.au/",
-            "website_label": "adrenalincycling.com.au"
+            "website_label": "adrenalincycling.com.au",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_rjgRCD": {
@@ -73,7 +85,11 @@
             "phone": "(08) 8424 6160",
             "email": "enquiries@novitatech.com.au",
             "website_url": "https://novitatech.com.au",
-            "website_label": "novitatech.com.au"
+            "website_label": "novitatech.com.au",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_8NacnR": {
@@ -86,7 +102,11 @@
             "phone": "08 9842 1387",
             "email": "ride@impulsecycles.com.au",
             "website_url": "https://www.impulsecycles.com.au/",
-            "website_label": "impulsecycles.com.au"
+            "website_label": "impulsecycles.com.au",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_aJK7Fn": {
@@ -99,7 +119,11 @@
             "phone": "0800 115 068",
             "email": "sales@ecoquip.co.nz",
             "website_url": "https://ecoquip.co.nz",
-            "website_label": "ecoquip.co.nz"
+            "website_label": "ecoquip.co.nz",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_89MdDW": {
@@ -111,7 +135,11 @@
             "phone": "0447 764 777",
             "email": "coppercoastbikes@gmail.com",
             "website_url": "https://www.coppertrailsbikehire.com/",
-            "website_label": "coppertrailsbikehire.com"
+            "website_label": "coppertrailsbikehire.com",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_gERcby": {
@@ -124,7 +152,11 @@
             "phone": "(559) 429-8512",
             "email": "ben@perfectfitlp.com",
             "website_url": "https://www.perfectfitlp.com/",
-            "website_label": "perfectfitlp.com"
+            "website_label": "perfectfitlp.com",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         }
       },
@@ -169,12 +201,54 @@
         "cta2_text": "Talk to our team",
         "cta2_url": "shopify://pages/contact"
       }
+    },
+    "1793773223ae27652c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_aba8cbb_7qrVdU": {
+          "type": "ai_gen_block_aba8cbb",
+          "settings": {
+            "background_image": "shopify://shop_images/Find_an_EBEB_dealer_near_you.jpg",
+            "desktop_width_percent": 100,
+            "banner_height": 560,
+            "mobile_height": 600,
+            "mobile_overlay_opacity": 60,
+            "eyebrow": "EBEB Dealer Network",
+            "heading": "Find an EBEB dealer near you",
+            "description": "<p>Discover our trusted partner network across Australia, New Zealand and the USA. Test ride, get expert advice and purchase locally — with friendly support close to home.<br/><br/></p>",
+            "text_color": "#FFFFFF",
+            "eyebrow_color": "#FF9B5E",
+            "background_color": "#1B2A4A",
+            "heading_size": 56,
+            "primary_label": "Become a dealer",
+            "primary_link": "https://everybodyebikes.com.au/pages/distributor-list#become-dealer",
+            "primary_icon": "arrow",
+            "primary_button_color": "#E86C2C",
+            "primary_button_text": "#FFFFFF",
+            "primary_hover_color": "#C94F13",
+            "secondary_label": "Book a test Ride",
+            "secondary_link": "https://everybodyebikes.com.au/pages/book-a-test-ride",
+            "secondary_icon": "arrow",
+            "secondary_button_background": "#FFFFFF",
+            "secondary_button_text": "#1B2A4A",
+            "secondary_button_border": "#FFFFFF",
+            "secondary_hover_color": "#E5E7EB",
+            "button_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_aba8cbb_7qrVdU"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "list",
     "portal",
-    "cta"
+    "cta",
+    "1793773223ae27652c"
   ]
 }
