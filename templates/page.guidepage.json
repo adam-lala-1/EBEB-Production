@@ -128,7 +128,7 @@
             "image_width": 96,
             "title_size": 20,
             "image_radius": 8,
-            "background_color": "#f8f5f0",
+            "background_color": "#FFFFFF",
             "text_color": "#1b2a4a",
             "divider_color": "#d9d5cf"
           },
