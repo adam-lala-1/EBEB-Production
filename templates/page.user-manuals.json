@@ -35,7 +35,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trident_v3_Rear_Drive_-_Complete.pdf?v=1785822552",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_pwbVaa": {
@@ -48,7 +52,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_2026_-_Complete.pdf?v=1785822734",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_LixCy9": {
@@ -61,7 +69,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_Family_2026_-_Complete.pdf?v=1785822734",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_HYcPXE": {
@@ -74,7 +86,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/ezi-Step_2026_-_Complete.pdf?v=1785822750",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_zNQBPn": {
@@ -87,7 +103,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/ezi-Step_2_2_2026_-_Complete.pdf?v=1785822750",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_YLAXXe": {
@@ -100,7 +120,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Lightning_2026_-_Complete.pdf?v=1785822743",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_QHMeA7": {
@@ -113,7 +137,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Lightning_2_2_2026_-_Complete.pdf?v=1785822743",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_pPeJzQ": {
@@ -126,7 +154,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/EVERYBODY_EBIKES_maintenance_battery_care.pdf?v=1785824964",
-            "website_label": "Open PDF Here"
+            "website_label": "Open PDF Here",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_BLiLwk": {
@@ -139,7 +171,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://tribebikes.com.au/evamos-longtail-guide/",
-            "website_label": "Visit Tribe's Website"
+            "website_label": "Visit Tribe's Website",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_Xg9KYG": {
@@ -152,7 +188,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://velectrix.com.au/support/manuals/",
-            "website_label": "View All Velectrix Manuals"
+            "website_label": "View All Velectrix Manuals",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_KbbmDH": {
@@ -165,7 +205,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://help.bosch-ebike.com/#/help-center/manuals",
-            "website_label": "View All Bosch Manuals"
+            "website_label": "View All Bosch Manuals",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_gjLGQJ": {
@@ -178,7 +222,11 @@
             "phone": "",
             "email": "",
             "website_url": "https://yubabikes.eu/tech-notices/",
-            "website_label": "View All Yuba Manuals"
+            "website_label": "View All Yuba Manuals",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_E7pUFy": {
@@ -191,20 +239,28 @@
             "phone": "",
             "email": "",
             "website_url": "https://bennobikes.com/support-main/#owners_manuals",
-            "website_label": "View All Benno Manuals"
+            "website_label": "View All Benno Manuals",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         },
         "dealer_WwEDfj": {
           "type": "dealer",
           "settings": {
             "logo": "shopify://shop_images/tern-logo.webp",
-            "region": "Tern",
-            "name": "",
+            "region": "",
+            "name": "Tern",
             "address": "",
             "phone": "",
             "email": "",
             "website_url": "https://www.ternbicycles.com/au/support",
-            "website_label": "View All Tern Manuals"
+            "website_label": "View All Tern Manuals",
+            "pdf_url": "",
+            "pdf_label": "Download PDF",
+            "link2_url": "",
+            "link2_label": "Visit website"
           }
         }
       },
