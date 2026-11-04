@@ -321,40 +321,16 @@
         "cta2_url": "shopify://pages/contact"
       }
     },
-    "179377651392bc4535": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_b7ed1d3_Dzjab6": {
-          "type": "ai_gen_block_b7ed1d3",
-          "disabled": true,
-          "settings": {
-            "desktop_width_percent": 100,
-            "panel_height": 400,
-            "mobile_image_height": 220,
-            "eyebrow": "Our Flagship Store",
-            "heading": "EveryBody eBikes – Gaythorne",
-            "description": "<p>Unit 6/51 Prospect Rd, Gaythorne QLD 4051<br/><br/></p>",
-            "usp_1_icon": "bike",
-            "usp_1_text": "New e-bikes & trikes",
-            "usp_2_icon": "key",
-            "usp_2_text": "Test rides",
-            "usp_3_icon": "service",
-            "usp_3_text": "Service and support",
-            "directions_label": "Get directions",
-            "directions_url": "https://www.google.com/maps/dir//Unit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia/@-27.4133087,152.9798658,17z/data=!4m17!1m8!3m7!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2sUnit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia!3b1!8m2!3d-27.4133135!4d152.9824407!16s%2Fg%2F11vj44g6gt!4m7!1m0!1m5!1m1!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2m2!1d152.9824407!2d-27.4133135?entry=ttu&g_ep=EgoyMDI2MTEwMS4wIKXMDSoASAFQAw%3D%3D",
-            "button_one_label": "Book a Test Ride",
-            "button_one_url": "https://everybodyebikes.com.au/pages/book-a-test-ride",
-            "button_two_label": "Visit Our Showroom",
-            "button_two_url": "https://maps.app.goo.gl/31yAByBbxJsab4YB6",
-            "heading_size": 34
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_b7ed1d3_Dzjab6"
-      ],
-      "settings": {}
+    "main_search_fm4qew": {
+      "type": "main-search",
+      "name": "Search results",
+      "settings": {
+        "eyebrow": "Search",
+        "products_per_page": 24,
+        "columns": "3",
+        "show_content_results": true,
+        "show_vendor": false
+      }
     }
   },
   "order": [
@@ -365,6 +341,6 @@
     "list",
     "portal",
     "cta",
-    "179377651392bc4535"
+    "main_search_fm4qew"
   ]
 }
