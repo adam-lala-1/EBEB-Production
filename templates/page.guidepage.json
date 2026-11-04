@@ -34,12 +34,87 @@
         "cta2_text": "",
         "cta2_url": ""
       }
+    },
+    "blocks_B9rwRj": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_FE9QQ3": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/Test_Rides_available.png",
+            "usp_1_heading": "Test rides available",
+            "usp_1_text": "Try before you buy",
+            "usp_2_image": "shopify://shop_images/Workshop_support.png",
+            "usp_2_heading": "Workshop support",
+            "usp_2_text": "Expert service & repairs",
+            "usp_3_image": "shopify://shop_images/Registered_NDIS_Provider.png",
+            "usp_3_heading": "Registered NDIS Provider",
+            "usp_3_text": "Supporting more ability",
+            "usp_4_image": "shopify://shop_images/Free_delivery.png",
+            "usp_4_heading": "Free delivery /  Click & Collect",
+            "usp_4_text": "Australia-wide available",
+            "desktop_width_percent": 100,
+            "image_size": 52,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#f8f5f0",
+            "text_color": "#1b2a4a",
+            "secondary_text_color": "#1b2a4a",
+            "placeholder_color": "#e5e7eb"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_FE9QQ3"
+      ],
+      "name": "USP Section",
+      "settings": {}
+    },
+    "17937867159d32dcc3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8da0688_BaVmRa": {
+          "type": "ai_gen_block_8da0688",
+          "settings": {
+            "feature_heading": "Trojan Fat Tyre Owner Manual ",
+            "feature_content": "<p>Everything you need to get started and ride safely with your Trojan Fat Tyre Electric Tricycle.&nbsp;</p><p>Download the complete owner manual for setup instructions, riding guidance, display controls, maintenance, battery care, warranty information and important safety advice.</p>",
+            "pdf_link": "https://cdn.shopify.com/s/files/1/0317/7103/3731/files/Trojan_2026_-_Complete.pdf?v=1785822734",
+            "pdf_button_label": "Download Owner Manual (PDF)",
+            "contact_icon": "bicycle",
+            "contact_heading": "Need a hand?",
+            "contact_description": "<p>Get in touch with our team and we’ll help you find the right solution.</p>",
+            "contact_button_label": "Contact us",
+            "contact_button_link": "",
+            "phone_number": "",
+            "email_address": "",
+            "desktop_width_percent": 100,
+            "corner_radius": 10,
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "button_color": "#1B2A4A",
+            "button_text_color": "#FFFFFF",
+            "button_hover_color": "#E86C2C",
+            "border_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8da0688_BaVmRa"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "shogun-helper",
     "main",
     "shogun-optimizer",
-    "come_try_hero_JTe7P3"
+    "come_try_hero_JTe7P3",
+    "blocks_B9rwRj",
+    "17937867159d32dcc3"
   ]
 }
