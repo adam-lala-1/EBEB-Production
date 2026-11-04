@@ -80,6 +80,7 @@
 {% endstyle %}
 
 <div class="ai-two-cta-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
   <div class="ai-two-cta-{{ ai_gen_id }}__grid">
     <div class="ai-two-cta-{{ ai_gen_id }}__card">
       {% if block.settings.heading_one != blank %}<h2 class="ai-two-cta-{{ ai_gen_id }}__heading">{{ block.settings.heading_one | escape }}</h2>{% endif %}
@@ -95,6 +96,7 @@
         {% if block.settings.button_link_two != blank %}<a class="ai-two-cta-{{ ai_gen_id }}__button" href="{{ block.settings.button_link_two }}">{{ block.settings.button_label_two | escape }}</a>{% else %}<span class="ai-two-cta-{{ ai_gen_id }}__button">{{ block.settings.button_label_two | escape }}</span>{% endif %}
       {% endif %}
     </div>
+  </div>
   </div>
 </div>
 
