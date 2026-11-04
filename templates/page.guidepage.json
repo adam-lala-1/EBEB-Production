@@ -59,7 +59,7 @@
             "vertical_padding": 15,
             "heading_size": 16,
             "text_size": 14,
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "text_color": "#1b2a4a",
             "secondary_text_color": "#1b2a4a",
             "placeholder_color": "#e5e7eb"
@@ -108,6 +108,128 @@
         "ai_gen_block_8da0688_BaVmRa"
       ],
       "settings": {}
+    },
+    "blocks_qF8mgC": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b444334_6y6DdG": {
+          "type": "ai_gen_block_b444334",
+          "settings": {
+            "usp_1_title": "Startup Guide ",
+            "usp_1_text": "<p>New to your Trojan? View the quick-start information to help you get familiar with your trike before your first ride.&nbsp;</p><p><br/></p><p><a href=\"#\" title=\"#\">View Startup Guide -&gt;</a><br/><br/></p>",
+            "usp_2_image": "shopify://shop_images/Test_Rides_Available_9c93127d-0c4e-4bfa-a895-be07602356c8.png",
+            "usp_2_title": "View the Trojan Fat Tyre Trike ",
+            "usp_2_text": "<p>Explore the Trojan Fat Tyre Electric Tricycle, its features and available options.&nbsp;<br/><br/></p><p><a href=\"#\" title=\"#\">View Product -&gt;</a></p>",
+            "usp_3_image": "shopify://shop_images/10_years.png",
+            "usp_3_title": "Leave Us a Review ",
+            "usp_3_text": "<p>Already riding your Trojan? We’d love to hear about your experience.&nbsp;<br/><br/></p><p><a href=\"#\" title=\"#\">Leave a Review&nbsp;-&gt;</a></p>",
+            "desktop_width_percent": 100,
+            "padding": 40,
+            "image_width": 96,
+            "title_size": 20,
+            "image_radius": 8,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "divider_color": "#D9D5CF"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b444334_6y6DdG"
+      ],
+      "name": "Three image USPs",
+      "settings": {}
+    },
+    "179378877406ef809f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b05e13c_7AN7M3": {
+          "type": "ai_gen_block_b05e13c",
+          "settings": {
+            "desktop_width_percent": 100,
+            "eyebrow": "",
+            "heading": "Key Information from the Manual ",
+            "intro": "A quick overview of important topics covered in the owner manual. Please download and read the complete manual for full instructions.",
+            "topic_1_title": "Introduction",
+            "topic_1_text": "Learn about the Trojan Fat Tyre Electric Tricycle, including its 20-inch wheels, 4-inch fat tyres, low centre of gravity and rear hub-drive system.",
+            "topic_2_title": "Trike Safety Tips",
+            "topic_2_text": "Important guidance for mounting, dismounting and riding safely, including use of the park brake, helmet requirements and following local road rules.",
+            "topic_3_title": "Before riding and operation",
+            "topic_3_text": "Understand the controls, pedal-assist system, braking, gears and how to become comfortable with the different handling characteristics of a tricycle.",
+            "topic_4_title": "Display and controls",
+            "topic_4_text": "Instructions for using the display, adjusting assistance levels, lights, trip information and other rider settings.",
+            "topic_5_title": "Maintenance & Battery Care",
+            "topic_5_text": "Guidance covering routine checks, servicing, battery charging, storage and general maintenance.",
+            "topic_6_title": "Warranty & Support ",
+            "topic_6_text": "Review warranty conditions, maintenance responsibilities and how to contact EveryBody eBikes if you need assistance.",
+            "manual_note": "This overview is a quick reference only. Download and read the complete owner manual for full instructions.",
+            "manual_url": "",
+            "button_label": "Download the full manual",
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "accent_color": "#B94A12",
+            "border_color": "#E5E7EB",
+            "callout_color": "#F8F5F0"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b05e13c_7AN7M3"
+      ],
+      "settings": {}
+    },
+    "cta_banner_6HRzWi": {
+      "type": "cta-banner",
+      "name": "CTA banner",
+      "settings": {
+        "heading": "Need Help?",
+        "subheading": "<p>Have a question about your Trojan, the manual or servicing? </p>\n\n<p>Our team can help with product support, servicing and general technical enquiries. </p>\n\n<p><b>Phone: </b><a href=\"tel:0409126669\">0409 126 669</a> </p>\n\n<p><b>Location: </b>6/51 Prospect Road, Gaythorne QLD 4051 </p>",
+        "cta1_text": "Contact Support",
+        "cta1_url": "shopify://pages/contact",
+        "cta2_text": "",
+        "cta2_url": ""
+      }
+    },
+    "1793790007ab9148c9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_fa5fbb1_hYPaba": {
+          "type": "ai_gen_block_fa5fbb1",
+          "settings": {
+            "heading_one": "Trojan Fat Tyre Electric Tricycle",
+            "text_one": "Designed for comfortable recreational riding, the Trojan features 20-inch wheels, 4-inch fat tyres and a low centre of gravity for a stable riding experience.",
+            "button_label_one": "View Product",
+            "button_link_one": "https://everybodyebikes.com.au/products/trojan-fat-tyre-electric-trike",
+            "heading_two": "Want to Try One?",
+            "text_two": "Experience the Trojan Fat Tyre Electric Tricycle in person and get help finding the right setup for your needs.",
+            "button_label_two": "Book a Test Ride",
+            "button_link_two": "https://everybodyebikes.com.au/pages/book-a-test-ride",
+            "desktop_width_percent": 100,
+            "column_gap": 25,
+            "card_min_height": 200,
+            "card_padding": 30,
+            "corner_radius": 12,
+            "heading_size": 30,
+            "text_size": 16,
+            "background_color": "#FFFFFF",
+            "border_color": "#E5E7EB",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "button_color": "#E86C2C",
+            "button_hover_color": "#1B2A4A",
+            "button_text_color": "#FFFFFF",
+            "button_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_fa5fbb1_hYPaba"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -116,6 +238,10 @@
     "shogun-optimizer",
     "come_try_hero_JTe7P3",
     "blocks_B9rwRj",
-    "17937867159d32dcc3"
+    "17937867159d32dcc3",
+    "blocks_qF8mgC",
+    "179378877406ef809f",
+    "cta_banner_6HRzWi",
+    "1793790007ab9148c9"
   ]
 }
