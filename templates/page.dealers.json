@@ -9,8 +9,50 @@
  */
 {
   "sections": {
+    "1793773223ae27652c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_aba8cbb_7qrVdU": {
+          "type": "ai_gen_block_aba8cbb",
+          "settings": {
+            "background_image": "shopify://shop_images/everybodyebikes_images_inner_pages_1.jpg",
+            "desktop_width_percent": 100,
+            "banner_height": 560,
+            "mobile_height": 600,
+            "mobile_overlay_opacity": 60,
+            "eyebrow": "EBEB Dealer Network",
+            "heading": "Find an EBEB dealer near you",
+            "description": "<p>Discover our trusted partner network across Australia, New Zealand and the USA. Test ride, get expert advice and purchase locally — with friendly support close to home.<br/><br/></p>",
+            "text_color": "#C3C3C3",
+            "eyebrow_color": "#E86C2C",
+            "background_color": "#1b2a4a",
+            "heading_size": 56,
+            "primary_label": "Become a dealer",
+            "primary_link": "https://everybodyebikes.com.au/pages/distributor-list#become-dealer",
+            "primary_icon": "arrow",
+            "primary_button_color": "#e86c2c",
+            "primary_button_text": "#ffffff",
+            "primary_hover_color": "#c94f13",
+            "secondary_label": "Book a test Ride",
+            "secondary_link": "https://everybodyebikes.com.au/pages/book-a-test-ride",
+            "secondary_icon": "arrow",
+            "secondary_button_background": "#ffffff",
+            "secondary_button_text": "#1b2a4a",
+            "secondary_button_border": "#ffffff",
+            "secondary_hover_color": "#e5e7eb",
+            "button_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_aba8cbb_7qrVdU"
+      ],
+      "settings": {}
+    },
     "hero": {
       "type": "dealer-hero",
+      "disabled": true,
       "settings": {
         "eyebrow": "EBEB Dealer Network",
         "heading": "Find an EBEB dealer near you",
@@ -201,54 +243,13 @@
         "cta2_text": "Talk to our team",
         "cta2_url": "shopify://pages/contact"
       }
-    },
-    "1793773223ae27652c": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_aba8cbb_7qrVdU": {
-          "type": "ai_gen_block_aba8cbb",
-          "settings": {
-            "background_image": "shopify://shop_images/everybodyebikes_images_inner_pages_1.jpg",
-            "desktop_width_percent": 100,
-            "banner_height": 560,
-            "mobile_height": 600,
-            "mobile_overlay_opacity": 60,
-            "eyebrow": "EBEB Dealer Network",
-            "heading": "Find an EBEB dealer near you",
-            "description": "<p>Discover our trusted partner network across Australia, New Zealand and the USA. Test ride, get expert advice and purchase locally — with friendly support close to home.<br/><br/></p>",
-            "text_color": "#C3C3C3",
-            "eyebrow_color": "#E86C2C",
-            "background_color": "#1b2a4a",
-            "heading_size": 56,
-            "primary_label": "Become a dealer",
-            "primary_link": "https://everybodyebikes.com.au/pages/distributor-list#become-dealer",
-            "primary_icon": "arrow",
-            "primary_button_color": "#e86c2c",
-            "primary_button_text": "#ffffff",
-            "primary_hover_color": "#c94f13",
-            "secondary_label": "Book a test Ride",
-            "secondary_link": "https://everybodyebikes.com.au/pages/book-a-test-ride",
-            "secondary_icon": "arrow",
-            "secondary_button_background": "#ffffff",
-            "secondary_button_text": "#1b2a4a",
-            "secondary_button_border": "#ffffff",
-            "secondary_hover_color": "#e5e7eb",
-            "button_radius": 8
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_aba8cbb_7qrVdU"
-      ],
-      "settings": {}
     }
   },
   "order": [
+    "1793773223ae27652c",
     "hero",
     "list",
     "portal",
-    "cta",
-    "1793773223ae27652c"
+    "cta"
   ]
 }
