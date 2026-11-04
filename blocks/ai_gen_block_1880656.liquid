@@ -37,6 +37,7 @@
 {% endstyle %}
 
 <div class="ai-service-enquiry-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container" style="max-width: 720px;">
   {% if block.settings.heading != blank %}<h2 class="ai-service-enquiry-{{ ai_gen_id }}__title">{{ block.settings.heading | escape }}</h2>{% endif %}
   {% if block.settings.intro != blank %}<p class="ai-service-enquiry-{{ ai_gen_id }}__intro">{{ block.settings.intro | escape }}</p>{% endif %}
   {% form 'contact', id: ai_form_id %}
@@ -66,6 +67,7 @@
       window.location.replace('https://everybodyebikes.com.au/pages/thank-you');
     </script>
   {% endif %}
+   </div>
 </div>
 
 {% schema %}
