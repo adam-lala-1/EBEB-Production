@@ -13,8 +13,32 @@
       "type": "shogun-helper",
       "settings": {}
     },
-    "main": {
-      "type": "main-page",
+    "1793791997d21bc5d8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1880656_rhBBgf": {
+          "type": "ai_gen_block_1880656",
+          "settings": {
+            "heading": "Get in Touch",
+            "intro": "Tell us how we can help",
+            "button_label": "Send enquiry",
+            "success_message": "Thanks for your enquiry. We’ll be in touch soon.",
+            "desktop_width_percent": 100,
+            "padding": 30,
+            "border_radius": 12,
+            "input_radius": 8,
+            "background_color": "#FFFFFF",
+            "heading_color": "#1B2A4A",
+            "text_color": "#1B2A4A",
+            "border_color": "#E5E7EB",
+            "button_color": "#B94710"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1880656_rhBBgf"
+      ],
       "settings": {}
     },
     "dealer_list_zPUbxj": {
@@ -179,40 +203,16 @@
       "type": "shogun-optimizer",
       "settings": {}
     },
-    "1793791997d21bc5d8": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_1880656_rhBBgf": {
-          "type": "ai_gen_block_1880656",
-          "settings": {
-            "heading": "Get in Touch",
-            "intro": "Tell us how we can help",
-            "button_label": "Send enquiry",
-            "success_message": "Thanks for your enquiry. We’ll be in touch soon.",
-            "desktop_width_percent": 100,
-            "padding": 30,
-            "border_radius": 12,
-            "input_radius": 8,
-            "background_color": "#FFFFFF",
-            "heading_color": "#1B2A4A",
-            "text_color": "#1B2A4A",
-            "border_color": "#E5E7EB",
-            "button_color": "#B94710"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_1880656_rhBBgf"
-      ],
+    "main_page_kQypGm": {
+      "type": "main-page",
       "settings": {}
     }
   },
   "order": [
     "shogun-helper",
-    "main",
+    "1793791997d21bc5d8",
     "dealer_list_zPUbxj",
     "shogun-optimizer",
-    "1793791997d21bc5d8"
+    "main_page_kQypGm"
   ]
 }
