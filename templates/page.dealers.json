@@ -63,6 +63,44 @@
         "cta2_url": ""
       }
     },
+    "blocks_cgRgng": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_808bace_Pib9Wt": {
+          "type": "ai_gen_block_808bace",
+          "settings": {
+            "usp_1_image": "shopify://shop_images/Service_and_support-3.png",
+            "usp_1_heading": "Local expert advice",
+            "usp_1_text": "Try before you buy",
+            "usp_2_image": "shopify://shop_images/Service_and_support.png",
+            "usp_2_heading": "Service & support",
+            "usp_2_text": "From trained partners ",
+            "usp_3_image": "shopify://shop_images/Accesible_e_bikes_Trikers.png",
+            "usp_3_heading": "Accessible e-bikes & trikes",
+            "usp_3_text": "For every body ",
+            "usp_4_image": "shopify://shop_images/Test_Rides_Available_9c93127d-0c4e-4bfa-a895-be07602356c8.png",
+            "usp_4_heading": "Test rides available",
+            "usp_4_text": "Visit our showroom",
+            "desktop_width_percent": 100,
+            "image_size": 48,
+            "item_gap": 20,
+            "vertical_padding": 15,
+            "heading_size": 16,
+            "text_size": 14,
+            "background_color": "#F8F5F0",
+            "text_color": "#1B2A4A",
+            "secondary_text_color": "#1B2A4A",
+            "placeholder_color": "#E5E7EB"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_808bace_Pib9Wt"
+      ],
+      "name": "Four USP row",
+      "settings": {}
+    },
     "list": {
       "type": "dealer-list",
       "blocks": {
@@ -248,6 +286,7 @@
   "order": [
     "1793773223ae27652c",
     "hero",
+    "blocks_cgRgng",
     "list",
     "portal",
     "cta"
