@@ -339,7 +339,7 @@
             "usp_3_icon": "settings",
             "usp_3_custom_icon": "shopify://shop_images/Service_Support.png",
             "usp_3_text": "Service & support",
-            "directions_label": "Get directions",
+            "directions_label": "Get directions ->",
             "directions_url": "https://www.google.com/maps/dir//Unit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia/@-27.4133087,152.9798658,17z/data=!4m17!1m8!3m7!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2sUnit+6%2F51+Prospect+Rd,+Gaythorne+QLD+4053,+Australia!3b1!8m2!3d-27.4133135!4d152.9824407!16s%2Fg%2F11vj44g6gt!4m7!1m0!1m5!1m1!1s0x6b915709b2dafd69:0x48145b36f37dc25f!2m2!1d152.9824407!2d-27.4133135?entry=ttu&g_ep=EgoyMDI2MTEwMS4wIKXMDSoASAFQAw%3D%3D",
             "button_one_label": "Book a Test Ride",
             "button_one_url": "https://everybodyebikes.com.au/pages/book-a-test-ride",
