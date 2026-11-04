@@ -537,3 +537,8 @@ a.callsd img{
   }
 
 }
+a.eeb-dealer-btn.eeb-dealer-btn--pdf.pdfbtn {
+    background: transparent;
+    border: 1px solid;
+    width: fit-content;
+}
