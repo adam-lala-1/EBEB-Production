@@ -216,6 +216,8 @@
 {% endstyle %}
 
 <div class="ai-service-info-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="eeb-container">
+
   <div class="ai-service-info-{{ ai_gen_id }}__layout">
     <div class="ai-service-info-{{ ai_gen_id }}__feature">
       {% if block.settings.feature_image != blank %}
@@ -253,6 +255,7 @@
         {% if block.settings.email_address != blank %}<a class="ai-service-info-{{ ai_gen_id }}__contact-link" href="mailto:{{ block.settings.email_address | escape }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>{{ block.settings.email_address | escape }}</span></a>{% endif %}
       </div>
     </aside>
+  </div>
   </div>
 </div>
 
