@@ -35,9 +35,11 @@
               {% if block.settings.email != blank %}
                 <li><strong>Email:</strong> <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a></li>
               {% endif %}
+              {% comment %}
               {% if block.settings.website_url != blank %}
                 <li><strong>Website:</strong> <a href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
               {% endif %}
+               {% endcomment %}
             </ul>
             {% if block.settings.pdf_url != blank or block.settings.link2_url != blank %}
   <div class="eeb-dealer-card__actions">
@@ -50,6 +52,12 @@
         {{ block.settings.pdf_label | default: 'Download PDF' }}
       </a>
     {% endif %}
+    <ul class="eeb-dealer-card__meta">
+              
+              {% if block.settings.website_url != blank %}
+                <li><strong>Website:</strong> <a href="{{ block.settings.website_url }}" target="_blank" rel="noopener">{{ block.settings.website_label | default: block.settings.website_url }}</a></li>
+              {% endif %}
+            </ul>
     {% if block.settings.link2_url != blank %}
       <a class="eeb-dealer-btn eeb-dealer-btn--link"
          href="{{ block.settings.link2_url }}"
