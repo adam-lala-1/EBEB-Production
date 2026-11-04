@@ -1,6 +1,68 @@
+{% doc %}
+  @prompt
+    generate a simple basic contact form for the contact us website
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% capture ai_form_id %}ContactForm-{{ ai_gen_id }}{% endcapture %}
+
+{% style %}
+  .ai-contact-form-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    color: #1B2A4A;
+    box-sizing: border-box;
+  }
+  .ai-contact-form-{{ ai_gen_id }}__heading { margin: 0 0 8px; color: #1B2A4A; font-size: 26px; line-height: 1.25; }
+  .ai-contact-form-{{ ai_gen_id }}__intro { margin: 0 0 22px; color: #4B5563; line-height: 1.5; }
+  .ai-contact-form-{{ ai_gen_id }}__fields { display: grid; gap: 16px; }
+  .ai-contact-form-{{ ai_gen_id }}__field label { display: block; margin-bottom: 6px; color: #1B2A4A; font-weight: 600; }
+  .ai-contact-form-{{ ai_gen_id }}__field input, .ai-contact-form-{{ ai_gen_id }}__field textarea { display: block; width: 100%; padding: 12px 14px; border: 1px solid #9CA3AF; border-radius: 8px; background: #ffffff; color: #1B2A4A; font: inherit; box-sizing: border-box; }
+  .ai-contact-form-{{ ai_gen_id }}__field textarea { min-height: 140px; resize: vertical; }
+  .ai-contact-form-{{ ai_gen_id }}__field input:focus, .ai-contact-form-{{ ai_gen_id }}__field textarea:focus { outline: 3px solid rgba(232, 108, 44, 0.35); outline-offset: 2px; border-color: #1B2A4A; }
+  .ai-contact-form-{{ ai_gen_id }}__submit { min-height: 48px; padding: 12px 22px; border: 0; border-radius: 8px; background: #E86C2C; color: #1B2A4A; font: inherit; font-weight: 700; cursor: pointer; }
+  .ai-contact-form-{{ ai_gen_id }}__submit:hover { background: #D95A1B; color: #ffffff; }
+  .ai-contact-form-{{ ai_gen_id }}__notice { margin: 0 0 16px; padding: 12px 14px; border-radius: 8px; line-height: 1.5; }
+  .ai-contact-form-{{ ai_gen_id }}__success { background: #EAF5EE; color: #185C35; }
+  .ai-contact-form-{{ ai_gen_id }}__errors { background: #FFF1F0; color: #8A1C13; }
+  .ai-contact-form-{{ ai_gen_id }}__errors ul { margin: 6px 0 0; padding-left: 20px; }
+  @media screen and (max-width: 749px) { .ai-contact-form-{{ ai_gen_id }} { width: 100%; padding: 22px 18px; } }
+{% endstyle %}
+
+<div class="ai-contact-form-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}<h2 class="ai-contact-form-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>{% endif %}
+  {% if block.settings.intro != blank %}<p class="ai-contact-form-{{ ai_gen_id }}__intro">{{ block.settings.intro | escape }}</p>{% endif %}
+  {% form 'contact', id: ai_form_id %}
+    {% if form.posted_successfully? %}<div class="ai-contact-form-{{ ai_gen_id }}__notice ai-contact-form-{{ ai_gen_id }}__success" role="status" tabindex="-1">{{ block.settings.success_message | escape }}</div>{% endif %}
+    {% if form.errors %}<div class="ai-contact-form-{{ ai_gen_id }}__notice ai-contact-form-{{ ai_gen_id }}__errors" role="alert"><p>{{ block.settings.error_message | escape }}</p>{{ form.errors | default_errors }}</div>{% endif %}
+    <div class="ai-contact-form-{{ ai_gen_id }}__fields">
+      <div class="ai-contact-form-{{ ai_gen_id }}__field"><label for="ContactName-{{ ai_gen_id }}">Name</label><input id="ContactName-{{ ai_gen_id }}" type="text" name="contact[name]" autocomplete="name" value="{{ form.name | escape }}" required></div>
+      <div class="ai-contact-form-{{ ai_gen_id }}__field"><label for="ContactEmail-{{ ai_gen_id }}">Email</label><input id="ContactEmail-{{ ai_gen_id }}" type="email" name="contact[email]" autocomplete="email" autocorrect="off" autocapitalize="off" value="{{ form.email | escape }}" aria-required="true" required></div>
+      <div class="ai-contact-form-{{ ai_gen_id }}__field"><label for="ContactPhone-{{ ai_gen_id }}">Phone <span>(optional)</span></label><input id="ContactPhone-{{ ai_gen_id }}" type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone | escape }}"></div>
+      <div class="ai-contact-form-{{ ai_gen_id }}__field"><label for="ContactMessage-{{ ai_gen_id }}">Message</label><textarea id="ContactMessage-{{ ai_gen_id }}" name="contact[body]" required>{{ form.body | escape }}</textarea></div>
+      <div><button class="ai-contact-form-{{ ai_gen_id }}__submit" type="submit">{{ block.settings.button_label | escape }}</button></div>
+    </div>
+  {% endform %}
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Contact form",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch" },
+    { "type": "textarea", "id": "intro", "label": "Intro text", "default": "Send us a message and our team will get back to you." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send message" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks for getting in touch. Your message has been sent." },
+    { "type": "text", "id": "error_message", "label": "Error message", "default": "Please check the information below and try again." },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [{ "name": "Contact form" }],
+  "tag": null,
+  "class": "contact-form-block"
+}
 {% endschema %}
