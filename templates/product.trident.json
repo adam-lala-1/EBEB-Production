@@ -140,7 +140,7 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "Ergonomic mesh-back seat with lumbar support"
+            "text": "2 piece seat designed for comfort and ergonomics"
           }
         },
         "b2": {
@@ -152,7 +152,7 @@
         "b3": {
           "type": "bullet",
           "settings": {
-            "text": "Fat tyre suspension absorbs all terrain"
+            "text": "Dual suspension combined with fat tyres absorbs all terrain"
           }
         }
       },
@@ -161,12 +161,11 @@
         "b2",
         "b3"
       ],
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/Trident_Beach.png",
+        "image": "shopify://shop_images/TrekkerSuspensionBlue.png",
         "image_position": "left",
         "heading": "Stability & Comfort",
-        "body": "The semi-recumbent seating position distributes your weight evenly across the frame, reducing pressure on wrists and lower back. Three 4\" fat tyres absorb bumps while providing unmatched stability."
+        "body": "Stable, comfortable, and built for confident everyday riding — the Trekker Fat Tyre Electric Trike is Australian-designed to give riders maximum balance, support, and control in a relaxed semi-recumbent position."
       }
     },
     "feature_2": {
@@ -181,7 +180,7 @@
         "b2": {
           "type": "bullet",
           "settings": {
-            "text": "Shimano Cues 9-speed drivetrain"
+            "text": "Shimano Altus 8-speed drivetrain"
           }
         },
         "b3": {
@@ -196,12 +195,11 @@
         "b2",
         "b3"
       ],
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/Trident_V3-384.jpg",
+        "image": "shopify://shop_images/DSC03275.jpg",
         "image_position": "right",
         "heading": "Power & Range",
-        "body": "Choose between a cadence sensor for relaxed cruising or a torque sensor for a natural ride feel. The 48V 17.5Ah Samsung-cell battery delivers up to 80km of pedal-assisted range."
+        "body": "Choose between a cadence sensor for relaxed cruising or a torque sensor for a natural ride feel. The 48V 20Ah Samsung-cell battery delivers an average 100km of pedal-assisted range."
       }
     },
     "feature_3": {
@@ -231,12 +229,11 @@
         "b2",
         "b3"
       ],
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/20260303_114031.jpg",
+        "image": "shopify://shop_images/DSC03299.jpg",
         "image_position": "left",
         "heading": "Inclusive by Design",
-        "body": "The Trident is built for every body. A low step-over frame, adjustable seat position, and intuitive controls mean riders of all abilities can enjoy the freedom of cycling — independently."
+        "body": "The Trekker is built for every body. A low step-over frame, adjustable seat position, and intuitive controls mean riders of all abilities can enjoy the freedom of cycling — independently."
       }
     },
     "product_video_ti9WgM": {
