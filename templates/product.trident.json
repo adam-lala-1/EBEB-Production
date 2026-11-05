@@ -88,8 +88,8 @@
           "type": "feature",
           "settings": {
             "icon": "battery",
-            "label": "80km Range",
-            "sub": "48V 17.5Ah"
+            "label": "100km Range",
+            "sub": "48V 20Ah"
           }
         },
         "f2": {
@@ -161,6 +161,7 @@
         "b2",
         "b3"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Trident_Beach.png",
         "image_position": "left",
@@ -195,6 +196,7 @@
         "b2",
         "b3"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Trident_V3-384.jpg",
         "image_position": "right",
@@ -229,6 +231,7 @@
         "b2",
         "b3"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/20260303_114031.jpg",
         "image_position": "left",
@@ -238,6 +241,7 @@
     },
     "product_video_ti9WgM": {
       "type": "product-video",
+      "disabled": true,
       "name": "Product video",
       "settings": {
         "eyebrow": "Watch",
@@ -287,6 +291,7 @@
         "tech_n9CPUL",
         "tech_ct3RVf"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "The Tech",
         "heading": "Engineered down to the last bolt",
@@ -295,6 +300,7 @@
     },
     "ride_story": {
       "type": "trident-ride-story",
+      "disabled": true,
       "settings": {
         "eyebrow": "My Ride Story",
         "image": "shopify://shop_images/493178223_1283300147131701_1522863986553445039_n.jpg",
@@ -310,7 +316,7 @@
       "type": "engineered-by-eeb",
       "settings": {
         "brand": "EveryBody eBikes",
-        "body": "Every Trident is designed for real riders, assembled in Australia, and backed by a team that believes mobility is a right — not a privilege."
+        "body": "Every Trekker is designed for real riders, assembled in Australia, and backed by a team that believes mobility is a right — not a privilege."
       }
     },
     "specs": {
@@ -343,6 +349,7 @@
         "group_FRP3tk",
         "group_mF86aJ"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Full Specifications",
         "geometry_image": "shopify://shop_images/Trident_v3.png",
