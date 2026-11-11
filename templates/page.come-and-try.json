@@ -118,6 +118,7 @@
         },
         "event_mtQNAa": {
           "type": "event",
+          "disabled": true,
           "settings": {
             "tag": "Brisbane",
             "capacity": "Drop-in",
@@ -132,6 +133,7 @@
         },
         "event_kLXbqU": {
           "type": "event",
+          "disabled": true,
           "settings": {
             "tag": "Hervey Bay",
             "capacity": "Drop-in",
@@ -146,6 +148,7 @@
         },
         "event_HyLxJW": {
           "type": "event",
+          "disabled": true,
           "settings": {
             "tag": "Medowie",
             "capacity": "Drop-in",
