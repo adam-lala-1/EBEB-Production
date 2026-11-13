@@ -239,7 +239,6 @@
     },
     "product_video_ti9WgM": {
       "type": "product-video",
-      "disabled": true,
       "name": "Product video",
       "settings": {
         "eyebrow": "Watch",
@@ -289,7 +288,6 @@
         "tech_n9CPUL",
         "tech_ct3RVf"
       ],
-      "disabled": true,
       "settings": {
         "eyebrow": "The Tech",
         "heading": "Engineered down to the last bolt",
@@ -298,7 +296,6 @@
     },
     "ride_story": {
       "type": "trident-ride-story",
-      "disabled": true,
       "settings": {
         "eyebrow": "My Ride Story",
         "image": "shopify://shop_images/493178223_1283300147131701_1522863986553445039_n.jpg",
@@ -347,7 +344,6 @@
         "group_FRP3tk",
         "group_mF86aJ"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Full Specifications",
         "geometry_image": "shopify://shop_images/Trident_v3.png",
