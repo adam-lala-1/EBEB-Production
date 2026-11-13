@@ -88,8 +88,8 @@
           "type": "feature",
           "settings": {
             "icon": "battery",
-            "label": "100km Range",
-            "sub": "48V 20Ah"
+            "label": "90km Range",
+            "sub": "48V 17.5Ah"
           }
         },
         "f2": {
@@ -140,7 +140,7 @@
         "b1": {
           "type": "bullet",
           "settings": {
-            "text": "2 piece seat designed for comfort and ergonomics"
+            "text": "Single piece mesh back seat for enhanced stability and cooling airflow"
           }
         },
         "b2": {
@@ -151,6 +151,7 @@
         },
         "b3": {
           "type": "bullet",
+          "disabled": true,
           "settings": {
             "text": "Dual suspension combined with fat tyres absorbs all terrain"
           }
@@ -165,7 +166,7 @@
         "image": "shopify://shop_images/DSC03449.jpg",
         "image_position": "left",
         "heading": "Stability & Comfort",
-        "body": "Stable, comfortable, and built for confident everyday riding — the Trekker Fat Tyre Electric Trike is Australian-designed to give riders maximum balance, support, and control in a relaxed semi-recumbent position."
+        "body": "Stable, comfortable, and built for confident everyday riding — the Trident Fat Tyre Electric Trike is Australian-designed to give riders maximum balance, support, and control in a relaxed semi-recumbent position."
       }
     },
     "feature_2": {
